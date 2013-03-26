@@ -16,21 +16,17 @@ group :development, :test do
 	gem 'rspec-rails', '2.9.0'
 	gem 'guard-rspec', '0.5.5'
 	gem 'annotate', '~> 2.4.1.beta'
-#	gem 'devise'
+	gem 'devise'
 	gem "recaptcha", :require => "recaptcha/rails"
 end
 
 # group for tests only
 group :test do
-	gem 'sqlite3'
 	gem 'rspec-rails', '2.9.0'
 	gem 'capybara', '1.1.2'
-	gem 'rb-fchange', '0.0.5'
-	gem 'rb-notifu', '0.0.4'
 	gem 'guard-spork', '0.3.2'
 	gem 'spork', '0.9.0'
 	gem 'factory_girl_rails', '1.4.0'
-#	gem 'devise'
 end
 
 # group for production
@@ -46,7 +42,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
+  gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
 end
