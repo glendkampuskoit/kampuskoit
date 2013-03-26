@@ -16,3 +16,9 @@
 
 # ignore database.yml
 /config/database.yml
+
+# ignore schema
+/db/schema.rb
+
+# ignore gemfile.lock
+Gemfile.lock

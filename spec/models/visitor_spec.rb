@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Subscriber do
+describe Visitor do
   
   before { @subscriber = Subscriber.new(email: "glend_maatita@yahoo.com")}
   subject { @subscriber }
