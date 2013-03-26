@@ -1,0 +1,21 @@
+class CreateUnivs < ActiveRecord::Migration
+  def change
+    create_table :univs do |t|
+      t.string :nama_pt
+      t.integer :tahun_berdiri
+      t.string :email
+      t.string :website
+      t.text :alamat
+      t.string :telepon
+      t.string :status_negeri
+      t.text :profile
+      t.text :visi
+      t.text :misi
+      t.text :seleksi_masuk
+      t.text :staff_pendukung
+      t.text :kapasitas_akademik
+
+      t.timestamps
+    end
+  end
+end

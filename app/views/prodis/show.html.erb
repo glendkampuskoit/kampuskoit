@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nama prodi:</b>
+  <%= @prodi.nama_prodi %>
+</p>
+
+<p>
+  <b>Jenjang:</b>
+  <%= @prodi.jenjang %>
+</p>
+
+<p>
+  <b>Tahun berdiri:</b>
+  <%= @prodi.tahun_berdiri %>
+</p>
+
+<p>
+  <b>Alamat:</b>
+  <%= @prodi.alamat %>
+</p>
+
+<p>
+  <b>Telepon:</b>
+  <%= @prodi.telepon %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @prodi.email %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @prodi.website %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%= @prodi.profile %>
+</p>
+
+
+<%= link_to 'Edit', edit_prodi_path(@prodi) %> |
+<%= link_to 'Back', prodis_path %>
