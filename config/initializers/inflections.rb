@@ -8,7 +8,6 @@
 #   inflect.irregular 'person', 'people'
 #   inflect.uncountable %w( fish sheep )
 	inflect.irregular 'kota', 'kotas'
-	inflect.irregular 'fasilitas', 'fasilitases'
 	inflect.irregular 'prodi_silabus', 'prodi_silabuses'
 	inflect.irregular 'prodi_fasilitas', 'prodi_fasilitases'
  end

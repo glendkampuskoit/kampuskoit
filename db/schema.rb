@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327050431) do
+ActiveRecord::Schema.define(:version => 20130327070743) do
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
@@ -46,21 +46,22 @@ ActiveRecord::Schema.define(:version => 20130327050431) do
   end
 
   create_table "prodi_fasilitas_galleries", :force => true do |t|
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.integer  "prodifasilitas_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "prodifasil_id"
+    t.integer  "prodi_fasil_id"
   end
 
-  add_index "prodi_fasilitas_galleries", ["prodifasilitas_id"], :name => "index_prodi_fasilitas_galleries_on_prodifasilitas_id"
+  add_index "prodi_fasilitas_galleries", ["prodifasil_id"], :name => "index_prodi_fasilitas_galleries_on_prodifasil_id"
 
-  create_table "prodi_fasilitases", :force => true do |t|
+  create_table "prodi_fasils", :force => true do |t|
     t.text     "fasilitas"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "prodi_id"
   end
 
-  add_index "prodi_fasilitases", ["prodi_id"], :name => "index_prodi_fasilitases_on_prodi_id"
+  add_index "prodi_fasils", ["prodi_id"], :name => "index_prodi_fasils_on_prodi_id"
 
   create_table "prodi_galleries", :force => true do |t|
     t.string   "caption"

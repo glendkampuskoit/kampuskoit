@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe ProdiAkreditasi do
+describe ProdiFasil do
   it { should belong_to(:prodi) }
 end
