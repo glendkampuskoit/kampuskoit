@@ -1,7 +1,7 @@
 class AddProdiFasilitasForeignKeys < ActiveRecord::Migration
   def up
-  	add_column :prodi_fasilitas, :prodi_id, :integer
-  	add_index :prodi_fasilitas, :prodi_id
+  	add_column :prodi_fasilitases, :prodi_id, :integer
+  	add_index :prodi_fasilitases, :prodi_id
   end
 
   def down

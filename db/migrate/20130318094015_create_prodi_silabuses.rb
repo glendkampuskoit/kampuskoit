@@ -1,4 +1,4 @@
-class CreateProdisilabuses < ActiveRecord::Migration
+class CreateProdiSilabuses < ActiveRecord::Migration
   def change
     create_table :prodi_silabuses do |t|
       t.text :tujuan

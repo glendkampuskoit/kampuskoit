@@ -1,4 +1,4 @@
-class CreateProdiprestasis < ActiveRecord::Migration
+class CreateProdiPrestasis < ActiveRecord::Migration
   def change
     create_table :prodi_prestasis do |t|
       t.integer :tahun

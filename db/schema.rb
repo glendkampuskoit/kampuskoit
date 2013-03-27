@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326064321) do
+ActiveRecord::Schema.define(:version => 20130327050431) do
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
@@ -45,15 +45,6 @@ ActiveRecord::Schema.define(:version => 20130326064321) do
     t.integer  "prodi_id"
   end
 
-  create_table "prodi_fasilitas", :force => true do |t|
-    t.text     "fasilitas"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "prodi_id"
-  end
-
-  add_index "prodi_fasilitas", ["prodi_id"], :name => "index_prodi_fasilitas_on_prodi_id"
-
   create_table "prodi_fasilitas_galleries", :force => true do |t|
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
@@ -61,6 +52,15 @@ ActiveRecord::Schema.define(:version => 20130326064321) do
   end
 
   add_index "prodi_fasilitas_galleries", ["prodifasilitas_id"], :name => "index_prodi_fasilitas_galleries_on_prodifasilitas_id"
+
+  create_table "prodi_fasilitases", :force => true do |t|
+    t.text     "fasilitas"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "prodi_id"
+  end
+
+  add_index "prodi_fasilitases", ["prodi_id"], :name => "index_prodi_fasilitases_on_prodi_id"
 
   create_table "prodi_galleries", :force => true do |t|
     t.string   "caption"
@@ -230,6 +230,8 @@ ActiveRecord::Schema.define(:version => 20130326064321) do
     t.string   "kodepos"
     t.string   "telepon"
     t.string   "no_hp"
+    t.integer  "provinsi_id"
+    t.integer  "kota_id"
   end
 
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,4 +1,4 @@
-class CreateProdigalleries < ActiveRecord::Migration
+class CreateProdiGalleries < ActiveRecord::Migration
   def change
     create_table :prodi_galleries do |t|
       t.string :caption
