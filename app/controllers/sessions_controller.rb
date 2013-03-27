@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		user = User.find_by_email(params[:session][:email])
-		if user && user.authenticate(params[:session][:password])
+		subscriber = Subscriber.find_by_email(params[:session][:email])
+		if subscriber && subscriber.authenticate(params[:session][:password])
 			# success
-			sign_in user
-			redirect_to user
+			sign_in subscriber
+			redirect_to subscriber
 		else
 			# login failed
 			flash[:error] = 'Invalid email/password combination'
@@ -17,9 +17,9 @@ class SessionsController < ApplicationController
 	end
 
 	def login_facebook
-		user = User.from_omniauth(env['omniauth.auth'])
-		sign_in user
-		redirect_to user
+		subscriber = Subscriber.from_omniauth(env['omniauth.auth'])
+		sign_in subscriber
+		redirect_to subscriber
 	end
 
 	def destroy

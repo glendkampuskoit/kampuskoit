@@ -1,32 +1,32 @@
 Campus::Application.routes.draw do
 
-  root to: 'subscribers#new'
+  root to: 'visitors#new'
 
   resources :prodis
   resources :univs
-  resources :users
+  resources :subscribers
   resources :sessions, only: [:new, :create, :destroy]
-  resources :subscribers, only: [:new, :create]
+  resources :visitors, only: [:new, :create]
 
   get "/kontak", to: 'static_pages#contact'
   get "/term", to: 'static_pages#term'
   get "/faq", to: 'static_pages#faq'
   #root to: 'static_pages#welcome'
   
-  match '/subscribe', to: 'subscribers#new'
+  match '/visit', to: 'visitors#new'
 
   #get "home/index"
   match '/home', to: 'home#index'
-  match '/signup', to: 'users#new'
+  match '/signup', to: 'subscribers#new'
   match '/login', to: 'sessions#new'
   match '/logout', to: 'sessions#destroy'
 
   match 'auth/:provider/callback', to: 'sessions#login_facebook'
   match 'auth/failure', to: redirect('/')
 
-  match '/confirm', controller: 'users', action: 'confirm'
+  match '/confirm', controller: 'subscribers', action: 'confirm'
   
-  #match '*path', :controller => "subscribers", :action => "new"
+  #match '*path', :controller => "visitors", :action => "new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

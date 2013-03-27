@@ -1,5 +1,5 @@
 FactoryGirl.define do
-	factory :user do
+	factory :subscriber do
 		name	"Glend Maatita"
 		email	"glend_maatita@yahoo.com"
 		password  "password"
@@ -8,7 +8,7 @@ FactoryGirl.define do
 		email_activation false
 	end
 
-	factory :subscriber do
+	factory :visitor do
 		email	"glend_maatita@yahoo.com"
 	end
 end

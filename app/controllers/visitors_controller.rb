@@ -1,18 +1,18 @@
-class SubscribersController < ApplicationController
+class VisitorsController < ApplicationController
 	def new
-		@subscriber = Subscriber.new
-		render 'subscribers/new', layout: false
+		@visitor = Visitor.new
+		render 'visitors/new', layout: false
 	end
 
 	def create
-		@subscriber = Subscriber.new(params[:subscriber])
-	  	if @subscriber.save
-	  		SubscriberMailer.thanks(@subscriber)
+		@visitor = Visitor.new(params[:visitor])
+	  	if @visitor.save
+	  		VisitorMailer.thanks(@visitor)
 	  		flash[:success] = "Pendaftaran Sukses. Silakan mengecek email anda"
-	  		redirect_to subscribe_path
+	  		redirect_to visit_path
 	  	else
 	  		flash[:error] = "Email tidak valid atau sudah terdaftar"
-	  		redirect_to subscribe_path
+	  		redirect_to visit_path
 	  	end
 	end
 end
