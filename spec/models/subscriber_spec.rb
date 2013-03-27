@@ -92,7 +92,7 @@ describe Subscriber do
     end
 
     describe "with invalid password" do
-      let (:subscriber) { found_subscriber.authenticate("invalid") }
+      let (:subscriber_for_invalid_password) { found_subscriber.authenticate("invalid") }
       it { should_not == subscriber_for_invalid_password }
       specify { subscriber_for_invalid_password.should be_false }
     end

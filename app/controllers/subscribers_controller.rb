@@ -14,7 +14,7 @@ class SubscribersController < ApplicationController
     #if @subscriber.save
   		# code here
       # sign_in @subscriber
-      UserMailer.welcome_email(@subscriber)
+      SubscriberMailer.welcome_email(@subscriber)
       flash[:success] = "Pendaftaran Sukses. Silakan cek email anda untuk melakukan verifikasi email."
   		redirect_to @subscriber
   	else

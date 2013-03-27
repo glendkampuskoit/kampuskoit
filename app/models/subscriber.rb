@@ -15,7 +15,7 @@ class Subscriber < ActiveRecord::Base
 
 	has_secure_password
 
-	before_save { |user| user.email = email.downcase }
+	before_save { |subscriber| subscriber.email = email.downcase }
 	before_save :create_remember_token
 
 	validates :name, presence: true, length: { maximum: 50 }
@@ -32,24 +32,24 @@ class Subscriber < ActiveRecord::Base
 	end
 
 	def self.from_omniauth(auth)
-		userExisting = User.find_by_email(auth.info.email)
-		if !userExisting
-			where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-				user.provider = auth.provider
-				user.uid = auth.uid
-				user.name = auth.info.name
-				user.email = auth.info.email
-				user.oath_token = auth.credentials.token
-				user.oath_expires = Time.at(auth.credentials.expires_at)
-				user.password = user.password_confirmation = 'defaultpasswordmustbechanged12345465476573453534'
-				user.from_facebook = true
-				user.email_activation = true
-				user.save!
+		subscriberExisting = Subscriber.find_by_email(auth.info.email)
+		if !subscriberExisting
+			where(auth.slice(:provider, :uid)).first_or_initialize.tap do |subscriber|
+				subscriber.provider = auth.provider
+				subscriber.uid = auth.uid
+				subscriber.name = auth.info.name
+				subscriber.email = auth.info.email
+				subscriber.oath_token = auth.credentials.token
+				subscriber.oath_expires = Time.at(auth.credentials.expires_at)
+				subscriber.password = subscriber.password_confirmation = 'defaultpasswordmustbechanged12345465476573453534'
+				subscriber.from_facebook = true
+				subscriber.email_activation = true
+				subscriber.save!
 			end
 		else
-			userExisting.from_facebook = true
-			userExisting.email_activation = true
-			userExisting.save
+			subscriberExisting.from_facebook = true
+			subscriberExisting.email_activation = true
+			subscriberExisting.save
 		end
 	end
 end

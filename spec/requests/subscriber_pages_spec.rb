@@ -47,7 +47,7 @@ describe "Subscriber Pages" do
 		let(:subscriber) { @subscriber = Subscriber.create(name: "Glend Maatita", email: "glend_maatita@yahoo.com", password: "foobar", password_confirmation: "foobar")}
 		before { visit "/confirm?token=#{subscriber.remember_token}&memberid=#{subscriber.id}" }
 		describe "will change email_activation status" do
-			let(:subscriberpdate) { Subscriber.find(subscriber.id) }
+			let(:subscriberUpdate) { Subscriber.find(subscriber.id) }
 			specify { subscriberUpdate.email_activation.should == true }
 		end
 	end

@@ -9,10 +9,10 @@ class VisitorsController < ApplicationController
 	  	if @visitor.save
 	  		VisitorMailer.thanks(@visitor)
 	  		flash[:success] = "Pendaftaran Sukses. Silakan mengecek email anda"
-	  		redirect_to landing_path
+	  		redirect_to visit_path
 	  	else
 	  		flash[:error] = "Email tidak valid atau sudah terdaftar"
-	  		redirect_to landing_path
+	  		redirect_to visit_path
 	  	end
 	end
 end

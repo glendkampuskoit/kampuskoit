@@ -7,9 +7,9 @@ describe "Query String Routing" do
 	#end
 
 	describe "routing test" do
-		it "should to route to user#confirm}" do
+		it "should to route to subscribers#confirm}" do
 		get("/confirm").should route_to(
-				:controller => "users",
+				:controller => "subscribers",
      			:action => "confirm")
 		end
 	end
@@ -18,7 +18,7 @@ describe "Query String Routing" do
 	#	let(:route) { '/confirm?token=898978868787' }
 	#	it "should have params" do
 	#		get(route).should route_to(
-	#			:controller => "users", :action => "confirm")
+	#			:controller => "subscribers", :action => "confirm")
 	#	end
 	#end
 end

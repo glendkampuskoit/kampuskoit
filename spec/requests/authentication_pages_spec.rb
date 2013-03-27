@@ -19,10 +19,10 @@ describe "Authentication" do
   	end
 
   	describe "with valid information" do
-  		let(:user) { FactoryGirl.create(:user) }
+  		let(:subscriber) { FactoryGirl.create(:subscriber) }
   		before do
-  			fill_in "Email", with: user.email
-  			fill_in "Password", with: user.password
+  			fill_in "Email", with: subscriber.email
+  			fill_in "Password", with: subscriber.password
   			click_button "Login"
   		end
 
@@ -35,28 +35,28 @@ describe "Authentication" do
   	end
   end
 
-  #user sign up via facebook, login via email -> tidak bisa with wrong password
-  describe "user login again via email should not be valid" do
+  #subscriber sign up via facebook, login via email -> tidak bisa with wrong password
+  describe "subscriber login again via email should not be valid" do
     let (:omniauth) { OmniAuth.config.mock_auth[:facebook] }
-    before { @user = User.from_omniauth(omniauth) }
+    before { @subscriber = Subscriber.from_omniauth(omniauth) }
 
     before do
       visit login_path
-      fill_in "Email", with: @user.email
+      fill_in "Email", with: @subscriber.email
       fill_in "Password", with: 'password'
       click_button "Login"
     end
     it { should have_selector('title', text: "Login") } 
   end
 
-  #user sign up via facebook, login via email -> bisa with right password
-  describe "user login again via email should not be valid" do
+  #subscriber sign up via facebook, login via email -> bisa with right password
+  describe "subscriber login again via email should not be valid" do
     let (:omniauth) { OmniAuth.config.mock_auth[:facebook] }
-    before { @user = User.from_omniauth(omniauth) }
+    before { @subscriber = Subscriber.from_omniauth(omniauth) }
 
     before do
       visit login_path
-      fill_in "Email", with: @user.email
+      fill_in "Email", with: @subscriber.email
       fill_in "Password", with: 'defaultpasswordmustbechanged12345465476573453534'
       click_button "Login"
     end

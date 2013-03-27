@@ -1,10 +1,10 @@
-<% if @user.errors.any? %>
+<% if @subscriber.errors.any? %>
 <div id="error_explanation">
 	<div class="alert alert-error">
-		The Form contains <%= pluralize(@user.errors.count, "error") %>
+		The Form contains <%= pluralize(@subscriber.errors.count, "error") %>
 	</div>
 	<ul>
-		<% @user.errors.full_messages.each do |error| %>
+		<% @subscriber.errors.full_messages.each do |error| %>
 			<li>* <%= error %></li>
 		<% end %>
 	</ul>
