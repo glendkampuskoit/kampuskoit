@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe SubscriberBeasiswa do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:subscriber) }
 end

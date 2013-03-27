@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Univfasilitas do
-  pending "add some examples to (or delete) #{__FILE__}"
+   it { should belong_to(:univ) }
+   it { should have_many(:univ_fasilitas_galleries) }
 end
