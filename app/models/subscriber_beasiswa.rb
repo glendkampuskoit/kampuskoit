@@ -1,3 +1,3 @@
 class SubscriberBeasiswa < ActiveRecord::Base
-	belongs_to :subcriber
+	belongs_to :subscriber
 end
