@@ -35,24 +35,30 @@ Campus::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
-  config.campus_url = 'http://localhost:3000/'
+  config.campus_url = 'http://kampus.co.id/'
   config.app_name = 'Kampus.co.id'
+  config.email = 'info@kampus.co.id'
 
   # speed up factory girl
   require 'bcrypt'
+
   silence_warnings do
     BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
   end
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.live.com",
-    :port                 => 587 ,
-    :domain               => 'kampus.co.id',
-    :user_name            => 'info@kampus.co.id',
-    :password             => 't3rb1as4',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  }
-
-  config.action_mailer.delivery_method = :test
+  #require 'tlsmail' #key but not always described
+    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.delivery_method = :test
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address        => 'smtp.gmail.com',
+      :port           => 587,
+      :domain         => 'kampus.co.id',
+      :authentication => :plain,
+      :user_name      => 'glend.maatita@gmail.com',
+      :password       => 'entung150288'
+    }
 end
