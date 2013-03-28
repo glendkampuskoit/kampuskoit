@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327070743) do
+ActiveRecord::Schema.define(:version => 20130327091626) do
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
@@ -166,8 +166,9 @@ ActiveRecord::Schema.define(:version => 20130327070743) do
     t.integer  "tahun_keluar"
     t.string   "nilai_akhir"
     t.text     "path_ijazah"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "subscriber_id"
   end
 
   create_table "subscriber_pengalaman_kerjas", :force => true do |t|
@@ -266,6 +267,7 @@ ActiveRecord::Schema.define(:version => 20130327070743) do
     t.string   "nilai"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "univ_id"
   end
 
   create_table "univfasilitas", :force => true do |t|
