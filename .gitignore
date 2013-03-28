@@ -22,3 +22,9 @@
 
 # ignore gemfile.lock
 Gemfile.lock
+
+# guardfile
+Guardfile
+
+#.rspec
+.rspec
