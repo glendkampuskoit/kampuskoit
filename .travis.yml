@@ -10,4 +10,4 @@ script:
   - bundle exec rake
 before_script:
   - cp config/database.travis.yml config/database.yml
-  - mysql -e 'create database kampuscoid_db'
+  - mysql -e 'create database kampuscoid_db_test'
