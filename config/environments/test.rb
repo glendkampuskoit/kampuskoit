@@ -58,7 +58,7 @@ Campus::Application.configure do
       :port           => 587,
       :domain         => 'kampus.co.id',
       :authentication => :plain,
-      :user_name      => 'glend.maatita@gmail.com',
-      :password       => 'entung150288'
+      :user_name      => 'pengentauaja@kampus.co.id',
+      :password       => 'mautauataumautaubanget'
     }
 end
