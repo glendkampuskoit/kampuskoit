@@ -22,3 +22,17 @@
 
 # ignore gemfile.lock
 Gemfile.lock
+
+# guardfile
+Guardfile
+
+#.rspec
+.rspec
+
+# thinking sphinx archives --> just run RAILS_ENV=(env) ts:index
+/config/development.sphinx.conf
+/config/test.sphinx.conf
+
+/db/sphinx/**/*.*
+
+

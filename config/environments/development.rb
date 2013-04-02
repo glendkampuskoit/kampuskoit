@@ -35,17 +35,22 @@ Campus::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.campus_url = 'http://localhost:3000/'
+  config.campus_url = 'http://kampus.co.id/'
   config.app_name = 'Kampus.co.id'
 
-  #email
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.live.com",
-    :port                 => 25,
-    :domain               => 'kampus.co.id',
-    :user_name            => 'info@kampus.co.id',
-    :password             => 't3rb1as4',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  }
+  #require 'tlsmail' #key but not always described
+    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.delivery_method = :test
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address        => 'smtp.gmail.com',
+      :port           => 587,
+      :domain         => 'kampus.co.id',
+      :authentication => :plain,
+      :user_name      => 'pengentauaja@kampus.co.id',
+      :password       => 'mautauataumautaubanget'
+    }
 end

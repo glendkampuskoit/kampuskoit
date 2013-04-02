@@ -10,13 +10,13 @@ class SubscribersController < ApplicationController
 
   def create
   	@subscriber = Subscriber.new(params[:subscriber])
-  	if verify_recaptcha(:model => @subscriber, :message => "Oh! It's error with reCAPTCHA!") && @subscriber.save
-    #if @subscriber.save
+  	#if verify_recaptcha(:model => @subscriber, :message => "Oh! It's error with reCAPTCHA!") && @subscriber.save
+    if @subscriber.save
   		# code here
-      # sign_in @subscriber
-      SubscriberMailer.welcome_email(@subscriber)
+      #sign_in @subscriber
+      SubscriberMailer.welcome_email(@subscriber).deliver
       flash[:success] = "Pendaftaran Sukses. Silakan cek email anda untuk melakukan verifikasi email."
-  		redirect_to @subscriber
+  		render 'new'
   	else
   		render 'new'
   	end

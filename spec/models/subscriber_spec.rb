@@ -20,6 +20,17 @@ describe Subscriber do
 
   it { should be_valid }
 
+  # test for assosiation
+  it { should have_many(:subscriber_beasiswas) }
+  it { should have_many(:subscriber_organisasis) }
+  it { should have_many(:subscriber_pendidikans) }
+  it { should have_many(:subscriber_pengalaman_kerjas) }
+  it { should have_many(:subscriber_pelatihans) }
+  it { should have_many(:subscriber_prestasis) }
+  it { should have_many(:subscriber_rekomendasis) }
+  it { should belong_to(:provinsis) }
+  it { should belong_to(:kotas) }
+
   describe "When name is blank" do
     before { @subscriber.name = " " } 
     it { should_not be_valid }
@@ -126,7 +137,7 @@ describe Subscriber do
 
       specify { @subscriberExist.from_facebook.should == true }
       specify { @subscriberExist.email_activation.should == true }
-    end   
+    end
   end
 
   describe "sign up via email, and then login via facebook will not save user data" do

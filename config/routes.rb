@@ -1,6 +1,9 @@
 Campus::Application.routes.draw do
 
-  root to: 'visitors#new'
+  get "search/result"
+
+  #root to: 'visitors#new'
+  root to: 'home#index'
 
   resources :prodis
   resources :univs
@@ -25,6 +28,7 @@ Campus::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
 
   match '/confirm', controller: 'subscribers', action: 'confirm'
+  match '/search', to: 'search#result'
   
   #match '*path', :controller => "visitors", :action => "new"
 

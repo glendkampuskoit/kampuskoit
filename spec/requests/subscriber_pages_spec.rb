@@ -26,8 +26,8 @@ describe "Subscriber Pages" do
 
 		describe "with valid information" do
 			before do
-				fill_in "Name", with: "Example subscriber"
-				fill_in "Email", with: "subscriber@example.com"
+				fill_in "Name", with: "Glend Maatita"
+				fill_in "Email", with: "glend_maatita@yahoo.com"
 				fill_in "Password", with: "foobar"
 				fill_in "Confirmation", with: "foobar"
 			end
