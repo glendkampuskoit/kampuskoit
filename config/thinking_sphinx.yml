@@ -1,0 +1,21 @@
+development:
+  port: 9306
+  min_infix_len: 3
+  config_file: "/usr/local/sphinx/etc/sphinx.conf"
+  searchd_log_file: "/usr/local/sphinx/var/log/searchd.log"
+  query_log_file: "/usr/local/sphinx/var/log/query.log"
+  pid_file: "/usr/local/sphinx/var/log/searchd.pid"
+  bin_path: "/usr/local/sphinx/bin"
+  searchd_binary_name: "/usr/local/sphinx/bin/searchd"
+  indexer_binary_name: "/usr/local/sphinx/bin/indexer"
+
+test:
+  port: 9313
+  min_infix_len: 3
+  config_file: "/usr/local/sphinx/etc/sphinx_test.conf"
+  searchd_log_file: "/usr/local/sphinx/var/log_test/searchd.log"
+  query_log_file: "/usr/local/sphinx/var/log_test/query.log"
+  pid_file: "/usr/local/sphinx/var/log_test/searchd.pid"
+  bin_path: "/usr/local/sphinx/bin"
+  searchd_binary_name: "/usr/local/sphinx/bin/searchd"
+  indexer_binary_name: "/usr/local/sphinx/bin/indexer"

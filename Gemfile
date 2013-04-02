@@ -51,6 +51,7 @@ end
 
 gem 'jquery-rails'
 gem 'tlsmail'
+gem 'thinking-sphinx'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
