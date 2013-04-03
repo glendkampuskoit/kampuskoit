@@ -6,7 +6,6 @@ describe SubscribersController do
   describe "Post Sign Up" do
   	it "sends a verification email" do
   		post :create, subscriber: @subscriber
-  		#expect_email SubscriberMailer.welcome_email(@subscriber)
   	end
   end
 end

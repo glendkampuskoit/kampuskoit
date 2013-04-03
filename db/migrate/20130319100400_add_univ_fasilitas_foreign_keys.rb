@@ -1,7 +1,7 @@
 class AddUnivFasilitasForeignKeys < ActiveRecord::Migration
   def up
-  	add_column :univfasilitas, :univ_id, :integer
-  	add_index :univfasilitas, :univ_id
+  	add_column :univfasilitases, :univ_id, :integer
+  	add_index :univfasilitases, :univ_id
   end
 
   def down

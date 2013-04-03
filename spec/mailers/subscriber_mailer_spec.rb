@@ -7,5 +7,6 @@ describe SubscriberMailer do
   		let(:sign_up_mailer) { SubscriberMailer.welcome_email(@subscriber) }
 
   		it { sign_up_mailer.from.should == [Rails.application.config.email]  }
+  		it { sign_up_mailer.to.should == [@subscriber.email]  }
   	end
 end

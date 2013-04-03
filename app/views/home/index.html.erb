@@ -2,7 +2,7 @@
 
 <%= form_tag("/search", :method => "get") do %>
   <%= text_field_tag(:keyword) %>
-  <%= select_tag 'parameters', options_for_select([['Perguruan Tinggi', 'univ'], ['Jurusan', 'jur'], ['Provinsi', 'prov'], ['Bidang Kerja', 'bid_kerjad']]) %>
+  <%= select_tag 'parameters', options_for_select([['Semua', 'all'], ['Perguruan Tinggi', 'univ'], ['Jurusan', 'jur'], ['Provinsi', 'prov'], ['Bidang Kerja', 'bid_kerjad']]) %>
 
   <%= submit_tag("Search") %>
 <% end %>

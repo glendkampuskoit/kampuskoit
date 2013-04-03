@@ -9,7 +9,7 @@
 #   inflect.uncountable %w( fish sheep )
 	inflect.irregular 'kota', 'kotas'
 	inflect.irregular 'prodi_silabus', 'prodi_silabuses'
-	inflect.irregular 'prodi_fasilitas', 'prodi_fasilitases'
+	inflect.irregular 'univfasilitas', 'univfasilitases'
  end
 #
 # These inflection rules are supported but not enabled by default:

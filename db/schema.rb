@@ -270,14 +270,14 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.integer  "univ_id"
   end
 
-  create_table "univfasilitas", :force => true do |t|
+  create_table "univfasilitases", :force => true do |t|
     t.text     "fasilitas"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "univ_id"
   end
 
-  add_index "univfasilitas", ["univ_id"], :name => "index_univfasilitas_on_univ_id"
+  add_index "univfasilitases", ["univ_id"], :name => "index_univfasilitases_on_univ_id"
 
   create_table "univgalleries", :force => true do |t|
     t.text     "caption"

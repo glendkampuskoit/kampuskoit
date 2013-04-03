@@ -1,6 +1,6 @@
 class CreateUnivfasilitas < ActiveRecord::Migration
   def change
-    create_table :univfasilitas do |t|
+    create_table :univfasilitases do |t|
       t.text :fasilitas
 
       t.timestamps
