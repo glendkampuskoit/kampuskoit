@@ -22,3 +22,6 @@
 
 # ignore gemfile.lock
 Gemfile.lock
+
+# ignore gemfile
+Gemfile

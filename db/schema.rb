@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327091626) do
+ActiveRecord::Schema.define(:version => 20130403090137) do
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "updated_at",     :null => false
     t.integer  "prodifasil_id"
     t.integer  "prodi_fasil_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "prodi_fasilitas_galleries", ["prodifasil_id"], :name => "index_prodi_fasilitas_galleries_on_prodifasil_id"
@@ -59,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "prodi_fasils", ["prodi_id"], :name => "index_prodi_fasils_on_prodi_id"
@@ -70,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "prodi_galleries", ["prodi_id"], :name => "index_prodi_galleries_on_prodi_id"
@@ -80,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "prodi_prestasis", ["prodi_id"], :name => "index_prodi_prestasis_on_prodi_id"
@@ -92,6 +100,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "prodi_silabuses", ["prodi_id"], :name => "index_prodi_silabuses_on_prodi_id"
@@ -109,6 +119,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.integer  "univ_id"
     t.integer  "kota_id"
     t.integer  "jenjang_prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "prodis", ["kota_id"], :name => "index_prodis_on_kota_id"
@@ -246,6 +258,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "univfasilitas_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "univ_fasilitas_galleries", ["univfasilitas_id"], :name => "index_univ_fasilitas_galleries_on_univfasilitas_id"
@@ -258,6 +272,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "univ_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "univbeasiswas", ["univ_id"], :name => "index_univbeasiswas_on_univ_id"
@@ -268,6 +284,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "univ_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   create_table "univfasilitas", :force => true do |t|
@@ -275,6 +293,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "univ_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "univfasilitas", ["univ_id"], :name => "index_univfasilitas_on_univ_id"
@@ -286,6 +306,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "univ_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "univgalleries", ["univ_id"], :name => "index_univgalleries_on_univ_id"
@@ -295,6 +317,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "univ_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "univkerjasamas", ["univ_id"], :name => "index_univkerjasamas_on_univ_id"
@@ -305,6 +329,8 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "univ_id"
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "univprestasis", ["univ_id"], :name => "index_univprestasis_on_univ_id"
@@ -327,6 +353,9 @@ ActiveRecord::Schema.define(:version => 20130327091626) do
     t.datetime "updated_at",         :null => false
     t.integer  "kota_id"
     t.integer  "jenis_pt_id"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.string   "profile_naration"
   end
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"
