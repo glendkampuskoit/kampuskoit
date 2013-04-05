@@ -1,4 +1,6 @@
 class Prodi < ActiveRecord::Base
+	include ThinkingSphinx::Scopes	
+	
 	belongs_to :univ, :foreign_key => :univ_id
 	belongs_to :kota, :foreign_key => :kota_id
 	belongs_to :jenjang_prodi, :foreign_key => :jenjang_prodi_id

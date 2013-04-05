@@ -8,7 +8,8 @@ gem 'bcrypt-ruby', '3.0.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :production	 do
-	gem 'mysql2'
+	#gem 'mysql2'
+	gem 'mysql2', '~> 0.3.12b5'
 end
 
 # gemfile for development & test env
@@ -29,6 +30,7 @@ group :test do
 	gem 'spork', '0.9.0'
 	gem 'factory_girl_rails', '1.4.0'
 	gem 'shoulda-matchers'
+	gem 'thinking-sphinx-rspec-matchers'
 end
 
 # group for production
