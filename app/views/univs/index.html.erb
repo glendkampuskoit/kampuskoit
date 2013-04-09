@@ -1,1 +1,22 @@
 <% provide(:title, 'Perguruan Tinggi') %>
+
+<%= form_tag(univs_path, :method => "get") do %>
+  <%= text_field_tag(:keyword) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Nama PT</th>
+    <th>Kota</th>
+    <td>Profile</td>
+  </tr>
+
+<% @univs.each do |univ| %>
+  <tr>
+    <td><%= univ.nama_pt %></td>
+    <td><%= univ.kota.kota unless univ.kota.nil? %></td>
+    <td><%= link_to 'Show', univ %></td>
+  </tr>
+<% end %>
+</table>

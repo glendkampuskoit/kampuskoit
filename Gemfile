@@ -10,6 +10,7 @@ gem 'bcrypt-ruby', '3.0.1'
 group :development, :production	 do
 	#gem 'mysql2'
 	gem 'mysql2', '~> 0.3.12b5'
+	gem 'devise'
 end
 
 # gemfile for development & test env

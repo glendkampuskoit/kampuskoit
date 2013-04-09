@@ -9,4 +9,10 @@ class Prodi < ActiveRecord::Base
 	has_many :prodi_silabuses
 	has_many :prodi_galleries
 	has_many :prodi_akreditasis
+
+	validates :nama_prodi, presence: true, length: { maximum: 255 }
+	validates :tahun_berdiri, presence: true
+	validates :alamat, presence: true
+	validates :telepon, presence: true
+	validates :email, presence: true
 end

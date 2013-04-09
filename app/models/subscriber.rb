@@ -40,7 +40,7 @@ class Subscriber < ActiveRecord::Base
 				subscriber.name = auth.info.name
 				subscriber.email = auth.info.email
 				subscriber.oath_token = auth.credentials.token
-				subscriber.oath_expires = Time.at(auth.credentials.expires_at)
+				subscriber.oath_expires = Time.at(auth.credentials.expires_at) unless auth.credentials.expires_at.nil?
 				subscriber.password = subscriber.password_confirmation = 'defaultpasswordmustbechanged12345465476573453534'
 				subscriber.from_facebook = true
 				subscriber.email_activation = true
@@ -50,6 +50,7 @@ class Subscriber < ActiveRecord::Base
 			subscriberExisting.from_facebook = true
 			subscriberExisting.email_activation = true
 			subscriberExisting.save
+			return subscriberExisting
 		end
 	end
 end

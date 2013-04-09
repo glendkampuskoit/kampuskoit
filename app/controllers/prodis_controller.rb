@@ -2,11 +2,11 @@ class ProdisController < ApplicationController
   # GET /prodis
   # GET /prodis.json
   def index
-    #if params[:keyword] == ''
-        @prodis = Prodi.all
-      #else
-        #@prodis = Prodi.search(params[:keyword])  
-      #end
+    if params[:keyword] == ''
+      @prodis = Prodi.all
+    else
+      @prodis = Prodi.search(params[:keyword])
+    end
   end
 
   # GET /prodis/1

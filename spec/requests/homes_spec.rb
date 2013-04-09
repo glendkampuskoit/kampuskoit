@@ -51,8 +51,3 @@ describe "Homes" do
     end
   end
 end
-
-
-      
-
-      
