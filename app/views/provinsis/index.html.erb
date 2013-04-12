@@ -1,0 +1,12 @@
+<% provide(:title, 'Provinsi') %>
+<table>
+  <tr>
+    <th>Provinsi</th>
+  </tr>
+
+<% @provinsis.each do |provinsi| %>
+  <tr>
+    <td><%= provinsi.provinsi %></td>
+  </tr>
+<% end %>
+</table>

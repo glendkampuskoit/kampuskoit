@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Univ" do
+describe "Univ Search" do
 
   let(:submit) { "Search" }
   before do

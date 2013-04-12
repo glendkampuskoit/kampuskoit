@@ -9,9 +9,9 @@ describe "Homes" do
       page.should have_content('Home')
     end
 
-    it "Index page should have right title : CampusSight | Home" do
+    it "Index page should have right title : Kampus.co.id | Home" do
 	  	#visit home_path
-	  	page.should have_selector('title', :text => "CampusSight | Home")
+	  	page.should have_selector('title', :text => "Kampus.co.id | Home")
   	end
 
     describe "visitor do search" do      

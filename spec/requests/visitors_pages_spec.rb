@@ -3,7 +3,6 @@ require 'spec_helper'
 describe "Visitor" do
   describe "landing page" do
     it "should have title Welcome" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       visit "/visitors/new"
       page.should have_selector('title', :text => 'Welcome')
     end

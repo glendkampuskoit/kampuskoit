@@ -23,7 +23,6 @@
 # ignore gemfile.lock
 Gemfile.lock
 
-<<<<<<< HEAD
 # guardfile
 Guardfile
 
@@ -37,7 +36,5 @@ Guardfile
 /db/sphinx/**/*.*
 
 
-=======
 # ignore gemfile
 Gemfile
->>>>>>> 352486c0e62268b113c61123d35ec9e3c65bfd8b

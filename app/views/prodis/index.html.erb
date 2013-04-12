@@ -1,5 +1,10 @@
 <% provide(:title, 'Jurusan') %>
 
+<%= form_tag(prodis_path, :method => "get") do %>
+  <%= text_field_tag(:keyword) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <table>
   <tr>
     <th>Nama prodi</th>

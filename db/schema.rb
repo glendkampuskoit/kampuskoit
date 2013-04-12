@@ -109,13 +109,22 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
   create_table "prodis", :force => true do |t|
     t.string   "nama_prodi"
     t.integer  "tahun_berdiri"
+    t.string   "fakultas"
     t.text     "alamat"
     t.string   "telepon"
+    t.string   "fax"
     t.string   "email"
     t.string   "website"
     t.text     "profile"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "jumlah_mahasiswa"
+    t.text     "bidang_studi"
+    t.text     "kompetensi"
+    t.integer  "total_dosen_prof"
+    t.integer  "total_dosen_doktor"
+    t.integer  "total_dosen_master"
+    t.integer  "total_dosen_sarjana"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "univ_id"
     t.integer  "kota_id"
     t.integer  "jenjang_prodi_id"
@@ -288,7 +297,7 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
     t.string   "updated_by"
   end
 
-  create_table "univfasilitas", :force => true do |t|
+  create_table "univfasilitases", :force => true do |t|
     t.text     "fasilitas"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -297,7 +306,7 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
     t.string   "updated_by"
   end
 
-  add_index "univfasilitas", ["univ_id"], :name => "index_univfasilitas_on_univ_id"
+  add_index "univfasilitases", ["univ_id"], :name => "index_univfasilitases_on_univ_id"
 
   create_table "univgalleries", :force => true do |t|
     t.text     "caption"
@@ -347,8 +356,8 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
     t.text     "visi"
     t.text     "misi"
     t.text     "seleksi_masuk"
-    t.text     "staff_pendukung"
     t.text     "kapasitas_akademik"
+    t.text     "deskripsi"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "kota_id"

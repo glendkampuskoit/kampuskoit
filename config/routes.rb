@@ -10,6 +10,8 @@ Campus::Application.routes.draw do
   resources :subscribers
   resources :sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:new, :create]
+  resources :kotas
+  resources :provinsis
 
   get "/kontak", to: 'static_pages#contact'
   get "/term", to: 'static_pages#term'

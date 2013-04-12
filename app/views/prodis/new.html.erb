@@ -1,0 +1,95 @@
+<% provide(:title, 'Tambah Jurusan') %>
+
+<%= form_for(@prodi) do |f| %>
+  <% if @prodi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prodi.errors.count, "error") %> prohibited this prodi from being saved:</h2>
+
+      <ul>
+      <% @prodi.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nama_prodi %><br />
+    <%= f.text_field :nama_prodi %>
+  </div>
+  <div class="field">
+    <%= f.label :tahun_berdiri %><br />
+    <%= f.text_field :tahun_berdiri %>
+  </div>
+  <div class="field">
+    <%= f.label :fakultas %><br />
+    <%= f.text_field :fakultas %>
+  </div>
+  <div class="field">
+    <%= f.label :alamat %><br />
+    <%= f.text_area :alamat %>
+  </div>
+  <div class="field">
+    <%= f.label :telepon %><br />
+    <%= f.text_field :telepon %>
+  </div>
+  <div class="field">
+    <%= f.label :fax %><br />
+    <%= f.text_field :fax %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :profile %><br />
+    <%= f.text_area :profile %>
+  </div>
+  <div class="field">
+    <%= f.label :jumlah_mahasiswa %><br />
+    <%= f.text_field :jumlah_mahasiswa %>
+  </div>
+  <div class="field">
+    <%= f.label :bidang_studi %><br />
+    <%= f.text_area :bidang_studi %>
+  </div>
+  <div class="field">
+    <%= f.label :kompetensi %><br />
+    <%= f.text_area :kompetensi %>
+  </div>
+  <div class="field">
+    <%= f.label :total_dosen_prof %><br />
+    <%= f.text_field :total_dosen_prof %>
+  </div>
+  <div class="field">
+    <%= f.label :total_dosen_doktor %><br />
+    <%= f.text_field :total_dosen_doktor %>
+  </div>
+  <div class="field">
+    <%= f.label :total_dosen_master %><br />
+    <%= f.text_field :total_dosen_master %>
+  </div>
+  <div class="field">
+    <%= f.label :total_dosen_sarjana %><br />
+    <%= f.text_field :total_dosen_sarjana %>
+  </div>
+  <div class="field">
+    <%= f.label :kota %><br />
+    <%= collection_select(:prodi, :kota_id, Kota.all, :id, :kota) %>
+  </div>
+  <div class="field">
+    <%= f.label :univ %><br />
+    <%= collection_select(:prodi, :univ_id, Univ.all, :id, :nama_pt) %>
+  </div>
+  <div class="field">
+    <%= f.label :jenjang_prodi_id %><br />
+    <%= collection_select(:prodi, :jenjang_prodi_id, JenjangProdi.all, :id, :jenjang) %>
+  </div>
+  <div class="actions">
+    <%= submit_tag("Simpan") %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<% provide(:title, 'Kota') %>
+<table>
+  <tr>
+    <th>Kota</th>
+  </tr>
+
+<% @kotas.each do |kota| %>
+  <tr>
+    <td><%= kota.kota %></td>
+  </tr>
+<% end %>
+</table>

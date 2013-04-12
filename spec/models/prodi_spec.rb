@@ -48,5 +48,22 @@ describe Prodi do
 		it { should_not be_valid }
   	end
 
-
+  	describe "when email is invalid" do
+		it "should be invalid" do
+			addresses = %w[subscriber@foo,com subscriber_at_foo.org example.subscriber@foo foo@bar_bar.com foo@bar+baz.com]
+			addresses.each do |invalid_address|
+				@prodi.email = invalid_address
+				@prodi.should_not be_valid
+			end
+		end
+	end
+	describe "when email is valid" do
+		it "should be valid" do
+			addresses = %w[subscriber@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
+			addresses.each do |valid_address|
+				@prodi.email = valid_address
+				@prodi.should be_valid
+			end
+		end
+	end
 end

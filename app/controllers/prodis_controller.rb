@@ -1,22 +1,30 @@
 class ProdisController < ApplicationController
-  # GET /prodis
-  # GET /prodis.json
+
   def index
-    if params[:keyword] == ''
+    if params[:keyword].nil? || params[:keyword] == ''
       @prodis = Prodi.all
     else
       @prodis = Prodi.search(params[:keyword])
     end
   end
 
-  # GET /prodis/1
-  # GET /prodis/1.json
-  def show
-    @prodi = Prodi.find(params[:id])
+  def new
+    @prodi = Prodi.new
+  end
+
+  def create
+    @prodi = Prodi.new(params[:prodi])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @prodi }
+      if @prodi.save
+        format.html { redirect_to @prodi, notice: 'Prodi was successfully created.' }
+      else
+        format.html { render action: "new" }
+      end
     end
+  end
+
+  def show
+    @prodi = Prodi.find(params[:id])
   end
 end
