@@ -19,7 +19,7 @@ group :development, :test do
 	gem 'guard-rspec', '0.5.5'
 	gem 'annotate', '~> 2.4.1.beta'
 	gem "recaptcha", :require => "recaptcha/rails"
-	gem 'therubyracer', :require => "v8"
+#	gem 'therubyracer', :require => "v8"
 	gem 'devise'
 end
 
@@ -72,3 +72,4 @@ gem 'thinking-sphinx'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'omniauth-facebook'
+
