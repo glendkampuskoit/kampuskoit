@@ -5,4 +5,5 @@ class ProdiAkreditasi < ActiveRecord::Base
   	validates :tahun_sk, presence: true
   	validates :peringkat, presence: true
   	validates :tanggal_kadaluarsa, presence: true
+  	validates :prodi, presence: true
 end

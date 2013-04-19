@@ -11,5 +11,21 @@ describe JenjangProdi do
   	describe "When jenjang is blank" do
     	before { @jenjangprodi.jenjang = " " } 
     	it { should_not be_valid }
-  end
+    end
+
+    describe "jenjang prodi must be unique" do
+    	before do
+    		@jenjangprodi_dup = @jenjangprodi.dup
+    		@jenjangprodi_dup.save
+    	end
+    	it { should_not be_valid }
+    end
+
+    describe "jenjang prodi must be unique with case insensitive" do
+    	before do
+    		@jenjangprodi_dup = JenjangProdi.new(jenjang: "s1") 
+    		@jenjangprodi_dup.save
+    	end
+    	it { should_not be_valid }
+    end
 end

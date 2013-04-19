@@ -27,7 +27,7 @@ describe "Subscriber Pages" do
 		describe "with valid information" do
 			before do
 				fill_in "Name", with: "Glend Maatita"
-				fill_in "Email", with: "glend_maatita@yahoo.com"
+				fill_in "Email", with: "gm_rb@yahoo.com"
 				fill_in "Password", with: "foobar"
 				fill_in "Confirmation", with: "foobar"
 			end
@@ -44,7 +44,7 @@ describe "Subscriber Pages" do
 	end
 
 	describe "confirm email" do
-		let(:subscriber) { @subscriber = Subscriber.create(name: "Glend Maatita", email: "glend_maatita@yahoo.com", password: "foobar", password_confirmation: "foobar")}
+		let(:subscriber) { @subscriber = Subscriber.create(name: "Glend Maatita", email: "gm@yahoo.com", password: "foobar", password_confirmation: "foobar")}
 		before { visit "/confirm?token=#{subscriber.remember_token}&memberid=#{subscriber.id}" }
 		describe "will change email_activation status" do
 			let(:subscriberUpdate) { Subscriber.find(subscriber.id) }
@@ -53,7 +53,7 @@ describe "Subscriber Pages" do
 	end
 
 	describe "confirm email wont change email activation because id subscriber not match" do
-		let(:subscriber) { @subscriber = Subscriber.create(name: "Glend Maatita", email: "glend_maatita@yahoo.com", password: "foobar", password_confirmation: "foobar")}
+		let(:subscriber) { @subscriber = Subscriber.create(name: "Glend Maatita", email: "glend@yahoo.com", password: "foobar", password_confirmation: "foobar")}
 		before { visit "/confirm?token=#{subscriber.remember_token}&memberid=" + '2334' }
 		describe "will change email_activation status" do
 			let(:subscriberUpdate) { Subscriber.find(subscriber.id) }

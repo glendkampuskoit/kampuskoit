@@ -3,5 +3,6 @@ class Univbiaya < ActiveRecord::Base
 	
 	validates :biaya, presence: true
 	validates :nilai, presence: true
+	validates :univ, presence: true
 
 end

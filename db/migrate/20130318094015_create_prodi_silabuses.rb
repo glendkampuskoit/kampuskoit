@@ -5,7 +5,8 @@ class CreateProdiSilabuses < ActiveRecord::Migration
       t.text :kompetensi
       t.text :pokok_bahasan
       t.text :referensi
-
+      t.text :mata_kuliah
+      
       t.timestamps
     end
   end

@@ -1,5 +1,5 @@
 class SubscriberPengalamanKerja < ActiveRecord::Base
-	belongs_to :subscriber
+	belongs_to :subscriber, :foreign_key => :subscriber_id
 
 	validates :instansi, presence: true
 	validates :bidang, presence: true

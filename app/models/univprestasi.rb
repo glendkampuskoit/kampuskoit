@@ -3,4 +3,5 @@ class Univprestasi < ActiveRecord::Base
 
 	validates :tahun, presence: true
 	validates :prestasi, presence: true
+	validates :univ, presence: true
 end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Subscriber do
   # pending "add some examples to (or delete) #{__FILE__}"
-  before { @subscriber = Subscriber.new(name: "Glend Maatita", email: "glend_maatita@yahoo.com", password: "foobar", password_confirmation: "foobar") }
+  before { @subscriber = Subscriber.new(name: "Glend Maatita", email: "entung@yahoo.com", password: "foobar", password_confirmation: "foobar") }
 
   subject { @subscriber }
 

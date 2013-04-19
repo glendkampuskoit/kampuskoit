@@ -2,5 +2,6 @@ class Kota < ActiveRecord::Base
 	has_many :univs
 	belongs_to :provinsi, :foreign_key => :provinsi_id
 
-	validates :kota, presence: true
+	validates :kota, presence: true, uniqueness: { case_sensitive: false }
+	validates :provinsi, presence: true
 end

@@ -2,8 +2,10 @@ require 'spec_helper'
 
 describe Prodi do
 
-	before { @prodi = Prodi.new(nama_prodi: 'Sistem Informasi', tahun_berdiri: '2000',
-		alamat: 'ITS Sukolilo Surabaya', telepon: '088989898', email: 'si@its.ac.id', website: 'si.its.ac.id') }
+	before { @prodi = Prodi.new(nama_prodi: 'Sistem Informasi', fakultas: 'Fakultas Teknologi Informasi', tahun_berdiri: '2000',
+		alamat: 'ITS Sukolilo Surabaya', telepon: '088989898', email: 'si@its.ac.id', 
+		website: 'si.its.ac.id', univ: FactoryGirl.create(:univ), kota: FactoryGirl.create(:kota),
+		jenjang_prodi: FactoryGirl.create(:jenjang_prodi)) }
 
 	subject { @prodi }
 
@@ -22,6 +24,10 @@ describe Prodi do
   	it { should have_many(:prodi_fasils) }
   	it { should have_many(:prodi_galleries) }
   	it { should have_many(:prodi_akreditasis) }
+
+  	describe "should be valid" do
+  		it { should be_valid }
+  	end
 
   	describe "nama prodi blank is not valid" do
   		before { @prodi.nama_prodi = '' }
@@ -65,5 +71,24 @@ describe Prodi do
 				@prodi.should be_valid
 			end
 		end
+	end
+
+	describe "nama prodi must be unique" do
+		before do
+			@prodi_dup = @prodi.dup
+			@prodi_dup.email = "sisteminformasi@its.ac.id"
+			@prodi_dup.save
+		end
+		it { should_not be_valid }
+	end
+
+	describe "nama prodi must be unique with case insensitive" do
+		before do
+			@prodi_dup = @prodi.dup
+			@prodi_dup.nama_prodi = "sistem informasi"
+			@prodi_dup.email = "sisteminformasi@its.ac.id"
+			@prodi_dup.save
+		end
+		it { should_not be_valid }
 	end
 end

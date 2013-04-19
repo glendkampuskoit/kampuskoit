@@ -5,4 +5,5 @@ class Univbeasiswa < ActiveRecord::Base
 	validates :instansi, presence: true, length: { maximum: 255 }
 	validates :periode, presence: true, length: { maximum: 10 }
 	validates :nilai, presence: true
+	validates :univ, presence: true
 end

@@ -2,13 +2,18 @@ require 'spec_helper'
 
 describe Univgallery do
 
-  before { @univgallery = Univgallery.new(caption: "Fakutas Teknologi Informasi", description:"Kantor Pusat Fakultas Teknologi Informasi") }
+  before { @univgallery = Univgallery.new(univ: FactoryGirl.create(:univ), caption: "Fakutas Teknologi Informasi", description:"Kantor Pusat Fakultas Teknologi Informasi") }
 
   subject{ @univgallery }
   it { should respond_to(:caption) }
   it { should respond_to(:description) }
+  it { should respond_to(:univ) }
 
   it { should belong_to(:univ) }
+
+  describe "should be valid" do
+    it { should be_valid }
+  end
 
   describe "When caption is blank" do
     before { @univgallery.caption = " " }

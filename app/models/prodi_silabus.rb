@@ -5,4 +5,6 @@ class ProdiSilabus < ActiveRecord::Base
   	validates :kompetensi, presence: true
   	validates :pokok_bahasan, presence: true
   	validates :referensi, presence: true
-end
+  	validates :prodi, presence: true
+  	validates :mata_kuliah, presence: true, uniqueness: { case_sensitive: false, :scope => :prodi_id }
+  end

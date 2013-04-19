@@ -3,4 +3,5 @@ class Univgallery < ActiveRecord::Base
 
 	validates :caption, presence: true
 	validates :description, presence: true
+	validates :univ, presence: true
 end

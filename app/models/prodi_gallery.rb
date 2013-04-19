@@ -4,4 +4,5 @@ class ProdiGallery < ActiveRecord::Base
     validates :caption, presence: true
     validates :description, presence: true
     validates :path, presence: true
+    validates :prodi, presence: true
 end

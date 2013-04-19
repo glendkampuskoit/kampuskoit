@@ -3,5 +3,5 @@ class Provinsi < ActiveRecord::Base
 	has_many :subscribers
 	has_many :prodis
 
-	validates :provinsi, presence: true
+	validates :provinsi, presence: true, uniqueness: { case_sensitive: false }
 end

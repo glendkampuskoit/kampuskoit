@@ -1,7 +1,7 @@
 FactoryGirl.define do
 	factory :subscriber do
 		name	"Glend Maatita"
-		email	"glend_maatita@yahoo.com"
+		sequence(:email){|n| "glend_maatita#{n}@yahoo.com" }
 		password  "password"
 		password_confirmation "password"
 		from_facebook false
@@ -13,29 +13,44 @@ FactoryGirl.define do
 	end
 
 	factory :kota do
-		kota "Surabaya"
-		provinsi_id "1"
+		sequence(:kota){|n| "Kota#{n}" }
+		association :provinsi, :factory => :provinsi
 	end
 
 	factory :provinsi do
-		provinsi "Jawa Timur"
+		sequence(:provinsi){|n| "Provinsi#{n}" }
 	end	
 	
 	factory :jenis_pt do
-		jenis "Universitas"
+		sequence(:jenis){|n| "Jenis#{n}" }
 	end	
 
 	factory :univ do
 		nama_pt		"Institut Teknologi Surabaya"
 		tahun_berdiri	"1999"
-		email 	"redaksi@si.its.com"
+		sequence(:email){|n| "redaksi#{n}@its.com" }
 		website 	"www.its.ac.id"
 		alamat 		"Sukolilo Surabaya"
 		telepon 	"087999"
 		status_negeri	"negeri"
+		association :kota, :factory => :kota
+		association :jenis_pt, :factory => :jenis_pt
+	end
+
+	factory :prodi do
+		sequence(:nama_prodi){|n| "Sistem Informasi#{n}" }
+		fakultas "Fakultas Teknologi Informasi"
+		tahun_berdiri "2000"
+		alamat 		"Sukolilo Surabaya"
+		telepon 	"087999"
+		sequence(:email){|n| "redaksi#{n}@si.its.com" }
+		website 	"www.its.ac.id"
+		association :univ, :factory => :univ
+		association :kota, :factory => :kota
+		association :jenjang_prodi, :factory => :jenjang_prodi 
 	end
 
 	factory :jenjang_prodi do
-		jenjang		"S1"
+		sequence(:jenjang){|n| "Jenjang#{n}" }
 	end
 end

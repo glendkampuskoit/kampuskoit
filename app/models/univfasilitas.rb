@@ -3,4 +3,5 @@ class Univfasilitas < ActiveRecord::Base
 	has_many :univ_fasilitas_galleries
 
 	validates :fasilitas, presence: true
+	validates :univ, presence: true
 end

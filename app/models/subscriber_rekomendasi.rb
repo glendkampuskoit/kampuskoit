@@ -1,5 +1,5 @@
 class SubscriberRekomendasi < ActiveRecord::Base
-	belongs_to :subscriber
+	belongs_to :subscriber, :foreign_key => :subscriber_id
 
   	validates :nama_rekomendator, presence: true
 	validates :jabatan, presence: true
