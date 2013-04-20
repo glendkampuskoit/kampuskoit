@@ -2,8 +2,17 @@ require 'spec_helper'
 
 describe Univ do
 
-	before { @univ = Univ.new(nama_pt: 'Institut Teknologi Surabaya', tahun_berdiri: '1999', 
-		email: 'redaksi@its.com', website: 'www.its.ac.id', alamat: 'Sukolilo Surabaya', telepon: '087999', status_negeri: 'negeri')}
+	before { @univ = Univ.new(
+		nama_pt: 'Institut Teknologi Surabaya', 
+		tahun_berdiri: '1999', 
+		email: 'redaksi@its.com', 
+		website: 'www.its.ac.id', 
+		alamat: 'Sukolilo Surabaya', 
+		telepon: '087999', 
+		status_negeri: 'negeri',
+		kota: FactoryGirl.create(:kota),
+		jenis_pt: FactoryGirl.create(:jenis_pt)
+		)}
 	subject { @univ }
 
 	it { should respond_to(:nama_pt) }
@@ -13,6 +22,8 @@ describe Univ do
 	it { should respond_to(:alamat) }
 	it { should respond_to(:telepon) }
 	it { should respond_to(:status_negeri) }
+	it { should respond_to(:kota) }
+	it { should respond_to(:jenis_pt) }
 
 	it { should belong_to(:kota) }
 	it { should belong_to(:jenis_pt) }
@@ -74,5 +85,22 @@ describe Univ do
 	describe "status_negeri blank isnt valid" do
 		before { @univ.status_negeri = '' }
 		it { should_not be_valid }
-	end	
+	end
+
+	describe "nama prodi unique with case insensitive" do
+		before do
+			@univ_dup = Univ.new(
+				nama_pt: 'institut teknologi surabaya', 
+				tahun_berdiri: '1999', 
+				email: 'redaksi2@its.com', 
+				website: 'www.its.ac.id', 
+				alamat: 'Sukolilo Surabaya', 
+				telepon: '087999', 
+				status_negeri: 'negeri',
+				kota: FactoryGirl.create(:kota),
+				jenis_pt: FactoryGirl.create(:jenis_pt))
+			@univ_dup.save
+		end		
+		it { should_not be_valid }
+	end
 end

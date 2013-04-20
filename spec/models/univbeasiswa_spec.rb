@@ -1,14 +1,20 @@
 require 'spec_helper'
 
 describe Univbeasiswa do
-  before { @univbeasiswa = Univbeasiswa.new(univ: FactoryGirl.create(:univ), nama_beasiswa: "IKA ITS Scholarship", 
-    instansi:"IKA ITS", periode:"2014", nilai:"500.000") }
+  before { @univbeasiswa = Univbeasiswa.new(
+    univ: FactoryGirl.create(:univ), 
+    nama_beasiswa: "IKA ITS Scholarship", 
+    instansi:"IKA ITS", 
+    periode:"2014", 
+    nilai:"500.000") }
 
   subject{ @univbeasiswa }
+
   it { should respond_to(:nama_beasiswa) }
   it { should respond_to(:instansi) }
   it { should respond_to(:periode) }
   it { should respond_to(:nilai) }
+  it { should respond_to(:univ) }
 
   it { should belong_to(:univ) }
 
@@ -32,6 +38,19 @@ describe Univbeasiswa do
 
   describe "When nilai is blank" do
     before { @univbeasiswa.nilai = "" }
+    it { should_not be_valid }
+  end
+
+  describe "univ, nama beasiswa, instansi, periode must be unique with case insensitive" do
+    before do
+      @univbeasiswa_dup = Univbeasiswa.new(
+        univ: @univbeasiswa.univ, 
+        nama_beasiswa: "ika its scholarship", 
+        instansi:"ika its", 
+        periode:"2014", 
+        nilai:"500.000")
+      @univbeasiswa_dup.save
+    end
     it { should_not be_valid }
   end
 end

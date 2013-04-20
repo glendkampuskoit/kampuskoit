@@ -10,12 +10,11 @@ class Prodi < ActiveRecord::Base
 	has_many :prodi_galleries
 	has_many :prodi_akreditasis
 
-	validates :nama_prodi, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }
+	validates :nama_prodi, presence: true, length: { maximum: 255 }, :uniqueness => { :scope => [:jenjang_prodi_id, :univ_id], case_sensitive: false }
 	validates :fakultas, presence: true
 	validates :tahun_berdiri, presence: true
 	validates :alamat, presence: true
 	validates :telepon, presence: true
-	validates :email, presence: true
 	validates :website, presence: true
 	validates :univ, presence: true
 	validates :kota, presence: true

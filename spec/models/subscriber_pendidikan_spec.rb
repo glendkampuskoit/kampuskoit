@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe SubscriberPendidikan do
-  before { @subscriberpendidikan = SubscriberPendidikan.new(jenjang: "SMA", 
+  before { @subscriberpendidikan = SubscriberPendidikan.new(
+    subscriber: FactoryGirl.create(:subscriber),
+    jenjang: "SMA", 
     institusi:"Departemen Pendidikan Nasional", 
     tahun_masuk:"2010", 
     tahun_keluar:"2012", 
@@ -14,8 +16,16 @@ describe SubscriberPendidikan do
   it { should respond_to(:tahun_masuk) }
   it { should respond_to(:tahun_keluar) }
   it { should respond_to(:nilai_akhir) }
+  it { should respond_to(:subscriber) }
 
   it { should belong_to(:subscriber) }
+
+  it { should be_valid }
+
+  describe "when subscriber is nil" do
+    before { @subscriberpendidikan.subscriber = nil } 
+    it { should_not be_valid }
+  end
 
   describe "When jenjang is blank" do
     before { @subscriberpendidikan.jenjang = "" } 
@@ -39,6 +49,25 @@ describe SubscriberPendidikan do
 
   describe "When nilai_akhir is blank" do
     before { @subscriberpendidikan.nilai_akhir = "" } 
+    it { should_not be_valid }
+  end
+
+  describe "When path ijazah is blank" do
+    before { @subscriberpendidikan.path_ijazah = "" } 
+    it { should be_valid }
+  end
+
+  describe "subscriber, insititusi, jenjang must be unique with case insensitive" do
+    before do
+      @subscriberpendidikan_dup =  SubscriberPendidikan.new(
+        subscriber: @subscriberpendidikan.subscriber,
+        jenjang: "SMA", 
+        institusi:"Departemen Pendidikan Nasional", 
+        tahun_masuk:"2010", 
+        tahun_keluar:"2012", 
+        nilai_akhir:"30")
+      @subscriberpendidikan_dup.save
+    end
     it { should_not be_valid }
   end
 end

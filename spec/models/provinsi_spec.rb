@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Provinsi do
-before { @prov = Provinsi.new(provinsi: "Aceh") }
+  before { @prov = Provinsi.new(provinsi: "Aceh") }
 
-subject{ @prov }
+  subject{ @prov }
   it { should respond_to(:provinsi) }
 
   it { should have_many(:subscribers) }

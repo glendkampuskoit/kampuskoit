@@ -73,20 +73,19 @@ describe Prodi do
 		end
 	end
 
-	describe "nama prodi must be unique" do
+	describe "nama prodi, jenjang, University must be unique with case insensitive" do
 		before do
-			@prodi_dup = @prodi.dup
-			@prodi_dup.email = "sisteminformasi@its.ac.id"
-			@prodi_dup.save
-		end
-		it { should_not be_valid }
-	end
-
-	describe "nama prodi must be unique with case insensitive" do
-		before do
-			@prodi_dup = @prodi.dup
-			@prodi_dup.nama_prodi = "sistem informasi"
-			@prodi_dup.email = "sisteminformasi@its.ac.id"
+			@prodi_dup = Prodi.new(
+				nama_prodi: 'Sistem Informasi', 
+				fakultas: 'Fakultas Teknologi Informasi', 
+				tahun_berdiri: '2000',
+				alamat: 'ITS Sukolilo Surabaya', 
+				telepon: '088989898', 
+				email: 'si2@its.ac.id', 
+				website: 'si.its.ac.id', 
+				univ: @prodi.univ, 
+				kota: FactoryGirl.create(:kota),
+				jenjang_prodi: @prodi.jenjang_prodi)
 			@prodi_dup.save
 		end
 		it { should_not be_valid }
