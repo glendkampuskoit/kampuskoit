@@ -9,7 +9,7 @@ describe Univfasilitas do
 	it { should respond_to(:univ) }
 
     it { should belong_to(:univ) }
-    it { should have_many(:univ_fasilitas_galleries) }
+    it { should have_many(:univ_fasilitas_galleries).dependent(:delete_all) }
 
     describe "should be valid" do
     	it { should be_valid }

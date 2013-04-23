@@ -3,13 +3,13 @@ class Univ < ActiveRecord::Base
 
 	belongs_to :kota, :foreign_key => :kota_id
 	belongs_to :jenis_pt, :foreign_key => :jenis_pt_id
-	has_many :prodis
-	has_many :univbeasiswas
-	has_many :univbiayas
-	has_many :univfasilitases
-	has_many :univgalleries
-	has_many :univkerjasamas
-	has_many :univprestasis
+	has_many :prodis, :dependent => :delete_all
+	has_many :univbeasiswas, :dependent => :delete_all
+	has_many :univbiayas, :dependent => :delete_all
+	has_many :univfasilitases, :dependent => :delete_all
+	has_many :univgalleries, :dependent => :delete_all
+	has_many :univkerjasamas, :dependent => :delete_all
+	has_many :univprestasis, :dependent => :delete_all
 
 	validates :nama_pt, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }
 	validates :tahun_berdiri, presence: true, length: { maximum: 4 }

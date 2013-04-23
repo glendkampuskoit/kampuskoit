@@ -6,7 +6,7 @@ describe Kota do
   subject{ @kota }
 
   it { should respond_to(:kota) }  
-  it { should have_many(:univs) }
+  it { should have_many(:univs).dependent(:delete_all) }
   it { should belong_to(:provinsi) }
 
   describe "should valid" do

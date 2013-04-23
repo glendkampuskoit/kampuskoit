@@ -1,12 +1,12 @@
 class Subscriber < ActiveRecord::Base
 	
-	has_many :subscriber_beasiswas
-	has_many :subscriber_organisasis
-	has_many :subscriber_pendidikans
-	has_many :subscriber_pengalaman_kerjas
-	has_many :subscriber_pelatihans
-	has_many :subscriber_prestasis
-	has_many :subscriber_rekomendasis
+	has_many :subscriber_beasiswas, :dependent => :delete_all
+	has_many :subscriber_organisasis, :dependent => :delete_all
+	has_many :subscriber_pendidikans, :dependent => :delete_all
+	has_many :subscriber_pengalaman_kerjas, :dependent => :delete_all
+	has_many :subscriber_pelatihans, :dependent => :delete_all
+	has_many :subscriber_prestasis, :dependent => :delete_all
+	has_many :subscriber_rekomendasis, :dependent => :delete_all
 
 	belongs_to :provinsis, :foreign_key => :provinsi_id
 	belongs_to :kotas, :foreign_key => :kota_id

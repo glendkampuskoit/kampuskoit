@@ -6,8 +6,8 @@ describe Provinsi do
   subject{ @prov }
   it { should respond_to(:provinsi) }
 
-  it { should have_many(:subscribers) }
-  it { should have_many(:kotas) }
+  it { should have_many(:subscribers).dependent(:delete_all) }
+  it { should have_many(:kotas).dependent(:delete_all) }
 
   describe "should be valid" do
   	it { should be_valid }

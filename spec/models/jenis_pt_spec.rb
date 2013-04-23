@@ -8,7 +8,7 @@ describe JenisPt do
 
   it { should respond_to(:jenis) }
   
-  it { should have_many(:univs) }
+  it { should have_many(:univs).dependent(:delete_all) }
 
   describe "jenis PT must be unique" do
     before do

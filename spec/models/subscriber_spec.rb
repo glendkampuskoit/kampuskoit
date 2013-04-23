@@ -21,13 +21,13 @@ describe Subscriber do
   it { should be_valid }
 
   # test for assosiation
-  it { should have_many(:subscriber_beasiswas) }
-  it { should have_many(:subscriber_organisasis) }
-  it { should have_many(:subscriber_pendidikans) }
-  it { should have_many(:subscriber_pengalaman_kerjas) }
-  it { should have_many(:subscriber_pelatihans) }
-  it { should have_many(:subscriber_prestasis) }
-  it { should have_many(:subscriber_rekomendasis) }
+  it { should have_many(:subscriber_beasiswas).dependent(:delete_all) }
+  it { should have_many(:subscriber_organisasis).dependent(:delete_all) }
+  it { should have_many(:subscriber_pendidikans).dependent(:delete_all) }
+  it { should have_many(:subscriber_pengalaman_kerjas).dependent(:delete_all) }
+  it { should have_many(:subscriber_pelatihans).dependent(:delete_all) }
+  it { should have_many(:subscriber_prestasis).dependent(:delete_all) }
+  it { should have_many(:subscriber_rekomendasis).dependent(:delete_all) }
   it { should belong_to(:provinsis) }
   it { should belong_to(:kotas) }
 

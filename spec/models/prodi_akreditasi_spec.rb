@@ -4,7 +4,7 @@ describe ProdiAkreditasi do
   before { @prodiakreditasi = ProdiAkreditasi.new(no_sk: "SK 0190. 09", tahun_sk: 2013, peringkat: "Harapan 1", 
     tanggal_kadaluarsa: "09-09-2013", prodi: FactoryGirl.create(:prodi) ) }
 
-subject{ @prodiakreditasi }
+  subject{ @prodiakreditasi }
   it { should respond_to(:no_sk) }
   it { should respond_to(:tahun_sk) }
   it { should respond_to(:peringkat) }
