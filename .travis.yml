@@ -9,7 +9,6 @@ script:
   - bundle exec rake ts:index
   - bundle exec rake ts:start
   - bundle exec rake
-  - bundle exec rspec spec/
 before_script:
   - cp config/database.travis.yml config/database.yml
   - mysql -e 'create database kampuscoid_db_test'
