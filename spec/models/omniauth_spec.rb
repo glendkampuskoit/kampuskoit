@@ -12,7 +12,7 @@ describe OmniAuth do
       specify { omniauth[:uid].should == '1055293652' }
       specify { omniauth[:credentials][:token].should == 'adaaja' }
       specify { omniauth[:credentials][:expires_at].should == 3600 }
-      specify { omniauth[:info][:email].should == 'the_entung@yahoo.com' }
+      specify { omniauth[:info][:email].should == 'entung@yahoo.com' }
     end
   end
 
