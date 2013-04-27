@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
     t.text     "kompetensi"
     t.text     "pokok_bahasan"
     t.text     "referensi"
+    t.text     "mata_kuliah"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "prodi_id"
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
     t.integer  "jumlah_mahasiswa"
     t.text     "bidang_studi"
     t.text     "kompetensi"
+    t.text     "logo_path"
     t.integer  "total_dosen_prof"
     t.integer  "total_dosen_doktor"
     t.integer  "total_dosen_master"
@@ -358,13 +360,13 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
     t.text     "seleksi_masuk"
     t.text     "kapasitas_akademik"
     t.text     "deskripsi"
+    t.text     "logo_path"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "kota_id"
     t.integer  "jenis_pt_id"
     t.string   "created_by"
     t.string   "updated_by"
-    t.string   "profile_naration"
   end
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"

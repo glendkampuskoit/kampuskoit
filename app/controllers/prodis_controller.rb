@@ -1,6 +1,9 @@
 class ProdisController < ApplicationController
 
   def index
+    @provinsis = Provinsi.all
+    @jenjang_prodis = JenjangProdi.all
+    
     if params[:keyword].nil? || params[:keyword] == ''
       @prodis = Prodi.all
     else

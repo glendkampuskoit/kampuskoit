@@ -1,65 +1,389 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Nama pt:</b>
-  <%= @univ.nama_pt %>
-</p>
-
-<p>
-  <b>Tahun berdiri:</b>
-  <%= @univ.tahun_berdiri %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @univ.email %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @univ.website %>
-</p>
-
-<p>
-  <b>Alamat:</b>
-  <%= @univ.alamat %>
-</p>
-
-<p>
-  <b>Telepon:</b>
-  <%= @univ.telepon %>
-</p>
-
-<p>
-  <b>Status negeri:</b>
-  <%= @univ.status_negeri %>
-</p>
-
-<p>
-  <b>Profile:</b>
-  <%= @univ.profile %>
-</p>
-
-<p>
-  <b>Visi:</b>
-  <%= @univ.visi %>
-</p>
-
-<p>
-  <b>Misi:</b>
-  <%= @univ.misi %>
-</p>
-
-<p>
-  <b>Seleksi masuk:</b>
-  <%= @univ.seleksi_masuk %>
-</p>
-
-<p>
-  <b>Kapasitas akademik:</b>
-  <%= @univ.kapasitas_akademik %>
-</p>
-
-
-<%= link_to 'Edit', edit_univ_path(@univ) %> |
-<%= link_to 'Back', univs_path %>
+<div class="container-fluid page-header">
+   <div class="row-fluid">
+      <div class="span7 offset1">
+         <h2><%= @univ.nama_pt %></h2>
+         <h4><%= @univ.kota.kota %>, <%= @univ.kota.provinsi.provinsi %></h4>
+      </div>
+      <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@univ.logo_path, :alt => "Univ Logo") %></a> </div>
+   </div>
+</div>
+<div class="container">
+   <div class="row">
+      <div class="span8">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+            <li><a href="#gallery" data-toggle="tab">Gallery</a></li>
+            <li><a href="#alumni" data-toggle="tab">Prospektus Alumni</a></li>
+            <li><a href="#lain" data-toggle="tab">Lain-lain</a></li>
+         </ul>
+         <div class="tab-content">
+            <div class="tab-pane active" id="profile">
+               <div class="accordion">
+                  <div class="accordion-group">
+                     <div class="accordion-heading">
+                        <span class="accordion-toggle"><strong>Data Kampus</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#keterangan">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="keterangan" class="accordion-body collapse in">
+                        <div class="accordion-inner">
+                           <table class="table">
+                              <thead>
+                                 <tr>
+                                    <td>Status</td>
+                                    <td><%= @univ.status_negeri %></td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td>Tahun Berdiri</td>
+                                    <td><%= @univ.tahun_berdiri %></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Alamat</td>
+                                    <td><%= @univ.alamat %>, <%= @univ.kota.provinsi.provinsi %></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Telepon</td>
+                                    <td><%= @univ.telepon %></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Email</td>
+                                    <td><%= @univ.email %></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Website</td>
+                                    <td><%= @univ.website %></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Deskripsi</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#deskripsi">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="deskripsi" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                           <p><%= @univ.deskripsi %></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Visi & Misi</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#visimisi">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="visimisi" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                           <p><%= @univ.visi %><%= @univ.misi %></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Staff Pendukung</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#staff">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="staff" class="accordion-body collapse">
+                        <div class="accordion-inner"> 
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Kapasitas Akademik</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#kapasitas-akademik">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="kapasitas-akademik" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                           <p><%= @univ.visi %><%= @univ.kapasitas_akademik %></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Seleksi Masuk</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#seleksi-masuk">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="seleksi-masuk" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                           <p><%= @univ.visi %><%= @univ.seleksi_masuk %></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab-pane" id="gallery">
+               <div id="myCarousel" class="carousel slide">
+                  <ol class="carousel-indicators">
+                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                     <li data-target="#myCarousel" data-slide-to="1"></li>
+                     <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <% @univ.univgalleries.each do |gallery| %>
+                     <div class="item active">
+                        <%= image_tag(gallery.path, :alt => "Image Galleries") %>
+                        <div class="carousel-caption">
+                           <h4><%= gallery.caption %></h4>
+                           <p><%= gallery.description %></p>
+                        </div>
+                     </div>
+                     <% end %>
+                  </div>
+               </div>
+               <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a> 
+               <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a> 
+            </div>
+            <div class="tab-pane" id="alumni">
+               Alumni
+            </div>
+            <div class="tab-pane" id="lain">
+               <div class="accordion">
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Fasilitas</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#fasilitas">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="biaya" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                           <table class="table">
+                              <thead>
+                                <% @univ.univfasilitases.each do |fasilitas| %>
+                                 <tr>
+                                    <td><%= fasilitas.fasilitas %></td>
+                                 </tr>
+                                 <% end %>
+                              </thead>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Beasiswa</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#kerjasama">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="kerjasama" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                           <table class="table">
+                              <thead>
+                                 <tr>
+                                    <td>Periode</td>
+                                    <td>Instansi</td>
+                                    <td>Nama Beasiswa</td>
+                                    <td>Nilai</td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                <% @univ.univbeasiswas.each do |beasiswa| %>
+                                 <tr>
+                                    <td><%= beasiswa.periode %></td>
+                                    <td><%= beasiswa.instansi %></td>
+                                    <td><%= beasiswa.nama_beasiswa %></td>
+                                    <td><%= beasiswa.nilai %></td>
+                                 </tr>
+                                 <% end %>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Biaya</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#biaya">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="biaya" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                           <table class="table">
+                              <thead>
+                                 <tr>
+                                    <td>Nilai</td>
+                                    <td>Biaya</td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                <% @univ.univbiayas.each do |biaya| %>
+                                 <tr>
+                                    <td><%= biaya.nilai %></td>
+                                    <td><%= biaya.biaya %></td>
+                                 </tr>
+                                 <% end %>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading">
+                        <span class="accordion-toggle"><strong>Prestasi</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#prestasi">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="prestasi" class="accordion-body collapse in">
+                        <div class="accordion-inner">
+                           <table class="table">
+                              <thead>
+                                 <tr>
+                                    <td>Tahun</td>
+                                    <td>Prestasi</td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                <% @univ.univprestasis.each do |prestasi| %>
+                                 <tr>
+                                    <td><%= prestasi.tahun %></td>
+                                    <td><%= prestasi.prestasi %></td>
+                                 </tr>
+                                 <% end %>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group">
+                     <div class="accordion-heading"> 
+                        <span class="accordion-toggle"><strong>Kerjasama</strong>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#kerjasama">Lihat Detail</a>
+                        </span> 
+                     </div>
+                     <div id="kerjasama" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                           <table class="table">
+                              <thead>
+                                <% @univ.univkerjasamas.each do |kerjasama| %>
+                                 <tr>
+                                    <td><%= kerjasama.kerjasama %></td>
+                                 </tr>
+                                 <% end %>
+                              </thead>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- sidebar -->
+      <div class="span4">
+         <div class="span3 bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav" >
+               <li>
+                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><i class="icon-chevron-right"></i>Fakultas Teknologi Industri</a>
+                  <div id="collapseOne" class="accordion-body collapse">
+                     <div class="accordion-inner">
+                        <table class="table">
+                           <thead>
+                              <tr>
+                                 <td><a href="#">Teknik Industri</a></td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td><a href="#">Teknik Elektor</a></td>
+                              </tr>
+                              <tr>
+                                 <td><a href="#">Teknik Mesin</a></td>
+                              </tr>
+                              <tr>
+                                 <td><a href="#">Teknik Fisika</a></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><i class="icon-chevron-right"></i>Fakultas Teknologi Industri</a>
+                  <div id="collapseTwo" class="accordion-body collapse">
+                     <div class="accordion-inner">
+                        <table class="table">
+                           <thead>
+                              <tr>
+                                 <td><a href="#">Teknik Industri</a></td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td><a href="#">Teknik Elektor</a></td>
+                              </tr>
+                              <tr>
+                                 <td><a href="#">Teknik Mesin</a></td>
+                              </tr>
+                              <tr>
+                                 <td><a href="#">Teknik Fisika</a></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTiga"><i class="icon-chevron-right"></i>Fakultas Teknologi Industri</a>
+                  <div id="collapseTiga" class="accordion-body collapse">
+                     <div class="accordion-inner">
+                        <table class="table">
+                           <thead>
+                              <tr>
+                                 <td><a href="#">Teknik Industri</a></td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td><a href="#">Teknik Elektor</a></td>
+                              </tr>
+                              <tr>
+                                 <td><a href="#">Teknik Mesin</a></td>
+                              </tr>
+                              <tr>
+                                 <td><a href="#">Teknik Fisika</a></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapseFour"><i class="icon-chevron-right"></i>Fakultas Teknologi Industri</a>
+                  <div id="collapseFour" class="accordion-body collapse">
+                     <div class="accordion-inner">
+                        <table class="table">
+                           <thead>
+                              <tr>
+                                 <td><a href="#">Teknik Industri</a></td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td><a href="#">Teknik Elektor</a></td>
+                              </tr>
+                              <tr>
+                                 <td><a href="#">Teknik Mesin</a></td>
+                              </tr>
+                              <tr>
+                                 <td><a href="#">Teknik Fisika</a></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>
+<hr>

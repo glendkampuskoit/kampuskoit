@@ -1,10 +1,8 @@
 class HomeController < ApplicationController
+  
   def index
-  	@univs = Univ.all
-    @prodis = Prodi.all
-  	respond_to do |format|
-      format.html # index.html.erb
-    end
+    @provinsis = Provinsi.all
+
   end
   
   def login

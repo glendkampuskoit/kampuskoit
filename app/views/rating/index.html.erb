@@ -1,20 +1,11 @@
-<% provide(:title, 'Pencarian Perguruan Tinggi') %>
-<header class="jumbotron subhead" id="overview">
+<% provide(:title, 'Rating Perguruan Tinggi') %>
+<div class="container-fluid page-header">
    <div class="container">
-      <%= form_tag(univs_path, :method => "get", :class => 'form-inline') do %>
-         <fieldset>
-            <legend>Pencarian Perguruan Tinggi</legend>
-            <br />
-            <%= text_field_tag(:keyword_univ, "", :placeholder => 'Type something') %>
-            <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi) %>
-            <%= select_tag "jenis_pt_id", options_from_collection_for_select(@jenis_pts, :id, :jenis) %>
-            <button id="search_univ" type="submit" class="btn">Cari</button>
-         </fieldset>
-      <% end %>
+      <h1>Rating</h1>
+      <p class="lead">Rating dan Peringkat Perguruan Tinggi seluruh Indonesia</p>
    </div>
-</header>
+</div>
 <div class="container">
-   <div style="padding: 20px; padding-bottom: 0px;"></div>
    <div class="row">
       <div class="span12">
          <ul class="nav nav-tabs">
@@ -35,26 +26,24 @@
                   <% end %>
                </ul>
             </li>
-            <li class="pull-right">
-               <button type="submit" class="btn" onClick="#myModal">Filter & Shorting</button>  
-            </li>
          </ul>
          <div class="tab-content">
             <div class="tab-pane active" id="global">
                <div class="span10">
-                  <% @univs.each do |univ| %>
-                  <div class="row">                     
-                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(univ.logo_path, :alt => "PT Logo") %></a></div>
+                  <% @univratings.each do |univrating| %>
+                  <div class="row">
+                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(univrating.univ.logo_path, :alt => "Prodi Univ") %></a></div>
                      <div class="span6">
-                        <p><strong><%= univ.nama_ot %></strong></p>
-                        <%= univ.kota.kota %>, <%= univ.kota.provinsi.provinsi %>
-                        <p> <i class="icon-home glyphw"></i> <%= univ.telepon %> <br>
-                           <i class="icon-envelope glyphw"></i> <%= univ.email %>
+                        <p><strong><%= univrating.univ.nama_pt %></strong></p>
+                        <%= univrating.univ.kota.kota %>, <%= univrating.univ.kota.provinsi.provinsi %>
+                        <p>
+                           <i class="icon-home"></i> <%= univrating.univ.telepon %> <br>
+                           <i class="icon-envelope"></i> <%= univrating.univ.email %>
                         </p>
                      </div>
                      <div class="span1">
                         <a href="#" class="thumbnail"><img src="img/logo_its.png" alt=""></a>
-                        <h5 align="center"><i class="icon-bookmark glyphw"></i>1</h5>
+                        <h5 align="center"><i class="icon-bookmark"></i>1</h5>
                      </div>
                   </div>
                   <% end %>

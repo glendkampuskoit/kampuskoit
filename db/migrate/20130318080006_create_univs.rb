@@ -13,7 +13,9 @@ class CreateUnivs < ActiveRecord::Migration
       t.text :misi
       t.text :seleksi_masuk
       t.text :kapasitas_akademik
+      t.text :staff_pendukung
       t.text :deskripsi
+      t.text :logo_path
 
       t.timestamps
     end

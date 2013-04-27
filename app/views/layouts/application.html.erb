@@ -1,30 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Kampus.co.id | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+   <head>
+      <title>Kampus.co.id | <%= yield(:title) %></title>
+      <%= stylesheet_link_tag    "application", :media => "all" %>
+      <%= csrf_meta_tags %>
+      <style type="text/css">
+         <!--
+            .style2 {color: #999999}
+            -->
+      </style>
+   </head>
+   <body data-spy="scroll">
+      <!-- Navbar -->
+      <div class="navbar navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container">
+               <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="brand" href="#">Kampus</a>
+               <div class="nav-collapse collapse">
+                  <ul class="nav pull-right">
+                     <li><a href="#"><i class="icon-pencil glyphw"></i> Blog</a></li>
+                     <li><%= link_to rating_path do %><i class="icon-star glyphw"></i> Rating<% end %></li>
+                     <% if signed_in? %>
+                     <li><%= link_to logout_path do %><i class="icon-user glyphw"></i> Logout<% end %></li>
+                     <% else %>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user glyphw"></i> Login <b class="caret"></b></a>
+                        <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                           <form>
+                              <div class="control-group">
+                                 <div class="controls">
+                                    <input type="text" id="inputEmail" placeholder="Email">
+                                    <input type="password" id="inputPassword" placeholder="Password">
+                                    <label class="checkbox"><input type="checkbox"> Remember me </label>
+                                    <button type="submit" class="btn">Sign in</button>
+                                 </div>
+                              </div>
+                           </form>
+                           <div class="divider"></div>
+                           <div class="nav-header">Login dengan Facebook</div>
+                           <div><a href="#"><%= image_tag("fblogin.png", :alt => "FB Login") %></a></div>
+                           <div class="divider"></div>
+                        </div>
+                     </li>
+                     <% end %>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end of Navbar -->
+      
+      <!-- Content here -->
+      <%= yield %>
 
-<%= link_to "Home", home_path %>
-<%= link_to "Sign Up", signup_path %>
-
-<% if signed_in? %>
-	<%= link_to "Logout", logout_path %>
-<% else %>
-	<%= link_to "Login", login_path %>
-	<%= link_to "Login With Facebook", 'auth/facebook' %>
-<% end %>
-
-<% flash.each do |key, value| %>
-	<div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-
-<%= yield %>
-
-<%= debug(params) if Rails.env.development? %>
-
-</body>
+      <!-- footer -->
+      <div class="container">
+         <div class="row">
+            <div class="span4">
+               <h3>Informasi</h3>
+               <p>Kampus.co.id adalah Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+            </div>
+            <div class="span4 offset1">
+               <h3>Support</h3>
+               <ul class="nav nav-list">
+                  <li><a href="#"><i class="icon-list glyphw"></i> F.A.Q</a></li>
+                  <li><a href="#"><i class="icon-book glyphw"></i> Term & Condition</a></li>
+                  <li><a href="#"><i class="icon-hand-right glyphw"></i> KampusNews.com</a></li>
+               </ul>
+               <h3>Newsletter</h3>
+               <p>Berlangganan melalui email</p>
+               <form class="form-inline">
+                  <div class="input-append">
+                     <input type="text" class="span2" placeholder="Email">
+                     <button type="submit" class="btn">Submit</button>
+                  </div>
+               </form>
+            </div>
+            <div class="span3">
+               <h3>Kontak</h3>
+               <address>
+                  <strong>Kampus.co.id</strong><br>
+                  Jl. Kutisari Indah 135 Surabaya<br>
+                  Jawa Timur, Indonesia<br>
+               </address>
+               <address>
+                  <i class="icon-home glyphw"></i> 031-3490049<br>
+                  <i class="icon-envelope glyphw"></i> info@kampus.co.id<br>
+               </address>
+            </div>
+         </div>
+      </div>
+      <%= javascript_include_tag "application" %>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+   </body>
 </html>

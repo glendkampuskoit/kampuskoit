@@ -1,18 +1,64 @@
-<% provide(:title, 'Jurusan') %>
+<% provide(:title, 'Pencarian Jurusan') %>
 
-<%= form_tag(prodis_path, :method => "get") do %>
-  <%= text_field_tag(:keyword) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-<table>
-  <tr>
-    <th>Nama prodi</th>
-  </tr>
-
-<% @prodis.each do |prodi| %>
-  <tr>
-    <td><%= prodi.nama_prodi %></td>
-  </tr>
-<% end %>
-</table>
+<header class="jumbotron subhead" id="overview">
+   <div class="container">
+      <%= form_tag(prodis_path, :method => "get", :class => 'form-inline') do %>
+         <fieldset>
+            <legend>Pencarian Jurusan</legend>
+            <br />
+            <%= text_field_tag(:keyword_prodi, "", :placeholder => 'Type something') %>
+            <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi) %>
+            <%= select_tag "jenjang_prodi_id", options_from_collection_for_select(@jenjang_prodis, :id, :jenjang) %>
+            <button id="search_prodi" type="submit" class="btn">Cari</button>
+         </fieldset>
+      <% end %>
+   </div>
+</header>
+<div class="container">
+   <div style="padding: 20px; padding-bottom: 0px;"></div>
+   <div class="row">
+      <div class="span12">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="#global" data-toggle="tab">Hasil Pencarian</a></li>
+            <li class="pull-right">
+               <button type="submit" class="btn" onClick="#myModal">Filter & Shorting</button>  
+            </li>
+         </ul>
+         <div class="tab-content">
+            <div class="tab-pane active" id="global">
+               <div class="span10">
+               	<% @prodis.each do |prodi| %>
+                  <div class="row">
+                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(prodi.logo_path, :alt => "Prodi Logo") %></a></div>
+                     <div class="span6">
+                        <p><strong><%= prodi.nama_prodi %></strong><br>
+                        	<strong><%= prodi.univ.nama_pt %></strong></p>
+                        <%= prodi.kota.kota %>, <%= prodi.kota.provinsi.provinsi %>
+                        <p> <i class="icon-home"></i> <%= prodi.telepon %> <br>
+                           <i class="icon-envelope"></i> <%= prodi.email %> 
+                        </p>
+                     </div>
+                     <div class="span1">
+                        <a href="#" class="thumbnail"><img src="img/logo_its.png" alt=""></a>
+                        <h5 align="center"><i class="icon-bookmark"></i>1</h5>
+                     </div>
+                  </div>
+                  <% end %>
+                  <div class="pagination pagination-centered">
+                     <ul>
+                        <li><a href="#">Prev</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">Next</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<hr>

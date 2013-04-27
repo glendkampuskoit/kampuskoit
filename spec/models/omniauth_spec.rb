@@ -24,7 +24,6 @@ describe OmniAuth do
   end
 
   describe "existing subscriber login with facebook" do
-    #before { @subscriber = subscriber.from_omniauth(omniauth) }
     it "will not save subscriber data" do
       expect { @subscriber2 = Subscriber.from_omniauth(omniauth) }.not_to change(Subscriber, :count)
     end
@@ -32,21 +31,18 @@ describe OmniAuth do
 
   describe "other subscriber login with facebook" do
     let (:omniauth_other) { OmniAuth.config.mock_auth[:facebook_other] }
-    #before { @subscriber = Subscriber.from_omniauth(omniauth) }
     it "will save subscriber data" do
       expect { @subscriber2 = Subscriber.from_omniauth(omniauth_other) }.to change(Subscriber, :count)
     end
   end
 
   describe "other subscriber sign up via web with same email" do
-    #before { @subscriber = Subscriber.from_omniauth(omniauth) }
     it "wont save subscriber data" do
        expect { @subscriber2 = Subscriber.new(name: "Glend Maatita", email: "the_entung@yahoo.com", password: "foobar", password_confirmation: "foobar") }.not_to change(Subscriber, :count)
     end
   end
 
   describe "login with facebook will make from_facebook and value is true" do
-    #before { @subscriber = Subscriber.from_omniauth(omniauth) }
     specify { @subscriber.from_facebook.should == true }
     specify { @subscriber.email_activation.should == true }
   end

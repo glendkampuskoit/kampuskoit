@@ -2,12 +2,11 @@ require 'spec_helper'
 
 describe "Prodi Search" do
 
-  let(:submit) { "Search" }
+  let(:search_prodi) { "search_prodi" }
   before do
     visit home_path
-    fill_in "keyword", with: "Ekonomi"
-    select("Jurusan", :from => "parameters")
-    click_button submit
+    fill_in "keyword_prodi", with: "Ekonomi"
+    click_button search_prodi
   end
 
   describe "prodi index page" do
@@ -18,8 +17,8 @@ describe "Prodi Search" do
 
   describe "go to jurusan profile page" do
     before do
-      fill_in "keyword", with: "Ekonomi"
-      click_button submit
+      fill_in "keyword_prodi", with: "Ekonomi"
+      click_button search_prodi
     end
     it "should do search" do
       page.should have_selector('title', :text => 'Jurusan')

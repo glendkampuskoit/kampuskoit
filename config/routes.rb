@@ -31,6 +31,7 @@ Campus::Application.routes.draw do
 
   match '/confirm', controller: 'subscribers', action: 'confirm'
   match '/search', to: 'search#result'
+  match '/rating', to: 'rating#index'
   
   #match '*path', :controller => "visitors", :action => "new"
 

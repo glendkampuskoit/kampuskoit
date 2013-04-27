@@ -1,11 +1,14 @@
 class UnivsController < ApplicationController
 
   def index
-      if params[:keyword].nil? || params[:keyword] == ''
-        @univs = Univ.all
-      else
-        @univs = Univ.search(params[:keyword])  
-      end
+    @provinsis = Provinsi.all
+    @jenis_pts = JenisPt.all
+    
+    if params[:keyword_univ].nil? || params[:keyword_univ] == ''
+      @univs = Univ.all
+    else
+      @univs = Univ.search(params[:keyword_univ])  
+    end
   end
 
   def new
