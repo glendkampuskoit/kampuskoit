@@ -54,5 +54,12 @@ describe "Homes" do
       end
       it { should have_selector('title', text: "Rating Perguruan Tinggi") } 
     end
+
+    describe "Visitor go to Signup page" do
+      before do 
+        click_link "Signup"
+      end
+      it { should have_selector('title', text: "Signup") } 
+    end
   end
 end

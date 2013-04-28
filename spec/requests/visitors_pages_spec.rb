@@ -1,15 +1,9 @@
 require 'spec_helper'
 
 describe "Visitor" do
-  describe "landing page" do
-    it "should have title Welcome" do
-      visit "/visitors/new"
-      page.should have_selector('title', :text => 'Welcome')
-    end
-  end
 
   describe "Visitor subscriber" do
-    before { visit visit_path }
+    before { visit root_path }
     let(:submit) { "Subscribe" }
 
     describe "visitor subscriber with invalid information" do

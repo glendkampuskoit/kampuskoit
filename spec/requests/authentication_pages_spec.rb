@@ -21,8 +21,8 @@ describe "Authentication" do
   	describe "with valid information" do
   		let(:subscriber) { FactoryGirl.create(:subscriber) }
   		before do
-  			fill_in "Email", with: subscriber.email
-  			fill_in "Password", with: subscriber.password
+  			fill_in "session_email", with: subscriber.email
+  			fill_in "session_password", with: subscriber.password
   			click_button "Login"
   		end
 
@@ -42,8 +42,8 @@ describe "Authentication" do
 
     before do
       visit login_path
-      fill_in "Email", with: @subscriber.email
-      fill_in "Password", with: 'password'
+      fill_in "session_email", with: @subscriber.email
+      fill_in "session_password", with: 'password'
       click_button "Login"
     end
     it { should have_selector('title', text: "Login") } 
@@ -56,8 +56,8 @@ describe "Authentication" do
 
     before do
       visit login_path
-      fill_in "Email", with: @subscriber.email
-      fill_in "Password", with: 'defaultpasswordmustbechanged12345465476573453534'
+      fill_in "session_email", with: @subscriber.email
+      fill_in "session_password", with: 'defaultpasswordmustbechanged12345465476573453534'
       click_button "Login"
     end
     it { should_not have_selector('title', text: "Login") } 

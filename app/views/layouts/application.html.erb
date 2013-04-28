@@ -19,17 +19,19 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
                </button>
-               <a class="brand" href="#">Kampus</a>
+               <%= link_to "Kampus", root_path, :class => "brand" %>
                <div class="nav-collapse collapse">
                   <ul class="nav pull-right">
                      <li><a href="#"><i class="icon-pencil glyphw"></i> Blog</a></li>
                      <li><%= link_to rating_path do %><i class="icon-star glyphw"></i> Rating<% end %></li>
+                     <li><%= link_to signup_path do %><i class="icon-user glyphw"></i> Signup<% end %></li>
                      <% if signed_in? %>
-                     <li><%= link_to logout_path do %><i class="icon-user glyphw"></i> Logout<% end %></li>
+                     <li><%= link_to logout_path do %><i class="icon-share-alt glyphw"></i> Logout<% end %></li>
                      <% else %>
                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user glyphw"></i> Login <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt glyphw"></i> Login <b class="caret"></b></a>
                         <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                            <form>
                               <div class="control-group">
@@ -43,7 +45,7 @@
                            </form>
                            <div class="divider"></div>
                            <div class="nav-header">Login dengan Facebook</div>
-                           <div><a href="#"><%= image_tag("fblogin.png", :alt => "FB Login") %></a></div>
+                           <div><%= link_to image_tag("fblogin.png", :alt => "FB Login"), 'auth/facebook' %></div>
                            <div class="divider"></div>
                         </div>
                      </li>

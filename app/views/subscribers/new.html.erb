@@ -1,16 +1,68 @@
-<% provide(:title, 'Sign Up') %>
-<div>
-	<%= form_for(@subscriber) do |f| %>
-	<%= render 'shared/signup_errors' %>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-		<%= f.label :password_confirmation, "Confirmation" %>
-		<%= f.password_field :password_confirmation %>
-
-		<%= f.submit "Create New Account" %>
-	<% end %>
+<% provide(:title, 'Signup') %>
+<div class="container">
+   <div style="padding: 40px; padding-bottom: 0px;"></div>
+   <div class="span8 offset2">
+      <%= form_for @subscriber, :html => {:class => "form-horizontal"} do |f| %>
+      <fieldset>
+         <div id="legend">
+            <legend class="">Register</legend>
+         </div>
+         <% if @subscriber.errors.any? %>
+         <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div>
+            	<% @subscriber.errors.full_messages.each do |msg| %>
+            	<%= msg %><br>
+            	<% end %>
+            </div>
+         </div>
+         <% end %>
+         <div class="control-group">
+            <!-- Username -->
+            <label class="control-label" for="username">Nama</label>
+            <div class="controls">
+               <%= f.text_field :name, :class => "input-xlarge", :placeholder => 'Nama Lengkap' %>
+               <p class="help-block">Nama harus berupa karakter alphanumeric (a-z)</p>
+            </div>
+         </div>
+         <div class="control-group">
+            <!-- E-mail -->
+            <label class="control-label" for="email">E-mail</label>
+            <div class="controls">
+               <%= f.text_field :email, :class => "input-xlarge", :placeholder => 'Email' %>
+               <p class="help-block">Masukkan alamat email yang valid</p>
+            </div>
+         </div>
+         <div class="control-group">
+            <!-- Password-->
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+               <%= f.password_field :password, :class => "input-xlarge", :placeholder => 'Password' %>
+               <p class="help-block">Password minimal 4 karakter</p>
+            </div>
+         </div>
+         <div class="control-group">
+            <!-- Password -->
+            <label class="control-label" for="password_confirm">Konfirmasi Password</label>
+            <div class="controls">
+               <%= f.password_field :password_confirmation, :class => "input-xlarge", :placeholder => 'Konfirmasi Password' %>
+               <p class="help-block">Konfirmasi password</p>
+            </div>
+         </div>
+         <div class="control-group">
+            <!-- Button -->
+            <div class="controls">
+               <button class="btn btn-success">Register</button>
+            </div>
+         </div>
+         <div class="control-group">
+            <label class="control-label">Atau Signup dengan Facebook</label>
+            <div class="controls">
+               <%= link_to image_tag("fblogin.png", :alt => "FB Login", :height => '100px', :width => '200px'), 'auth/facebook' %>
+            </div>
+         </div>
+      </fieldset>
+      <% end %>
+   </div>
 </div>
+<hr>
