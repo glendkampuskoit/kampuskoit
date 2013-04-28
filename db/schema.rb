@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403090137) do
+ActiveRecord::Schema.define(:version => 20130428130231) do
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
@@ -91,6 +91,13 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
   end
 
   add_index "prodi_prestasis", ["prodi_id"], :name => "index_prodi_prestasis_on_prodi_id"
+
+  create_table "prodi_rating", :force => true do |t|
+    t.integer  "prodi_id"
+    t.integer  "score"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "prodi_silabuses", :force => true do |t|
     t.text     "tujuan"
@@ -260,6 +267,16 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true
   add_index "subscribers", ["remember_token"], :name => "index_users_on_remember_token"
 
+  create_table "univ_akreditasis", :force => true do |t|
+    t.string   "no_sk"
+    t.integer  "tahun_sk"
+    t.string   "peringkat"
+    t.date     "tanggal_kadaluarsa"
+    t.integer  "univ_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "univ_fasilitas_galleries", :force => true do |t|
     t.string   "caption"
     t.text     "description"
@@ -272,6 +289,18 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
   end
 
   add_index "univ_fasilitas_galleries", ["univfasilitas_id"], :name => "index_univ_fasilitas_galleries_on_univfasilitas_id"
+
+  create_table "univ_prodi", :force => true do |t|
+    t.integer "prodi_id", :null => false
+    t.integer "score"
+  end
+
+  create_table "univ_rating", :force => true do |t|
+    t.integer  "univ_id"
+    t.integer  "score"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "univbeasiswas", :force => true do |t|
     t.string   "nama_beasiswa"

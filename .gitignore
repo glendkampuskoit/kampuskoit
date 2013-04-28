@@ -30,14 +30,5 @@ Guardfile
 #.rspec
 .rspec
 
-# thinking sphinx archives --> just run RAILS_ENV=(env) ts:index
-/config/development.sphinx.conf
-/config/test.sphinx.conf
-
-/db/sphinx/**/*.*
-
-
-=======
 # ignore gemfile
 Gemfile
->>>>>>> 352486c0e62268b113c61123d35ec9e3c65bfd8b
