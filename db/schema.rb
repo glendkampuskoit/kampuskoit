@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403090137) do
+ActiveRecord::Schema.define(:version => 20130429085958) do
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
@@ -346,6 +346,14 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
 
   add_index "univprestasis", ["univ_id"], :name => "index_univprestasis_on_univ_id"
 
+  create_table "univratings", :force => true do |t|
+    t.integer  "univ_id"
+    t.integer  "nilai"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "univs", :force => true do |t|
     t.string   "nama_pt"
     t.integer  "tahun_berdiri"
@@ -359,6 +367,7 @@ ActiveRecord::Schema.define(:version => 20130403090137) do
     t.text     "misi"
     t.text     "seleksi_masuk"
     t.text     "kapasitas_akademik"
+    t.text     "staff_pendukung",    :null => false
     t.text     "deskripsi"
     t.text     "logo_path"
     t.datetime "created_at",         :null => false
