@@ -14,6 +14,7 @@ class CreateProdis < ActiveRecord::Migration
       t.integer :jumlah_mahasiswa
       t.text :bidang_studi
       t.text :kompetensi
+      t.text :seleksi_masuk
       t.text :logo_path
 
       # staff pengajar

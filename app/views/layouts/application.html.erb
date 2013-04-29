@@ -33,16 +33,16 @@
                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt glyphw"></i> Login <b class="caret"></b></a>
                         <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-                           <form>
+                           <%= form_for :session, :url => sessions_path do |f| %>
                               <div class="control-group">
                                  <div class="controls">
-                                    <input type="text" id="inputEmail" placeholder="Email">
-                                    <input type="password" id="inputPassword" placeholder="Password">
+                                    <%= f.text_field :email, :placeholder => 'Email' %>
+                                    <%= f.password_field :password, :placeholder => 'Password' %>
                                     <label class="checkbox"><input type="checkbox"> Remember me </label>
-                                    <button type="submit" class="btn">Sign in</button>
+                                    <button type="submit" class="btn">Login</button>
                                  </div>
                               </div>
-                           </form>
+                           <% end %>
                            <div class="divider"></div>
                            <div class="nav-header">Login dengan Facebook</div>
                            <div><%= link_to image_tag("fblogin.png", :alt => "FB Login"), 'auth/facebook' %></div>
@@ -76,12 +76,12 @@
                </ul>
                <h3>Newsletter</h3>
                <p>Berlangganan melalui email</p>
-               <form class="form-inline">
+               <%= form_for Visitor.new, :class => "form-inline" do |f| %>
                   <div class="input-append">
-                     <input type="text" class="span2" placeholder="Email">
+                     <%= f.text_field :email, :placeholder => "Email", :class => "span2" %>
                      <button type="submit" class="btn">Submit</button>
                   </div>
-               </form>
+               <% end %>
             </div>
             <div class="span3">
                <h3>Kontak</h3>

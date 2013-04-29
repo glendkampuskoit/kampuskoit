@@ -9,7 +9,7 @@ Campus::Application.routes.draw do
   resources :univs
   resources :subscribers
   resources :sessions, only: [:new, :create, :destroy]
-  resources :visitors, only: [:new, :create]
+  resources :visitors, only: [:create]
   resources :kotas
   resources :provinsis
 
