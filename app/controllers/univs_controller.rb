@@ -4,11 +4,13 @@ class UnivsController < ApplicationController
     @provinsis = Provinsi.all
     @jenis_pts = JenisPt.all
     
-    if params[:keyword_univ].nil? || params[:keyword_univ] == ''
-      @univs = Univ.all
+
+    if params[:page]
+      @univs = Univ.filter_by_params(params).paginate(:page => params[:page]) 
     else
-      @univs = Univ.search(params[:keyword_univ])  
+      @univs = Univ.filter_by_params(params).paginate(:page => '1') 
     end
+    
   end
 
   def new

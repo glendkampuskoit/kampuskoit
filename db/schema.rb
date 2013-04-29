@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20130429085958) do
     t.integer  "jumlah_mahasiswa"
     t.text     "bidang_studi"
     t.text     "kompetensi"
+    t.text     "seleksi_masuk"
     t.text     "logo_path"
     t.integer  "total_dosen_prof"
     t.integer  "total_dosen_doktor"
@@ -367,7 +368,7 @@ ActiveRecord::Schema.define(:version => 20130429085958) do
     t.text     "misi"
     t.text     "seleksi_masuk"
     t.text     "kapasitas_akademik"
-    t.text     "staff_pendukung",    :null => false
+    t.text     "staff_pendukung"
     t.text     "deskripsi"
     t.text     "logo_path"
     t.datetime "created_at",         :null => false

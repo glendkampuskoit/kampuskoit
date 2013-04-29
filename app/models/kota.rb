@@ -4,4 +4,6 @@ class Kota < ActiveRecord::Base
 
 	validates :kota, presence: true, uniqueness: { case_sensitive: false }
 	validates :provinsi, presence: true
+
+	scope :provinsi_kota_tersebut, joins(:provinsi).where("provinsi.provinsi_id = ?", :provinsi_id)
 end

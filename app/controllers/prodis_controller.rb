@@ -3,11 +3,11 @@ class ProdisController < ApplicationController
   def index
     @provinsis = Provinsi.all
     @jenjang_prodis = JenjangProdi.all
-    
-    if params[:keyword].nil? || params[:keyword] == ''
-      @prodis = Prodi.all
+
+    if params[:page]
+      @prodis = Prodi.filter_by_params(params).paginate(:page => params[:page]) 
     else
-      @prodis = Prodi.search(params[:keyword])
+      @prodis = Prodi.filter_by_params(params).paginate(:page => '1') 
     end
   end
 

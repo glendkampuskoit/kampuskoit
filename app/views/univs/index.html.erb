@@ -6,8 +6,8 @@
             <legend>Pencarian Perguruan Tinggi</legend>
             <br />
             <%= text_field_tag(:keyword_univ, "", :placeholder => 'Type something') %>
-            <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi) %>
-            <%= select_tag "jenis_pt_id", options_from_collection_for_select(@jenis_pts, :id, :jenis) %>
+            <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi), :prompt => "Semua Provinsi" %>
+            <%= select_tag "jenis_pt_id", options_from_collection_for_select(@jenis_pts, :id, :jenis), :prompt => "Semua Kategori" %>
             <button id="search_univ" type="submit" class="btn">Cari</button>
          </fieldset>
       <% end %>
@@ -58,17 +58,7 @@
                      </div>
                   </div>
                   <% end %>
-                  <div class="pagination pagination-centered">
-                     <ul>
-                        <li><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">Next</a></li>
-                     </ul>
-                  </div>
+                  <%= will_paginate @univs, :renderer => BootstrapPagination::Rails %>
                </div>
             </div>
          </div>

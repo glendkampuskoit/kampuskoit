@@ -23,4 +23,12 @@ class Univ < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
+	def self.filter_by_params(params)
+	  scoped = self.scoped
+	  scoped = scoped.where(:jenis_pt_id => params[:jenis_pt_id]) if params[:jenis_pt_id]          
+	  scoped = scoped.joins(:kota).where(:provinsi_id, params[:provinsi_id]) if params[:provinsi_id]
+	  scoped = scoped.search(:keyword_pt => params[:keyword_pt]) if params[:keyword_pt]
+	  scoped
+	end
+
 end

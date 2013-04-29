@@ -6,8 +6,9 @@
             <legend>Pencarian Jurusan</legend>
             <br />
             <%= text_field_tag(:keyword_prodi, "", :placeholder => 'Type something') %>
-            <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi) %>
-            <%= select_tag "jenjang_prodi_id", options_from_collection_for_select(@jenjang_prodis, :id, :jenjang) %>
+            <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi), 
+            :prompt => "Semua Provinsi" %>
+            <%= select_tag "jenjang_prodi_id", options_from_collection_for_select(@jenjang_prodis, :id, :jenjang), :prompt => "Semua Jenjang" %>
             <button id="search_prodi" type="submit" class="btn">Cari</button>
          </fieldset>
       <% end %>
@@ -43,17 +44,7 @@
                      </div>
                   </div>
                   <% end %>
-                  <div class="pagination pagination-centered">
-                     <ul>
-                        <li><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">Next</a></li>
-                     </ul>
-                  </div>
+                  <%= will_paginate @prodis, :renderer => BootstrapPagination::Rails %>
                </div>
             </div>
          </div>
