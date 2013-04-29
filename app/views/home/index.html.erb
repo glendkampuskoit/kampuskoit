@@ -1,9 +1,10 @@
 <% provide(:title, 'Trusted Indonesian Campus Review') %>
+
 <div class="jumbotron masthead">
    <div class="container">
-      <h1>Kampus.co.id</h1>
+      <p><%= image_tag("logo.png", :alt => "Kampus Logo") %></p>
       <p>Informasi, Rating, dan Review Kampus di Indonesia</p>
-      <p>
+      
       <div class="row-fluid">
          <div class="span4 offset4">
             <div class="tabbable">
@@ -11,14 +12,14 @@
                   <li class="active"><a href="#semua" data-toggle="tab">Semua</a></li>
                   <li><a href="#pt" data-toggle="tab">Perguruan Tinggi</a></li>
                   <li><a href="#prodi" data-toggle="tab">Jurusan</a></li>
-                  <li><a href="#provinsi" data-toggle="tab">Provinsi</a></li>
+                  <!--<li><a href="#provinsi" data-toggle="tab">Provinsi</a></li>-->
                </ul>
                <div class="tab-content">
                   <div class="tab-pane active" id="semua">
                      <div class="input-append">
                         <%= form_tag("/search", :method => "get") do %>
                         <input id="keyword_all" type="text">
-                        <button id="search_all" class="btn" type="submit">Cari</button>
+                        <button id="search_all" class="btn" type="submit">Semua</button>
                         <% end %>
                      </div>
                      <span class="style2"></span>
@@ -27,7 +28,7 @@
                      <div class="input-append">
                         <%= form_tag(univs_path, :method => "get") do %>
                         <input id="keyword_univ" type="text">
-                        <button id="search_univ" class="btn" type="submit">Cari</button>
+                        <button id="search_univ" class="btn" type="submit">Cari PT</button>
                         <% end %>
                      </div>
                   </div>
@@ -35,11 +36,11 @@
                      <div class="input-append">
                         <%= form_tag(prodis_path, :method => "get") do %>
                         <input id="keyword_prodi" type="text">
-                        <button id="search_prodi" class="btn" type="submit">Cari</button>
+                        <button id="search_prodi" class="btn" type="submit">Cari Jurusan</button>
                         <% end %>
                      </div>
                   </div>
-                  <div class="tab-pane" id="provinsi">
+                  <!--<div class="tab-pane" id="provinsi">
                      <div class="input-append">
                         <input type="text">
                         <div class="btn-group">
@@ -54,12 +55,12 @@
                            </ul>
                         </div>
                      </div>
-                  </div>
+                  </div>-->
                </div>
             </div>
          </div>
       </div>
-      </p>
+      
       <ul class="masthead-links">
          <li>
             <%= link_to 'Perguruan Tinggi', univs_path %>
@@ -86,3 +87,4 @@
       </ul>
    </div>
 </div>
+

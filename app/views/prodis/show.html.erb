@@ -13,7 +13,8 @@
          <ul class="nav nav-tabs">
             <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
             <li><a href="#gallery" data-toggle="tab">Gallery</a></li>
-            <li><a href="#alumni" data-toggle="tab">Prospektus Jurusan</a></li>
+            <li><a href="#prospektus" data-toggle="tab">Prospektus Jurusan</a></li>
+            <li><a href="#silabus" data-toggle="tab">Silabus Pendidikan</a></li>
             <li><a href="#lain" data-toggle="tab">Lain-lain</a></li>
          </ul>
          <div class="tab-content">
@@ -115,18 +116,18 @@
                            <table class="table">
                               <thead>
                                  <tr>
-                                    <td><%= @prodi.total_dosen_prof %></td>
+                                    <td><%= @prodi.total_dosen_prof %> Dosen Professor</td>
                                  </tr>
                               </thead>
                               <tbody>
                                  <tr>
-                                    <td><%= @prodi.total_dosen_doktor %></td>
+                                    <td><%= @prodi.total_dosen_doktor %> Dosen Doktor</td>
                                  </tr>
                                  <tr>
-                                    <td><%= @prodi.total_dosen_master %></td>
+                                    <td><%= @prodi.total_dosen_master %> Dosen Master</td>
                                  </tr>
                                  <tr>
-                                    <td><%= @prodi.total_dosen_sarjana %></td>
+                                    <td><%= @prodi.total_dosen_sarjana %> Dosen Sarjana</td>
                                  </tr>
                               </tbody>
                            </table>
@@ -169,7 +170,10 @@
                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a> 
                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a> 
             </div>
-            <div class="tab-pane" id="alumni">
+            <div class="tab-pane" id="prospektus">
+               Prospektus Jurusan
+            </div>
+            <div class="tab-pane" id="silabus">
                Prospektus Jurusan
             </div>
             <div class="tab-pane" id="lain">

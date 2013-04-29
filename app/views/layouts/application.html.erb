@@ -2,7 +2,7 @@
 <html>
    <head>
       <title>Kampus.co.id | <%= yield(:title) %></title>
-      <%= stylesheet_link_tag    "application", :media => "all" %>
+      <%= stylesheet_link_tag "application", :media => "all" %>
       <%= csrf_meta_tags %>
       <style type="text/css">
          <!--
@@ -39,7 +39,10 @@
                                     <%= f.text_field :email, :placeholder => 'Email' %>
                                     <%= f.password_field :password, :placeholder => 'Password' %>
                                     <label class="checkbox"><input type="checkbox"> Remember me </label>
-                                    <button type="submit" class="btn">Login</button>
+                                    <button type="submit" class="btn">Login</button> 
+                                    <%= link_to login_path do %>
+                                    <span class="label label-warning">Lupa Password?</span>
+                                    <% end %>
                                  </div>
                               </div>
                            <% end %>
@@ -72,11 +75,25 @@
                <ul class="nav nav-list">
                   <li><a href="#"><i class="icon-list glyphw"></i> F.A.Q</a></li>
                   <li><a href="#"><i class="icon-book glyphw"></i> Term & Condition</a></li>
-                  <li><a href="#"><i class="icon-hand-right glyphw"></i> KampusNews.com</a></li>
+                  <li><a href="http://kampusnews.com" target="blank"><i class="icon-hand-right glyphw"></i> KampusNews.com</a></li>
                </ul>
                <h3>Newsletter</h3>
                <p>Berlangganan melalui email</p>
                <%= form_for Visitor.new, :class => "form-inline" do |f| %>
+
+               <% if flash[:newsletter_success] != nil %>
+                  <div class="alert alert-success">
+                     <%= flash[:newsletter_success] %><br>
+                  </div>
+               <% end %>
+
+               <% if flash[:newsletter_error] != nil %>
+                  <div class="alert alert-error">
+                     <%= flash[:newsletter_error] %><br>
+                  </div>
+               <% end %>
+
+
                   <div class="input-append">
                      <%= f.text_field :email, :placeholder => "Email", :class => "span2" %>
                      <button type="submit" class="btn">Submit</button>
@@ -97,7 +114,7 @@
             </div>
          </div>
       </div>
+      <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
       <%= javascript_include_tag "application" %>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
    </body>
 </html>

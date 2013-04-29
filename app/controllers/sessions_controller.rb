@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 			redirect_to subscriber
 		else
 			# login failed
-			flash[:error] = 'Invalid email/password combination'
+			flash[:login_error] = 'Invalid email/password combination'
 			redirect_to login_path
 		end
 	end
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 	def login_facebook
 		subscriber = Subscriber.from_omniauth(env['omniauth.auth'])
 		sign_in subscriber
-		redirect_to subscriber
+		redirect_to home_path
 	end
 
 	def destroy

@@ -11,6 +11,16 @@
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             Belum mempunyai account? Silakan <strong><%= link_to 'register', signup_path %></strong> terlebih dahulu
          </div>
+         <% if flash.any? %>
+         <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div>
+               <% flash.each do |key, value| %>
+               <%= value %><br>
+               <% end %>
+            </div>
+         </div>
+         <% end %>
          <div class="control-group">
             <!-- E-mail -->
             <label class="control-label" for="email">E-mail</label>
@@ -30,12 +40,12 @@
          <div class="control-group">
             <!-- Button -->
             <div class="controls">
-               <button class="btn btn-success">Login</button> <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion2">Lupa Password?</a>
+               <button class="btn btn-success">Login</button> <a href="#lupa-password-form" data-toggle="collapse" data-parent="#accordion2">Lupa Password?</a>
             </div>
          </div>
       </fieldset>
       <% end %>
-      <div id="collapseOne" class="accordion-body collapse ">
+      <div id="lupa-password-form" class="accordion-body collapse ">
          <form class="form-horizontal">
             <div class="control-group">
                <div class="controls input-append">
