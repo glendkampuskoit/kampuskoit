@@ -23,19 +23,4 @@ class Prodi < ActiveRecord::Base
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-
-	sphinx_scope(:by_jenjang_prodi) { |jenjang_prodi_id|
-		{:conditions => {:jenjang_prodi_id => jenjang_prodi_id}}
-	}
-
-	sphinx_scope(:by_provinsi) { |provinsi_id| 
-		{:conditions => {:provinsi_id => provinsi_id}}
-	}
-
-	def self.filter_by_params(params)
-	  self.by_jenjang_prodi(params[:jenjang_prodi_id]) if params[:jenjang_prodi_id]          
-	  self.by_provinsi(params[:provinsi_id]) if params[:provinsi_id]
-	  self.paginate(:page => params[:page]) if params[:page]
-	  self
-	end
 end

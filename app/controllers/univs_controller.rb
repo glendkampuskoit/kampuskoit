@@ -3,8 +3,12 @@ class UnivsController < ApplicationController
   def index
     @provinsis = Provinsi.all
     @jenis_pts = JenisPt.all
+
+    withs = {}
+    withs[:jenis_pt_id] = params[:jenis_pt_id] if params[:jenis_pt_id].present?
+    withs[:provinsi_id] = params[:provinsi_id] if params[:provinsi_id].present?
     
-    @univs = Univ.filter_by_params(params).search params[:keyword_pt]
+    @univs = Univ.search params[:keyword_pt], :with => withs
   end
 
   def new

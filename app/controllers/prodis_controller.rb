@@ -4,7 +4,11 @@ class ProdisController < ApplicationController
     @provinsis = Provinsi.all
     @jenjang_prodis = JenjangProdi.all
 
-    @prodis = Prodi.filter_by_params(params).search params[:keyword_prodi]
+    withs = {}
+    withs[:jenjang_prodi_id] = params[:jenjang_prodi_id] if params[:jenjang_prodi_id].present?
+    withs[:provinsi_id] = params[:provinsi_id] if params[:provinsi_id].present?
+
+    @prodis = Prodi.search params[:keyword_prodi], :with => withs
 
   end
 
