@@ -8,7 +8,7 @@
             <%= text_field_tag(:keyword_pt, "", :placeholder => 'Type something') %>
             <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi), :prompt => "Semua Provinsi" %>
             <%= select_tag "jenis_pt_id", options_from_collection_for_select(@jenis_pts, :id, :jenis), :prompt => "Semua Kategori" %>
-            <button id="search_univ" type="submit" class="btn">Cari</button>
+            <button id="search_pt" type="submit" class="btn">Cari</button>
          </fieldset>
       <% end %>
    </div>

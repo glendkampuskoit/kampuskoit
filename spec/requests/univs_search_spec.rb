@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe "Univ Search" do
 
-  let(:search_univ) { "search_univ" }
+  let(:search_pt) { "search_pt" }
   before do
     visit home_path
-    fill_in "keyword_univ", with: "Surabaya"
-    click_button search_univ
+    fill_in "keyword_pt", with: "Surabaya"
+    click_button search_pt
   end
 
   describe "univ index page" do
@@ -17,8 +17,8 @@ describe "Univ Search" do
 
   describe "go to univ profile page" do
     before do
-      fill_in "keyword_univ", with: "Surabaya"
-      click_button search_univ
+      fill_in "keyword_pt", with: "Surabaya"
+      click_button search_pt
     end
     it "should do search" do
       page.should have_selector('title', :text => 'Pencarian Perguruan Tinggi')

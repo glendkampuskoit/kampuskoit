@@ -28,8 +28,8 @@ describe "Homes" do
 
     describe "visitor do search with params Perguruan Tinggi" do      
       before do
-        fill_in "keyword_univ", with: "airlangga"
-        click_button "search_univ"
+        fill_in "keyword_pt", with: "airlangga"
+        click_button "search_pt"
       end
 
       it "if user choose perguruan tinggi, should visit PT path" do

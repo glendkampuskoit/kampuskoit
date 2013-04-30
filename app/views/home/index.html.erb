@@ -18,7 +18,7 @@
                   <div class="tab-pane active" id="semua">
                      <div class="input-append">
                         <%= form_tag("/search", :method => "get") do %>
-                        <input id="keyword_all" type="text">
+                        <%= text_field_tag(:keyword_all, "", :placeholder => 'Type something') %>
                         <button id="search_all" class="btn" type="submit">Semua</button>
                         <% end %>
                      </div>
@@ -27,15 +27,15 @@
                   <div class="tab-pane" id="pt">
                      <div class="input-append">
                         <%= form_tag(univs_path, :method => "get") do %>
-                        <input id="keyword_univ" type="text">
-                        <button id="search_univ" class="btn" type="submit">Cari PT</button>
+                        <%= text_field_tag(:keyword_pt, "", :placeholder => 'Type something') %>
+                        <button id="search_pt" class="btn" type="submit">Cari PT</button>
                         <% end %>
                      </div>
                   </div>
                   <div class="tab-pane" id="prodi">
                      <div class="input-append">
                         <%= form_tag(prodis_path, :method => "get") do %>
-                        <input id="keyword_prodi" type="text">
+                        <%= text_field_tag(:keyword_prodi, "", :placeholder => 'Type something') %>
                         <button id="search_prodi" class="btn" type="submit">Cari Jurusan</button>
                         <% end %>
                      </div>

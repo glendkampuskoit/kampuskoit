@@ -27,12 +27,12 @@
          <div class="tab-content">
             <div class="tab-pane active" id="global">
                <div class="span10">
-               	<% @prodis.each do |prodi| %>
+                  <% @prodis.each do |prodi| %>
                   <div class="row">
                      <div class="span2"><a href="#" class="thumbnail"><%= image_tag(prodi.logo_path, :alt => "Prodi Logo") %></a></div>
                      <div class="span6">
                         <p><strong><%= prodi.nama_prodi %></strong><br>
-                        	<strong><%= prodi.univ.nama_pt %></strong></p>
+                           <strong><%= prodi.univ.nama_pt %></strong></p>
                         <%= prodi.kota.kota %>, <%= prodi.kota.provinsi.provinsi %>
                         <p> <i class="icon-home glyphw"></i> <%= prodi.telepon %> <br>
                            <i class="icon-envelope glyphw"></i> <%= prodi.email %> 

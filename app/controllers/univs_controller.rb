@@ -8,7 +8,7 @@ class UnivsController < ApplicationController
     withs[:jenis_pt_id] = params[:jenis_pt_id] if params[:jenis_pt_id].present?
     withs[:provinsi_id] = params[:provinsi_id] if params[:provinsi_id].present?
     
-    @univs = Univ.search params[:keyword_pt], :with => withs
+    @univs = Univ.search params[:keyword_pt], :with => withs, :page => params[:page], :per_page => 10
   end
 
   def new
