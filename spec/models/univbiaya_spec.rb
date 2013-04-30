@@ -15,13 +15,18 @@ describe Univbiaya do
     it { should be_valid }
   end
 
+  describe "When univ is blank" do
+    before { @univbiaya.univ = nil } 
+    it { should_not be_valid }
+  end
+
   describe "When biaya is blank" do
-    before { @univbiaya.biaya = " " } 
+    before { @univbiaya.biaya = "" } 
     it { should_not be_valid }
   end
 
   describe "When nilai is blank" do
-    before { @univbiaya.biaya = " " }
+    before { @univbiaya.nilai = "" }
     it { should_not be_valid }
   end
 end

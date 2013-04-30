@@ -18,23 +18,7 @@
    <div class="row">
       <div class="span12">
          <ul class="nav nav-tabs">
-            <li class="active"><a href="#global" data-toggle="tab">Global</a></li>
-            <li class="dropdown">
-               <a href="#kategori" data-toggle="dropdown" class="dropdown-toggle">Berdasarkan Kategori <b class="caret"></b></a>
-               <ul class="dropdown-menu">
-                  <% @jenis_pts.each do |jenis_pt| %>
-                  <li><a href="#"><%= jenis_pt.jenis %></a></li>
-                  <% end %>
-               </ul>
-            </li>
-            <li class="dropdown">
-               <a href="#regional" data-toggle="dropdown" class="dropdown-toggle">Berdasarkan Regional <b class="caret"></b></a>
-               <ul class="dropdown-menu">
-                  <% @provinsis.each do |provinsi| %>
-                  <li><a href="#"><%= provinsi.provinsi %></a></li>
-                  <% end %>
-               </ul>
-            </li>
+            <li class="active"><a href="#global" data-toggle="tab">Hasil Pencarian</a></li>
             <li class="pull-right">
                <button type="submit" class="btn" onClick="#myModal">Filter & Shorting</button>  
             </li>
