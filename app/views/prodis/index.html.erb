@@ -29,19 +29,19 @@
                <div class="span10">
                   <% @prodis.each do |prodi| %>
                   <div class="row">
-                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(prodi.logo_path, :alt => "Prodi Logo") %></a></div>
+                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';") %></a></div>
                      <div class="span6">
-                        <p><strong><%= prodi.nama_prodi %></strong><br>
-                           <strong><%= prodi.univ.nama_pt %></strong></p>
-                        <%= prodi.kota.kota %>, <%= prodi.kota.provinsi.provinsi %>
+                        <h4><%= prodi.nama_prodi %></h4>
+                        <h5><%= prodi.univ.nama_pt %></h5>
+                        <%= prodi.kota.kota.capitalize %>, <%= prodi.kota.provinsi.provinsi.capitalize %>
                         <p> <i class="icon-home glyphw"></i> <%= prodi.telepon %> <br>
                            <i class="icon-envelope glyphw"></i> <%= prodi.email %> 
                         </p>
                      </div>
-                     <div class="span1">
+                     <!--<div class="span1">
                         <a href="#" class="thumbnail"><img src="img/logo_its.png" alt=""></a>
                         <h5 align="center"><i class="icon-bookmark glyphw"></i>1</h5>
-                     </div>
+                     </div>-->
                   </div>
                   <% end %>
                   <%= will_paginate @prodis, :renderer => BootstrapPagination::Rails %>

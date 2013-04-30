@@ -127,7 +127,6 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 }
 .bs-docs-social-buttons li {
   display: inline-block;
-  padding: 5px 8px;
   line-height: 1;
   *display: inline;
   *zoom: 1;

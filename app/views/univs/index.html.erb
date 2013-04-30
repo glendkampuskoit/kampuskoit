@@ -28,18 +28,33 @@
                <div class="span10">
                   <% @univs.each do |univ| %>
                   <div class="row">                     
-                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(univ.logo_path, :alt => "PT Logo") %></a></div>
+                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';") %></a></div>
                      <div class="span6">
-                        <p><strong><%= univ.nama_pt %></strong></p>
+                        <h4><strong><%= univ.nama_pt %></strong></h4>
                         <%= univ.kota.kota.capitalize %>, <%= univ.kota.provinsi.provinsi.capitalize %>
                         <p> <i class="icon-home glyphw"></i> <%= univ.telepon %> <br>
                            <i class="icon-envelope glyphw"></i> <%= univ.email %>
                         </p>
-                     </div>
+                        <p>
+                           <% if univ.prodis.present?  %>
+                              <span class="label label-info">Jurusan Terkait</span>
+                           <% else %>
+                              <span class="label label-important">Belum ada Jurusan Terdaftar</span>
+                           <% end %>
+
+                           &nbsp;&nbsp;
+                           <% univ.prodis.take(4).each do |prodi| %>
+                              <% if prodi.present? %>
+                              <i class="icon-ok glyphw"></i> <%= link_to prodi.nama_prodi, prodi_path(prodi) %> &nbsp;&nbsp;
+                              <% end %>
+                           <% end %>
+
+                        </p>
+                     </div><!--
                      <div class="span1">
                         <a href="#" class="thumbnail"><img src="img/logo_its.png" alt=""></a>
                         <h5 align="center"><i class="icon-bookmark glyphw"></i>1</h5>
-                     </div>
+                     </div>-->
                   </div>
                   <% end %>
                   <%= will_paginate @univs, :renderer => BootstrapPagination::Rails %>
