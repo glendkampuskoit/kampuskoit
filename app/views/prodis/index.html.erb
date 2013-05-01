@@ -31,12 +31,13 @@
                   <div class="row">
                      <div class="span2"><a href="#" class="thumbnail"><%= image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';") %></a></div>
                      <div class="span6">
-                        <h4><%= prodi.nama_prodi %></h4>
-                        <h5><%= prodi.univ.nama_pt %></h5>
+                        <h4><%= prodi.jenjang_prodi.jenjang%> - <%= prodi.nama_prodi %></h4>
+                        <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt : "-" %></h5>
                         <%= prodi.kota.kota.capitalize %>, <%= prodi.kota.provinsi.provinsi.capitalize %>
-                        <p> <i class="icon-home glyphw"></i> <%= prodi.telepon %> <br>
-                           <i class="icon-envelope glyphw"></i> <%= prodi.email %> 
+                        <p> <i class="icon-home glyphw"></i> <%= prodi.telepon.present? ? prodi.telepon : "-" %><br>
+                           <i class="icon-envelope glyphw"></i> <%= prodi.email.present? ? prodi.email : "-" %> 
                         </p>
+                        <p><%= link_to prodi_path(prodi) do %><span class="label label-info">Selengkapnya</span><% end %></p>
                      </div>
                      <!--<div class="span1">
                         <a href="#" class="thumbnail"><img src="img/logo_its.png" alt=""></a>

@@ -1,25 +1,27 @@
+<% provide(:title, @prodi.nama_prodi) %>
 <div class="container-fluid page-header">
    <div class="row-fluid">
       <div class="span7 offset1">
          <h2><%= @prodi.nama_prodi %></h2>
-         <h4><%= @prodi.kota.kota %>, <%= @prodi.kota.provinsi.provinsi %></h4>
+         <h3><%= @prodi.univ.nama_pt %></h3>
+         <h4><%= @prodi.kota.kota %>, <%= @prodi.kota.provinsi.provinsi.capitalize %></h4>
       </div>
-      <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@prodi.logo_path, :alt => "Prodi Logo") %></a> </div>
+      <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@prodi.logo_path, :alt => "Prodi Logo",  :onerror => "this.src='/assets/default.jpg';") %></a> </div>
    </div>
 </div>
-<div class="container">
-   <div class="row">
-      <div class="span8">
+<div class="container-fluid">
+   <div class="row-fluid">
+      <div class="span8 offset1">
          <ul class="nav nav-tabs">
-            <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-            <li><a href="#gallery" data-toggle="tab">Gallery</a></li>
-            <li><a href="#prospektus" data-toggle="tab">Prospektus Jurusan</a></li>
-            <li><a href="#silabus" data-toggle="tab">Silabus Pendidikan</a></li>
-            <li><a href="#lain" data-toggle="tab">Lain-lain</a></li>
+            <li class="active"><a href="#profile" data-toggle="tab"><i class="icon-folder-open glyphw"></i>  Profile</a></li>
+            <li><a href="#gallery" data-toggle="tab"><i class="icon-picture glyphw"></i> Gallery</a></li>
+            <li><a href="#prospektus" data-toggle="tab"><i class="icon-briefcase glyphw"></i> Prospektus Jurusan</a></li>
+            <li><a href="#silabus" data-toggle="tab"><i class="icon-book glyphw"></i> Silabus Pendidikan</a></li>
+            <li><a href="#lain" data-toggle="tab"><i class="icon-share glyphw"></i> Lain-lain</a></li>
          </ul>
          <div class="tab-content">
             <div class="tab-pane active" id="profile">
-               <div class="accordion">
+               <div class="accordion" id="accordion2">
                   <div class="accordion-group">
                      <div class="accordion-heading">
                         <span class="accordion-toggle"><strong>Data Kampus</strong>
