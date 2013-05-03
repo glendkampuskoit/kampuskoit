@@ -21,34 +21,41 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                </button>
-               <%= link_to "Kampus", root_path, :class => "brand" %>
+               <%= link_to root_path, :class => "brand" do %>Kampus <span class="label label-info">beta</span><% end %>
                <div class="nav-collapse collapse">
                   <ul class="nav pull-right">
-                     <li><a href="#"><i class="icon-pencil glyphw"></i> Blog</a></li>
+                     <li><%= link_to home_path do %><i class="icon-home glyphw"></i> Home<% end %></li>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt glyphw"></i> Direktori <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                           <li><%= link_to univs_path do %><i class="icon-th-large glyphw"></i> Perguruan Tinggi<% end %></li>
+                           <li><%= link_to prodis_path do %><i class="icon-th glyphw"></i> Jurusan<% end %></li>
+                        </ul>
+                     </li>
                      <li><%= link_to rating_path do %><i class="icon-star glyphw"></i> Rating<% end %></li>
                      <li><%= link_to signup_path do %><i class="icon-user glyphw"></i> Signup<% end %></li>
                      <% if signed_in? %>
-                     <li><%= link_to logout_path do %><i class="icon-share-alt glyphw"></i> Logout<% end %></li>
+                     <li><%= link_to logout_path do %><i class="icon-off glyphw"></i> Logout<% end %></li>
                      <% else %>
                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt glyphw"></i> Login <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-off glyphw"></i> Login <b class="caret"></b></a>
                         <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                            <%= form_for :session, :url => sessions_path do |f| %>
-                              <div class="control-group">
-                                 <div class="controls">
-                                    <%= f.text_field :email, :placeholder => 'Email' %>
-                                    <%= f.password_field :password, :placeholder => 'Password' %>
-                                    <label class="checkbox"><input type="checkbox"> Remember me </label>
-                                    <button type="submit" class="btn">Login</button> 
-                                    <%= link_to login_path do %>
-                                    <span class="label label-warning">Lupa Password?</span>
-                                    <% end %>
-                                 </div>
+                           <div class="control-group">
+                              <div class="controls">
+                                 <%= f.text_field :email, :placeholder => 'Email' %>
+                                 <%= f.password_field :password, :placeholder => 'Password' %>
+                                 <label class="checkbox"><input type="checkbox"> Remember me </label>
+                                 <button type="submit" class="btn">Login</button> 
+                                 <%= link_to login_path do %>
+                                 <span class="label label-warning">Lupa Password?</span>
+                                 <% end %>
                               </div>
+                           </div>
                            <% end %>
                            <div class="divider"></div>
                            <div class="nav-header">Login dengan Facebook</div>
-                           <div><%= link_to image_tag("fblogin.png", :alt => "FB Login"), 'auth/facebook' %></div>
+                           <div><%= link_to image_tag("fblogin.png", :alt => "FB Login", :width => "220px"), 'auth/facebook' %></div>
                            <div class="divider"></div>
                         </div>
                      </li>
@@ -59,63 +66,138 @@
          </div>
       </div>
       <!-- end of Navbar -->
-      
       <!-- Content here -->
       <%= yield %>
-
       <!-- footer -->
       <div class="container">
          <div class="row">
             <div class="span4">
                <h3>Informasi</h3>
-               <p>Kampus.co.id adalah Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+               <p>Kampus.co.id adalah situs yang melakukan pemeringkatan, penilaian dan ulasan (ranking, rating and review) perguruan-perguruan tinggi di indonesia. </p>
+               <p><%= link_to "#about", :role => "button", :data => { :toggle => "modal" } do %>Selengkapnya <i class="icon-chevron-right glyphw"></i><% end %></p>
             </div>
             <div class="span4 offset1">
                <h3>Support</h3>
                <ul class="nav nav-list">
-                  <li><a href="#"><i class="icon-list glyphw"></i> F.A.Q</a></li>
-                  <li><a href="#"><i class="icon-book glyphw"></i> Term & Condition</a></li>
-                  <li><a href="http://kampusnews.com" target="blank"><i class="icon-hand-right glyphw"></i> KampusNews.com</a></li>
+                  <li><%= link_to "#faq", :role => "button", :data => { :toggle => "modal" } do %><i class="icon-list glyphw"></i> F.A.Q <% end %></li>
                </ul>
                <h3>Newsletter</h3>
                <p>Berlangganan melalui email</p>
                <%= form_for Visitor.new, :class => "form-inline" do |f| %>
-
                <% if flash[:newsletter_success] != nil %>
-                  <div class="alert alert-success">
-                     <%= flash[:newsletter_success] %><br>
-                  </div>
+               <div class="alert alert-success">
+                  <%= flash[:newsletter_success] %><br>
+               </div>
                <% end %>
-
                <% if flash[:newsletter_error] != nil %>
-                  <div class="alert alert-error">
-                     <%= flash[:newsletter_error] %><br>
-                  </div>
+               <div class="alert alert-error">
+                  <%= flash[:newsletter_error] %><br>
+               </div>
                <% end %>
-
-
-                  <div class="input-append">
-                     <%= f.text_field :email, :placeholder => "Email", :class => "span2" %>
-                     <button type="submit" class="btn">Submit</button>
-                  </div>
+               <div class="input-append">
+                  <%= f.text_field :email, :placeholder => "Email", :class => "span2" %>
+                  <button type="submit" class="btn">Submit</button>
+               </div>
                <% end %>
             </div>
             <div class="span3">
                <h3>Kontak</h3>
                <address>
-                  <strong>Kampus.co.id</strong><br>
-                  Jl. Kutisari Indah 135 Surabaya<br>
-                  Jawa Timur, Indonesia<br>
-               </address>
-               <address>
+                  <h4><strong>Kampus.co.id</strong></h4>
                   <i class="icon-home glyphw"></i> 031-3490049<br>
                   <i class="icon-envelope glyphw"></i> info@kampus.co.id<br>
                </address>
+               <h4><strong>Media Sosial</strong></h4>
+               <p>
+                  <%= link_to image_tag("facebook.png", :alt => "facebook", :width => "50px"), 'http://facebook.com/kampuscoid', :target => "blank" %>
+                  <%= link_to image_tag("twitter.png", :alt => "twitter", :width => "50px"), 'http://twitter.com/kampuscoid', :target => "blank" %>
+               </p>
             </div>
          </div>
       </div>
-      <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <div id="about" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="myModalLabel">Tentang Kampus.co.id</h3>
+         </div>
+         <div class="modal-body">
+            <p>
+               Kampus.co.id adalah situs yang melakukan pemeringkatan, penilaian dan ulasan (ranking, rating and review) perguruan-perguruan tinggi di indonesia. Peringkat perguruan tinggi telah menjadi indikator dalam penilaian kualitas yang sangat penting bagi daya saing perguruan tinggi di dalam dan luar negeri. 
+            </p>
+            <p>
+               Beberapa metode pemeringkatan menunjukkan bahwa penilaian peringkat perguruan tinggi didasarkan secara kuantitatif pada publikasi ilmiah yang terindeks di internet. Penilaian peringkat perguruan tinggi di indonesia dengan melibatkan kriteria-kriteria secara kualitatif adalah cara yang lebih baik untuk mendapatkan validasi peringkat perguruan tinggi.
+            </p>
+            <hr>
+            <h4>Justifikasi</h4>
+            <p>
+               Kampus.co.id hanya melakukan pemeringkatan , penilaian, dan ulasan perguruan tinggi yang terdaftar di Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT) pada setiap periode. 
+            </p>
+            <p>
+               Kampus.co.id melakukan penilaian perguruan tinggi berdasarkan data-data yang valid  sesuai dengan indikator di kampus.co.id. dan diperoleh melalui observasi dan survey perguruan tinggi. Kombinasi indikator-indikator setiap kriteria adalah terukur dan objektif. Kampus.co.id akan menerbitkan peringkat resmi perguruan tinggi diseluruh indonesia secara periodik
+            </p>
+            <p>
+               Pemeringkatan perguruan tinggi dilakukan tanpa ada intervensi dari pihak lain sehingga hasil peringkat perguruan tinggi merupakan representatif yang sebenarnya berdasarkan fakta-fakta yang ada sesuai dengan kriteri yang telah ditentukan oleh pihak kampus.co.id
+            </p>
+            <hr>
+            <h4>Desain dan Indikator Pembobotan</h4>
+            <p>
+               Kampus.co.id menggunakan model pendekatan induksi ilmiah dalam penilaian kriteria peringkat perguruan tinggi. Pembobotan kriteria perguruan tinggi ditentukan dengan metode Analytical Hierarchy Process berdasarkan standar kriteria-kriteria tertentu. Kriteria-kriteria yang dibutuhkan dalam menentukan peringkat kualitatif perguruan tinggi di indonesia  berdasarkan tiga komponen:
+            </p>
+            <p>
+            <h5>1. Government</h5>
+            <p>Komponen Government terdiri dari nilai akreditasi jurusan dan universitas dari BAN PT selaku badan akreditasi yang diakui oleh pemerintah Republik Indonesia (dalam hal ini oleh Departemen Pendidikan Nasional).</p>
+            <h5>2. College</h5>
+            <p>Komponen College adalah penilaian yang didasarkan pada sub kriteria jenis dan kompleksitas perguruan tinggi tersebut. Jenis perguruan tinggi di indonesia terdiri dari Universitas, Institut, Politeknik, Sekolah Tinggi dan Akademi. Penilaian kompleksitas diukur dari jumlah prodi, tingkat pendidikan strata yang diselenggarakan di perguruan tinggi tersebut.</p>
+            <h5>3. Society</h5>
+            <p>Komponen society didasarkan pada penilaian entitas alumni dan penilaian dari ahli (expert) perguruan tinggi.</p>
+            </p>
+         </div>
+         <div class="modal-footer">
+            <button class="btn" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+      <div id="faq" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sdf" aria-hidden="true">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="sdf">F.A.Q</h3>
+         </div>
+         <div class="modal-body">
+            <h4>Apakah Kampus.co.id?</h4>
+            <p>
+               Kampus.co.id adalah Situs yang menyediakan informasi , pemeringkatan, penilaian dan ulasan (ranking, rating and review) perguruan-perguruan tinggi di indonesia. 
+            </p>
+            <hr>
+            <h4>Bagaimana metode untuk peringkat di Kampus.co.id?</h4>
+            <p>
+               Kampus.co.id melakukan penilaian atas 3586 perguruan tinggi yang terdiri dari  universitas, institut, politeknik, sekolah tinggi dan akademi diseluruh indonesia. Kampus.co.id melakukan penilaian perguruan tinggi berdasarkan data-data yang valid  sesuai dengan indikator yang telah ditentukan oleh pihak Kampus.co.id. Kombinasi indikator-indikator setiap kriteria adalah terukur dan objektif. Kampus.co.id akan menerbitkan peringkat resmi perguruan tinggi diseluruh indonesia secara periodik.
+            </p>
+            <p>
+               Pemeringkatan perguruan tinggi dilakukan tanpa ada intervensi dari pihak lain sehingga hasil peringkat perguruan tinggi merupakan representatif yang sebenarnya berdasarkan fakta-fakta yang ada sesuai dengan kriteri yang telah ditentukan oleh pihak Kampus.co.id.
+            </p>
+            <hr>
+            <h4>Apakah informasi dan peringkat di Kampus.co.id dapat dipercaya?</h4>
+            <p>
+               Informasi tentang perguruan tinggi dan jurusan yang ada di kampus.co.id diperoleh dari berbagai sumber antara lain, Dirjen Pendidikan dan Perguruan Tinggi (DIKTI), Badan Akreditasi Nasional Perguruan Tinggi dan website resmi dari perguruan tinggi tersebut. 
+            </p>
+            <hr>
+            <h4>Mengapa ada beberapa perguruan tinggi yang informasi dan peringkatnya tidak ada di Kampus.co.id?</h4>
+            <p>
+               Ada beberapa alasan beberapa perguruan tinggi belum masuk dalam kampus.co.id, antara lain:
+            </p>
+            <p>
+            <p>
+              1. Perguruan tinggi tersebut tidak terdaftar dalam Badan Akreditasi Nasional Perguruan Tinggi<br>
+              2. Informasi terkait tentang perguruan tinggi tersebut belum didapatkan (masih belum tersedia)</p>
+            <hr>
+            <h4>Bagaimana caranya untuk menambahkan informasi perguruan tinggi di Kampus.co.id?</h4>
+            <p>
+               Jika ada informasi yang ingin ditambahkan atau pertanyaan, kritik dan saran, silahkan menghubungi pihak Kampus.co.id melalui email :info@kampus.co.id
+            </p>
+         </div>
+         <div class="modal-footer">
+            <button class="btn" data-dismiss="modal">Close</button>
+         </div>
+      </div>
       <%= javascript_include_tag "application" %>
-      <%= debug(params) if Rails.env.development? %>
    </body>
 </html>

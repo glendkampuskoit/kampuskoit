@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def faq
   end
 
-  def term
+  def about
   end
 
   def contact

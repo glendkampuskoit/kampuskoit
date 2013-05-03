@@ -19,11 +19,11 @@
          </ul>
          <div class="tab-content">
             <div class="tab-pane active" id="profile">
-               <div class="accordion" id="accordion2">
+               <div class="accordion" id="profile_tab">
                   <div class="accordion-group">
                      <div class="accordion-heading">
                         <span class="accordion-toggle"><strong>Data Kampus</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#keterangan">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#keterangan">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="keterangan" class="accordion-body collapse in">
@@ -32,29 +32,29 @@
                               <thead>
                                  <tr>
                                     <td>Status</td>
-                                    <td><%= @univ.status_negeri.present? ? @univ.status_negeri.capitalize : " - " %></td>
+                                    <td><%= @univ.status_negeri.present? ? @univ.status_negeri.capitalize : " -belum ada data-" %></td>
                                  </tr>
                               </thead>
                               <tbody>
                                  <tr>
                                     <td>Tahun Berdiri</td>
-                                    <td><%= @univ.tahun_berdiri %></td>
+                                    <td><%= @univ.tahun_berdiri.present? ? @univ.tahun_berdiri : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Alamat</td>
-                                    <td><%= @univ.alamat %>, <%= @univ.kota.kota %></td>
+                                    <td><%= @univ.alamat.present? ? @univ.alamat : "-belum ada data-" %>, <%= @univ.kota.kota.present? ? @univ.kota.kota : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Telepon</td>
-                                    <td><%= @univ.telepon %></td>
+                                    <td><%= @univ.telepon.present? ? @univ.telepon : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Email</td>
-                                    <td><%= @univ.email %></td>
+                                    <td><%= @univ.email.present? ? @univ.email : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Website</td>
-                                    <td><%= @univ.website %></td>
+                                    <td><%= @univ.website.present? ? link_to(@univ.website, @univ.website) : "-belum ada data-" %></td>
                                  </tr>
                               </tbody>
                            </table>
@@ -64,66 +64,68 @@
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Deskripsi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#deskripsi">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#deskripsi">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="deskripsi" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.deskripsi %></p>
+                           <p><%= @univ.deskripsi.present? ? @univ.deskripsi : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Visi & Misi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#visimisi">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#visimisi">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="visimisi" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.visi %><%= @univ.misi %></p>
+                           <p><%= @univ.visi.present? ? @univ.visi : "-belum ada data-" %></p>
+                           <p><%= @univ.misi.present? ? @univ.misi : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Staff Pendukung</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#staff">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#staff">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="staff" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.staff_pendukung %></p>
+                           <p><%= @univ.staff_pendukung.present? ? @univ.staff_pendukung : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Kapasitas Akademik</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#kapasitas-akademik">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#kapasitas-akademik">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="kapasitas-akademik" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.visi %><%= @univ.kapasitas_akademik %></p>
+                           <p><%= @univ.kapasitas_akademik.present? ? @univ.kapasitas_akademik : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Seleksi Masuk</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#seleksi-masuk">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#seleksi-masuk">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="seleksi-masuk" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.visi %><%= @univ.seleksi_masuk %></p>
+                           <p><%= @univ.seleksi_masuk.present? ? @univ.seleksi_masuk : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
             <div class="tab-pane" id="gallery">
+               <% if @univ.univgalleries.present? %>
                <div id="myCarousel" class="carousel slide">
                   <ol class="carousel-indicators">
                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -144,20 +146,24 @@
                </div>
                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a> 
                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a> 
+               <% else %>
+               -belum ada data-
+               <% end %>
             </div>
             <div class="tab-pane" id="alumni">
-               Alumni
+               -belum ada data-
             </div>
             <div class="tab-pane" id="lain">
-               <div class="accordion">
+               <div class="accordion" id="lain_tab">
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Fasilitas</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#fasilitas">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#fasilitas">Lihat Detail</a>
                         </span> 
                      </div>
-                     <div id="biaya" class="accordion-body collapse">
+                     <div id="fasilitas" class="accordion-body collapse in">
                         <div class="accordion-inner">
+                           <% if @univ.univfasilitases.present? %>
                            <table class="table">
                               <thead>
                                 <% @univ.univfasilitases.each do |fasilitas| %>
@@ -167,17 +173,21 @@
                                  <% end %>
                               </thead>
                            </table>
+                           <% else %>
+                           -belum ada data-
+                           <% end %>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Beasiswa</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#kerjasama">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#beasiswa">Lihat Detail</a>
                         </span> 
                      </div>
-                     <div id="kerjasama" class="accordion-body collapse">
+                     <div id="beasiswa" class="accordion-body collapse">
                         <div class="accordion-inner">
+                           <% if @univ.univbeasiswas.present? %>
                            <table class="table">
                               <thead>
                                  <tr>
@@ -198,17 +208,21 @@
                                  <% end %>
                               </tbody>
                            </table>
+                           <% else %>
+                           -belum ada data-
+                           <% end %>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Biaya</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#biaya">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#biaya">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="biaya" class="accordion-body collapse">
                         <div class="accordion-inner">
+                           <% if @univ.univbiayas.present? %>
                            <table class="table">
                               <thead>
                                  <tr>
@@ -225,17 +239,21 @@
                                  <% end %>
                               </tbody>
                            </table>
+                           <% else %>
+                           -belum ada data-
+                           <% end %>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading">
                         <span class="accordion-toggle"><strong>Prestasi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#prestasi">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#prestasi">Lihat Detail</a>
                         </span> 
                      </div>
-                     <div id="prestasi" class="accordion-body collapse in">
+                     <div id="prestasi" class="accordion-body collapse">
                         <div class="accordion-inner">
+                           <% if @univ.univprestasis.present? %>
                            <table class="table">
                               <thead>
                                  <tr>
@@ -252,17 +270,21 @@
                                  <% end %>
                               </tbody>
                            </table>
+                           <% else %>
+                           -belum ada data-
+                           <% end %>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Kerjasama</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#kerjasama">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#kerjasama">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="kerjasama" class="accordion-body collapse">
                         <div class="accordion-inner">
+                           <% if @univ.univkerjasamas.present? %>
                            <table class="table">
                               <thead>
                                 <% @univ.univkerjasamas.each do |kerjasama| %>
@@ -272,6 +294,9 @@
                                  <% end %>
                               </thead>
                            </table>
+                           <% else %>
+                           -belum ada data-
+                           <% end %>
                         </div>
                      </div>
                   </div>

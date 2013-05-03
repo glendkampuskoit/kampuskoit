@@ -1,6 +1,6 @@
 <% provide(:title, 'Pencarian Jurusan') %>
 <header class="jumbotron subhead" id="overview">
-   <div class="container">
+   <div class="container well">
       <%= form_tag(prodis_path, :method => "get", :class => 'form-inline') do %>
          <fieldset>
             <legend>Pencarian Jurusan</legend>
@@ -15,7 +15,11 @@
    </div>
 </header>
 <div class="container">
-   <div style="padding: 20px; padding-bottom: 0px;"></div>
+   <div style="padding: 10px; padding-bottom: 0px;"></div>
+   <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      Ditemukan <%= @prodis.count %> hasil pencarian
+   </div>
    <div class="row">
       <div class="span12">
          <ul class="nav nav-tabs">
@@ -29,20 +33,15 @@
                <div class="span10">
                   <% @prodis.each do |prodi| %>
                   <div class="row">
-                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';") %></a></div>
+                     <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), prodi_path(prodi), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><%= prodi.jenjang_prodi.jenjang%> - <%= prodi.nama_prodi %></h4>
+                        <h4><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi %></h4>
                         <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt : "-" %></h5>
                         <%= prodi.kota.kota.capitalize %>, <%= prodi.kota.provinsi.provinsi.capitalize %>
                         <p> <i class="icon-home glyphw"></i> <%= prodi.telepon.present? ? prodi.telepon : "-" %><br>
                            <i class="icon-envelope glyphw"></i> <%= prodi.email.present? ? prodi.email : "-" %> 
                         </p>
-                        <p><%= link_to prodi_path(prodi) do %><span class="label label-info">Selengkapnya</span><% end %></p>
                      </div>
-                     <!--<div class="span1">
-                        <a href="#" class="thumbnail"><img src="img/logo_its.png" alt=""></a>
-                        <h5 align="center"><i class="icon-bookmark glyphw"></i>1</h5>
-                     </div>-->
                   </div>
                   <% end %>
                   <%= will_paginate @prodis, :renderer => BootstrapPagination::Rails %>

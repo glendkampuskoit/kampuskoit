@@ -9,7 +9,7 @@ class Prodi < ActiveRecord::Base
 	has_many :prodi_silabuses, :dependent => :delete_all
 	has_many :prodi_galleries, :dependent => :delete_all
 	has_many :prodi_akreditasis, :dependent => :delete_all
-	has_many :prodi_biaya, :dependent => :delete_all
+	has_many :prodi_biayas, :dependent => :delete_all
 
 	validates :nama_prodi, presence: true, length: { maximum: 255 }, :uniqueness => { :scope => [:jenjang_prodi_id, :univ_id], case_sensitive: false }
 	validates :fakultas, presence: true
