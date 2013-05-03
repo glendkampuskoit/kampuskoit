@@ -308,98 +308,24 @@
       <div class="span4">
          <div class="span4 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav" >
+               <% @fakultases.each do |fakultas| %>
                <li>
-                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><i class="icon-chevron-right"></i>Fakultas Teknik Sipil dan Perencanaan</a>
-                  <div id="collapseOne" class="accordion-body collapse">
+                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= fakultas[0].gsub(" ", "") %>"><i class="icon-chevron-right"></i><%= fakultas[0] %></a>
+                  <div id="collapse<%= fakultas[0].gsub(" ", "") %>" class="accordion-body collapse">
                      <div class="accordion-inner">
                         <table class="table">
                            <thead>
+                              <% ActiveRecord::Base.connection.execute("select id, nama_prodi from prodis where univ_id = '#{@univ.id}' and fakultas = '#{fakultas[0]}'").to_a.each do |prodi| %>
                               <tr>
-                                 <td><a href="#">Teknik Industri</a></td>
+                                 <td><%= link_to prodi[1], prodi_path(prodi[0]) %></td>
                               </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Elektor</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Mesin</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Fisika</a></td>
-                              </tr>
+                              <% end %>
                            </thead>
                         </table>
                      </div>
                   </div>
                </li>
-               <li>
-                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><i class="icon-chevron-right"></i>Fakultas Teknologi Industri</a>
-                  <div id="collapseTwo" class="accordion-body collapse">
-                     <div class="accordion-inner">
-                        <table class="table">
-                           <thead>
-                              <tr>
-                                 <td><a href="#">Teknik Industri</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Elektor</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Mesin</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Fisika</a></td>
-                              </tr>
-                           </thead>
-                        </table>
-                     </div>
-                  </div>
-               </li>
-               <li>
-                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTiga"><i class="icon-chevron-right"></i>Fakultas Teknologi Industri</a>
-                  <div id="collapseTiga" class="accordion-body collapse">
-                     <div class="accordion-inner">
-                        <table class="table">
-                           <thead>
-                              <tr>
-                                 <td><a href="#">Teknik Industri</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Elektor</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Mesin</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Fisika</a></td>
-                              </tr>
-                           </thead>
-                        </table>
-                     </div>
-                  </div>
-               </li>
-               <li>
-                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapseFour"><i class="icon-chevron-right"></i>Fakultas Teknologi Industri</a>
-                  <div id="collapseFour" class="accordion-body collapse">
-                     <div class="accordion-inner">
-                        <table class="table">
-                           <thead>
-                              <tr>
-                                 <td><a href="#">Teknik Industri</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Elektor</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Mesin</a></td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">Teknik Fisika</a></td>
-                              </tr>
-                           </thead>
-                        </table>
-                     </div>
-                  </div>
-               </li>
+               <% end %>
             </ul>
          </div>
       </div>
