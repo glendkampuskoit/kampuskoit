@@ -1,2 +1,71 @@
 <% provide(:title, 'Hasil Pencarian') %>
 
+<div class="container">
+   <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      Ditemukan <%= @prodis.inspect %> hasil pencarian
+   </div>
+   <div class="row">
+      <div class="span12">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="#pt" data-toggle="tab">Perguruan Tinggi</a></li>
+            <li><a href="#jurusan" data-toggle="tab">Jurusan</a></li>            
+         </ul>
+         <div class="tab-content">
+            <div class="tab-pane" id="jurusan">
+               <div class="span10">
+                  <% @prodis.each do |prodi| %>
+                  <div class="row">
+                     <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), prodi_path(prodi), :class => "thumbnail" %></div>
+                     <div class="span6">
+                        <h4><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi %></h4>
+                        <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt : "-" %></h5>
+                        <%= prodi.kota.kota.capitalize %>, <%= prodi.kota.provinsi.provinsi.capitalize %>
+                        <p> <i class="icon-home glyphw"></i> <%= prodi.telepon.present? ? prodi.telepon : "-" %><br>
+                           <i class="icon-envelope glyphw"></i> <%= prodi.email.present? ? prodi.email : "-" %> 
+                        </p>
+                        <p><%= link_to prodi_path(prodi) do %><span class="label label-info">selengkapnya</span><% end %></p>
+                     </div>
+                  </div>
+                  <% end %>
+                  <%= will_paginate @prodis, :param_name => "prodi_page", :renderer => BootstrapPagination::Rails %>
+               </div>
+            </div>
+
+            <div class="tab-pane active" id="pt">
+               <div class="span10">
+                  <% @univs.each do |univ| %>
+                  <div class="row">                     
+                     <div class="span2"><%= link_to image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
+                     <div class="span6">
+                        <h4><strong><%= univ.nama_pt %></strong></h4>
+                        <%= univ.kota.kota.capitalize %>, <%= univ.kota.provinsi.provinsi.capitalize %>
+                        <p> <i class="icon-home glyphw"></i> <%= univ.telepon %> <br>
+                           <i class="icon-envelope glyphw"></i> <%= univ.email %>
+                        </p>
+                        <p>
+                           <% if univ.prodis.present?  %>
+                              <span class="label label-info">jurusan terkait</span>
+                           <% else %>
+                              <span class="label label-important">belum ada data jurusan</span>
+                           <% end %>
+
+                           &nbsp;&nbsp;
+                           <% univ.prodis.take(4).each do |prodi| %>
+                              <% if prodi.present? %>
+                              <i class="icon-ok glyphw"></i> <%= link_to prodi.nama_prodi, prodi_path(prodi) %> &nbsp;&nbsp;
+                              <% end %>
+                           <% end %>
+
+                        </p>
+                     </div>
+                  </div>
+                  <% end %>
+                  <%= will_paginate @univs, :param_name => "pt_page", :renderer => BootstrapPagination::Rails %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<hr>

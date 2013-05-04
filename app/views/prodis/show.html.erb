@@ -2,9 +2,10 @@
 <div class="container-fluid page-header">
    <div class="row-fluid">
       <div class="span7 offset1">
-         <h2><%= @prodi.nama_prodi %></h2>
-         <h3><%= @prodi.univ.nama_pt %></h3>
-         <h4><%= @prodi.kota.kota %>, <%= @prodi.kota.provinsi.provinsi.capitalize %></h4>
+         <h2><%= @prodi.jenjang_prodi.jenjang.present? ? @prodi.jenjang_prodi.jenjang : "-Unknown Jenjang-" %> - <%= @prodi.nama_prodi.present? ? @prodi.nama_prodi : "-Unknown Jurusan-" %>            
+         </h2>
+         <h3><%= @prodi.univ.nama_pt.present? ? @prodi.univ.nama_pt : "-Unknown PT-" %></h3>
+         <h4>Terakreditasi: <%= @prodi.prodi_akreditasis.where(:status => "1").first.present? ? @prodi.prodi_akreditasis.where(:status => "1").first : "-Unknown Akreditasi-"  %></h4>
       </div>
       <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@prodi.logo_path, :alt => "Prodi Logo",  :onerror => "this.src='/assets/default.jpg';") %></a> </div>
    </div>
@@ -21,11 +22,11 @@
          </ul>
          <div class="tab-content">
             <div class="tab-pane active" id="profile">
-               <div class="accordion" id="accordion2">
+               <div class="accordion" id="profile_tab">
                   <div class="accordion-group">
                      <div class="accordion-heading">
                         <span class="accordion-toggle"><strong>Data Kampus</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#keterangan">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#keterangan">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="keterangan" class="accordion-body collapse in">
@@ -34,37 +35,37 @@
                               <thead>
                                  <tr>
                                     <td>Status</td>
-                                    <td><%= @prodi.jenjang_prodi.jenjang %></td>
+                                    <td><%= @prodi.jenjang_prodi.jenjang.present? ? @prodi.jenjang_prodi.jenjang : "-belum ada data-" %></td>
                                  </tr>
                               </thead>
                               <tbody>
                                  <tr>
                                     <td>Fakultas</td>
-                                    <td><%= @prodi.fakultas %></td>
+                                    <td><%= @prodi.fakultas.present? ? @prodi.fakultas : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Tahun Berdiri</td>
-                                    <td><%= @prodi.tahun_berdiri %></td>
+                                    <td><%= @prodi.tahun_berdiri.present? ? @prodi.tahun_berdiri : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Jumlah Mahasiswa</td>
-                                    <td><%= @prodi.jumlah_mahasiswa %></td>
+                                    <td><%= @prodi.jumlah_mahasiswa.present? ? @prodi.jumlah_mahasiswa : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Alamat</td>
-                                    <td><%= @prodi.alamat %>, <%= @prodi.kota.kota %>
+                                    <td><%= @prodi.alamat.present? ? @prodi.alamat : "-belum ada data-" %>, <%= @prodi.kota.kota.present? ? @prodi.kota.kota : "-belum ada data-" %>
                                  </tr>
                                  <tr>
                                     <td>Telepon</td>
-                                    <td><%= @prodi.telepon %></td>
+                                    <td><%= @prodi.telepon.present? ? @prodi.telepon : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Email</td>
-                                    <td><%= @prodi.email %></td>
+                                    <td><%= @prodi.email.present? ? @prodi.email : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Website</td>
-                                    <td><%= @prodi.website %></td>
+                                    <td><%= @prodi.website.present? ? link_to(@prodi.website, @prodi.website) : "-belum ada data-" %></td>
                                  </tr>
                               </tbody>
                            </table>
@@ -74,43 +75,43 @@
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Deskripsi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#deskripsi">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#deskripsi">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="deskripsi" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @prodi.profile %></p>
+                           <p><%= @prodi.profile.present? ? @prodi.profile : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Bidang Studi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#visimisi">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#visimisi">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="visimisi" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @prodi.bidang_studi %></p>
+                           <p><%= @prodi.bidang_studi.present? ? @prodi.bidang_studi : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Kompetensi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#staff">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#staff">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="staff" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @prodi.kompetensi %></p>
+                           <p><%= @prodi.kompetensi.present? ? @prodi.kompetensi : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Staff Pendukung</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#kapasitas-akademik">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#kapasitas-akademik">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="kapasitas-akademik" class="accordion-body collapse">
@@ -118,18 +119,18 @@
                            <table class="table">
                               <thead>
                                  <tr>
-                                    <td><%= @prodi.total_dosen_prof %> Dosen Professor</td>
+                                    <td><%= @prodi.total_dosen_prof.present? ? @prodi.total_dosen_prof : "-belum ada data-" %> Dosen Professor</td>
                                  </tr>
                               </thead>
                               <tbody>
                                  <tr>
-                                    <td><%= @prodi.total_dosen_doktor %> Dosen Doktor</td>
+                                    <td><%= @prodi.total_dosen_doktor.present? ? @prodi.total_dosen_doktor : "-belum ada data-" %> Dosen Doktor</td>
                                  </tr>
                                  <tr>
-                                    <td><%= @prodi.total_dosen_master %> Dosen Master</td>
+                                    <td><%= @prodi.total_dosen_master.present? ? @prodi.total_dosen_master : "-belum ada data-" %> Dosen Master</td>
                                  </tr>
                                  <tr>
-                                    <td><%= @prodi.total_dosen_sarjana %> Dosen Sarjana</td>
+                                    <td><%= @prodi.total_dosen_sarjana.present? ? @prodi.total_dosen_sarjana : "-belum ada data-" %> Dosen Sarjana</td>
                                  </tr>
                               </tbody>
                            </table>
@@ -139,18 +140,19 @@
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Seleksi Masuk</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#seleksi-masuk">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#seleksi-masuk">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="seleksi-masuk" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @prodi.seleksi_masuk %></p>
+                           <p><%= @prodi.seleksi_masuk.present? ? @prodi.seleksi_masuk : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
             <div class="tab-pane" id="gallery">
+               <% if @prodi.prodi_galleries.present? %>
                <div id="myCarousel" class="carousel slide">
                   <ol class="carousel-indicators">
                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -171,23 +173,27 @@
                </div>
                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a> 
                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a> 
+               <% else %>
+               -belum ada data-
+               <% end %>
             </div>
             <div class="tab-pane" id="prospektus">
-               Prospektus Jurusan
+               -belum ada data-
             </div>
             <div class="tab-pane" id="silabus">
-               Prospektus Jurusan
+               -belum ada data-
             </div>
             <div class="tab-pane" id="lain">
-               <div class="accordion">
+               <div class="accordion" id="lain_tab">
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Fasilitas</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#fasilitas">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#fasilitas">Lihat Detail</a>
                         </span> 
                      </div>
-                     <div id="biaya" class="accordion-body collapse">
+                     <div id="fasilitas" class="accordion-body collapse in">
                         <div class="accordion-inner">
+                           <% if @prodi.prodi_fasils.present? %>
                            <table class="table">
                               <thead>
                                 <% @prodi.prodi_fasils.each do |fasilitas| %>
@@ -197,17 +203,21 @@
                                  <% end %>
                               </thead>
                            </table>
+                           <% else %>
+                           -belum ada data-
+                           <% end %>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading"> 
                         <span class="accordion-toggle"><strong>Biaya</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#biaya">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#biaya">Lihat Detail</a>
                         </span> 
                      </div>
                      <div id="biaya" class="accordion-body collapse">
                         <div class="accordion-inner">
+                           <% if @prodi.prodi_biayas.present? %>
                            <table class="table">
                               <thead>
                                  <tr>
@@ -216,7 +226,7 @@
                                  </tr>
                               </thead>
                               <tbody>
-                                <% @prodi.prodi_biaya.each do |biaya| %>
+                                <% @prodi.prodi_biayas.each do |biaya| %>
                                  <tr>
                                     <td><%= biaya.nilai %></td>
                                     <td><%= biaya.biaya %></td>
@@ -224,17 +234,21 @@
                                  <% end %>
                               </tbody>
                            </table>
+                           <% else %>
+                           -belum ada data-
+                           <% end %>
                         </div>
                      </div>
                   </div>
                   <div class="accordion-group">
                      <div class="accordion-heading">
                         <span class="accordion-toggle"><strong>Prestasi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#accordion2" href="#prestasi">Lihat Detail</a>
+                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#prestasi">Lihat Detail</a>
                         </span> 
                      </div>
-                     <div id="prestasi" class="accordion-body collapse in">
+                     <div id="prestasi" class="accordion-body collapse">
                         <div class="accordion-inner">
+                           <% if @prodi.prodi_biayas.present? %>
                            <table class="table">
                               <thead>
                                  <tr>
@@ -251,6 +265,9 @@
                                  <% end %>
                               </tbody>
                            </table>
+                           <% else %>
+                           -belum ada data-
+                           <% end %>
                         </div>
                      </div>
                   </div>

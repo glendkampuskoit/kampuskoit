@@ -1,16 +1,16 @@
 <% provide(:title, 'Rating Perguruan Tinggi') %>
 <div class="container-fluid page-header">
    <div class="container">
-      <h1>Rating</h1>
-      <p class="lead">Rating dan Peringkat Perguruan Tinggi seluruh Indonesia</p>
+      <h1>Rangking</h1>
+      <p class="lead">Rangking Perguruan Tinggi seluruh Indonesia</p>
    </div>
 </div>
 <div class="container">
    <div class="row">
       <div class="span12">
          <ul class="nav nav-tabs">
-            <li class="active"><a href="#global" data-toggle="tab">Global</a></li>
-            <li class="dropdown">
+            <li class="active"><a href="#global" data-toggle="tab">Nasional</a></li>
+            <!--<li class="dropdown">
                <a href="#kategori" data-toggle="dropdown" class="dropdown-toggle">Berdasarkan Kategori <b class="caret"></b></a>
                <ul class="dropdown-menu">
                   <% @jenis_pts.each do |jenis_pt| %>
@@ -25,41 +25,41 @@
                   <li><a href="#"><%= provinsi.provinsi %></a></li>
                   <% end %>
                </ul>
-            </li>
+            </li>-->
          </ul>
          <div class="tab-content">
             <div class="tab-pane active" id="global">
-               <div class="span10">
-                  <% @univratings.each do |univrating| %>
-                  <div class="row">
-                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(univrating.univ.logo_path, :alt => "Prodi Univ") %></a></div>
-                     <div class="span6">
-                        <p><strong><%= univrating.univ.nama_pt %></strong></p>
-                        <%= univrating.univ.kota.kota %>, <%= univrating.univ.kota.provinsi.provinsi %>
-                        <p>
-                           <i class="icon-home"></i> <%= univrating.univ.telepon %> <br>
-                           <i class="icon-envelope"></i> <%= univrating.univ.email %>
-                        </p>
-                     </div>
-                     <div class="span1">
-                        <a href="#" class="thumbnail"><img src="img/logo_its.png" alt=""></a>
-                        <h5 align="center"><i class="icon-bookmark"></i>1</h5>
-                     </div>
-                  </div>
-                  <% end %>
-                  <!--<div class="pagination pagination-centered">
-                     <ul>
-                        <li><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">Next</a></li>
-                     </ul>
-                  </div>-->
-                  <%= will_paginate @univratings, :renderer => BootstrapPagination::Rails %>
-               </div>
+               <table class="table table-bordered table-striped">
+                  <thead>
+                     <tr>
+                        <th rowspan="2">Rangking</th>
+                        <th rowspan="2">Perguruan Tinggi</th>
+                        <th colspan="3">
+                           <div align="center">Kriteria</div>
+                        </th>
+                        <th rowspan="2">Total</th>
+                     </tr>
+                     <tr>
+                        <th>Government</th>
+                        <th>College</th>
+                        <th>Society</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <% rangking = 0 %>
+                     <% @univratings.each do |univrating| %>
+                     <tr>
+                        <td><%= rangking = rangking + 1 %></td>
+                        <td><%= univrating.univ.nama_univ %></td>
+                        <td><%= univrating.government %></td>
+                        <td><%= univrating.college %></td>
+                        <td><%= univrating.society %></td>
+                        <td><%= univrating.total %></td>
+                     </tr>
+                     <% end %>
+                  </tbody>
+               </table>
+               <%= will_paginate @univratings, :renderer => BootstrapPagination::Rails %>
             </div>
          </div>
       </div>

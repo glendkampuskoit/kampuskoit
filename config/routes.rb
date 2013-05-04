@@ -13,9 +13,9 @@ Campus::Application.routes.draw do
   resources :kotas
   resources :provinsis
 
-  get "/kontak", to: 'static_pages#contact'
-  get "/term", to: 'static_pages#term'
-  get "/faq", to: 'static_pages#faq'
+  #get "/kontak", to: 'static_pages#contact'
+  #get "/about", to: 'static_pages#about'
+  #get "/faq", to: 'static_pages#faq'
   #root to: 'static_pages#welcome'
   
   match '/visit', to: 'visitors#new'
