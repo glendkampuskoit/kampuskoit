@@ -1,9 +1,9 @@
 <% provide(:title, 'Hasil Pencarian') %>
 
 <div class="container">
-	<div class="alert alert-success">
+   <div class="alert alert-success">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      Ditemukan <%= @prodis.count + @univs.count %> hasil pencarian
+      Ditemukan <%= @prodis.inspect %> hasil pencarian
    </div>
    <div class="row">
       <div class="span12">

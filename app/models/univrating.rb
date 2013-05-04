@@ -3,7 +3,9 @@ class Univrating < ActiveRecord::Base
 	belongs_to :univ, :foreign_key => :univ_id
 
 	validates :univ, presence: true
-	validates :nilai, presence: true
+	validates :government, presence: true, :numericality => {:only_integer => true}
+	validates :college, presence: true, :numericality => {:only_integer => true}
+	validates :society, presence: true, :numericality => {:only_integer => true}
 	validates :status, presence: true
 =begin
 	def self.filter_by_params(params)

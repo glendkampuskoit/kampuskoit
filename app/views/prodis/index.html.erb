@@ -40,13 +40,13 @@
          <div class="controls controls-row">
             <label class="span2"><span>Akreditasi</span></label>
          </div>
-         <div class="controls controls-row checkbox">
+         <!--<div class="controls controls-row checkbox">
             <label class="span2"><span><%= check_box_tag(:no_akreditasi, @params_value[:no_akreditasi], @params_value[:no_akreditasi].present? ? true : false) %>Tidak Terakreditasi</span></label>
             <label class="span2"><span><%= check_box_tag(:akreditasi_a, @params_value[:akreditasi_a], @params_value[:akreditasi_a].present? ? true : false) %>Terakreditasi A</span></label>
             <label class="span2"><span><%= check_box_tag(:akreditasi_b, @params_value[:akreditasi_b], @params_value[:akreditasi_b].present? ? true : false) %>Terakreditasi B</span></label>
             <label class="span2"><span><%= check_box_tag(:akreditasi_c, @params_value[:akreditasi_c], @params_value[:akreditasi_c].present? ? true : false) %>Terakreditasi C</span></label>
          </div>
-         <br>
+         <br>-->
          <div class="controls controls-row">
             <%= select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "span2", :prompt => "Urutkan berdasarkan") %>&nbsp;
             <button id="search_pt" type="submit" class="btn"><i class="icon-search glyphw"></i> Cari</button>
@@ -54,9 +54,6 @@
       </div>
       <% end %>
    </div>
-
-
-
    <div class="row">
       <div class="span12">
          <ul class="nav nav-tabs">

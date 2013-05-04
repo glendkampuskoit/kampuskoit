@@ -46,14 +46,15 @@
                      </tr>
                   </thead>
                   <tbody>
+                     <% rangking = 0 %>
                      <% @univratings.each do |univrating| %>
                      <tr>
-                        <td><%= univrating.rangking %></td>
+                        <td><%= rangking = rangking + 1 %></td>
                         <td><%= univrating.univ.nama_univ %></td>
                         <td><%= univrating.government %></td>
                         <td><%= univrating.college %></td>
                         <td><%= univrating.society %></td>
-                        <td><%= univrating.government + univrating.society + univrating.society %></td>
+                        <td><%= univrating.total %></td>
                      </tr>
                      <% end %>
                   </tbody>
