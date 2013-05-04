@@ -5,10 +5,28 @@ class UnivsController < ApplicationController
     @jenis_pts = JenisPt.all
 
     withs = {}
+
     withs[:jenis_pt_id] = params[:jenis_pt_id] if params[:jenis_pt_id].present?
     withs[:provinsi_id] = params[:provinsi_id] if params[:provinsi_id].present?
-    
-    @univs = Univ.search params[:keyword_pt], :with => withs, :page => params[:page], :per_page => 10
+
+    # use Zlib to convert string to crc32 integer
+    sn = [Zlib::crc32('negeri'), Zlib::crc32('swasta')]
+
+    if params[:ptn_check] || params[:pts_check]
+      sn = []
+    end
+
+    sn << Zlib::crc32('negeri') if params[:ptn_check]
+    sn << Zlib::crc32('swasta') if params[:pts_check]
+
+    withs[:status_negeri] = sn
+
+    # urutan
+    orders = ""
+    orders = "nama_pt ASC" if params[:urutan] == "1"
+    orders = "nama_pt DESC" if params[:urutan] == "2"
+
+    @univs = Univ.search params[:keyword_pt], :with => withs, :order => orders, :page => params[:page], :per_page => 10
     @params_value = params
   end
 

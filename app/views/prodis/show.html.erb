@@ -5,7 +5,7 @@
          <h2><%= @prodi.jenjang_prodi.jenjang.present? ? @prodi.jenjang_prodi.jenjang : "-Unknown Jenjang-" %> - <%= @prodi.nama_prodi.present? ? @prodi.nama_prodi : "-Unknown Jurusan-" %>            
          </h2>
          <h3><%= @prodi.univ.nama_pt.present? ? @prodi.univ.nama_pt : "-Unknown PT-" %></h3>
-         <h4>Terakreditasi: A</h4>
+         <h4>Terakreditasi: <%= @prodi.prodi_akreditasis.where(:status => "1").first.present? ? @prodi.prodi_akreditasis.where(:status => "1").first : "-Unknown Akreditasi-"  %></h4>
       </div>
       <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@prodi.logo_path, :alt => "Prodi Logo",  :onerror => "this.src='/assets/default.jpg';") %></a> </div>
    </div>

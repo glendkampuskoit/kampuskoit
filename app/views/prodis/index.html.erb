@@ -1,6 +1,6 @@
 <% provide(:title, 'Pencarian Jurusan') %>
 <header class="jumbotron subhead" id="overview">
-   <div class="container well">
+   <div class="container">
       <%= form_tag(prodis_path, :method => "get", :class => 'form-inline') do %>
          <fieldset>
             <legend>Pencarian Jurusan</legend>
@@ -18,15 +18,49 @@
    <div style="padding: 10px; padding-bottom: 0px;"></div>
    <div class="alert alert-success">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      Ditemukan <%= @prodis.count %> hasil pencarian
+      Ditemukan <%= @prodis.count %> hasil pencarian. Gunakan <a href="#filter" data-toggle="collapse"> <strong>Filter & Shorting</strong></a> untuk pencarian lebih detail.
    </div>
+
+
+   <div id="filter" class="row-fluid collapse">
+    <%= form_tag(prodis_path, :method => "get") do %>
+      <div class="well">
+         <legend>Filter & Shorting</legend>
+         <div class="controls controls-row">
+            <label class="span2"><span>Kata Kunci</span></label>
+            <label class="span2"><span>Provinsi</span></label>
+            <label class="span2"><span>Jenjang</span></label>
+         </div>
+         <div class="controls controls-row">
+            <%= text_field_tag(:keyword_prodi, @params_value[:keyword_prodi], :class => "span2", :placeholder => 'Type something') %>
+            <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi, :selected => @params_value[:provinsi_id] ), :prompt => "Semua Provinsi", :class => "span2" %>
+            <%= select_tag "jenjang_prodi_id", options_from_collection_for_select(@jenjang_prodis, :id, :jenjang), :prompt => "Semua Jenjang", :class => "span2" %>
+         </div>
+         <br>
+         <div class="controls controls-row">
+            <label class="span2"><span>Akreditasi</span></label>
+         </div>
+         <div class="controls controls-row checkbox">
+            <label class="span2"><span><%= check_box_tag(:no_akreditasi, @params_value[:no_akreditasi], @params_value[:no_akreditasi].present? ? true : false) %>Tidak Terakreditasi</span></label>
+            <label class="span2"><span><%= check_box_tag(:akreditasi_a, @params_value[:akreditasi_a], @params_value[:akreditasi_a].present? ? true : false) %>Terakreditasi A</span></label>
+            <label class="span2"><span><%= check_box_tag(:akreditasi_b, @params_value[:akreditasi_b], @params_value[:akreditasi_b].present? ? true : false) %>Terakreditasi B</span></label>
+            <label class="span2"><span><%= check_box_tag(:akreditasi_c, @params_value[:akreditasi_c], @params_value[:akreditasi_c].present? ? true : false) %>Terakreditasi C</span></label>
+         </div>
+         <br>
+         <div class="controls controls-row">
+            <%= select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "span2", :prompt => "Urutkan berdasarkan") %>&nbsp;
+            <button id="search_pt" type="submit" class="btn">Cari</button>
+         </div>
+      </div>
+      <% end %>
+   </div>
+
+
+
    <div class="row">
       <div class="span12">
          <ul class="nav nav-tabs">
             <li class="active"><a href="#global" data-toggle="tab">Hasil Pencarian</a></li>
-            <li class="pull-right">
-               <button type="submit" class="btn" onClick="#myModal">Filter & Shorting</button>  
-            </li>
          </ul>
          <div class="tab-content">
             <div class="tab-pane active" id="global">

@@ -17,7 +17,7 @@
    <div style="padding: 10px; padding-bottom: 0px;"></div>
    <div class="alert alert-success">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      Ditemukan <%= @univs.count %> hasil pencarian. Gunakan <a href="#filter" data-toggle="collapse"><strong>Filter & Shorting</strong></a> untuk pencarian lebih detail.
+      Ditemukan <%= @univs.count %> hasil pencarian. Gunakan <a href="#filter" data-toggle="collapse"> <strong>Filter & Shorting</strong></a> untuk pencarian lebih detail.
    </div>
    <div id="filter" class="row-fluid collapse">
     <%= form_tag(univs_path, :method => "get") do %>
@@ -36,16 +36,16 @@
          <br>
          <div class="controls controls-row checkbox">
             <label class="span2"><span><input type="checkbox"> Semua Filter</span></label>
-            <label class="span2"><span><%= check_box_tag(:ptn_check, @params_value[:ptn_check]) %>Perguruan Tinggi Negeri</span></label>
-            <label class="span2"><span><%= check_box_tag(:pts_check, @params_value[:pts_check]) %>Perguruan Tinggi Swasta</span></label>
+            <label class="span2"><span><%= check_box_tag(:ptn_check, @params_value[:ptn_check], @params_value[:ptn_check].present? ? true : false) %>Perguruan Tinggi Negeri</span></label>
+            <label class="span2"><span><%= check_box_tag(:pts_check, @params_value[:pts_check], @params_value[:pts_check].present? ? true : false) %>Perguruan Tinggi Swasta</span></label>
          </div>
          <div class="controls controls-row checkbox">
-            <label class="span2"><span><%= check_box_tag(:pendaftaran_check, @params_value[:ptn_check]) %>Membuka Pendaftaran</span></label>
+            <label class="span2"><span><%= check_box_tag(:pendaftaran_check, @params_value[:pendaftaran_check]) %>Membuka Pendaftaran</span></label>
             <label class="span2"><span><%= check_box_tag(:beasiswa_check, @params_value[:beasiswa_check]) %>Tersedia Beasiswa</span></label>
          </div>
          <br>
          <div class="controls controls-row">
-            <%= select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2], ['Rangking', 3]], :selected => @params_value[:urutan]), :class => "span2", :prompt => "Urutkan berdasarkan") %>&nbsp;
+            <%= select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "span2", :prompt => "Urutkan berdasarkan") %>&nbsp;
             <button id="search_pt" type="submit" class="btn">Cari</button>
          </div>
       </div>
@@ -91,5 +91,4 @@
       </div>
    </div>
 </div>
-<!-- Modal -->
 <hr>

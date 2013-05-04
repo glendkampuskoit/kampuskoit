@@ -74,13 +74,15 @@
             <div class="span4">
                <h3>Informasi</h3>
                <p>Kampus.co.id adalah situs yang melakukan pemeringkatan, penilaian dan ulasan (ranking, rating and review) perguruan-perguruan tinggi di indonesia. </p>
-               <p><%= link_to "#about", :role => "button", :data => { :toggle => "modal" } do %>Selengkapnya <i class="icon-chevron-right glyphw"></i><% end %></p>
+               <p>
+                  <ul class="nav nav-list">
+                  <li><%= link_to "#about", :role => "button", :data => { :toggle => "modal" } do %><i class="icon-align-right glyphw"></i> Tentang Kampus.co.id <% end %></li>
+                  <li><%= link_to "#faq", :role => "button", :data => { :toggle => "modal" } do %><i class="
+                     icon-list glyphw"></i> F.A.Q <% end %></li>
+                  </ul>
+               </p>
             </div>
             <div class="span4 offset1">
-               <h3>Support</h3>
-               <ul class="nav nav-list">
-                  <li><%= link_to "#faq", :role => "button", :data => { :toggle => "modal" } do %><i class="icon-list glyphw"></i> F.A.Q <% end %></li>
-               </ul>
                <h3>Newsletter</h3>
                <p>Berlangganan melalui email</p>
                <%= form_for Visitor.new, :class => "form-inline" do |f| %>
@@ -107,7 +109,6 @@
                   <i class="icon-home glyphw"></i> 031-3490049<br>
                   <i class="icon-envelope glyphw"></i> info@kampus.co.id<br>
                </address>
-               <h4><strong>Media Sosial</strong></h4>
                <p>
                   <%= link_to image_tag("facebook.png", :alt => "facebook", :width => "50px"), 'http://facebook.com/kampuscoid', :target => "blank" %>
                   <%= link_to image_tag("twitter.png", :alt => "twitter", :width => "50px"), 'http://twitter.com/kampuscoid', :target => "blank" %>

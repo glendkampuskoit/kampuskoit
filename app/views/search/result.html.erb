@@ -16,7 +16,7 @@
                <div class="span10">
                   <% @prodis.each do |prodi| %>
                   <div class="row">
-                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';") %></a></div>
+                     <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), prodi_path(prodi), :class => "thumbnail" %></div>
                      <div class="span6">
                         <h4><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi %></h4>
                         <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt : "-" %></h5>
@@ -36,7 +36,7 @@
                <div class="span10">
                   <% @univs.each do |univ| %>
                   <div class="row">                     
-                     <div class="span2"><a href="#" class="thumbnail"><%= image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';") %></a></div>
+                     <div class="span2"><%= link_to image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
                      <div class="span6">
                         <h4><strong><%= univ.nama_pt %></strong></h4>
                         <%= univ.kota.kota.capitalize %>, <%= univ.kota.provinsi.provinsi.capitalize %>
