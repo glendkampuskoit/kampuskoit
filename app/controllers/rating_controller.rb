@@ -3,10 +3,7 @@ class RatingController < ApplicationController
 		@jenis_pts = JenisPt.all
 		@provinsis = Provinsi.all
 
-		if params[:page] 
-			@univratings = Univrating.filter_by_params(params).paginate(:page => params[:page], :per_page => 10)
-		else
-			@univratings = Univrating.filter_by_params(params).paginate(:page => "1", :per_page => 10)
-		end
+		#@univratings = Univrating.filter_by_params(params).paginate(:page => params[:page], :per_page => 20)
+		@univratings = Univrating.paginate(:page => params[:page], :per_page => 20)
 	end
 end

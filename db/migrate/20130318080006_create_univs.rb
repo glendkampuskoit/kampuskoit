@@ -7,7 +7,7 @@ class CreateUnivs < ActiveRecord::Migration
       t.string :website
       t.text :alamat
       t.string :telepon
-      t.integer :status_negeri
+      t.string :status_negeri
       t.text :profile
       t.text :visi
       t.text :misi

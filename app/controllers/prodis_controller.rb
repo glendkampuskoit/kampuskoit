@@ -20,7 +20,7 @@ class ProdisController < ApplicationController
     sn << Zlib::crc32("C") if params[:akreditasi_c]
 
     withs[:akreditasi] = sn
-    withs[:status_akreditasi] = "1"
+    #withs[:status_akreditasi] = 1
 
 
     # urutan

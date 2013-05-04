@@ -9,7 +9,7 @@
             <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi), 
             :prompt => "Semua Provinsi" %>
             <%= select_tag "jenjang_prodi_id", options_from_collection_for_select(@jenjang_prodis, :id, :jenjang), :prompt => "Semua Jenjang" %>
-            <button id="search_prodi" type="submit" class="btn">Cari</button>
+            <button id="search_prodi" type="submit" class="btn"><i class="icon-search glyphw"></i> Cari</button>
          </fieldset>
       <% end %>
    </div>
@@ -49,7 +49,7 @@
          <br>
          <div class="controls controls-row">
             <%= select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "span2", :prompt => "Urutkan berdasarkan") %>&nbsp;
-            <button id="search_pt" type="submit" class="btn">Cari</button>
+            <button id="search_pt" type="submit" class="btn"><i class="icon-search glyphw"></i> Cari</button>
          </div>
       </div>
       <% end %>
