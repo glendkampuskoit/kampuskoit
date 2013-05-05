@@ -2,8 +2,8 @@
 <div class="container-fluid page-header">
    <div class="row-fluid">
       <div class="span7 offset1">
-         <h2><%= @univ.nama_pt.present? ? @univ.nama_pt : "- Unknown PT -" %></h2>
-         <h4><%= @univ.kota.kota.present? ? @univ.kota.kota : "- Unknown City -" %>, <%= @univ.kota.provinsi.provinsi.present? ? @univ.kota.provinsi.provinsi.capitalize : "- Unknown Province -" %></h4>
+         <h2><%= @univ.nama_pt.present? ? @univ.nama_pt.titleize : "- Unknown PT -" %></h2>
+         <h4><%= @univ.kota.kota.present? ? @univ.kota.kota.titleize : "- Unknown City -" %>, <%= @univ.kota.provinsi.provinsi.present? ? @univ.kota.provinsi.provinsi.titleize : "- Unknown Province -" %></h4>
       </div>
       <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@univ.logo_path, :alt => "Univ Logo", :onerror => "this.src='/assets/default.jpg';") %></a> </div>
    </div>
@@ -42,7 +42,7 @@
                                  </tr>
                                  <tr>
                                     <td>Alamat</td>
-                                    <td><%= @univ.alamat.present? ? @univ.alamat : "-belum ada data-" %>, <%= @univ.kota.kota.present? ? @univ.kota.kota : "-belum ada data-" %></td>
+                                    <td><%= @univ.alamat.present? ? @univ.alamat : "-belum ada data-" %>, <%= @univ.kota.kota.present? ? @univ.kota.kota.titleize : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Telepon</td>
@@ -305,13 +305,14 @@
          </div>
       </div>
       <!-- sidebar -->
+      <% if @fakultases.any? %>
       <div class="span4">
          <div class="span4 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav" >
                <% @fakultases.each do |fakultas| %>
                <li>
-                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= fakultas[0].gsub(" ", "") %>"><i class="icon-chevron-right"></i><%= fakultas[0] %></a>
-                  <div id="collapse<%= fakultas[0].gsub(" ", "") %>" class="accordion-body collapse">
+                  <a data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= fakultas[0].gsub(" ", "") if fakultas[0] %>"><i class="icon-chevron-right"></i><%= fakultas[0] %></a>
+                  <div id="collapse<%= fakultas[0].gsub(" ", "") if fakultas[0] %>" class="accordion-body collapse">
                      <div class="accordion-inner">
                         <table class="table">
                            <thead>
@@ -329,6 +330,7 @@
             </ul>
          </div>
       </div>
+      <% end %>
    </div>
 </div>
 <hr>

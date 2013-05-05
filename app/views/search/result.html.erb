@@ -3,7 +3,7 @@
 <div class="container">
    <div class="alert alert-success">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      Ditemukan <%= @prodis.inspect %> hasil pencarian
+      Ditemukan <%= @prodis.count + @univs.count %> hasil pencarian
    </div>
    <div class="row">
       <div class="span12">
@@ -18,9 +18,11 @@
                   <div class="row">
                      <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), prodi_path(prodi), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi %></h4>
-                        <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt : "-" %></h5>
-                        <%= prodi.kota.kota.capitalize %>, <%= prodi.kota.provinsi.provinsi.capitalize %>
+                        <h4><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi.titleize %></h4>
+                        <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt.titleize : "-" %></h5>
+                        <% if prodi.kota.present? %>
+                        <%= prodi.kota.kota.titleize %>, <%= prodi.kota.provinsi.provinsi.titleize %>
+                        <% end %>
                         <p> <i class="icon-home glyphw"></i> <%= prodi.telepon.present? ? prodi.telepon : "-" %><br>
                            <i class="icon-envelope glyphw"></i> <%= prodi.email.present? ? prodi.email : "-" %> 
                         </p>
@@ -38,8 +40,10 @@
                   <div class="row">                     
                      <div class="span2"><%= link_to image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><strong><%= univ.nama_pt %></strong></h4>
-                        <%= univ.kota.kota.capitalize %>, <%= univ.kota.provinsi.provinsi.capitalize %>
+                        <h4><strong><%= univ.nama_pt.titleize %></strong></h4>
+                        <% if univ.kota.present? %>
+                        <%= univ.kota.kota.titleize %>, <%= univ.kota.provinsi.provinsi.titleize %>
+                        <% end %>
                         <p> <i class="icon-home glyphw"></i> <%= univ.telepon %> <br>
                            <i class="icon-envelope glyphw"></i> <%= univ.email %>
                         </p>

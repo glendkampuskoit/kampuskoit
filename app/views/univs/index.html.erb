@@ -63,10 +63,12 @@
                   <div class="row">
                      <div class="span2"><%= link_to image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><%= univ.nama_pt %></h4>
-                        <%= univ.kota.kota.capitalize %>, <%= univ.kota.provinsi.provinsi.capitalize %>
-                        <p> <i class="icon-home glyphw"></i> <%= univ.telepon %> <br>
-                           <i class="icon-envelope glyphw"></i> <%= univ.email %>
+                        <h4><%= univ.nama_pt.present? ? univ.nama_pt.titleize : "-Unknown Nama PT-" %></h4>
+                        <% if univ.kota.present? %>
+                        <%= univ.kota.kota.present? ? univ.kota.kota.titleize : "-Unknown Kota-" %>, <%= univ.kota.provinsi.provinsi.present? ? univ.kota.provinsi.provinsi.titleize : "-Unknown Provinsi-" %>
+                        <% end %>
+                        <p> <i class="icon-home glyphw"></i> <%= univ.telepon.present? ? univ.telepon : "-" %> <br>
+                           <i class="icon-envelope glyphw"></i> <%= univ.email.present? ? univ.email : "-" %>
                         </p>
                         <p>
                            <% if univ.prodis.present?  %>

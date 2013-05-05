@@ -4,7 +4,7 @@
       <div class="span7 offset1">
          <h2><%= @prodi.jenjang_prodi.jenjang.present? ? @prodi.jenjang_prodi.jenjang : "-Unknown Jenjang-" %> - <%= @prodi.nama_prodi.present? ? @prodi.nama_prodi : "-Unknown Jurusan-" %>            
          </h2>
-         <h3><%= @prodi.univ.nama_pt.present? ? @prodi.univ.nama_pt : "-Unknown PT-" %></h3>
+         <h3><%= @prodi.univ.nama_pt.present? ? @prodi.univ.nama_pt.titleize : "-Unknown PT-" %></h3>
          <h4>Terakreditasi: <%= @prodi.prodi_akreditasis.where(:status => "1").first.present? ? @prodi.prodi_akreditasis.where(:status => "1").first : "-Unknown Akreditasi-"  %></h4>
       </div>
       <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@prodi.logo_path, :alt => "Prodi Logo",  :onerror => "this.src='/assets/default.jpg';") %></a> </div>
@@ -41,7 +41,7 @@
                               <tbody>
                                  <tr>
                                     <td>Fakultas</td>
-                                    <td><%= @prodi.fakultas.present? ? @prodi.fakultas : "-belum ada data-" %></td>
+                                    <td><%= @prodi.fakultas.present? ? @prodi.fakultas.titleize : "-belum ada data-" %></td>
                                  </tr>
                                  <tr>
                                     <td>Tahun Berdiri</td>
@@ -53,7 +53,7 @@
                                  </tr>
                                  <tr>
                                     <td>Alamat</td>
-                                    <td><%= @prodi.alamat.present? ? @prodi.alamat : "-belum ada data-" %>, <%= @prodi.kota.kota.present? ? @prodi.kota.kota : "-belum ada data-" %>
+                                    <td><%= @prodi.alamat.present? ? @prodi.alamat : "-belum ada data-" %>, <%= @prodi.kota.kota.present? ? @prodi.kota.kota.titleize : "-belum ada data-" %>
                                  </tr>
                                  <tr>
                                     <td>Telepon</td>

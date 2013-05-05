@@ -66,9 +66,11 @@
                   <div class="row">
                      <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), prodi_path(prodi), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi %></h4>
-                        <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt : "-" %></h5>
-                        <%= prodi.kota.kota.capitalize %>, <%= prodi.kota.provinsi.provinsi.capitalize %>
+                        <h4><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi.titleize %></h4>
+                        <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt.titleize : "-" %></h5>
+                        <% if prodi.kota.present? %>
+                        <%= prodi.kota.kota.titleize %>, <%= prodi.kota.provinsi.provinsi.titleize %>
+                        <% end %>
                         <p> <i class="icon-home glyphw"></i> <%= prodi.telepon.present? ? prodi.telepon : "-" %><br>
                            <i class="icon-envelope glyphw"></i> <%= prodi.email.present? ? prodi.email : "-" %> 
                         </p>
