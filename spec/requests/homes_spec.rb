@@ -48,11 +48,11 @@ describe "Homes" do
       end
     end
 
-    describe "Visitor go to Rating Page" do
+    describe "Visitor go to Ranking Page" do
       before do 
-        click_link "Rating"
+        click_link "Ranking"
       end
-      it { should have_selector('title', text: "Rating Perguruan Tinggi") } 
+      it { should have_selector('title', text: "Ranking Perguruan Tinggi") } 
     end
 
     describe "Visitor go to Signup page" do
