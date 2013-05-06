@@ -49,17 +49,16 @@
                      <% rangking = 0 %>
                      <% @univratings.each do |univrating| %>
                      <tr>
-                        <td><%= rangking = rangking + 1 %></td>
-                        <td><%= univrating.univ.nama_univ %></td>
+                        <td>#<%= rangking = rangking + 1 %></td>
+                        <td><%= univrating.univ.nama_pt.titleize %></td>
                         <td><%= univrating.government %></td>
                         <td><%= univrating.college %></td>
                         <td><%= univrating.society %></td>
-                        <td><%= univrating.total %></td>
+                        <td><%= univrating.score %></td>
                      </tr>
                      <% end %>
                   </tbody>
                </table>
-               <%= will_paginate @univratings, :renderer => BootstrapPagination::Rails %>
             </div>
          </div>
       </div>
