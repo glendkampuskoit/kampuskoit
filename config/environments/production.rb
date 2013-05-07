@@ -12,10 +12,10 @@ Campus::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.compress = false
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -68,4 +68,18 @@ Campus::Application.configure do
   config.campus_url = 'http://kampus.co.id/'
   config.app_name = 'Kampus.co.id'
   config.email = 'info@kampus.co.id'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.delivery_method = :test
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address        => 'smtp.gmail.com',
+      :port           => 587,
+      :domain         => 'kampus.co.id',
+      :authentication => :plain,
+      :user_name      => 'pengentauaja@kampus.co.id',
+      :password       => 'mautauataumautaubanget'
+    }
 end
