@@ -8,7 +8,7 @@ class AdminSessionsController < ApplicationController
   	admin = Admin.find_by_email(params[:admin_session][:email])
   	  if admin && admin.authenticate(params[:admin_session][:password])
   	  	# success
-  	    sign_in admin
+  	    admin_sign_in admin
   	    redirect_to dashboard_path
   	  else
   	  	# login failed
@@ -18,5 +18,7 @@ class AdminSessionsController < ApplicationController
   end
 
   def destroy
+    admin_sign_out
+    redirect_to admin_login_path
   end
 end

@@ -20,6 +20,13 @@ describe "AdminLogin" do
     end
 
     it { should have_selector('title', text: "Dashboard") } 
+    it { should have_link('Logout') } 
+
+    # and then logout
+    describe "admin logout" do
+      before { click_link "Logout" }
+      it { should have_selector('title', text: "Login") } 
+    end
   end
 
   describe "login with ivalid information" do
@@ -32,5 +39,6 @@ describe "AdminLogin" do
     end
 
     it { should have_selector('title', text: "Login") } 
+    it { should_not have_selector('title', text: "Dashboard") } 
   end
 end

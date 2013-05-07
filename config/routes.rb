@@ -32,8 +32,9 @@ Campus::Application.routes.draw do
   match '/search', to: 'search#result'
   match '/rating', to: 'rating#index'
 
-  #admin login
+  #admin login & logout
   match '/admin_login', to: 'admin_sessions#new'
+  match '/admin_logout', to: 'admin_sessions#destroy'
 
   # dashboard
   match '/dashboard', to: 'dashboard#index'
