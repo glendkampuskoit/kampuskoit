@@ -20,4 +20,5 @@ module SessionsHelper
 		self.current_subscriber = nil
 		cookies.delete(:remember_token)
 	end
+	
 end

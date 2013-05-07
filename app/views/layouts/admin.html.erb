@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Kampus.co.id - Administrator | <%= yield(:title) %></title>
+      <%= stylesheet_link_tag "application", :media => "all" %>
+      <%= csrf_meta_tags %>
+      <style type="text/css">
+         <!--
+            .style2 {color: #999999}
+            -->
+      </style>
+      <style>
+         .pricing-table .plan {
+         border-radius: 5px;
+         -moz-box-shadow: 0 0 6px 2px #b0b2ab;
+         -webkit-box-shadow: 0 0 6px 2px #b0b2ab;
+         }
+         .plan {
+         padding: 20px;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container">
+               <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+               <a class="brand" href="#">Administrator - Kampus</a>
+               <% if admin_signed_in? %>
+               <div class="nav-collapse collapse">
+                  <ul class="nav">
+                     <li class="divider-vertical"></li>
+                     <li><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
+                  </ul>
+                  <div class="pull-right">
+                     <ul class="nav pull-right">
+                        <li><a href="#"><i class="icon-info-sign icon-white"></i> Notification <span class="badge badge-warning">4</span></a></li>
+                        <li><a href="#"><i class="icon-list-alt icon-white"></i> Setting</a></li>
+                        <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt icon-white"></i> Administrator <b class="caret"></b></a>
+                           <ul class="dropdown-menu">
+                              <li><a href="#"><i class="icon-user"></i> Profil Saya</a></li>
+                              <li><a href="#"><i class="icon-off"></i> Logout</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <% end %>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <div style="padding: 40px; padding-bottom: 0px;"></div>
+         <% if admin_signed_in? %>
+         <div class="row-fluid">
+            <div class="span12">
+               <div class="span3">
+                  <div class="well" style="width:250px; padding: 8px 0;">
+                     <ul class="nav nav-list">
+                        <li class="nav-header">Admin Menu</li>
+                        <li><a href="index"><i class="icon-home"></i> Dashboard</a></li>
+                        <li class="divider"></li>
+                        <li class="nav-header">Master</li>
+                        <li><a href="#"><i class="icon-envelope"></i> Provinsi</a></li>
+                        <li><a href="#"><i class="icon-comment"></i> Kota</a></li>
+                        <li><a href="#"><i class="icon-comment"></i> Jenis Perguruan Tinggi</a></li>
+                        <li><a href="#"><i class="icon-comment"></i> Jenjang Jurusan</a></li>
+                        <li class="divider"></li>
+                        <li class="nav-header">Data</li>
+                        <li><a href="#"><i class="icon-comment"></i> Perguruan Tinggi</a></li>
+                        <li><a href="#"><i class="icon-comment"></i> Jurusan</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="icon-comment"></i> Settings</a></li>
+                        <li><a href="#"><i class="icon-share"></i> Logout</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="span9">
+                  <h4>Dashboard</h4>
+                  <ul class="breadcrumb">
+                     <li><a href="#">Home</a> <span class="divider">/</span></li>
+                     <li><a href="#">Dashboard</a> <span class="divider">/</span></li>
+                  </ul>
+                  <div>
+                  	<!-- content here -->
+                     <%= yield %>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <% elsif %>
+         <%= yield %>  
+         <% end %>
+      </div>
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+   </body>
+</html>

@@ -53,4 +53,11 @@ FactoryGirl.define do
 	factory :jenjang_prodi do
 		sequence(:jenjang){|n| "Jenjang#{n}" }
 	end
+
+	factory :admin do
+		nama	"Glend Maatita"
+		sequence(:email){|n| "redaksi#{n}@kampus.co.id" }
+		password  "password"
+		password_confirmation	"password"
+	end
 end

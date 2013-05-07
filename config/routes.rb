@@ -1,7 +1,5 @@
 Campus::Application.routes.draw do
 
-  get "search/result"
-
   #root to: 'visitors#new'
   root to: 'home#index'
 
@@ -9,6 +7,7 @@ Campus::Application.routes.draw do
   resources :univs
   resources :subscribers
   resources :sessions, only: [:new, :create, :destroy]
+  resources :admin_sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:create]
   resources :kotas
   resources :provinsis
@@ -32,6 +31,12 @@ Campus::Application.routes.draw do
   match '/confirm', controller: 'subscribers', action: 'confirm'
   match '/search', to: 'search#result'
   match '/rating', to: 'rating#index'
+
+  #admin login
+  match '/admin_login', to: 'admin_sessions#new'
+
+  # dashboard
+  match '/dashboard', to: 'dashboard#index'
   
   #match '*path', :controller => "visitors", :action => "new"
 
