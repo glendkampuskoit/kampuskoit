@@ -1,5 +1,5 @@
 class SubscriberMailer < ActionMailer::Base
-  default from: Rails.application.config.email
+  default from: "info@kampus.co.id" #Rails.application.config.email
 
   def welcome_email(subscriber)
   	@subscriber = subscriber
