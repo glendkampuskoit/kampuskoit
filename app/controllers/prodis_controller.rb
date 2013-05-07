@@ -8,20 +8,25 @@ class ProdisController < ApplicationController
     withs[:jenjang_prodi_id] = params[:jenjang_prodi_id] if params[:jenjang_prodi_id].present?
     withs[:provinsi_id] = params[:provinsi_id] if params[:provinsi_id].present?
 
-    # filter akreditasi
-    sn = [Zlib::crc32("A"), Zlib::crc32("B"), Zlib::crc32("C")]
+
+    # filter akreditasi, credit to Pat
+    akreditasi_list = ["A", "B", "C"]
 
     if params[:no_akreditasi] || params[:akreditasi_a] || params[:akreditasi_b] || params[:akreditasi_c]
-      sn = []
+      akreditasi_list = []
     end
 
-    sn << Zlib::crc32("A") if params[:akreditasi_a]
-    sn << Zlib::crc32("B") if params[:akreditasi_b]
-    sn << Zlib::crc32("C") if params[:akreditasi_c]
+    akreditasi_list << "A" if params[:akreditasi_a]
+    akreditasi_list << "B" if params[:akreditasi_b]
+    akreditasi_list << "C" if params[:akreditasi_c]
 
-    #withs[:akreditasi] = sn
-    #withs[:status_akreditasi] = 1
+    akreditasis = ProdiAkreditasi.find_all_by_peringkat(akreditasi_list)
+    akreditasi_arr = []
+    akreditasis.each do |akreditasi|
+      akreditasi_arr << akreditasi.id  
+    end
 
+    withs[:akreditasis] = akreditasi_arr
 
     # urutan
     orders = ""
