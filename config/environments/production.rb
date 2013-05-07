@@ -67,4 +67,5 @@ Campus::Application.configure do
 
   config.campus_url = 'http://kampus.co.id/'
   config.app_name = 'Kampus.co.id'
+  config.email = 'info@kampus.co.id'
 end
