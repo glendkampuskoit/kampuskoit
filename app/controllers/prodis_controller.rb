@@ -10,23 +10,24 @@ class ProdisController < ApplicationController
 
 
     # filter akreditasi, credit to Pat
-    akreditasi_list = ["A", "B", "C"]
+    # akreditasi_list = ["A", "B", "C"]
 
     if params[:no_akreditasi] || params[:akreditasi_a] || params[:akreditasi_b] || params[:akreditasi_c]
       akreditasi_list = []
+    
+      akreditasi_list << "0" if params[:no_akreditasi]
+      akreditasi_list << "A" if params[:akreditasi_a]
+      akreditasi_list << "B" if params[:akreditasi_b]
+      akreditasi_list << "C" if params[:akreditasi_c]
+
+      akreditasis = ProdiAkreditasi.where(:status => "1").find_all_by_peringkat(akreditasi_list)
+      akreditasi_arr = []
+      akreditasis.each do |akreditasi|
+        akreditasi_arr << akreditasi.id  
+      end
+
+      withs[:akreditasis] = akreditasi_arr
     end
-
-    akreditasi_list << "A" if params[:akreditasi_a]
-    akreditasi_list << "B" if params[:akreditasi_b]
-    akreditasi_list << "C" if params[:akreditasi_c]
-
-    akreditasis = ProdiAkreditasi.find_all_by_peringkat(akreditasi_list)
-    akreditasi_arr = []
-    akreditasis.each do |akreditasi|
-      akreditasi_arr << akreditasi.id  
-    end
-
-    withs[:akreditasis] = akreditasi_arr
 
     # urutan
     orders = ""
