@@ -32,12 +32,12 @@ describe Subscriber do
   it { should belong_to(:kotas) }
 
   describe "When name is blank" do
-    before { @subscriber.name = " " } 
+    before { @subscriber.name = "" } 
     it { should_not be_valid }
   end
 
   describe "When email is blank" do
-    before { @subscriber.email = " " }
+    before { @subscriber.email = "" }
     it { should_not be_valid }
   end
 

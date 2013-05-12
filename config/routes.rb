@@ -11,6 +11,8 @@ Campus::Application.routes.draw do
   resources :visitors, only: [:create]
   resources :kotas
   resources :provinsis
+  resources :jenjang_prodis
+  resources :jenis_pts
 
   #get "/kontak", to: 'static_pages#contact'
   #get "/about", to: 'static_pages#about'
