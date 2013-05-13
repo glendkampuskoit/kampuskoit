@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Kota Page" do
 
   describe "add a new record" do
-    let(:submit) { "Simpan" }
+    let(:submit) { "Save" }
     let(:provinsi) { FactoryGirl.create(:provinsi) }
     
     before do
@@ -35,12 +35,20 @@ describe "Kota Page" do
     end
   end
 
-  pending "go to update page" do
+  describe "go to update page" do
     let(:save) { "Save" }
-    let(:provinsi) { FactoryGirl.create(:provinsi) }
-    before { visit kotas_path }
+    let(:kota) { FactoryGirl.create(:kota) }
+    before { visit edit_kota_path(kota) }
+
+    # update record
+    describe "update record" do
+      before do
+        fill_in "kota_kota", with: "Surabaya"
+        select(kota.provinsi.provinsi, :from => "kota_provinsi_id")
+      end
+      it "should create a kota" do
+        expect { click_button save }.not_to change(Kota, :count)
+      end
+    end
   end
 end
-
-
-

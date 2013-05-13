@@ -1,27 +1,3 @@
 <% provide(:title, 'Tambah Kota') %>
 
-<%= form_for(@kota) do |f| %>
-  <% if @kota.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@kota.errors.count, "error") %> prohibited this kota from being saved:</h2>
-
-      <ul>
-      <% @kota.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :kota %><br />
-    <%= f.text_field :kota %>
-  </div>
-  <div class="field">
-    <%= f.label :provinsi %><br />
-    <%= collection_select(:kota, :provinsi_id, Provinsi.all, :id, :provinsi) %>
-
-  <div class="actions">
-    <%= submit_tag("Simpan") %>
-  </div>
-<% end %>
+<%= render 'form' %>

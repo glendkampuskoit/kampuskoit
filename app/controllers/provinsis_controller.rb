@@ -1,4 +1,6 @@
 class ProvinsisController < ApplicationController
+	layout "admin"
+	
 	def index
 		@provinsis = Provinsi.all
 	end
@@ -13,7 +15,7 @@ class ProvinsisController < ApplicationController
       redirect_to provinsis_path, notice: 'Provinsi was successfully created.' 
     else
     	render action: "new"
-    end	
+    end
 	end
 
 	def edit
