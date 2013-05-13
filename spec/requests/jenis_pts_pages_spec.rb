@@ -15,8 +15,8 @@ describe "Jenis Perguruan Tinggi Page" do
   	it { should have_selector('title', text: "Tambah Jenis Perguruan Tinggi") }
 
   	# and then add one record
-  	pending "add new one" do
-  		let(:save) { "Simpan" }
+  	describe "add new one" do
+  		let(:save) { "Save" }
   		before do
   			fill_in "jenis_pt_jenis", with: "Universitas"
   		end
@@ -27,8 +27,9 @@ describe "Jenis Perguruan Tinggi Page" do
   	end
   end
 
-  pending "go to edit jenis pt page" do
+  describe "go to edit jenis pt page" do
   	let(:jenis_pt) { FactoryGirl.create(:jenis_pt) }
+    let(:save) { "Save" }
   	before { visit edit_jenis_pt_path(jenis_pt) }
 
   	it { should have_selector('title', text: "Update Jenis Perguruan Tinggi") }

@@ -9,13 +9,29 @@ class ProvinsisController < ApplicationController
 
 	def create
 		@provinsi = Provinsi.new(params[:provinsi])
-
-	    respond_to do |format|
-	      if @provinsi.save
-	        format.html { redirect_to 'index', notice: 'Provinsi was successfully created.' }
-	      else
-	        format.html { render action: "new" }
-	      end
-	    end
+		if @provinsi.save
+      redirect_to provinsis_path, notice: 'Provinsi was successfully created.' 
+    else
+    	render action: "new"
+    end	
 	end
+
+	def edit
+		@provinsi = Provinsi.find(params[:id])
+	end
+
+	def update
+		@provinsi = Provinsi.find(params[:id])
+    if @provinsi.update_attributes(params[:provinsi])
+      redirect_to provinsis_path, notice: 'Provinsi was successfully updated.' 
+    else
+      render action: "edit"
+    end
+	end
+
+	def destroy
+    @provinsi = Provinsi.find(params[:id])
+    @provinsi.destroy
+    redirect_to provinsis_path
+  end
 end

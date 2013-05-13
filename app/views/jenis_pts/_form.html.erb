@@ -1,0 +1,31 @@
+   <%= form_for @jenis_pt do |f| %>
+   <fieldset>
+      <div id="legend">
+         <legend class=""><%= yield(:title) %></legend>
+      </div>
+      <% if @jenis_pt.errors.any? %>
+         <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div>
+               <% @jenis_pt.errors.full_messages.each do |msg| %>
+               <%= msg %><br>
+               <% end %>
+            </div>
+         </div>
+      <% end %>
+      <div class="control-group">
+         <%= f.label "Jenis:", :class => "control-label" %>
+         <div class="controls">
+            <%= f.text_field :jenis, :class => "input-xlarge", :placeholder => "Jenis PT" %>
+            <p class="help-block">Masukkan jenis perguruan tinggi</p>
+         </div>
+      </div>
+      <div class="control-group">
+         <!-- Button -->
+         <div class="controls">
+            <button class="btn btn-primary">Save</button>
+            <button class="btn" type="reset">Reset</button>
+         </div>
+      </div>
+   </fieldset>
+   <% end %>  

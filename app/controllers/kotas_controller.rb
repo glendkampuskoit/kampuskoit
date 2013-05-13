@@ -9,13 +9,10 @@ class KotasController < ApplicationController
 
 	def create
 		@kota = Kota.new(params[:kota])
-
-	    respond_to do |format|
-	      if @kota.save
-	        format.html { redirect_to 'index', notice: 'Kota was successfully created.' }
-	      else
-	        format.html { render action: "new" }
-	      end
-	    end
+		if @kota.save
+      redirect_to kotas_path, notice: 'Kota was successfully created.' 
+    else
+    	render action: "new"
+    end	
 	end
 end

@@ -12,7 +12,7 @@
       <% @jenis_pts.each do |jenis_pt| %>
       <tr>
          <td><%= no = no + 1 %></td>
-         <td><%= @jenis_pt.jenis %></td>
+         <td><%= jenis_pt.jenis %></td>
          <td>
          	<div class="btn-group pull-right">
               <%= link_to edit_jenis_pt_path(jenis_pt), :role => "button", :class => "btn btn-info" do %><i class="icon-edit glyphw"></i> Edit <% end %>

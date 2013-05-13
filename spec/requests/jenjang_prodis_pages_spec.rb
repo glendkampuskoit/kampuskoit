@@ -15,8 +15,8 @@ describe "Jenjang Prodi Page" do
   	it { should have_selector('title', text: "Tambah Jenjang Jurusan") }
 
   	# and then add one record
-  	pending "add new one" do
-  		let(:save) { "Simpan" }
+  	describe "add new one" do
+  		let(:save) { "Save" }
   		before do
   			fill_in "jenjang_prodi_jenjang", with: "S1"
         fill_in "jenjang_prodi_keterangan", with: "Sarjana"
@@ -28,8 +28,9 @@ describe "Jenjang Prodi Page" do
   	end
   end
 
-  pending "go to edit jenjang prodi page" do
+  describe "go to edit jenjang prodi page" do
   	let(:jenjang_prodi) { FactoryGirl.create(:jenjang_prodi) }
+    let(:save) { "Save" }
   	before { visit edit_jenjang_prodi_path(jenjang_prodi) }
 
   	it { should have_selector('title', text: "Update Jenjang Jurusan") }

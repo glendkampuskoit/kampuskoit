@@ -34,6 +34,12 @@ describe "Kota Page" do
       page.should have_selector('title', :text => "Kota")
     end
   end
+
+  pending "go to update page" do
+    let(:save) { "Save" }
+    let(:provinsi) { FactoryGirl.create(:provinsi) }
+    before { visit kotas_path }
+  end
 end
 
 
