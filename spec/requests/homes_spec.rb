@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe "Homes" do
-  describe "Home Page Index" do
-    
-    subject { page }
 
-    before { visit home_path }
+  subject { page }
+
+  before { visit home_path }
+  
+  describe "Home Page Index" do
     
     it "should have content Kampus" do
       page.should have_content('Kampus')
@@ -61,5 +62,17 @@ describe "Homes" do
       end
       it { should have_selector('title', text: "Signup") } 
     end
+  end
+
+  describe "visitor send feedback" do
+    before do
+      fill_in "feedback_from", with: "anita@yahoo.com"
+      fill_in "feedback_feed", with: "Selamat siang"
+    end
+
+    it "should add feedback" do
+      expect { click_button "Send" }.to change(Feedback, :count)
+    end
+
   end
 end

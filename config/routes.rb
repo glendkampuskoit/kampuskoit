@@ -13,6 +13,7 @@ Campus::Application.routes.draw do
   resources :provinsis
   resources :jenjang_prodis
   resources :jenis_pts
+  resources :feedbacks, only: [:index, :create]
 
   #get "/kontak", to: 'static_pages#contact'
   #get "/about", to: 'static_pages#about'

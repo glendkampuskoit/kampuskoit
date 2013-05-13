@@ -14,7 +14,7 @@ describe Kota do
   end
 
   describe "When kota is blank" do
-    before { @kota.kota = " " } 
+    before { @kota.kota = "" } 
     it { should_not be_valid }
   end
 
