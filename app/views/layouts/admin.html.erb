@@ -64,17 +64,17 @@
                         <li><a href="index"><i class="icon-home glyphw"></i> Dashboard</a></li>
                         <li class="divider"></li>
                         <li class="nav-header">Master</li>
-                        <li><a href="#"><i class="icon-th-large glyphw"></i> Provinsi</a></li>
-                        <li><a href="#"><i class="icon-th glyphw"></i> Kota</a></li>
-                        <li><a href="#"><i class="icon-tags glyphw"></i> Jenis Perguruan Tinggi</a></li>
-                        <li><a href="#"><i class="icon-tag glyphw"></i> Jenjang Jurusan</a></li>
+                        <li><%= link_to provinsis_path do %><i class="icon-th-large glyphw"></i> Provinsi<% end %></li>
+                        <li><%= link_to kotas_path do %><i class="icon-th glyphw"></i> Kota<% end %></li>
+                        <li><%= link_to jenis_pts_path do %><i class="icon-tags glyphw"></i> Jenis Perguruan Tinggi<% end %></li>
+                        <li><%= link_to jenjang_prodis_path do %><i class="icon-tag glyphw"></i> Jenjang Jurusan<% end %></li>
                         <li class="divider"></li>
                         <li class="nav-header">Data</li>
                         <li><a href="#"><i class="icon-map-marker glyphw"></i> Perguruan Tinggi</a></li>
                         <li><a href="#"><i class="icon-map-marker glyphw"></i> Jurusan</a></li>
                         <li class="divider"></li>
                         <li><a href="#"><i class="icon-th-list glyphw"></i> Settings</a></li>
-                        <li><a href="#"><i class="icon-off glyphw"></i> Logout</a></li>
+                        <li><%= link_to logout_path do %><i class="icon-off glyphw"></i> Logout<% end %></li>
                      </ul>
                   </div>
                </div>
