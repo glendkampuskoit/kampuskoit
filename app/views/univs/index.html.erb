@@ -63,7 +63,7 @@
                   <div class="row">
                      <div class="span2"><%= link_to image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><%= univ.nama_pt.present? ? univ.nama_pt.titleize : "-Unknown Nama PT-" %></h4>
+                        <h4><a href="<%= link_to univ_path(univ) %>" class="header-link"><%= univ.nama_pt.present? ? univ.nama_pt.titleize : "-Unknown Nama PT-" %></a></h4>
                         <% if univ.kota.present? %>
                         <%= univ.kota.kota.present? ? univ.kota.kota.titleize : "-Unknown Kota-" %>, <%= univ.kota.provinsi.provinsi.present? ? univ.kota.provinsi.provinsi.titleize : "-Unknown Provinsi-" %>
                         <% end %>

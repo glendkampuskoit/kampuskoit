@@ -6167,3 +6167,7 @@ a.badge:focus {
 .glyphw-white{
     background-image: url(/assets/glyphicons-halflings-white.png);
 }
+
+.header-link{
+   color: black;
+}
