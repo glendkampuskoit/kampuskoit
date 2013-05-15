@@ -28,7 +28,7 @@
             <div class="container">
                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                <a class="brand" href="#">Administrator - Kampus</a>
-               <% #if admin_signed_in? %>
+               <% if admin_signed_in? %>
                <div class="nav-collapse collapse">
                   <ul class="nav">
                      <li class="divider-vertical"></li>
@@ -48,13 +48,13 @@
                      </ul>
                   </div>
                </div>
-               <% #end %>
+               <% end %>
             </div>
          </div>
       </div>
       <div class="container">
          <div style="padding: 40px; padding-bottom: 0px;"></div>
-         <% #if admin_signed_in? %>
+         <% if admin_signed_in? %>
          <div class="row-fluid">
             <div class="span12">
                <div class="span3">
@@ -91,9 +91,9 @@
                </div>
             </div>
          </div>
-         <% #elsif %>
-         <% #= yield %>  
-         <% #end %>
+         <% elsif %>
+         <%= yield %>  
+         <% end %>
       </div>
    </body>
 </html>

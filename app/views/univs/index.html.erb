@@ -35,7 +35,7 @@
          </div>
          <br>
          <div class="controls controls-row checkbox">
-            <label class="span2"><span><input type="checkbox"> Semua Filter</span></label>
+            <label class="span2"><span><input type="checkbox" class="checkall"> Semua Filter</span></label>
             <label class="span2"><span><%= check_box_tag(:ptn_check, @params_value[:ptn_check], @params_value[:ptn_check].present? ? true : false) %>Perguruan Tinggi Negeri</span></label>
             <label class="span2"><span><%= check_box_tag(:pts_check, @params_value[:pts_check], @params_value[:pts_check].present? ? true : false) %>Perguruan Tinggi Swasta</span></label>
          </div>
@@ -48,6 +48,13 @@
             <%= select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "span2", :prompt => "Urutkan berdasarkan") %>&nbsp;
             <button id="search_pt" type="submit" class="btn"><i class="icon-search glyphw"></i> Cari</button>
          </div>
+         <script type="text/javascript">
+            $(function () {
+                $('.checkall').on('click', function () {
+                    $(this).closest('form').find(':checkbox').prop('checked', this.checked);
+                });
+            });
+         </script>
       </div>
       <% end %>
    </div>
@@ -63,7 +70,7 @@
                   <div class="row">
                      <div class="span2"><%= link_to image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><a href="<%= link_to univ_path(univ) %>" class="header-link"><%= univ.nama_pt.present? ? univ.nama_pt.titleize : "-Unknown Nama PT-" %></a></h4>
+                        <h4><a href="<%= univ_path(univ) %>" class="header-link"><%= univ.nama_pt.present? ? univ.nama_pt.titleize : "-Unknown Nama PT-" %></a></h4>
                         <% if univ.kota.present? %>
                         <%= univ.kota.kota.present? ? univ.kota.kota.titleize : "-Unknown Kota-" %>, <%= univ.kota.provinsi.provinsi.present? ? univ.kota.provinsi.provinsi.titleize : "-Unknown Provinsi-" %>
                         <% end %>

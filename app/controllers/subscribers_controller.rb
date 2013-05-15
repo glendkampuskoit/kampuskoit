@@ -1,7 +1,7 @@
 class SubscribersController < ApplicationController
   def new
   	@subscriber = Subscriber.new
-    render 'subscribers/new'
+    #render 'subscribers/new'
   end
 
   def show

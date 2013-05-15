@@ -1,28 +1,16 @@
 Campus::Application.routes.draw do
 
-  #root to: 'visitors#new'
   root to: 'home#index'
 
-  resources :prodis
-  resources :univs
-  resources :subscribers
+  resources :prodis, only: [:index, :show]
+  resources :univs, only: [:index, :show]
+  resources :subscribers, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :admin_sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:create]
-  resources :kotas
-  resources :provinsis
-  resources :jenjang_prodis
-  resources :jenis_pts
-  resources :feedbacks, only: [:index, :create]
-
-  #get "/kontak", to: 'static_pages#contact'
-  #get "/about", to: 'static_pages#about'
-  #get "/faq", to: 'static_pages#faq'
-  #root to: 'static_pages#welcome'
+  resources :feedbacks, only: [:create]
   
   match '/visit', to: 'visitors#new'
 
-  #get "home/index"
   match '/home', to: 'home#index'
   match '/signup', to: 'subscribers#new'
   match '/login', to: 'sessions#new'
@@ -35,12 +23,28 @@ Campus::Application.routes.draw do
   match '/search', to: 'search#result'
   match '/rating', to: 'rating#index'
 
-  #admin login & logout
-  match '/admin_login', to: 'admin_sessions#new'
-  match '/admin_logout', to: 'admin_sessions#destroy'
+  # for admin panel pages
+  scope "/admin" do
+    #admin login & logout
+    resources :admin_sessions, only: [:new, :create, :destroy]
+    match '/login', to: 'admin_sessions#new'
+    match '/logout', to: 'admin_sessions#destroy'
 
-  # dashboard
-  match '/dashboard', to: 'dashboard#index'
+    # dashboard
+    match '/dashboard', to: 'dashboard#index'
+
+    #data
+    resources :kotas
+    resources :provinsis
+    resources :jenjang_prodis
+    resources :jenis_pts
+    resources :prodis, only: [:new, :create, :edit, :update, :destroy]
+    resources :univs, only: [:new, :create, :edit, :update, :destroy]
+    resources :feedbacks, only: [:index, :show, :destroy]
+    resources :visitors, only: [:index, :edit, :update, :show, :destroy]
+    resources :subscribers, only: [:index, :edit, :update, :show, :destroy]
+
+  end
   
   #match '*path', :controller => "visitors", :action => "new"
 
