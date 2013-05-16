@@ -6,7 +6,7 @@ describe "Prodi Page" do
   let(:univ) { FactoryGirl.create(:univ) }
   let(:jenjang_prodi) { FactoryGirl.create(:jenjang_prodi) }
 
-  let(:submit) { "Simpan" }
+  let(:submit) { "Save" }
   
   before do
     kota

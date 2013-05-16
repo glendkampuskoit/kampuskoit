@@ -1,9 +1,9 @@
-<% provide(:title, 'Tambah Perguruan Tinggi') %>
+<% provide(:title, 'Update Perguruan Tinggi') %>
 
-<%= form_for @univ, :url => "/admin/univs" do |f| %>
+<%= form_for @univ, :url => "/admin/univs/#{@univ.id}" do |f| %>
 <fieldset>
    <div id="legend">
-      <legend class="">Tambah Perguruan Tinggi</legend>
+      <legend class="">Update Perguruan Tinggi</legend>
    </div>
    <% if @univ.errors.any? %>
    <div class="alert alert-error">
@@ -18,91 +18,91 @@
    <div class="control-group">
       <%= f.label "Nama Perguruan Tinggi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_field :nama_pt, :class => "input-xlarge", :placeholder => "Nama PT" %>
+         <%= f.text_field :nama_pt, :value => @univ.nama_pt, :class => "input-xlarge", :placeholder => "Nama PT" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Tahun Berdiri:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_field :tahun_berdiri, :class => "input-medium", :placeholder => "Tahun Berdiri" %>
+         <%= f.text_field :tahun_berdiri, :value => @univ.tahun_berdiri, :class => "input-medium", :placeholder => "Tahun Berdiri" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Status:", :class => "control-label" %>
       <div class="controls">
-         <%= select_tag("univ[status_negeri]", options_for_select([["Perguruan Tinggi Negeri", "negeri"], ["Perguruan Tinggi Swasta", "swasta"]])) %>
+         <%= select_tag("univ[status_negeri]", options_for_select([["Perguruan Tinggi Negeri", "negeri"], ["Perguruan Tinggi Swasta", "swasta"]], :selected => @univ.status_negeri)) %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Jenis PT:", :class => "control-label" %>
       <div class="controls">
-         <%= collection_select(:univ, :jenis_pt_id, JenisPt.all, :id, :jenis) %>
+         <%= collection_select(:univ, :jenis_pt_id, JenisPt.all, :id, :jenis, {:selected => @univ.jenis_pt_id}) %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Email:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_field :email, :class => "input-large", :placeholder => "Email" %>
+         <%= f.text_field :email, :value => @univ.email, :class => "input-large", :placeholder => "Email" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Website:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_field :website, :class => "input-large", :placeholder => "Website" %>
+         <%= f.text_field :website, :value => @univ.website, :class => "input-large", :placeholder => "Website" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Alamat:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :alamat, :rows => "3", :class => "field span4", :placeholder => "Alamat" %>
+         <%= f.text_area :alamat, :value => @univ.alamat, :rows => "3", :class => "field span4", :placeholder => "Alamat" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Kota:", :class => "control-label" %>
       <div class="controls">
-         <%= collection_select(:univ, :kota_id, Kota.all, :id, :kota) %>
+         <%= collection_select(:univ, :kota_id, Kota.all, :id, :kota, {:selected => @univ.kota_id}) %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Telepon:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_field :telepon, :class => "input-xlarge", :placeholder => "Telepon" %>
+         <%= f.text_field :telepon, :value => @univ.telepon, :class => "input-xlarge", :placeholder => "Telepon" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Deskripsi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :deskripsi, :rows => "6", :class => "field span7", :placeholder => "Deskripsi" %>
+         <%= f.text_area :deskripsi, :value => @univ.deskripsi, :rows => "6", :class => "field span7", :placeholder => "Deskripsi" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Profile:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :profile, :rows => "6", :class => "field span7", :placeholder => "Profile" %>
+         <%= f.text_area :profile, :value => @univ.profile, :rows => "6", :class => "field span7", :placeholder => "Profile" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Visi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :visi, :rows => "6", :class => "field span6", :placeholder => "Visi" %>
+         <%= f.text_area :visi, :value => @univ.visi, :rows => "6", :class => "field span6", :placeholder => "Visi" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Misi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :misi, :rows => "6", :class => "field span6", :placeholder => "Misi" %>
+         <%= f.text_area :misi, :value => @univ.misi, :rows => "6", :class => "field span6", :placeholder => "Misi" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Seleksi Masuk:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :seleksi_masuk, :rows => "5", :class => "field span4", :placeholder => "Seleksi Masuk" %>
+         <%= f.text_area :seleksi_masuk, :value => @univ.seleksi_masuk, :rows => "5", :class => "field span4", :placeholder => "Seleksi Masuk" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Kapasitas Akademik:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :kapasitas_akademik, :rows => "5", :class => "field span4", :placeholder => "Kapasitas Akademik" %>
+         <%= f.text_area :kapasitas_akademik, :value => @univ.kapasitas_akademik, :rows => "5", :class => "field span4", :placeholder => "Kapasitas Akademik" %>
       </div>
    </div>
    <div class="control-group">

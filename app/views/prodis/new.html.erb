@@ -1,95 +1,140 @@
 <% provide(:title, 'Tambah Jurusan') %>
 
 <%= form_for @prodi, :url => "/admin/prodis" do |f| %>
-  <% if @prodi.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@prodi.errors.count, "error") %> prohibited this prodi from being saved:</h2>
-
-      <ul>
-      <% @prodi.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :nama_prodi %><br />
-    <%= f.text_field :nama_prodi %>
-  </div>
-  <div class="field">
-    <%= f.label :tahun_berdiri %><br />
-    <%= f.text_field :tahun_berdiri %>
-  </div>
-  <div class="field">
-    <%= f.label :fakultas %><br />
-    <%= f.text_field :fakultas %>
-  </div>
-  <div class="field">
-    <%= f.label :alamat %><br />
-    <%= f.text_area :alamat %>
-  </div>
-  <div class="field">
-    <%= f.label :telepon %><br />
-    <%= f.text_field :telepon %>
-  </div>
-  <div class="field">
-    <%= f.label :fax %><br />
-    <%= f.text_field :fax %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
-  </div>
-  <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.text_area :profile %>
-  </div>
-  <div class="field">
-    <%= f.label :jumlah_mahasiswa %><br />
-    <%= f.text_field :jumlah_mahasiswa %>
-  </div>
-  <div class="field">
-    <%= f.label :bidang_studi %><br />
-    <%= f.text_area :bidang_studi %>
-  </div>
-  <div class="field">
-    <%= f.label :kompetensi %><br />
-    <%= f.text_area :kompetensi %>
-  </div>
-  <div class="field">
-    <%= f.label :total_dosen_prof %><br />
-    <%= f.text_field :total_dosen_prof %>
-  </div>
-  <div class="field">
-    <%= f.label :total_dosen_doktor %><br />
-    <%= f.text_field :total_dosen_doktor %>
-  </div>
-  <div class="field">
-    <%= f.label :total_dosen_master %><br />
-    <%= f.text_field :total_dosen_master %>
-  </div>
-  <div class="field">
-    <%= f.label :total_dosen_sarjana %><br />
-    <%= f.text_field :total_dosen_sarjana %>
-  </div>
-  <div class="field">
-    <%= f.label :kota %><br />
-    <%= collection_select(:prodi, :kota_id, Kota.all, :id, :kota) %>
-  </div>
-  <div class="field">
-    <%= f.label :univ %><br />
-    <%= collection_select(:prodi, :univ_id, Univ.all, :id, :nama_pt) %>
-  </div>
-  <div class="field">
-    <%= f.label :jenjang_prodi_id %><br />
-    <%= collection_select(:prodi, :jenjang_prodi_id, JenjangProdi.all, :id, :jenjang) %>
-  </div>
-  <div class="actions">
-    <%= submit_tag("Simpan") %>
-  </div>
+<fieldset>
+   <div id="legend">
+      <legend class="">Tambah Jurusan</legend>
+   </div>
+   <% if @prodi.errors.any? %>
+   <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <div>
+         <% @prodi.errors.full_messages.each do |msg| %>
+         <%= msg %><br>
+         <% end %>
+      </div>
+   </div>
+   <% end %>
+   <div class="control-group">
+      <%= f.label "Nama Jurusan:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :nama_prodi, :class => "input-xlarge", :placeholder => "Nama Jurusan" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Universitas:", :class => "control-label" %>
+      <div class="controls">
+         <%= collection_select(:prodi, :univ_id, Univ.all, :id, :nama_pt) %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Fakultas:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :fakultas, :class => "input-xlarge", :placeholder => "Fakultas" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Jenjang:", :class => "control-label" %>
+      <div class="controls">
+         <%= collection_select(:prodi, :jenjang_prodi_id, JenjangProdi.all, :id, :jenjang) %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Tahun Berdiri:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :tahun_berdiri, :class => "input-medium", :placeholder => "Tahun Berdiri" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Email:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :email, :class => "input-large", :placeholder => "Email" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Website:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :website, :class => "input-xlarge", :placeholder => "Website" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Alamat:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_area :alamat, :rows => "3", :class => "field span4", :placeholder => "Alamat" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Kota:", :class => "control-label" %>
+      <div class="controls">
+         <%= collection_select(:prodi, :kota_id, Kota.all, :id, :kota) %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Telepon:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :telepon, :class => "input-xlarge", :placeholder => "Telepon" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Fax:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :fax, :class => "input-xlarge", :placeholder => "Fax" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Profile:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_area :profile, :rows => "6", :class => "field span7", :placeholder => "Profile" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Jumlah Mahasiswa:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :jumlah_mahasiswa, :class => "input-xlarge", :placeholder => "Jumlah Mahasiswa" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Bidang Studi:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_area :bidang_studi, :rows => "6", :class => "field span6", :placeholder => "Bidang Studi" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Kompetensi:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_area :kompetensi, :rows => "6", :class => "field span6", :placeholder => "Kompetensi" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Seleksi Masuk:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_area :seleksi_masuk, :rows => "5", :class => "field span4", :placeholder => "Seleksi Masuk" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Jumlah Dosen Professor:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :total_dosen_prof, :class => "input-medium", :placeholder => "" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Jumlah Dosen Master:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :total_dosen_master, :class => "input-medium", :placeholder => "" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Jumlah Dosen Sarjana:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.text_field :total_dosen_sarjana, :class => "input-medium", :placeholder => "" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+         <button class="btn btn-primary">Save</button>
+         <button class="btn" type="reset">Reset</button>
+      </div>
+   </div>
+</fieldset>
 <% end %>

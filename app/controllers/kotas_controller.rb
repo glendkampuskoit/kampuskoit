@@ -36,4 +36,8 @@ class KotasController < ApplicationController
     @kota.destroy
     redirect_to kotas_path
   end
+
+  # index is for visitors searching, list is for admin panel
+  def list
+  end
 end

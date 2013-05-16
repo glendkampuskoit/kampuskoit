@@ -41,17 +41,16 @@ class ProdisController < ApplicationController
 
   def new
     @prodi = Prodi.new
+    render :layout => "admin"
   end
 
   def create
     @prodi = Prodi.new(params[:prodi])
 
-    respond_to do |format|
-      if @prodi.save
-        format.html { redirect_to @prodi, notice: 'Prodi was successfully created.' }
-      else
-        format.html { render action: "new" }
-      end
+    if @prodi.save
+      redirect_to @prodi, notice: 'Prodi was successfully created.'
+    else
+      render action: "new", :layout => "admin"
     end
   end
 

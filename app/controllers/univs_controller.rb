@@ -32,18 +32,29 @@ class UnivsController < ApplicationController
 
   def new
     @univ = Univ.new
+    render :layout => "admin"
   end
 
   def create
     @univ = Univ.new(params[:univ])
-
-    respond_to do |format|
-      if @univ.save
-        format.html { redirect_to @univ, notice: 'Univ was successfully created.' }
-      else
-        format.html { render action: "new" }
-      end
+    if @univ.save
+      redirect_to @univ, notice: 'Univ was successfully created.'
+    else
+      render action: "new", :layout => "admin"
     end
+  end
+
+  def edit
+    @univ = Univ.find(params[:id])
+  end
+
+  def update
+    @univ = Univ.find(params[:id])
+    if @univ.update_attributes(params[:univ])
+      redirect_to univs_path, notice: 'Perguruan Tinggi was successfully updated.' 
+    else
+      render action: "edit", :layout => "admin"
+    end    
   end
 
   def show

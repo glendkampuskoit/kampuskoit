@@ -44,6 +44,10 @@ Campus::Application.routes.draw do
     resources :feedbacks, only: [:index, :show, :destroy]
     resources :visitors, only: [:index, :edit, :update, :show, :destroy]
     resources :subscribers, only: [:index, :edit, :update, :show, :destroy]
+
+    # special for univ & prodi list
+    match '/univs_list', to: 'univs#list'
+    match '/prodis_list', to: 'prodis#list'
   end
   
   #match '*path', :controller => "visitors", :action => "new"
