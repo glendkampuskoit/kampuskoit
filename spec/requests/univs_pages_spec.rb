@@ -9,7 +9,7 @@ describe "Univ Page" do
   before do 
     kota
     jenis_pt
-    visit new_univ_path 
+    visit new_univ_path
   end
 
   it "Index page should have right title Tambah Perguruan Tinggi" do

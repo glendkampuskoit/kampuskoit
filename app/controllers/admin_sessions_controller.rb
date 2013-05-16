@@ -13,12 +13,12 @@ class AdminSessionsController < ApplicationController
   	  else
   	  	# login failed
   	  	flash[:login_error] = 'Email atau password salah'
-  	  	redirect_to admin_login_path
+  	  	redirect_to new_admin_session_path
   	  end
   end
 
   def destroy
     admin_sign_out
-    redirect_to admin_login_path
+    redirect_to new_admin_session_path
   end
 end

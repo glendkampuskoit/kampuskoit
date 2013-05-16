@@ -78,6 +78,11 @@ Spork.each_run do
                   }
   OmniAuth.config.add_mock(:facebook_other, other_omniauth_hash)
 
+  # rspec fail when use namespace on routes, this code below fixed that
+  if /spork/i =~ $0 || RSpec.configuration.drb?
+    ActiveSupport::Dependencies.clear
+  end
+
 end
 
 # --- Instructions ---

@@ -1,6 +1,6 @@
 <% provide(:title, 'Tambah Jurusan') %>
 
-<%= form_for(@prodi) do |f| %>
+<%= form_for @prodi, :url => "/admin/prodis" do |f| %>
   <% if @prodi.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@prodi.errors.count, "error") %> prohibited this prodi from being saved:</h2>

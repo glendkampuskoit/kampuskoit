@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		if subscriber && subscriber.authenticate(params[:session][:password])
 			# success
 			sign_in subscriber
-			redirect_to subscriber
+			redirect_to home_path #subscriber
 		else
 			# login failed
 			flash[:login_error] = 'Invalid email/password combination'

@@ -24,14 +24,15 @@ Campus::Application.routes.draw do
   match '/rating', to: 'rating#index'
 
   # for admin panel pages
-  scope "/admin" do
+  #namespace :admin do
+  scope '/admin' do
     #admin login & logout
     resources :admin_sessions, only: [:new, :create, :destroy]
-    match '/login', to: 'admin_sessions#new'
-    match '/logout', to: 'admin_sessions#destroy'
 
     # dashboard
     match '/dashboard', to: 'dashboard#index'
+    match '/admin_login', to: 'admin_sessions#new'
+    match '/admin_logout', to: 'admin_sessions#destroy'
 
     #data
     resources :kotas
@@ -43,7 +44,6 @@ Campus::Application.routes.draw do
     resources :feedbacks, only: [:index, :show, :destroy]
     resources :visitors, only: [:index, :edit, :update, :show, :destroy]
     resources :subscribers, only: [:index, :edit, :update, :show, :destroy]
-
   end
   
   #match '*path', :controller => "visitors", :action => "new"

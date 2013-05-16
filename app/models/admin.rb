@@ -1,5 +1,7 @@
 class Admin < ActiveRecord::Base
 
+	ROLES = %w[admin editor operator]
+
 	attr_accessible :nama, :email, :password, :password_confirmation
 	has_secure_password
 

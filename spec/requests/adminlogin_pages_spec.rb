@@ -4,7 +4,7 @@ describe "AdminLogin" do
   
   subject { page }
 
-  before { visit admin_login_path }
+  before { visit new_admin_session_path }
 
   describe "admin login page" do
   	it { should have_selector('title', text: "Administrator Login") } 
