@@ -2,7 +2,7 @@ class Admin < ActiveRecord::Base
 
 	ROLES = %w[admin editor operator]
 
-	attr_accessible :nama, :email, :password, :password_confirmation
+	attr_accessible :nama, :email, :password, :password_confirmation, :role
 	has_secure_password
 
 	before_save { |admin| admin.email = email.downcase }

@@ -28,6 +28,7 @@ Campus::Application.routes.draw do
   scope '/admin' do
     #admin login & logout
     resources :admin_sessions, only: [:new, :create, :destroy]
+    resources :admins
 
     # dashboard
     match '/dashboard', to: 'dashboard#index'

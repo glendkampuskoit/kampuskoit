@@ -1,0 +1,54 @@
+   <%= form_for @admin do |f| %>
+   <fieldset>
+      <div id="legend">
+         <legend class=""><%= yield(:title) %></legend>
+      </div>
+      <% if @admin.errors.any? %>
+         <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div>
+               <% @admin.errors.full_messages.each do |msg| %>
+               <%= msg %><br>
+               <% end %>
+            </div>
+         </div>
+      <% end %>
+      <div class="control-group">
+         <%= f.label "Nama:", :class => "control-label" %>
+         <div class="controls">
+            <%= f.text_field :nama, :class => "input-xlarge", :placeholder => "Nama Lengkap" %>
+         </div>
+      </div>
+      <div class="control-group">
+         <%= f.label "Email:", :class => "control-label" %>
+         <div class="controls">
+            <%= f.text_field :email, :class => "input-xlarge", :placeholder => "Email" %>
+         </div>
+      </div>
+      <div class="control-group">
+         <%= f.label "Role:", :class => "control-label" %>
+         <div class="controls">
+            <%= f.collection_select :role, Admin::ROLES, :to_s, :humanize %>
+         </div>
+      </div>
+      <div class="control-group">
+         <%= f.label "Password:", :class => "control-label" %>
+         <div class="controls">
+            <%= f.text_field :password, :class => "input-xlarge", :placeholder => "Password" %>
+         </div>
+      </div>
+      <div class="control-group">
+         <%= f.label "Konfirmasi Password:", :class => "control-label" %>
+         <div class="controls">
+            <%= f.text_field :password_confirmation, :class => "input-xlarge", :placeholder => "Konfirmasi Password" %>
+         </div>
+      </div>
+      <div class="control-group">
+         <!-- Button -->
+         <div class="controls">
+            <button class="btn btn-primary">Save</button>
+            <button class="btn" type="reset">Reset</button>
+         </div>
+      </div>
+   </fieldset>
+   <% end %>  
