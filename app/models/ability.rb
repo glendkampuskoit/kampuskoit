@@ -2,8 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(admin)
-
-    alias_action :show, :to => :show
     
     admin ||= Admin.new #not admin
     if admin.role == "admin"
