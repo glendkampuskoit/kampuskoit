@@ -11,10 +11,10 @@
       </tr>
    </thead>
    <tbody>
-   		<% no = 0 %>
+   		<% no = @kotas.offset %>
       <% @kotas.each do |kota| %>
       <tr>
-         <td><%= no = no + 1 %></td>
+         <td><%= no = no + 1 %>.</td>
          <td><%= kota.kota %></td>
          <td><%= kota.provinsi.provinsi %></td>
          <td>
@@ -27,3 +27,4 @@
       <% end %>
    </tbody>
 </table>
+<%= will_paginate @kotas, :renderer => BootstrapPagination::Rails %>

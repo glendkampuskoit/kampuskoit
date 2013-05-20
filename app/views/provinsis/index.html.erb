@@ -10,10 +10,10 @@
       </tr>
    </thead>
    <tbody>
-   		<% no = 0 %>
+   		<% no = @provinsis.offset %>
       <% @provinsis.each do |provinsi| %>
       <tr>
-         <td><%= no = no + 1 %></td>
+         <td><%= no += 1 %>.</td>
          <td><%= provinsi.provinsi %></td>
          <td>
          	<div class="btn-group pull-right">
@@ -25,3 +25,4 @@
       <% end %>
    </tbody>
 </table>
+<%= will_paginate @provinsis, :renderer => BootstrapPagination::Rails %>

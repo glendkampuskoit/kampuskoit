@@ -19,6 +19,14 @@ describe "Prodi Page" do
     page.should have_selector('title', :text => "Tambah Jurusan")
   end
 
+  # admin only
+  describe "go to univ list on admin panel" do
+    before { visit prodis_list_path }
+    it "should have title List Jurusan" do
+      page.should have_selector('title', :text => "List Jurusan")
+    end     
+  end
+
   describe "fill with valid data" do
     before do
       fill_in "prodi_nama_prodi", with: "Sistem Informasi"

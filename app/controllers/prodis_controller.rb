@@ -57,4 +57,9 @@ class ProdisController < ApplicationController
   def show
     @prodi = Prodi.find(params[:id])
   end
+
+  def list
+    @prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
+    render :layout => "admin"
+  end
 end

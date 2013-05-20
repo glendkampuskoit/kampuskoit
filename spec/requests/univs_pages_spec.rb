@@ -16,6 +16,14 @@ describe "Univ Page" do
     page.should have_selector('title', :text => "Tambah Perguruan Tinggi")
   end
 
+  # admin only
+  describe "go to univ list on admin panel" do
+    before { visit univs_list_path }
+    it "should have title List Perguruan Tinggi" do
+      page.should have_selector('title', :text => "List Perguruan Tinggi")
+    end     
+  end
+
   describe "fill with valid data" do
     before do
       fill_in "univ_nama_pt", with: "Universitas Airlangga"
@@ -68,4 +76,6 @@ describe "Univ Page" do
       end
     end
   end
+
+
 end

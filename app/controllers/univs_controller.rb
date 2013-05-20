@@ -46,6 +46,7 @@ class UnivsController < ApplicationController
 
   def edit
     @univ = Univ.find(params[:id])
+    render :layout => "admin"
   end
 
   def update
@@ -66,5 +67,10 @@ class UnivsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @univ }
     end
+  end
+
+  def list
+    @univs = Univ.paginate(:page => params[:page], :per_page => 30)
+    render :layout => "admin"
   end
 end
