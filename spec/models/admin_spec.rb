@@ -27,6 +27,21 @@ describe Admin do
     it { should_not be_valid }
   end
 
+  describe "When password is blank" do
+    before { @admin.password = "" } 
+    it { should_not be_valid }
+  end
+
+  describe "When password_confirmation is blank" do
+    before { @admin.password_confirmation = "" } 
+    it { should_not be_valid }
+  end
+
+  describe "When password_confirmation not same with password" do
+    before { @admin.password_confirmation = "sdfsd" } 
+    it { should_not be_valid }
+  end
+
   describe "When email is invalid" do
     before { @admin.email = "entung@yahoo" } 
     it { should_not be_valid }

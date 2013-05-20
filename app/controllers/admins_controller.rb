@@ -17,7 +17,7 @@ class AdminsController < ApplicationController
       #sign_in @subscriber
       #SubscriberMailer.welcome_email(@subscriber).deliver
       #flash[:success] = "Pendaftaran Sukses. Silakan cek email anda untuk melakukan verifikasi email."
-  		redirect_to 'index'
+  		redirect_to admins_path, notice: 'Admin was successfully added.' 
   	else
   		render 'new'
   	end		

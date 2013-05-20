@@ -28,21 +28,23 @@
       <div class="control-group">
          <%= f.label "Role:", :class => "control-label" %>
          <div class="controls">
-            <%= f.collection_select :role, Admin::ROLES, :to_s, :humanize %>
+            <%= f.collection_select :role, Admin::ROLES, :to_s, :humanize , {:selected => @admin.role} %>
          </div>
       </div>
+      <% if params[:action] == "new" %>
       <div class="control-group">
          <%= f.label "Password:", :class => "control-label" %>
          <div class="controls">
-            <%= f.text_field :password, :class => "input-xlarge", :placeholder => "Password" %>
+            <%= f.password_field :password, :class => "input-xlarge", :placeholder => "Password" %>
          </div>
       </div>
       <div class="control-group">
          <%= f.label "Konfirmasi Password:", :class => "control-label" %>
          <div class="controls">
-            <%= f.text_field :password_confirmation, :class => "input-xlarge", :placeholder => "Konfirmasi Password" %>
+            <%= f.password_field :password_confirmation, :class => "input-xlarge", :placeholder => "Konfirmasi Password" %>
          </div>
       </div>
+      <% end %>
       <div class="control-group">
          <!-- Button -->
          <div class="controls">
