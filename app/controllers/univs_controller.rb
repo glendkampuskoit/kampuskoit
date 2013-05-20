@@ -1,5 +1,5 @@
 class UnivsController < ApplicationController
-  load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy, :list]
+  load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy, :list] if Rails.env.development? || Rails.env.production?
 
   def index
     @provinsis = Provinsi.all

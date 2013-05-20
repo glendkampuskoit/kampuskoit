@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(admin)
-    
+
     admin ||= Admin.new #not admin
     if admin.role == "admin"
         can :manage, :all

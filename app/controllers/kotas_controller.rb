@@ -1,5 +1,5 @@
 class KotasController < ApplicationController
-	load_and_authorize_resource
+	load_and_authorize_resource if Rails.env.development? || Rails.env.production?
 	layout "admin"
 	
 	def index
