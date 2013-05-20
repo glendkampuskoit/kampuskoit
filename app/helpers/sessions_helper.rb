@@ -23,25 +23,26 @@ module SessionsHelper
 
 
 	# admin session helper
+	# ada beberapa yang diganti, for the CanCan SAKE !!
 	def admin_sign_in(admin)
 		cookies.permanent[:remember_token] = admin.remember_token
-		self.current_admin = admin
+		self.current_user = admin
 	end
 
 	def admin_signed_in?
-		!current_admin.nil?
+		!current_user.nil?
 	end
 
-	def current_admin=(admin)
-		@current_admin = admin
+	def current_user=(admin)
+		@current_user = admin
 	end
 
-	def current_admin
-		@current_admin ||= Admin.find_by_remember_token(cookies[:remember_token])
+	def current_user
+		@current_user ||= Admin.find_by_remember_token(cookies[:remember_token])
 	end
 
 	def admin_sign_out
-		self.current_admin = nil
+		self.current_user = nil
 		cookies.delete(:remember_token)
 	end
 	

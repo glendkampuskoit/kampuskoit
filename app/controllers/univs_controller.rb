@@ -1,4 +1,5 @@
 class UnivsController < ApplicationController
+  load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy, :list]
 
   def index
     @provinsis = Provinsi.all
