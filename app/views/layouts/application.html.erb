@@ -35,7 +35,9 @@
                         </ul>
                      </li>
                      <li><%= link_to rating_path do %><i class="icon-star glyphw"></i> Ranking<% end %></li>
+                     <% unless signed_in? %>
                      <li><%= link_to signup_path do %><i class="icon-user glyphw"></i> Signup<% end %></li>
+                     <% end %>
                      <% if signed_in? %>
                      <li><%= link_to logout_path do %><i class="icon-off glyphw"></i> Logout<% end %></li>
                      <% else %>

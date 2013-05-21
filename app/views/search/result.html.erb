@@ -18,7 +18,7 @@
                   <div class="row">
                      <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), prodi_path(prodi), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi.titleize %></h4>
+                        <h4><a href="<%= prodi_path(prodi) %>" class="header-link"><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi.titleize %></a></h4>
                         <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt.titleize : "-" %></h5>
                         <% if prodi.kota.present? %>
                         <%= prodi.kota.kota.titleize %>, <%= prodi.kota.provinsi.provinsi.titleize %>
@@ -40,7 +40,7 @@
                   <div class="row">                     
                      <div class="span2"><%= link_to image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><strong><%= univ.nama_pt.titleize %></strong></h4>
+                        <h4><strong><a href="<%= univ_path(univ) %>" class="header-link"><%= univ.nama_pt.titleize %></a></strong></h4>
                         <% if univ.kota.present? %>
                         <%= univ.kota.kota.titleize %>, <%= univ.kota.provinsi.provinsi.titleize %>
                         <% end %>
