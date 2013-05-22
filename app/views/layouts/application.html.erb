@@ -39,6 +39,7 @@
                      <li><%= link_to signup_path do %><i class="icon-user glyphw"></i> Signup<% end %></li>
                      <% end %>
                      <% if signed_in? %>
+                     <li><%= link_to new_survey_alumni_path do %><i class="icon-file glyphw"></i> Survey Alumni <span class="label label-inverse">new</span><% end %></li>
                      <li><%= link_to logout_path do %><i class="icon-off glyphw"></i> Logout<% end %></li>
                      <% else %>
                      <li class="dropdown">

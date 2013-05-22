@@ -8,6 +8,7 @@ Campus::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:create]
   resources :feedbacks, only: [:create]
+  resources :survey_alumnis, only: [:index, :new, :create, :destroy]
   
   match '/visit', to: 'visitors#new'
 

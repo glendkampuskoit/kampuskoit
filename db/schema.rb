@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515052111) do
+ActiveRecord::Schema.define(:version => 20130521164317) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -290,6 +290,15 @@ ActiveRecord::Schema.define(:version => 20130515052111) do
 
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true
   add_index "subscribers", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "survey_alumnis", :force => true do |t|
+    t.integer  "subscriber_id"
+    t.integer  "score"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "survey_alumnis", ["subscriber_id"], :name => "index_survey_alumnis_on_subscriber_id"
 
   create_table "univ_fasilitas_galleries", :force => true do |t|
     t.string   "caption"
