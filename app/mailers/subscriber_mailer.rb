@@ -7,9 +7,18 @@ class SubscriberMailer < ActionMailer::Base
   	# web_url/confirm?token=...&memberid=...
   	@activation_url = Rails.application.config.campus_url + "confirm?token=#{subscriber.remember_token}&memberid=#{subscriber.id}"
   	@login_url = Rails.application.config.campus_url + "login"
-  	mail(to: subscriber.email, subject: 'Selamat Datang di Kampus.com') do |format|
+  	mail(to: subscriber.email, subject: 'Selamat Datang di Kampus.co.id') do |format|
       format.html { render :layout => 'mailer' }
       format.text
     end
+  end
+
+  def password_reset(subscriber)
+
+    @subscriber = subscriber
+    mail(to: subscriber.email, subject: 'Password Reset for Kampus.co.id') do |format|
+      format.html { render :layout => 'mailer' }
+      format.text
+    end    
   end
 end

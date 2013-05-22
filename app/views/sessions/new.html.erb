@@ -46,14 +46,14 @@
       </fieldset>
       <% end %>
       <div id="lupa-password-form" class="accordion-body collapse ">
-         <form class="form-horizontal">
+         <%= form_tag password_resets_path, :html => {:class => "form-horizontal"} do |f| %>
             <div class="control-group">
                <div class="controls input-append">
-                  <input type="text" id="email" name="email" placeholder="Email">
+                  <%= text_field_tag :email, "", :placeholder => 'Email' %>
                   <button class="btn btn-info">Send New Password</button>
                </div>
             </div>
-         </form>
+         <% end %>
       </div>
       <form class="form-horizontal">
          <div class="control-group">

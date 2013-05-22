@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515052111) do
+ActiveRecord::Schema.define(:version => 20130522101400) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -265,16 +265,16 @@ ActiveRecord::Schema.define(:version => 20130515052111) do
   create_table "subscribers", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "provider"
     t.string   "uid"
     t.string   "oath_token"
     t.datetime "oath_expires"
-    t.boolean  "from_facebook",     :default => false
-    t.boolean  "email_activation",  :default => false
+    t.boolean  "from_facebook",          :default => false
+    t.boolean  "email_activation",       :default => false
     t.string   "tempat_lahir"
     t.date     "tanggal_lahir"
     t.string   "agama"
@@ -286,10 +286,21 @@ ActiveRecord::Schema.define(:version => 20130515052111) do
     t.string   "no_hp"
     t.integer  "provinsi_id"
     t.integer  "kota_id"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true
   add_index "subscribers", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "survey_alumnis", :force => true do |t|
+    t.integer  "subscriber_id"
+    t.integer  "score"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "survey_alumnis", ["subscriber_id"], :name => "index_survey_alumnis_on_subscriber_id"
 
   create_table "univ_fasilitas_galleries", :force => true do |t|
     t.string   "caption"

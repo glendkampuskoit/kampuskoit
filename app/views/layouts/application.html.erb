@@ -49,7 +49,7 @@
                               <div class="controls">
                                  <%= f.text_field :email, :placeholder => 'Email' %>
                                  <%= f.password_field :password, :placeholder => 'Password' %>
-                                 <label class="checkbox"><input type="checkbox"> Remember me </label>
+                                 <label class="checkbox"><%= check_box_tag :remember_me, 1 %> Remember Me </label>
                                  <button type="submit" class="btn">Login</button> 
                                  <%= link_to login_path do %>
                                  <span class="label label-warning">Lupa Password?</span>

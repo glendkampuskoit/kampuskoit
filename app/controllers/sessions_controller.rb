@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 		subscriber = Subscriber.find_by_email(params[:session][:email])
 		if subscriber && subscriber.authenticate(params[:session][:password])
 			# success
-			sign_in subscriber
+			sign_in(subscriber, params[:session][:remember_me])
 			redirect_to home_path #subscriber
 		else
 			# login failed

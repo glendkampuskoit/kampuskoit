@@ -25,6 +25,13 @@ class Subscriber < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
+	def send_password_reset
+		self.password_reset_token = SecureRandom.urlsafe_base64
+		self.password_reset_sent_at = Time.zone.now
+		save!
+
+		SubscriberMailer.password_reset(self).deliver
+	end
 
 	private
 	def create_remember_token

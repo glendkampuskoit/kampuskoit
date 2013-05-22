@@ -79,7 +79,7 @@ Campus::Application.configure do
       :port           => 587,
       :domain         => 'kampus.co.id',
       :authentication => :plain,
-      :user_name      => 'pengentauaja@kampus.co.id',
-      :password       => 'mautauataumautaubanget'
+      :user_name      => 'info@kampus.co.id',
+      :password       => 't3rb1as4'
     }
 end
