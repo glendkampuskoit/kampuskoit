@@ -83,6 +83,8 @@ Spork.each_run do
     ActiveSupport::Dependencies.clear
   end
 
+  FactoryGirl.reload
+
 end
 
 # --- Instructions ---

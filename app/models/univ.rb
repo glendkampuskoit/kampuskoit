@@ -1,5 +1,8 @@
 class Univ < ActiveRecord::Base
+	extend FriendlyId
 	include ThinkingSphinx::Scopes
+
+	friendly_id :nama_pt, :use => [:slugged, :history]
 
 	belongs_to :kota, :foreign_key => :kota_id
 	belongs_to :jenis_pt, :foreign_key => :jenis_pt_id
@@ -22,5 +25,6 @@ class Univ < ActiveRecord::Base
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-	
+	validates :slug, presence: true
+
 end

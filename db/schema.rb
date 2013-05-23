@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522101400) do
+ActiveRecord::Schema.define(:version => 20130523141158) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(:version => 20130522101400) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
@@ -419,9 +430,11 @@ ActiveRecord::Schema.define(:version => 20130522101400) do
     t.integer  "jenis_pt_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.string   "slug"
   end
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"
+  add_index "univs", ["slug"], :name => "index_univs_on_slug", :unique => true
 
   create_table "visitors", :force => true do |t|
     t.string   "email"

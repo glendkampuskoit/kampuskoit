@@ -61,12 +61,11 @@ class UnivsController < ApplicationController
 
   def show
     @univ = Univ.find(params[:id])
-
     @fakultases = ActiveRecord::Base.connection.execute("select distinct fakultas from prodis where univ_id = '#{@univ.id}'").to_a
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @univ }
+    #trick for friendly_id
+    if request.path != univ_path(@univ)
+      redirect_to @univ, status: :moved_permanently
     end
   end
 

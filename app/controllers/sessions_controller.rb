@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
 	def login_facebook
 		subscriber = Subscriber.from_omniauth(env['omniauth.auth'])
-		sign_in subscriber
+		sign_in(subscriber, 1) #login via facebook automatically add remember me
 		redirect_to home_path
 	end
 
