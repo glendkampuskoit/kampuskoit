@@ -64,9 +64,13 @@
                <div class="span10">
                   <% @prodis.each do |prodi| %>
                   <div class="row">
-                     <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), prodi_path(prodi), :class => "thumbnail" %></div>
+                     <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), [prodi.univ, prodi], :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><a href="<%= prodi_path(prodi) %>" class="header-link"><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi.titleize %></a></h4>
+                        <h4>
+                           <%= link_to [prodi.univ, prodi], :class => "header-link" do %>
+                           <%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi.titleize %>
+                           <% end %>
+                        </h4>
                         <h5><a href="<%= univ_path(prodi.univ) %>" class="header-link"><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt.titleize : "-" %></a></h5>
                         <% if prodi.kota.present? %>
                         <%= prodi.kota.kota.titleize %>, <%= prodi.kota.provinsi.provinsi.titleize %>

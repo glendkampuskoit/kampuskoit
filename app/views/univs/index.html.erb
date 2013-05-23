@@ -86,7 +86,7 @@
                            &nbsp;&nbsp;
                            <% univ.prodis.take(4).each do |prodi| %>
                            <% if prodi.present? %>
-                           <i class="icon-ok glyphw"></i> <%= link_to prodi.nama_prodi, prodi_path(prodi) %> &nbsp;&nbsp;
+                           <i class="icon-ok glyphw"></i> <%= link_to prodi.nama_prodi, [univ, prodi]%> &nbsp;&nbsp;
                            <% end %>
                            <% end %>
                         </p>

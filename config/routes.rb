@@ -2,8 +2,10 @@ Campus::Application.routes.draw do
 
   root to: 'home#index'
 
-  resources :prodis, only: [:index, :show]
-  resources :univs, only: [:index, :show]
+  resources :prodis, only: [:index]
+  resources :univs, only: [:index, :show] do
+    resources :prodis, only: [:show]
+  end
   resources :subscribers, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:create]
@@ -41,8 +43,9 @@ Campus::Application.routes.draw do
     resources :provinsis
     resources :jenjang_prodis
     resources :jenis_pts
-    resources :prodis, only: [:new, :create, :edit, :update, :destroy]
-    resources :univs, only: [:new, :create, :edit, :update, :destroy]
+    resources :univs, only: [:new, :create, :edit, :update, :destroy] do
+      resources :prodis, only: [:new, :create, :edit, :update, :destroy]
+    end
     resources :feedbacks, only: [:index, :show, :destroy]
     resources :visitors, only: [:index, :edit, :update, :show, :destroy]
     resources :subscribers, only: [:index, :edit, :update, :show, :destroy]

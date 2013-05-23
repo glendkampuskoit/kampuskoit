@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523141158) do
+ActiveRecord::Schema.define(:version => 20130523143248) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -29,17 +29,6 @@ ActiveRecord::Schema.define(:version => 20130523141158) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "friendly_id_slugs", :force => true do |t|
-    t.string   "slug",                         :null => false
-    t.integer  "sluggable_id",                 :null => false
-    t.string   "sluggable_type", :limit => 40
-    t.datetime "created_at"
-  end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
-  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
@@ -172,9 +161,11 @@ ActiveRecord::Schema.define(:version => 20130523141158) do
     t.integer  "jenjang_prodi_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.string   "slug"
   end
 
   add_index "prodis", ["kota_id"], :name => "index_prodis_on_kota_id"
+  add_index "prodis", ["slug"], :name => "index_prodis_on_slug"
   add_index "prodis", ["univ_id"], :name => "index_prodis_on_univ_id"
 
   create_table "provinsis", :force => true do |t|
