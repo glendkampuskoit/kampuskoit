@@ -39,7 +39,6 @@
                      <li><%= link_to signup_path do %><i class="icon-user glyphw"></i> Signup<% end %></li>
                      <% end %>
                      <% if signed_in? %>
-                     <li><%= link_to new_survey_alumni_path do %><i class="icon-file glyphw"></i> Survey Alumni <span class="label label-inverse">new</span><% end %></li>
                      <li><%= link_to logout_path do %><i class="icon-off glyphw"></i> Logout<% end %></li>
                      <% else %>
                      <li class="dropdown">
@@ -72,6 +71,12 @@
       </div>
       <!-- end of Navbar -->
 
+      <% if flash[:survey] %>
+         <div class="alert alert-success" align="center">
+            <i class="icon-exclamation-sign"></i>&nbsp;&nbsp;Anda belum mengisi <%= link_to "Form Survey Keprofesian Alumni", new_survey_alumni_path %>
+         </div>
+      <% end %>
+
       <% if flash[:newsletter_success] != nil %>
          <div class="alert alert-success" align="center">
             <i class="icon-exclamation-sign"></i>&nbsp;&nbsp;<%= flash[:newsletter_success] %>
@@ -96,7 +101,7 @@
                   <li><%= link_to "#about", :role => "button", :data => { :toggle => "modal" } do %><i class="icon-zoom-in glyphw"></i> Tentang Kampus.co.id <% end %></li>
                   <li><%= link_to "#faq", :role => "button", :data => { :toggle => "modal" } do %><i class="
                      icon-list glyphw"></i> F.A.Q <% end %></li>
-                  <li><%= link_to "#feedback", :role => "button", :data => { :toggle => "modal" } do %><i class="icon-pencil glyphw"></i> Kirim Feedback <% end %></li>
+                  <li><%= link_to "#feedback", :role => "button", :data => { :toggle => "modal" } do %><i class="icon-pencil glyphw"></i> Feedback <% end %></li>
                   </ul>
                </p>
             </div>
@@ -214,7 +219,7 @@
       <div id="feedback" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 id="myModalLabel">Form Feedback</h3>
+            <h3 id="myModalLabel">Feedback</h3>
          </div>
          <div class="modal-body">
             <%= form_for Feedback.new do |f| %>
