@@ -71,9 +71,9 @@
       </div>
       <!-- end of Navbar -->
 
-      <% if flash[:survey] %>
-         <div class="alert alert-success" align="center">
-            <i class="icon-exclamation-sign"></i>&nbsp;&nbsp;Anda belum mengisi <%= link_to "Form Survey Keprofesian Alumni", new_survey_alumni_path %>
+      <% if flash[:survey] == true %>
+         <div class="alert alert-info" align="center">
+            <i class="icon-exclamation-sign"></i>&nbsp;&nbsp;Anda belum mengisi <strong><%= link_to "Form Survey Keprofesian Alumni", new_survey_alumni_path %></strong>
          </div>
       <% end %>
 
