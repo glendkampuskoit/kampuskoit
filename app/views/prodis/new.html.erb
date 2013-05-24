@@ -1,6 +1,6 @@
 <% provide(:title, 'Tambah Jurusan') %>
 
-<%= form_for @prodi, :url => "/admin/prodis" do |f| %>
+<%= form_for @prodi, :url => univ_prodis_path(@prodi.univ) do |f| %>
 <fieldset>
    <div id="legend">
       <legend class="">Tambah Jurusan</legend>

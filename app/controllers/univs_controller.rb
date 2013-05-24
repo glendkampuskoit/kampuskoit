@@ -53,7 +53,7 @@ class UnivsController < ApplicationController
   def update
     @univ = Univ.find(params[:id])
     if @univ.update_attributes(params[:univ])
-      redirect_to univs_path, notice: 'Perguruan Tinggi was successfully updated.' 
+      redirect_to univs_list_path, notice: 'Perguruan Tinggi was successfully updated.' 
     else
       render action: "edit", :layout => "admin"
     end    

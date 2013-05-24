@@ -12,7 +12,6 @@ class Prodi < ActiveRecord::Base
 	has_many :prodi_akreditasis, :dependent => :delete_all
 	has_many :prodi_biayas, :dependent => :delete_all
 
-=begin
 	validates :nama_prodi, presence: true, length: { maximum: 255 }, :uniqueness => { :scope => [:jenjang_prodi_id, :univ_id], case_sensitive: false }
 	validates :fakultas, presence: true
 	validates :tahun_berdiri, presence: true
@@ -25,9 +24,8 @@ class Prodi < ActiveRecord::Base
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-=end
 
-validates :slug, presence: true
-friendly_id :nama_prodi, :use => :scoped, :scope => :univ
+	#validates :slug, presence: true
+	friendly_id :nama_prodi, :use => :scoped, :scope => :univ
 
 end

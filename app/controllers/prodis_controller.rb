@@ -49,7 +49,7 @@ class ProdisController < ApplicationController
     @prodi = Prodi.new(params[:prodi])
 
     if @prodi.save
-      redirect_to @prodi, notice: 'Prodi was successfully created.'
+      redirect_to univ_prodi_path(@prodi.univ, @prodi), notice: 'Prodi was successfully created.'
     else
       render action: "new", :layout => "admin"
     end
@@ -62,5 +62,9 @@ class ProdisController < ApplicationController
   def list
     @prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
     render :layout => "admin"
+  end
+
+  def destroy
+    
   end
 end

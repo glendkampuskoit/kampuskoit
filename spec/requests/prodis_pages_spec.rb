@@ -12,7 +12,7 @@ describe "Prodi Page" do
     kota
     univ
     jenjang_prodi
-    visit new_prodi_path 
+    visit new_univ_prodi_path(univ)
   end
 
   it "Index page should have right title Tambah Jurusan" do

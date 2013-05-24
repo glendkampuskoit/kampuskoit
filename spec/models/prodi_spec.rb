@@ -19,43 +19,43 @@ describe Prodi do
 	it { should belong_to(:univ) }
 	it { should belong_to(:kota) }
 	it { should belong_to(:jenjang_prodi) }
-  	it { should have_many(:prodi_prestasis).dependent(:delete_all) }
-  	it { should have_many(:prodi_silabuses).dependent(:delete_all) }
-  	it { should have_many(:prodi_fasils).dependent(:delete_all) }
-  	it { should have_many(:prodi_galleries).dependent(:delete_all) }
-  	it { should have_many(:prodi_akreditasis).dependent(:delete_all) }
-  	it { should have_many(:prodi_biayas).dependent(:delete_all) }
+  it { should have_many(:prodi_prestasis).dependent(:delete_all) }
+  it { should have_many(:prodi_silabuses).dependent(:delete_all) }
+  it { should have_many(:prodi_fasils).dependent(:delete_all) }
+  it { should have_many(:prodi_galleries).dependent(:delete_all) }
+  it { should have_many(:prodi_akreditasis).dependent(:delete_all) }
+  it { should have_many(:prodi_biayas).dependent(:delete_all) }
 
-  	describe "should be valid" do
-  		it { should be_valid }
-  	end
-
-  	describe "nama prodi blank is not valid" do
-  		before { @prodi.nama_prodi = '' }
+  describe "should be valid" do
+  	it { should be_valid }
+  end
+  
+  describe "nama prodi blank is not valid" do
+ 		before { @prodi.nama_prodi = '' }
 		it { should_not be_valid }
-  	end
-
-  	describe "nama prodi blank is not valid" do
-  		before { @prodi.tahun_berdiri = '' }
+ 	end
+  
+  describe "nama prodi blank is not valid" do
+ 		before { @prodi.tahun_berdiri = '' }
 		it { should_not be_valid }
-  	end
+  end
 
-  	describe "alamat blank is not valid" do
-  		before { @prodi.alamat = '' }
+  describe "alamat blank is not valid" do
+  	before { @prodi.alamat = '' }
 		it { should_not be_valid }
-  	end
+  end
 
-  	describe "telepon blank is not valid" do
-  		before { @prodi.telepon = '' }
+  describe "telepon blank is not valid" do
+  	before { @prodi.telepon = '' }
 		it { should_not be_valid }
-  	end
+  end
 
-  	describe "email blank is not valid" do
-  		before { @prodi.email = '' }
+  describe "email blank is not valid" do
+  	before { @prodi.email = '' }
 		it { should_not be_valid }
-  	end
+  end
 
-  	describe "when email is invalid" do
+  describe "when email is invalid" do
 		it "should be invalid" do
 			addresses = %w[subscriber@foo,com subscriber_at_foo.org example.subscriber@foo foo@bar_bar.com foo@bar+baz.com]
 			addresses.each do |invalid_address|
@@ -64,6 +64,7 @@ describe Prodi do
 			end
 		end
 	end
+	
 	describe "when email is valid" do
 		it "should be valid" do
 			addresses = %w[subscriber@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
