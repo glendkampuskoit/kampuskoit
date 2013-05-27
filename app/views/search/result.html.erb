@@ -16,9 +16,13 @@
                <div class="span10">
                   <% @prodis.each do |prodi| %>
                   <div class="row">
-                     <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), prodi_path(prodi), :class => "thumbnail" %></div>
+                     <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), [prodi.univ, prodi], :class => "thumbnail" %></div>
                      <div class="span6">
-                        <h4><a href="<%= prodi_path(prodi) %>" class="header-link"><%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi.titleize %></a></h4>
+                        <h4>
+                           <%= link_to [prodi.univ, prodi], :class => "header-link" do %>
+                           <%= prodi.jenjang_prodi.jenjang %> - <%= prodi.nama_prodi.titleize %>
+                           <% end %>
+                        </h4>
                         <h5><%= prodi.univ.nama_pt.present? ? prodi.univ.nama_pt.titleize : "-" %></h5>
                         <% if prodi.kota.present? %>
                         <%= prodi.kota.kota.titleize %>, <%= prodi.kota.provinsi.provinsi.titleize %>
@@ -26,7 +30,7 @@
                         <p> <i class="icon-home glyphw"></i> <%= prodi.telepon.present? ? prodi.telepon : "-" %><br>
                            <i class="icon-envelope glyphw"></i> <%= prodi.email.present? ? prodi.email : "-" %> 
                         </p>
-                        <p><%= link_to prodi_path(prodi) do %><span class="label label-info">selengkapnya</span><% end %></p>
+                        <p><%= link_to [prodi.univ, prodi] do %><span class="label label-info">selengkapnya</span><% end %></p>
                      </div>
                   </div>
                   <% end %>
@@ -57,7 +61,7 @@
                            &nbsp;&nbsp;
                            <% univ.prodis.take(4).each do |prodi| %>
                               <% if prodi.present? %>
-                              <i class="icon-ok glyphw"></i> <%= link_to prodi.nama_prodi, prodi_path(prodi) %> &nbsp;&nbsp;
+                              <i class="icon-ok glyphw"></i> <%= link_to prodi.nama_prodi, [prodi.univ, prodi] %> &nbsp;&nbsp;
                               <% end %>
                            <% end %>
 
