@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor_fix
+//= require ckeditor/ckeditor
 //= require_tree .

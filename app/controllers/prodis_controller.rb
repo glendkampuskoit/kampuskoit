@@ -60,7 +60,8 @@ class ProdisController < ApplicationController
   end
 
   def list
-    @prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
+    #@prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
+    @prodis = Prodi.search params[:keyword_prodi], :page => params[:page], :per_page => 10
     render :layout => "admin"
   end
 

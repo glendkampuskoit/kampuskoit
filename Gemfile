@@ -52,6 +52,7 @@ gem 'will_paginate', '~> 3.0.3'
 gem 'will_paginate-bootstrap'
 gem "cancan"
 gem "friendly_id"
+gem 'bootstrap-wysiwyg-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
