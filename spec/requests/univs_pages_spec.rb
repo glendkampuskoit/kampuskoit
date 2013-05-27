@@ -38,7 +38,7 @@ describe "Univ Page" do
       fill_in "univ_deskripsi", with: "Universitas airlangga adalah ..."
       fill_in "univ_profile", with: "Universitas airlangga adalah ..."
       fill_in "univ_visi", with: "Memajukan Negeri"
-      fill_in "univ_misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
+      #fill_in "univ_misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
       fill_in "univ_seleksi_masuk", with: "SMPB, Nyogok"
       fill_in "univ_kapasitas_akademik", with: "terdiri dari 5 guru dan 5 skk"
     end
@@ -66,7 +66,7 @@ describe "Univ Page" do
         fill_in "univ_deskripsi", with: "Universitas airlangga adalah ..."
         fill_in "univ_profile", with: "Universitas airlangga adalah ..."
         fill_in "univ_visi", with: "Memajukan Negeri"
-        fill_in "univ_misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
+        #fill_in "univ_misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
         fill_in "univ_seleksi_masuk", with: "SMPB, Nyogok"
         fill_in "univ_kapasitas_akademik", with: "terdiri dari 5 guru dan 5 skk"
       end

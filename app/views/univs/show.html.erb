@@ -69,7 +69,7 @@
                      </div>
                      <div id="deskripsi" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.deskripsi.present? ? @univ.deskripsi : "-belum ada data-" %></p>
+                           <p><%= @univ.deskripsi.present? ? raw(@univ.deskripsi) : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
@@ -81,8 +81,7 @@
                      </div>
                      <div id="visimisi" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.visi.present? ? @univ.visi : "-belum ada data-" %></p>
-                           <p><%= @univ.misi.present? ? @univ.misi : "-belum ada data-" %></p>
+                           <p><%= @univ.visi.present? ? raw(@univ.visi) : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
@@ -94,7 +93,7 @@
                      </div>
                      <div id="staff" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.staff_pendukung.present? ? @univ.staff_pendukung : "-belum ada data-" %></p>
+                           <p><%= @univ.staff_pendukung.present? ? raw(@univ.staff_pendukung) : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
@@ -106,7 +105,7 @@
                      </div>
                      <div id="kapasitas-akademik" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.kapasitas_akademik.present? ? @univ.kapasitas_akademik : "-belum ada data-" %></p>
+                           <p><%= @univ.kapasitas_akademik.present? ? raw(@univ.kapasitas_akademik) : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
@@ -118,7 +117,7 @@
                      </div>
                      <div id="seleksi-masuk" class="accordion-body collapse">
                         <div class="accordion-inner">
-                           <p><%= @univ.seleksi_masuk.present? ? @univ.seleksi_masuk : "-belum ada data-" %></p>
+                           <p><%= @univ.seleksi_masuk.present? ? raw(@univ.seleksi_masuk) : "-belum ada data-" %></p>
                         </div>
                      </div>
                   </div>
