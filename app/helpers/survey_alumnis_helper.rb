@@ -1,0 +1,2 @@
+module SurveyAlumnisHelper
+end
