@@ -1,0 +1,25 @@
+<% provide(:title, 'Reset Password') %>
+<div class="container">
+   <div style="padding: 40px; padding-bottom: 0px;"></div>
+   <div class="span8 offset2">
+      <%= form_tag password_resets_path, :class => "form-horizontal" do |f| %>
+      <fieldset>
+         <div id="legend">
+            <legend class="">Reset Password</legend>
+         </div>
+         <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Email instruksi untuk me-reset password akan dikirim ke email anda yaitu <strong><%= current_subscriber.email %></strong>
+         </div>
+         <div class="control-group">
+            <!-- Button -->
+            <div class="controls">
+            	<%= hidden_field_tag :email, @subscriber.email %>
+               <button class="btn btn-large btn-success">Proses <i class="icon-hand-right glyphw"></i></button>
+            </div>
+         </div>
+      </fieldset>
+      <% end %>
+   </div>
+</div>
+<hr>

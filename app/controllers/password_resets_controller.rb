@@ -1,13 +1,24 @@
 class PasswordResetsController < ApplicationController
 
+	def new
+		@subscriber = current_subscriber
+		
+	end
+
 	def create
 		subscriber = Subscriber.find_by_email(params[:email])
-		subscriber.send_password_reset if subscriber
-		redirect_to login_path, :notice => "Instruksi untuk me-reset password telah dikirim ke email anda"		
+
+		if subscriber
+			subscriber.send_password_reset 
+			sign_out
+			redirect_to login_path, :notice => "Instruksi untuk me-reset password telah dikirim ke email anda"		
+		else	
+			redirect_to login_path, :notice => "Email yang anda masukkan tidak valid"		
+		end
 	end
 
 	def edit
-		@subscriber = Subscriber.find(1)#_by_password_reset_token!(params[:id])
+		@subscriber = Subscriber.find_by_password_reset_token!(params[:id])
 	end
 
 	def update

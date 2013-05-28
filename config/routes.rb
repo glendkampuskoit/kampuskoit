@@ -10,7 +10,7 @@ Campus::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:create]
   resources :feedbacks, only: [:create]
-  resources :password_resets, only: [:create, :edit, :update]
+  resources :password_resets, only: [:new, :create, :edit, :update]
   
   match '/visit', to: 'visitors#new'
 
