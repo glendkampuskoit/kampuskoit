@@ -55,6 +55,20 @@ class ProdisController < ApplicationController
     end
   end
 
+  def edit
+    @prodi = Prodi.find(params[:id])
+
+  end
+
+  def update
+    @prodi = Prodi.find(params[:id])
+    if @prodi.update_attributes(params[:prodi])
+      redirect_to prodis_list_path, notice: 'Jurusan was successfully updated.' 
+    else
+      render action: "edit", :layout => "admin"
+    end   
+  end
+
   def show
     @prodi = Prodi.find(params[:id])
   end

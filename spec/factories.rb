@@ -26,7 +26,8 @@ FactoryGirl.define do
 	end	
 
 	factory :univ do
-		nama_pt		"Institut Teknologi Surabaya"
+		#nama_pt		"Institut Teknologi Surabaya"
+		sequence(:nama_pt){|n| "perguruan tinggi #{n}" }
 		tahun_berdiri	"1999"
 		sequence(:email){|n| "redaksi#{n}@its.com" }
 		website 	"www.its.ac.id"

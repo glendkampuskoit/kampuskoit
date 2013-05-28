@@ -4,4 +4,5 @@ class Feedback < ActiveRecord::Base
 
 	validates :from, presence: true
 	validates :feed, presence: true
+	
 end
