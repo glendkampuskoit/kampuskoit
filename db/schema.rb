@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521164317) do
+ActiveRecord::Schema.define(:version => 20130528170828) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -161,9 +161,11 @@ ActiveRecord::Schema.define(:version => 20130521164317) do
     t.integer  "jenjang_prodi_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.string   "slug"
   end
 
   add_index "prodis", ["kota_id"], :name => "index_prodis_on_kota_id"
+  add_index "prodis", ["slug"], :name => "index_prodis_on_slug"
   add_index "prodis", ["univ_id"], :name => "index_prodis_on_univ_id"
 
   create_table "provinsis", :force => true do |t|
@@ -265,16 +267,16 @@ ActiveRecord::Schema.define(:version => 20130521164317) do
   create_table "subscribers", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "provider"
     t.string   "uid"
     t.string   "oath_token"
     t.datetime "oath_expires"
-    t.boolean  "from_facebook",     :default => false
-    t.boolean  "email_activation",  :default => false
+    t.boolean  "from_facebook",          :default => false
+    t.boolean  "email_activation",       :default => false
     t.string   "tempat_lahir"
     t.date     "tanggal_lahir"
     t.string   "agama"
@@ -286,6 +288,8 @@ ActiveRecord::Schema.define(:version => 20130521164317) do
     t.string   "no_hp"
     t.integer  "provinsi_id"
     t.integer  "kota_id"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true
@@ -296,6 +300,7 @@ ActiveRecord::Schema.define(:version => 20130521164317) do
     t.integer  "score"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "hasil"
   end
 
   add_index "survey_alumnis", ["subscriber_id"], :name => "index_survey_alumnis_on_subscriber_id"
@@ -417,9 +422,11 @@ ActiveRecord::Schema.define(:version => 20130521164317) do
     t.integer  "jenis_pt_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.string   "slug"
   end
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"
+  add_index "univs", ["slug"], :name => "index_univs_on_slug", :unique => true
 
   create_table "visitors", :force => true do |t|
     t.string   "email"

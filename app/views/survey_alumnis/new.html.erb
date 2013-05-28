@@ -6,6 +6,7 @@
             <li class="active"><a href="#survey" data-toggle="tab">Survey Alumni</a></li>
          </ul>
          <div class="tab-content">
+            <%= form_for @survey_alumni do |f| %>
             <div class="tab-pane active" id="survey">
                <div class="span10">
                   <h3 align="center">Riset Keprofesian Alumni <br>Perguruan Tinggi Negeri dan Swasta di Indonesia <br>Tahun 2007-2013</h3>
@@ -45,8 +46,8 @@
                            <tr>
                               <td>Jenis Kelamin</td>
                               <td>: 
-                                 <label class="radio inline control-label"><input type="radio" name="pria" value="pria" checked>Laki-laki</label>
-                                 <label class="radio inline control-label"><input type="radio" name="wanita" value="wanita">Wanita</label>
+                                 <label class="radio inline control-label"><input type="radio" name="jenis_kelamin" value="pria" checked>Laki-laki</label>
+                                 <label class="radio inline control-label"><input type="radio" name="jenis_kelamin" value="wanita">Wanita</label>
                               </td>
                            </tr>
                            <tr>
@@ -68,22 +69,22 @@
                         <tbody>
                            <tr>
                               <td><label><strong>1. Berapa Lama anda menjalani perkuliahan?</strong></label>
-                                 <label class="radio control-label"><%= radio_button_tag(:lama_kuliah, "<4", :checked => true) %> Kurang dari 4 tahun</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:lama_kuliah, "4") %> Tepat 4 tahun</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:lama_kuliah, ">4") %> Lebih dari 4 tahun</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:lama_kuliah, "1", :checked => true) %> Kurang dari 4 tahun</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:lama_kuliah, "2") %> Tepat 4 tahun</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:lama_kuliah, "3") %> Lebih dari 4 tahun</label>
                               </td>
                            </tr>
                            <tr>
                               <td><label><strong>2. Berapakah IP anda ketika lulus?</strong></label>
                                  <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2", :checked => true) %> IPK <= 2</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2") %> 2 < IPK <= 2.25</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2") %> 2.25 < IPK <= 2.50</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2") %> 2.50 < IPK <= 2.75</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2") %> 2.75 < IPK <= 3.00</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2") %> 3.00 < IPK <= 3.25</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2") %> 3.25 < IPK <= 3.50</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2") %> 3.50 < IPK <= 3.75</label>
-                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "<=2") %> 3.75 < IPK <= 4.00</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "1") %> 2 < IPK <= 2.25</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "2") %> 2.25 < IPK <= 2.50</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "3") %> 2.50 < IPK <= 2.75</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "4") %> 2.75 < IPK <= 3.00</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "5") %> 3.00 < IPK <= 3.25</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "6") %> 3.25 < IPK <= 3.50</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "7") %> 3.50 < IPK <= 3.75</label>
+                                 <label class="radio control-label"><%= radio_button_tag(:ipk, "8") %> 3.75 < IPK <= 4.00</label>
                               </td>
                            </tr>
                            <tr>
@@ -241,9 +242,18 @@
                            </tr>
                         </tbody>
                      </table>
+                     <div class="control-group">
+                     <!-- Button -->
+                     <div class="controls">
+                        <button class="btn btn-primary">Submit</button>
+                        <button class="btn" type="reset">Reset</button>
+                     </div>
+                  </div>
                   </div>
                </div>
             </div>
+            <% end %>
+
          </div>
       </div>
    </div>
