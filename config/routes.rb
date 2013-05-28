@@ -11,6 +11,7 @@ Campus::Application.routes.draw do
   resources :visitors, only: [:create]
   resources :feedbacks, only: [:create]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :update_subscriber_profiles, only: [:edit, :update]
   
   match '/visit', to: 'visitors#new'
 

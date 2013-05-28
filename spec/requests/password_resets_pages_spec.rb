@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Reset Password Page" do
 
-  describe "propose reset password" do
+  pending "propose reset password" do
     before { visit new_password_reset_path }
 
     it "Index page should have right title Reset Password" do

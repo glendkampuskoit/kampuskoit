@@ -28,8 +28,8 @@ describe Subscriber do
   it { should have_many(:subscriber_pelatihans).dependent(:delete_all) }
   it { should have_many(:subscriber_prestasis).dependent(:delete_all) }
   it { should have_many(:subscriber_rekomendasis).dependent(:delete_all) }
-  it { should belong_to(:provinsis) }
-  it { should belong_to(:kotas) }
+  it { should belong_to(:provinsi) }
+  it { should belong_to(:kota) }
 
   describe "When name is blank" do
     before { @subscriber.name = "" } 

@@ -6,6 +6,8 @@ FactoryGirl.define do
 		password_confirmation "password"
 		from_facebook false
 		email_activation false
+		association :kota, :factory => :kota
+		association :provinsi, :factory => :provinsi
 	end
 
 	factory :visitor do

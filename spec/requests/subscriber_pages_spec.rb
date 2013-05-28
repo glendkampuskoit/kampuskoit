@@ -60,4 +60,5 @@ describe "Subscriber Pages" do
 			specify { subscriberUpdate.email_activation.should == false }
 		end
 	end
+
 end

@@ -43,7 +43,7 @@
                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt glyphw"></i> <%= current_subscriber.name %> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                           <li><a href="#"><i class="icon-user glyphw"></i> Profil</a></li>
+                           <li><%= link_to edit_update_subscriber_profile_path(current_subscriber) do %><i class="icon-user glyphw"></i> Profil<% end %></li>
                            <li><%= link_to new_password_reset_path do %><i class="icon-edit glyphw"></i> Change Password<% end %></li>
                            <li><%= link_to logout_path do %><i class="icon-off glyphw"></i> Logout<% end %></li>
                            </ul>

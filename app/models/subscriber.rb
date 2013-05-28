@@ -8,10 +8,10 @@ class Subscriber < ActiveRecord::Base
 	has_many :subscriber_prestasis, :dependent => :delete_all
 	has_many :subscriber_rekomendasis, :dependent => :delete_all
 
-	belongs_to :provinsis, :foreign_key => :provinsi_id
-	belongs_to :kotas, :foreign_key => :kota_id
+	belongs_to :provinsi, :foreign_key => :provinsi_id
+	belongs_to :kota, :foreign_key => :kota_id
 
-	attr_accessible :name, :email, :password, :password_confirmation, :from_facebook, :email_activation
+	attr_accessible :name, :email, :password, :password_confirmation, :from_facebook, :email_activation, :tempat_lahir, :tanggal_lahir, :agama, :alamat, :kodepos, :provinsi_id, :kota_id, :jenis_kelamin, :status_pernikahan, :telepon, :no_hp
 
 	has_secure_password
 
@@ -24,6 +24,14 @@ class Subscriber < ActiveRecord::Base
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+
+
+	#define agama
+	AGAMAS = %w[Islam Protestan Katolik Hindu Buddha]
+	#status pernikahan
+	#STATUS_PERNIKAHANS = %w[kawin belum_kawin]
+	#jenis kelamin
+	#KELAMINS = %w[laki-laki wanita]
 
 	def send_password_reset
 		self.password_reset_token = SecureRandom.urlsafe_base64
