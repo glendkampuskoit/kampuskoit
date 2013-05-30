@@ -2,7 +2,7 @@ class Admin < ActiveRecord::Base
 
 	ROLES = %w[admin editor operator]
 
-	attr_accessible :nama, :email, :password, :password_confirmation, :role
+	attr_accessible :nama, :email, :password, :password_confirmation, :role, :univ_id
 	has_secure_password
 
 	before_save { |admin| admin.email = email.downcase }
@@ -15,6 +15,7 @@ class Admin < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
+	belongs_to :univ
 
 	private
 	def create_remember_token

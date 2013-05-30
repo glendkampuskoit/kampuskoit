@@ -39,7 +39,7 @@
                         <li><a href="#"><i class="icon-info-sign glyphw-white"></i> Notification <span class="badge badge-warning">4</span></a></li>
                         <li><a href="#"><i class="icon-list-alt glyphw-white"></i> Setting</a></li>
                         <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt glyphw-white"></i> Administrator <b class="caret"></b></a>
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt glyphw-white"></i> <%= current_user.nama %> <b class="caret"></b></a>
                            <ul class="dropdown-menu">
                               <li><a href="#"><i class="icon-user glyphw"></i> Profil Saya</a></li>
                               <li><%= link_to admin_logout_path do %><i class="icon-off glyphw"></i> Logout<% end %></li>
@@ -62,14 +62,18 @@
                      <ul class="nav nav-list">
                         <li class="nav-header">Admin Menu</li>
                         <li><a href="index"><i class="icon-home glyphw"></i> Dashboard</a></li>
+                        <% if current_user.role == 'admin' %>
                         <li><%= link_to admins_path do %><i class="icon-user glyphw"></i> Admins<% end %></li>
+                        <% end %>
                         <li class="divider"></li>
                         <li class="nav-header">Master</li>
+                        <% if current_user.role == 'admin' || current_user.role == 'editor' %>
                         <li><%= link_to provinsis_path do %><i class="icon-th-large glyphw"></i> Provinsi<% end %></li>
                         <li><%= link_to kotas_path do %><i class="icon-th glyphw"></i> Kota<% end %></li>
                         <li><%= link_to jenis_pts_path do %><i class="icon-tags glyphw"></i> Jenis Perguruan Tinggi<% end %></li>
                         <li><%= link_to jenjang_prodis_path do %><i class="icon-tag glyphw"></i> Jenjang Jurusan<% end %></li>
                         <li class="divider"></li>
+                        <% end %>
                         <li class="nav-header">Data</li>
                         <li><%= link_to univs_list_path do %><i class="icon-map-marker glyphw"></i> Perguruan Tinggi<% end %></li>
                         <li><%= link_to prodis_list_path do %><i class="icon-map-marker glyphw"></i> Jurusan<% end %></li>

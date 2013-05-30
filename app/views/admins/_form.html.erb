@@ -31,7 +31,13 @@
             <%= f.collection_select :role, Admin::ROLES, :to_s, :humanize , {:selected => @admin.role} %>
          </div>
       </div>
-      <% if params[:action] == "new" %>
+      <div class="control-group">
+         <%= f.label "Universitas:", :class => "control-label" %>
+         <div class="controls">
+            <%= collection_select(:admin, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt) %>
+         </div>
+      </div>
+      <% if params[:action] != "edit" %>
       <div class="control-group">
          <%= f.label "Password:", :class => "control-label" %>
          <div class="controls">

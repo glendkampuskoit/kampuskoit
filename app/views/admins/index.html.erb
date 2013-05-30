@@ -7,6 +7,7 @@
          <th>No.</th>
          <th>Nama</th>
          <th>Role</th>
+         <th>Perguruan Tinggi</th>
          <th></th>
       </tr>
    </thead>
@@ -17,6 +18,7 @@
          <td><%= no += 1 %>.</td>
          <td><%= admin.nama %></td>
          <td><%= admin.role.capitalize %></td>
+         <td><%= admin.univ.present? ? admin.univ.nama_pt : "Super Administrator" %></td>
          <td>
          	<div class="btn-group pull-right">
               <%= link_to edit_admin_path(admin), :role => "button", :class => "btn btn-info" do %><i class="icon-edit glyphw"></i> Edit <% end %>

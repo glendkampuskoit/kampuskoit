@@ -57,6 +57,7 @@ class ProdisController < ApplicationController
 
   def edit
     @prodi = Prodi.find(params[:id])
+    render :layout => "admin"
 
   end
 

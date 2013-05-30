@@ -9,7 +9,8 @@ class Ability
     elsif admin.role == "editor"
         can [:manage], [JenisPt, JenjangProdi, Kota, Provinsi, Univ, Prodi]
     elsif admin.role == "operator"
-        can [:edit, :update, :show], [Univ], :id => admin.univ_id
+        can [:edit, :update, :show, :list], [Univ], :id => admin.univ_id
+        can [:edit, :update, :show, :destroy, :list], [Prodi], :univ_id => admin.univ_id
     end
   end
 end

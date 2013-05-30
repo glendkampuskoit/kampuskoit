@@ -18,7 +18,7 @@
    <div class="control-group">
       <%= f.label "Nama Perguruan Tinggi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_field :nama_pt, :class => "input-xlarge", :placeholder => "Nama PT" %>
+         <%= f.text_field :nama_pt, :class => "input-xxlarge", :placeholder => "Nama PT" %>
       </div>
    </div>
    <div class="control-group">
@@ -72,37 +72,31 @@
    <div class="control-group">
       <%= f.label "Deskripsi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :deskripsi, :rows => "6", :class => "field span7", :placeholder => "Deskripsi" %>
+         <%= f.text_area :deskripsi, :rows => "6", :class => "field editor", :placeholder => "Deskripsi" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Profile:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :profile, :rows => "6", :class => "field span7", :placeholder => "Profile" %>
+         <%= f.text_area :profile, :rows => "6", :class => "field editor", :placeholder => "Profile" %>
       </div>
    </div>
    <div class="control-group">
-      <%= f.label "Visi:", :class => "control-label" %>
+      <%= f.label "Visi & Misi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :visi, :rows => "6", :class => "field span6", :placeholder => "Visi" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Misi:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_area :misi, :rows => "6", :class => "field span6", :placeholder => "Misi" %>
+         <%= f.text_area :visi, :rows => "6", :class => "field editor", :placeholder => "Visi" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Seleksi Masuk:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :seleksi_masuk, :rows => "5", :class => "field span4", :placeholder => "Seleksi Masuk" %>
+         <%= f.text_area :seleksi_masuk, :rows => "5", :class => "field editor", :placeholder => "Seleksi Masuk" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Kapasitas Akademik:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :kapasitas_akademik, :rows => "5", :class => "field span4", :placeholder => "Kapasitas Akademik" %>
+         <%= f.text_area :kapasitas_akademik, :rows => "5", :class => "field editor", :placeholder => "Kapasitas Akademik" %>
       </div>
    </div>
    <div class="control-group">
@@ -113,4 +107,12 @@
       </div>
    </div>
 </fieldset>
+
+<script type="text/javascript">
+   $(function() {
+      $('.editor').each(function(){
+         CKEDITOR.replace( $(this).attr('id') );
+      });
+   });
+</script>
 <% end %>
