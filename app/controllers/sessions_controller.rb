@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
 	def new
-		render 'sessions/new'
+		if current_subscriber
+      redirect_to home_path
+    else
+    	render 'sessions/new'
+    end		
 	end
 
 	def create
