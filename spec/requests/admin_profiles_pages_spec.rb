@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Admin Profile Page" do
 
-  describe "update profile" do
+  pending "update profile" do
     let(:submit) { "Update" }
     let(:admin) { FactoryGirl.create(:admin)}
     
