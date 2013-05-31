@@ -78,9 +78,11 @@
                </div>
             </div>
             <div class="control-group">
-               <%= f.label "Upload Logo:", :class => "control-label" %>
+               <%= f.label "Update Logo:", :class => "control-label" %>
                <div class="controls">
-                  <%= f.file_field :image %>
+                  <%= f.file_field :image %><br>
+                  Logo Sekarang:<br>
+                  <%= image_tag(@univ.image_url(:thumb), :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';") %>
                </div>
             </div>
             <div class="control-group">

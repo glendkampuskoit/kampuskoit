@@ -90,7 +90,7 @@
    <div class="control-group">
       <%= f.label "Profile:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :profile, :rows => "6", :class => "field span7", :placeholder => "Profile" %>
+         <%= f.text_area :profile, :rows => "6", :class => "field editor", :placeholder => "Profile" %>
       </div>
    </div>
    <div class="control-group">
@@ -102,19 +102,19 @@
    <div class="control-group">
       <%= f.label "Bidang Studi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :bidang_studi, :rows => "6", :class => "field span6", :placeholder => "Bidang Studi" %>
+         <%= f.text_area :bidang_studi, :rows => "6", :class => "field editor", :placeholder => "Bidang Studi" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Kompetensi:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :kompetensi, :rows => "6", :class => "field span6", :placeholder => "Kompetensi" %>
+         <%= f.text_area :kompetensi, :rows => "6", :class => "field editor", :placeholder => "Kompetensi" %>
       </div>
    </div>
    <div class="control-group">
       <%= f.label "Seleksi Masuk:", :class => "control-label" %>
       <div class="controls">
-         <%= f.text_area :seleksi_masuk, :rows => "5", :class => "field span4", :placeholder => "Seleksi Masuk" %>
+         <%= f.text_area :seleksi_masuk, :rows => "5", :class => "field editor", :placeholder => "Seleksi Masuk" %>
       </div>
    </div>
    <div class="control-group">
@@ -143,4 +143,11 @@
       </div>
    </div>
 </fieldset>
+<script type="text/javascript">
+   $(function() {
+      $('.editor').each(function(){
+         CKEDITOR.replace( $(this).attr('id') );
+      });
+   });
+</script>
 <% end %>
