@@ -41,3 +41,4 @@ Gemfile
 
 # ignore uploaded image
 /public/uploads/**/*.*
+/public/uploads

@@ -28,4 +28,6 @@ class Prodi < ActiveRecord::Base
 	#validates :slug, presence: true
 	friendly_id :nama_prodi, :use => :scoped, :scope => :univ
 
+	mount_uploader :logo, ProdiLogoUploader
+
 end

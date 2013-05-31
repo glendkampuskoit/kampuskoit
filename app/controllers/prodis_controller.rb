@@ -49,7 +49,7 @@ class ProdisController < ApplicationController
     @prodi = Prodi.new(params[:prodi])
 
     if @prodi.save
-      redirect_to univ_prodi_path(@prodi.univ, @prodi), notice: 'Prodi was successfully created.'
+      redirect_to prodis_list_path, notice: 'Prodi was successfully created.'
     else
       render action: "new", :layout => "admin"
     end
@@ -75,8 +75,8 @@ class ProdisController < ApplicationController
   end
 
   def list
-    #@prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
-    @prodis = Prodi.search params[:keyword_prodi], :page => params[:page], :per_page => 10
+    @prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
+    #@prodis = Prodi.search params[:keyword_prodi], :page => params[:page], :per_page => 10
     render :layout => "admin"
   end
 

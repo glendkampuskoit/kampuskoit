@@ -1,11 +1,7 @@
 <% provide(:title, 'List Jurusan') %>
-<%
-=begin 
-%>
-link_to new_prodi_path do %><button class="btn btn-primary"><i class="icon-plus-sign glyphw-white"></i> Add New</button><% end %> 
-<%
-=end 
-%>
+
+<%= link_to new_univ_prodi_path(0) do %><button class="btn btn-primary"><i class="icon-plus-sign glyphw-white"></i> Add New</button><% end %> 
+<div style="padding: 15px; padding-bottom: 0px;"></div>
 
 <div class="container">
   <%= form_tag(prodis_list_path, :method => "get", :class => 'form-inline') do %>
