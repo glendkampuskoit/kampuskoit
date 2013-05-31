@@ -1,6 +1,6 @@
 <% provide(:title, 'Tambah Perguruan Tinggi') %>
 
-<%= form_for @univ, :url => "/admin/univs" do |f| %>
+<%= form_for @univ, :url => "/admin/univs", :html => { :multipart => true } do |f| %>
 <fieldset>
    <div id="legend">
       <legend class="">Tambah Perguruan Tinggi</legend>
@@ -67,6 +67,12 @@
       <%= f.label "Telepon:", :class => "control-label" %>
       <div class="controls">
          <%= f.text_field :telepon, :class => "input-xlarge", :placeholder => "Telepon" %>
+      </div>
+   </div>
+   <div class="control-group">
+      <%= f.label "Upload Logo:", :class => "control-label" %>
+      <div class="controls">
+         <%= f.file_field :image %>
       </div>
    </div>
    <div class="control-group">

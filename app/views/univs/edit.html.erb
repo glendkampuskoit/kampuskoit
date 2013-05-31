@@ -1,5 +1,5 @@
 <% provide(:title, 'Update Perguruan Tinggi') %>
-<%= form_for @univ, :url => "/admin/univs/#{@univ.id}" do |f| %>
+<%= form_for @univ, :url => "/admin/univs/#{@univ.id}", :html => { :multipart => true } do |f| %>
 <fieldset>
    <div id="legend">
       <legend class="">Update Perguruan Tinggi</legend>
@@ -78,6 +78,12 @@
                </div>
             </div>
             <div class="control-group">
+               <%= f.label "Upload Logo:", :class => "control-label" %>
+               <div class="controls">
+                  <%= f.file_field :image %>
+               </div>
+            </div>
+            <div class="control-group">
                <%= f.label "Deskripsi:", :class => "control-label" %>
                <div class="controls">
                   <%= f.text_area :deskripsi, :value => @univ.deskripsi, :rows => "6", :class => "field editor", :placeholder => "Deskripsi" %>
@@ -115,7 +121,7 @@
             <p>What up girl, this is Section 3.</p>
          </div>
          <div class="tab-pane" id="lain">
-            <p>What up girl, this is Section 3.</p>
+            
          </div>
       </div>
    </div>

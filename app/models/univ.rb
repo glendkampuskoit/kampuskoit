@@ -27,4 +27,5 @@ class Univ < ActiveRecord::Base
 	#validates :slug, presence: true
 	friendly_id :nama_pt, :use => :slugged
 
+	mount_uploader :image, ImageUploader
 end

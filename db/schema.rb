@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530052705) do
+ActiveRecord::Schema.define(:version => 20130531060419) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -424,6 +424,7 @@ ActiveRecord::Schema.define(:version => 20130530052705) do
     t.string   "created_by"
     t.string   "updated_by"
     t.string   "slug"
+    t.string   "image"
   end
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"

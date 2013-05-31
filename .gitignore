@@ -38,3 +38,6 @@ Guardfile
 
 # ignore gemfile
 Gemfile
+
+# ignore uploaded image
+/public/uploads/**/*.*
