@@ -51,6 +51,7 @@ Campus::Application.routes.draw do
     resources :feedbacks, only: [:index, :show, :destroy]
     resources :visitors, only: [:index, :edit, :update, :show, :destroy]
     resources :subscribers, only: [:index, :edit, :update, :show, :destroy]
+    resources :admin_profiles, only: [:edit, :update]
 
     # special for univ & prodi list
     match '/univs_list', to: 'univs#list'

@@ -31,7 +31,7 @@
          <td>
          	<div class="btn-group pull-right">
               <%= link_to edit_univ_path(univ), :role => "button", :class => "btn btn-info" do %><i class="icon-edit glyphw"></i> Edit <% end %>
-             <%= link_to univ_path(univ), method: :delete, :role => "button", :class => "btn btn-danger" do %><i class="icon-trash glyphw"></i> Hapus <% end %>
+             <% if can? :destroy, univ %><%= link_to univ_path(univ), method: :delete, :role => "button", :class => "btn btn-danger" do %><i class="icon-trash glyphw"></i> Hapus <% end %><% end %>
           </div>
          </td>
       </tr>

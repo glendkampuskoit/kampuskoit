@@ -41,7 +41,7 @@
                         <li class="dropdown">
                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt glyphw-white"></i> <%= current_user.nama %> <b class="caret"></b></a>
                            <ul class="dropdown-menu">
-                              <li><a href="#"><i class="icon-user glyphw"></i> Profil Saya</a></li>
+                              <li><%= link_to edit_admin_profile_path(current_user) do %><i class="icon-user glyphw"></i> Profil Saya<% end %></li>
                               <li><%= link_to admin_logout_path do %><i class="icon-off glyphw"></i> Logout<% end %></li>
                            </ul>
                         </li>
