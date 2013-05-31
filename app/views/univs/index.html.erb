@@ -68,7 +68,7 @@
                <div class="span10">
                   <% @univs.each do |univ| %>
                   <div class="row">
-                     <div class="span2"><%= link_to image_tag(univ.logo_path, :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
+                     <div class="span2"><%= link_to image_tag(univ.image_url(:thumb), :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
                      <div class="span6">
                         <h4><a href="<%= univ_path(univ) %>" class="header-link"><%= univ.nama_pt.present? ? univ.nama_pt.titleize : "-Unknown Nama PT-" %></a></h4>
                         <% if univ.kota.present? %>

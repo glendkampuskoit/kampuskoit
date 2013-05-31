@@ -64,7 +64,7 @@
                <div class="span10">
                   <% @prodis.each do |prodi| %>
                   <div class="row">
-                     <div class="span2"><%= link_to image_tag(prodi.logo_path, :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), [prodi.univ, prodi], :class => "thumbnail" %></div>
+                     <div class="span2"><%= link_to image_tag(prodi.logo_url(:thumb), :alt => "Prodi Logo", :onerror => "this.src='/assets/default.jpg';"), [prodi.univ, prodi], :class => "thumbnail" %></div>
                      <div class="span6">
                         <h4>
                            <%= link_to [prodi.univ, prodi], :class => "header-link" do %>

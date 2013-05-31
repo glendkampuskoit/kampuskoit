@@ -5,7 +5,7 @@
          <h2><%= @univ.nama_pt.present? ? @univ.nama_pt.titleize : "- Unknown PT -" %></h2>
          <h4><%= @univ.kota.kota.present? ? @univ.kota.kota.titleize : "- Unknown City -" %>, <%= @univ.kota.provinsi.provinsi.present? ? @univ.kota.provinsi.provinsi.titleize : "- Unknown Province -" %></h4>
       </div>
-      <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@univ.logo_path, :alt => "Univ Logo", :onerror => "this.src='/assets/default.jpg';") %></a> </div>
+      <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@univ.image_url(:thumb), :alt => "Univ Logo", :onerror => "this.src='/assets/default.jpg';") %></a> </div>
    </div>
 </div>
 <div class="container">
@@ -317,7 +317,7 @@
                            <thead>
                               <% ActiveRecord::Base.connection.execute("select id, nama_prodi from prodis where univ_id = '#{@univ.id}' and fakultas = '#{fakultas[0]}'").to_a.each do |prodi| %>
                               <tr>
-                                 <td><%= link_to prodi[1], prodi_path(prodi[0]) %></td>
+                                 <td><%= link_to prodi[1], univ_prodi_path(@univ, prodi[0]) %></td>
                               </tr>
                               <% end %>
                            </thead>
