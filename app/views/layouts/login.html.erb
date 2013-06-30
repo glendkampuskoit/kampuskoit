@@ -8,7 +8,17 @@
         <meta name="author" content="kampuscoid">
         <link href="http://fonts.googleapis.com/css?family=Aclonica:regular" rel="stylesheet" type="text/css" />
 
-        <%= stylesheet_link_tag "application", :media => "all" %>
+        <link href="/assets/bootstrap.css" rel="stylesheet">
+        <link href="/assets/bootstrap-responsive.css" rel="stylesheet">
+        <!-- default theme -->
+        <link id="style-base" href="/assets/stilearn.css" rel="stylesheet">
+        <link id="style-responsive" href="/assets/stilearn-responsive.css" rel="stylesheet">
+        <link id="style-helper" href="/assets/stilearn-helper.css" rel="stylesheet">
+        <!-- usage -->
+        <link href="/assets/stilearn-icon.css" rel="stylesheet">
+        <link href="/assets/font-awesome.css" rel="stylesheet">
+        <link href="/assets/animate.css" rel="stylesheet">
+        <link href="/assets/uniform.default.css" rel="stylesheet">
         <%= csrf_meta_tags %>
 
     </head>
@@ -64,10 +74,15 @@
         <!-- javascript
         ================================================== -->
         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-        <%= javascript_include_tag "application" %>
-        <!--<script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>-->
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <script src="/assets/jquery.js"></script>
+        <script src="/assets/bootstrap.js"></script>
+        <script src="/assets/uniform/jquery.uniform.js"></script>
         
-        <script type="text/javascript">
+        <script src="/assets/validate/jquery.metadata.js"></script>
+        <script src="/assets/validate/jquery.validate.js"></script>
+        
+        <script type="text/javascripts">
             $(document).ready(function() {
                 // try your js
                 
