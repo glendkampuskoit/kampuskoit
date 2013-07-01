@@ -10,8 +10,9 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require widgets
 //= require jquery
-//= require jquery_ujs
+//= require jquery-migrate-1.1.1
 //= require jquery-ui.min
 //= require bootstrap
 //= require uniform/jquery.uniform

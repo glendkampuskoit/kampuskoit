@@ -1,62 +1,84 @@
-   <%= form_for @admin do |f| %>
-   <fieldset>
-      <div id="legend">
-         <legend class=""><%= yield(:title) %></legend>
-      </div>
-      <% if @admin.errors.any? %>
-         <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <div>
-               <% @admin.errors.full_messages.each do |msg| %>
-               <%= msg %><br>
-               <% end %>
-            </div>
-         </div>
-      <% end %>
-      <div class="control-group">
-         <%= f.label "Nama:", :class => "control-label" %>
-         <div class="controls">
-            <%= f.text_field :nama, :class => "input-xlarge", :placeholder => "Nama Lengkap" %>
-         </div>
-      </div>
-      <div class="control-group">
-         <%= f.label "Email:", :class => "control-label" %>
-         <div class="controls">
-            <%= f.text_field :email, :class => "input-xlarge", :placeholder => "Email" %>
-         </div>
-      </div>
-      <div class="control-group">
-         <%= f.label "Role:", :class => "control-label" %>
-         <div class="controls">
-            <%= f.collection_select :role, Admin::ROLES, :to_s, :humanize , {:selected => @admin.role} %>
-         </div>
-      </div>
-      <div class="control-group">
-         <%= f.label "Universitas:", :class => "control-label" %>
-         <div class="controls">
-            <%= collection_select(:admin, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt) %>
-         </div>
-      </div>
-      <% if params[:action] != "edit" %>
-      <div class="control-group">
-         <%= f.label "Password:", :class => "control-label" %>
-         <div class="controls">
-            <%= f.password_field :password, :class => "input-xlarge", :placeholder => "Password" %>
-         </div>
-      </div>
-      <div class="control-group">
-         <%= f.label "Konfirmasi Password:", :class => "control-label" %>
-         <div class="controls">
-            <%= f.password_field :password_confirmation, :class => "input-xlarge", :placeholder => "Konfirmasi Password" %>
-         </div>
-      </div>
-      <% end %>
-      <div class="control-group">
-         <!-- Button -->
-         <div class="controls">
-            <button class="btn btn-primary">Save</button>
-            <button class="btn" type="reset">Reset</button>
-         </div>
-      </div>
-   </fieldset>
-   <% end %>  
+<div class="row-fluid">
+  <div class="span12">
+      <div class="box corner-all">
+          <div class="box-header grd-white corner-top">
+              <div class="header-control">
+                  <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                  <a data-box="close" data-hide="bounceOutRight">&times;</a>
+              </div>
+              <span><%= yield(:title) %></span>
+          </div>
+          <div class="box-body">
+              <%= form_for @admin, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f| %>
+                  <% if @admin.errors.any? %>
+                     <div class="alert alert-error">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <div>
+                           <% @admin.errors.full_messages.each do |msg| %>
+                           <%= msg %><br>
+                           <% end %>
+                        </div>
+                     </div>
+                  <% end %>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Nama</label>
+                      <div class="controls">
+                          <%= f.text_field :nama, :id => "required", :class => "grd-white", :placeholder => "ex. Universitas XYZ", :data => {:validate => {:required => true, :messages => {:required => "Nama harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Email</label>
+                      <div class="controls">
+                          <%= f.text_field :email, :id => "required", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => {:required => true, :message => {:required => "Email harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputSelect">Role</label>
+                      <div class="controls">
+                          <%= f.collection_select :role, Admin::ROLES, :to_s, :humanize , {:selected => @admin.role}, :id => "inputSelect", :style => "width:200px", :data => {:form => "select2", :placeholder => "Pilih Admin Role"} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputSelect">Universitas</label>
+                      <div class="controls">
+                          <%= collection_select(:admin, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt, {}, {:style => "width:200px", :data => {:form => "select2", :placeholder => "Pilih Admin Role"}}) %>
+                      </div>
+                  </div>
+                  <% if params[:action] != "edit" %>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Password</label>
+                      <div class="controls">
+                          <%= f.password_field :password, :id => "required", :class => "grd-white", :data => {:validate => {:required => true, :message => {:required => "Password harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Konfirmasi Password</label>
+                      <div class="controls">
+                          <%= f.password_field :password_confirmation, :id => "required", :class => "grd-white", :data => {:validate => {:required => true, :message => {:required => "Konfirmasi Password harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <% end %>
+                  <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                      <button type="button" class="btn">Cancel</button>
+                  </div>
+              <% end %>
+          </div><!-- /box-body -->
+      </div><!-- /box -->
+  </div><!-- /span -->
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // try your js
+        
+        // peity chart
+        $("span[data-chart=peity-bar]").peity("bar");
+
+        // uniform
+        $('[data-form=uniform]').uniform()
+
+        // select2
+        $('[data-form=select2]').select2();        
+    });
+
+</script>

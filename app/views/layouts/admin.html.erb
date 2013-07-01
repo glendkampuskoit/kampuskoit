@@ -10,36 +10,21 @@
         <!-- google font -->
         <link href="http://fonts.googleapis.com/css?family=Aclonica:regular" rel="stylesheet" type="text/css" />
         
-        <!-- styles -->
-        <link href="/assets/bootstrap.css" rel="stylesheet">
-        <link href="/assets/bootstrap-responsive.css" rel="stylesheet">
-        <!-- default theme -->
-        <link id="style-base" href="/assets/stilearn.css" rel="stylesheet">
-        <link id="style-responsive" href="/assets/stilearn-responsive.css" rel="stylesheet">
-        <link id="style-helper" href="/assets/stilearn-helper.css" rel="stylesheet">
-        <!-- usage -->
-        <link href="/assets/stilearn-icon.css" rel="stylesheet">
-        <link href="/assets/font-awesome.css" rel="stylesheet">
-        <link href="/assets/animate.css" rel="stylesheet">
-        <link href="/assets/uniform.default.css" rel="stylesheet">
-        <!-- other -->
-        <link id="style-calendar" href="/assets/fullcalendar.css" rel="stylesheet">
-        <link href="/assets/select2.css" rel="stylesheet">
-        <link href="/assets/bootstrap-wysihtml5.css" rel="stylesheet">
+        <% if params[:controller] == "dashboard" %>
+            <%= stylesheet_link_tag "list", :media => "all" %>
+            <%= javascript_include_tag "dashboard" %>
+        <% elsif params[:action] == "index" || params[:action] == "list"  %>
+            <%= stylesheet_link_tag "list", :media => "all" %>
+            <%= javascript_include_tag "list" %>
+    <% elsif params[:action] == "new" || params[:action] == "edit" || params[:action] == "update" || params[:action] == "create" %>
+            <%= stylesheet_link_tag "form", :media => "all" %>
+            <%= javascript_include_tag "form" %>
+        <% end %>
 
-        <link href="/assets/DT_bootstrap.css" rel="stylesheet">
-        <link href="/assets/responsive-tables.css" rel="stylesheet">
-        
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
           <script src="js/html5shiv.js"></script>
         <![endif]-->
-
-        <% if params[:controller] == "dashboard" %>
-            <%= javascript_include_tag "dashboard" %>
-        <% elsif params[:action] == "index"  %>
-            <%= javascript_include_tag "list" %>
-        <% end %>
     </head>
 
     <body>
@@ -138,7 +123,7 @@
                                 </a>
                                 <ul class="sub-sidebar corner-top shadow-silver-dark">
                                     <li>
-                                        <%= link_to univs_path, :title => "perguruan tinggi" do %>
+                                        <%= link_to univs_list_path, :title => "perguruan tinggi" do %>
                                             <div class="helper-font-24">
                                                 <i class="icofont-building"></i>
                                             </div>
@@ -146,7 +131,7 @@
                                         <% end %>
                                     </li>
                                     <li>
-                                        <%= link_to prodis_path, :title => "prodi" do %>
+                                        <%= link_to prodis_list_path, :title => "prodi" do %>
                                             <div class="helper-font-24">
                                                 <i class="icofont-hospital"></i>
                                             </div>
