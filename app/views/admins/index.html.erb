@@ -1,31 +1,115 @@
 <% provide(:title, "Administrator List") %>
-<%= link_to new_admin_path do %><button class="btn btn-primary"><i class="icon-plus-sign glyphw-white"></i> Add New</button><% end %>
-<div style="padding: 15px; padding-bottom: 0px;"></div>
-<table class="table table-striped table-bordered">
-   <thead>
-      <tr>
-         <th>No.</th>
-         <th>Nama</th>
-         <th>Role</th>
-         <th>Perguruan Tinggi</th>
-         <th></th>
-      </tr>
-   </thead>
-   <tbody>
-   		<% no = @admins.offset %>
-      <% @admins.each do |admin| %>
-      <tr>
-         <td><%= no += 1 %>.</td>
-         <td><%= admin.nama %></td>
-         <td><%= admin.role.capitalize %></td>
-         <td><%= admin.univ.present? ? admin.univ.nama_pt : "Super Administrator" %></td>
-         <td>
-         	<div class="btn-group pull-right">
-              <%= link_to edit_admin_path(admin), :role => "button", :class => "btn btn-info" do %><i class="icon-edit glyphw"></i> Edit <% end %>
-             <%= link_to admin_path(admin), method: :delete, :role => "button", :class => "btn btn-danger" do %><i class="icon-trash glyphw"></i> Hapus <% end %>
+<div class="row-fluid">
+  <div class="span12">
+      <div class="box corner-all">
+          <div class="box-header grd-white corner-top">
+              <div class="header-control">
+                  <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                  <a data-box="close" data-hide="bounceOutRight">&times;</a>
+              </div>
+              <span>Admins & Operators</span>
           </div>
-         </td>
-      </tr>
-      <% end %>
-   </tbody>
-</table>
+          <div class="box-body">
+              <table id="datatables" class="table table-hover responsive">
+                  <thead>
+                      <tr>
+                          <th>Nama</th>
+                          <th>Role</th>
+                          <th>Perguruan Tinggi</th>
+                          <th>&nbsp;</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% @admins.each do |admin| %>
+                      <tr>
+                          <td><%= admin.nama %></td>
+                          <td><%= admin.role.capitalize %></td>
+                          <td><%= admin.univ.present? ? admin.univ.nama_pt : "Super Administrator" %></td>
+                          <td class="center">
+                              <span class="label label-info">
+                                  <a href="#modalEdit" data-toggle="modal">Edit</a>
+                              </span>
+                              <span class="label label-important">
+                                  <%= link_to admin_path(admin), method: :delete, :class => "delete" do %>Delete<% end %>
+                              </span>
+                          </td>
+                      </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+              
+          </div><!-- /box-body -->
+      </div><!-- /box -->
+  </div><!-- /span -->
+</div>
+<div id="modalEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Edit Admin</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" id="form-validate" novalidate="novalidate">
+            <div class="control-group">
+                <label class="control-label" for="required">Nama</label>
+                <div class="controls">
+                    <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Nama harus diisi'}}" name="required" id="required">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="required">Email</label>
+                <div class="controls">
+                    <input type="email" class="grd-white" data-validate="{required: true, messages:{required:'Email harus diisi'}}" name="required" id="required">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputSelect">Role</label>
+                <div class="controls">
+                    <select id="inputSelect" data-form="select2" style="width:200px" data-placeholder="Pilih Provinsi">
+                        <option>Super Admin</option>
+                        <option>Editor</option>
+                        <option>Operator</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputSelect">Asal Perguruan Tinggi</label>
+                <div class="controls">
+                    <select id="inputSelect" data-form="select2" style="width:200px" data-placeholder="Pilih Provinsi">
+                        <option>Institut Teknologi Bandung</option>
+                        <option>Universitas Indonesia</option>
+                        <option>Universitas Padjajaran</option>
+                        <option>Institut Teknologi Sepuluh Nopember Surabaya</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary">Update</button>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // try your js
+        
+        // peity chart
+        $("span[data-chart=peity-bar]").peity("bar");
+        
+        
+        // datatables
+        $('#datatables').dataTable( {
+            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+            "sPaginationType": "bootstrap",
+            "oLanguage": {
+                    "sLengthMenu": "_MENU_ records per page"
+            }
+        });
+
+        $('.delete').on('click', function () {
+            return confirm('Anda yakin akan menghapus data ini?');
+        });
+
+    });
+
+</script>

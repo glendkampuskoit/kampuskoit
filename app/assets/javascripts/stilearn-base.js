@@ -67,19 +67,19 @@ $(function(){
             }
             
             if(sessionStorage.themes == ''){
-                $('#style-base').attr('href', 'css/stilearn.css');
-                $('#style-responsive').attr('href', 'css/stilearn-responsive.css');
-                $('#style-helper').attr('href', 'css/stilearn-helper.css');
-                $('#style-calendar').attr('href', 'css/fullcalendar.css');
+                $('#style-base').attr('href', '/assets/stilearn.css');
+                $('#style-responsive').attr('href', '/assets/stilearn-responsive.css');
+                $('#style-helper').attr('href', '/assets/stilearn-helper.css');
+                $('#style-calendar').attr('href', '/assets/fullcalendar.css');
             }
             else{
                 themes = sessionStorage.themes;
                 theme_mode = sessionStorage.theme_mode;
 
-                $('#style-base').attr('href', 'css/themes/'+themes+'/stilearn.css');
-                $('#style-responsive').attr('href', 'css/themes/'+themes+'/stilearn-responsive.css');
-                $('#style-helper').attr('href', 'css/themes/'+themes+'/stilearn-helper.css');
-                $('#style-calendar').attr('href', 'css/themes/'+themes+'/fullcalendar.css');
+                $('#style-base').attr('href', '/assets/themes/'+themes+'/stilearn.css');
+                $('#style-responsive').attr('href', '/assets/themes/'+themes+'/stilearn-responsive.css');
+                $('#style-helper').attr('href', '/assets/themes/'+themes+'/stilearn-helper.css');
+                $('#style-calendar').attr('href', '/assets/themes/'+themes+'/fullcalendar.css');
 
                 // add usage theme mode
                 $('header.header, .side-left').addClass(theme_mode);
@@ -94,18 +94,18 @@ $(function(){
         sessionStorage.themes = data_themes;
         
         if(data_themes == ''){
-            $('#style-base').attr('href', 'css/stilearn.css');
-            $('#style-responsive').attr('href', 'css/stilearn-responsive.css');
-            $('#style-helper').attr('href', 'css/stilearn-helper.css');
+            $('#style-base').attr('href', '/assets/stilearn.css');
+            $('#style-responsive').attr('href', '/assets/stilearn-responsive.css');
+            $('#style-helper').attr('href', '/assets/stilearn-helper.css');
             
             // plugin theme, (custom your plugin)
-            $('#style-calendar').attr('href', 'css/fullcalendar.css');
+            $('#style-calendar').attr('href', '/assets/fullcalendar.css');
         }
         else{
-            $('#style-base').attr('href', 'css/themes/'+data_themes+'/stilearn.css');
-            $('#style-responsive').attr('href', 'css/themes/'+data_themes+'/stilearn-responsive.css');
-            $('#style-helper').attr('href', 'css/themes/'+data_themes+'/stilearn-helper.css');
-            $('#style-calendar').attr('href', 'css/themes/'+data_themes+'/fullcalendar.css');
+            $('#style-base').attr('href', '/assets/themes/'+data_themes+'/stilearn.css');
+            $('#style-responsive').attr('href', '/assets/themes/'+data_themes+'/stilearn-responsive.css');
+            $('#style-helper').attr('href', '/assets/themes/'+data_themes+'/stilearn-helper.css');
+            $('#style-calendar').attr('href', '/assets/themes/'+data_themes+'/fullcalendar.css');
         }
         
         e.preventDefault();

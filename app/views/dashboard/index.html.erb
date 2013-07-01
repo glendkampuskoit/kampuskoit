@@ -1,116 +1,187 @@
-<% provide(:title, 'Dashboard') %>
-<div class="row-fluid pricing-table ">
-   <div class="span12 plan">
-   </div>
-</div>
-<div style="padding: 25px; padding-bottom: 0px;"></div>
-<div class="row-fluid pricing-table ">
-   <div class="span6 plan">
-      <table class="table table-hover">
-         <thead>
-            <tr>
-               <th>Last Updated Perguruan Tinggi</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td>Institut Teknologi Sepuluh Nopember <span class="label label-info">New</span></td>
-            </tr>
-            <tr>
-               <td>Universitas Airlangga <span class="label label-important">Updated</span></td>
-            </tr>
-            <tr>
-               <td>Politeknik Elektronika Negeri Surabaya <span class="label label-important">Updated</span></td>
-            </tr>
-            <tr>
-               <td>Sekolah Tinggi Akuntansi Negara <span class="label label-info">New</span></td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   <div class="span6 plan">
-      <table class="table table-hover">
-         <thead>
-            <tr>
-               <th>Last Updated Perguruan Tinggi</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td>
-                  Teknik Industri <span class="label label-info">New</span>
-                  <br>Institut Teknologi Sepuluh Nopember
-               </td>
-            </tr>
-            <tr>
-               <td>Teknik Kimia <span class="label label-info">New</span>
-                  <br>Institut Teknologi Bandung
-               </td>
-            </tr>
-            <tr>
-               <td>Kedokteran <span class="label label-important">updated</span>
-                  <br>Universitas Gajah Mada
-               </td>
-            </tr>
-            <tr>
-               <td>Ilmu Sosial <span class="label label-info">updated</span>
-                  <br>Universitas Indonesia
-               </td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-</div>
-<div style="padding: 25px; padding-bottom: 0px;"></div>
-<div class="row-fluid pricing-table ">
-   <div class="span8 plan">
-      <form action='' method="POST">
-         <fieldset>
-            <div id="legend">
-               <legend class="">Kirim Pesan</legend>
-            </div>
-            <div class="alert alert-error">
-               <button type="button" class="close" data-dismiss="alert">&times;</button>
-               <div>Email atau password salah</div>
-            </div>
-            <div class="control-group">
-               <!-- Username -->
-               <label class="control-label" for="username">Penerima</label>
-               <div class="controls">
-                  <input type="text" id="username" name="username" placeholder="Nama Lengkap" class="input-xlarge">
-                  <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-                  <textarea rows="5"></textarea>
-                  <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-               </div>
-            </div>
-            <div class="control-group">
-               <!-- Button -->
-               <div class="controls">
-                  <button class="btn btn-success">Kirim</button>
-               </div>
-            </div>
-         </fieldset>
-      </form>
-   </div>
-   <div class="span4 plan">
-      <table class="table table-hover">
-         <thead>
-            <tr>
-               <th>Last User Login</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td>
-                  Teknik Industri
-               </td>
-            </tr>
-            <tr>
-               <td>
-                  Teknik Industri
-               </td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-</div>
+<!-- dashboar -->
+ <!-- shortcut button -->
+ <div class="shortcut-group">
+     <ul class="a-btn-group">
+         <li>
+             <a href="#" class="a-btn" rel="tooltip" title="Lihat list PT">
+                 <div class="grd-white">
+                     <span></span>
+                     <span><i class="icofont-building color-silver-dark"></i></span>
+                     <span><i class="icofont-list-alt color-silver-dark"></i></span>
+                 </div>
+             </a>
+         </li>
+         <li>
+             <a href="#" class="a-btn" rel="tooltip" title="Lihat List Jurusan">
+                 <div class="grd-white">
+                     <span></span>
+                     <span><i class="icofont-hospital color-silver-dark"></i></span>
+                     <span><i class="icofont-list-alt color-silver-dark"></i></span>
+                 </div>
+             </a>
+         </li>
+         <li>
+             <a href="#" class="a-btn" rel="tooltip" title="List Subscriber">
+                 <div class="grd-white">
+                     <span></span>
+                     <span><i class="icofont-envelope color-silver-dark"></i></span>
+                     <span><i class="icofont-envelope-alt color-teal"></i></span>
+                 </div>
+                 <div class="badge badge-info">9</div> <!--don't use span here!-->
+             </a>
+         </li>
+         <li class="clearfix"></li>
+     </ul>
+ </div><!-- /shortcut button -->
+ 
+ <div class="divider-content"><span></span></div>
+ 
+ <!-- tab stat -->
+ <div class="box-tab corner-all">
+     <div class="box-header corner-top">
+         <div class="header-control pull-right">
+             <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+         </div>
+         <ul class="nav nav-tabs" id="tab-stat">
+             <li class="active"><a data-toggle="tab" href="#system-stat">Statistics</a></li>
+         </ul>
+     </div>
+     <div class="box-body">
+         <div class="tab-content">
+             <div class="tab-pane fade in active" id="system-stat">
+                 <div class="row-fluid">
+                     <div class="span4">
+                         <div class="dashboard-stat">
+                             <div id="visitor-stat" class="chart" style="height: 120px;"></div>
+                             <div class="stat-label grd-green color-white">Visitor</div>
+                         </div>
+                     </div>
+                     <div class="span4">
+                         <div class="dashboard-stat">
+                             <div id="order-stat" class="chart" style="height: 120px;"></div>
+                             <div class="stat-label grd-teal color-white">Subscriber</div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div><!-- /tab stat -->
+ 
+<script type="text/javascript">
+    $(document).ready(function() {
+        // try your js
+        
+        // normalize event tab-stat, we hack something here couse the flot re-draw event is any some bugs for this case
+        $('#tab-stat > a[data-toggle="tab"]').on('shown', function(){
+            if(sessionStorage.mode == 4){ // this hack only for mode side-only
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 'slow');
+            }
+        });
+        
+        // peity chart
+        $("span[data-chart=peity-bar]").peity("bar");
+                        
+        // Server stat circular by knob
+        $("input[data-chart=knob]").knob();
+        
+        // system stat flot
+        d1 = [ ['jan', 231], ['feb', 243], ['mar', 323], ['apr', 352], ['maj', 354], ['jun', 467], ['jul', 429] ];
+        d2 = [ ['jan', 87], ['feb', 67], ['mar', 96], ['apr', 105], ['maj', 98], ['jun', 53], ['jul', 87] ];
+        d3 = [ ['jan', 34], ['feb', 27], ['mar', 46], ['apr', 65], ['maj', 47], ['jun', 79], ['jul', 95] ];
+        
+        var visitor = $("#visitor-stat"),
+        order = $("#order-stat"),
+        user = $("#user-stat"),
+        
+        data_visitor = [{
+                data: d1,
+                color: '#00A600'
+            }],
+        data_order = [{
+                data: d2,
+                color: '#2E8DEF'
+            }],
+        data_user = [{
+                data: d3,
+                color: '#DC572E'
+            }],
+         
+        
+        options_lines = {
+            series: {
+                lines: {
+                    show: true,
+                    fill: true
+                },
+                points: {
+                    show: true
+                },
+                hoverable: true
+            },
+            grid: {
+                backgroundColor: '#FFFFFF',
+                borderWidth: 1,
+                borderColor: '#CDCDCD',
+                hoverable: true
+            },
+            legend: {
+                show: false
+            },
+            xaxis: {
+                mode: "categories",
+                tickLength: 0
+            },
+            yaxis: {
+                autoscaleMargin: 2
+            }
+
+        };
+        
+        // render stat flot
+        $.plot(visitor, data_visitor, options_lines);
+        $.plot(order, data_order, options_lines);
+        $.plot(user, data_user, options_lines);
+        
+        // tootips chart
+        function showTooltip(x, y, contents) {
+            $('<div id="tooltip" class="bg-black corner-all color-white">' + contents + '</div>').css( {
+                position: 'absolute',
+                display: 'none',
+                top: y + 5,
+                left: x + 5,
+                border: '0px',
+                padding: '2px 10px 2px 10px',
+                opacity: 0.9,
+                'font-size' : '11px'
+            }).appendTo("body").fadeIn(200);
+        }
+
+        var previousPoint = null;
+        $('#visitor-stat, #order-stat, #user-stat').bind("plothover", function (event, pos, item) {
+            
+            if (item) {
+                if (previousPoint != item.dataIndex) {
+                    previousPoint = item.dataIndex;
+
+                    $("#tooltip").remove();
+                    var x = item.datapoint[0].toFixed(2),
+                    y = item.datapoint[1].toFixed(2);
+                    label = item.series.xaxis.ticks[item.datapoint[0]].label;
+                    
+                    showTooltip(item.pageX, item.pageY,
+                    label + " = " + y);
+                }
+            }
+            else {
+                $("#tooltip").remove();
+                previousPoint = null;            
+            }
+            
+        });
+        // end tootips chart
+    });
+
+</script>
