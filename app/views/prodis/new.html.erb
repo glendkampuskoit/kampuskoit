@@ -1,153 +1,215 @@
-<% provide(:title, 'Tambah Jurusan') %>
+<div class="row-fluid">
+  <div class="span12">
+      <div class="box corner-all">
+          <div class="box-header grd-white corner-top">
+              <div class="header-control">
+                  <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                  <a data-box="close" data-hide="bounceOutRight">&times;</a>
+              </div>
+              <span>Tambah Program Studi</span>
+          </div>
+          <div class="box-body">
+              <%= form_for @prodi, :url => univ_prodis_path(@prodi.univ), :html => {:class => "form-horizontal", :multipart => true, :id => "form-validate", :novalidate => "novalidate" } do |f| %>
+                  <% if @prodi.errors.any? %>
+                     <div class="alert alert-error">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <div>
+                           <% @prodi.errors.full_messages.each do |msg| %>
+                           <%= msg %><br>
+                           <% end %>
+                        </div>
+                     </div>
+                  <% end %>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Nama Program Studi</label>
+                      <div class="controls">
+                          <%= f.text_field :nama_prodi, :id => "required", :class => "grd-white input-xxlarge", :placeholder => "ex. Jurusan XYZ", :data => {:validate => {:required => true, :messages => {:required => "Nama Program Studi harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputSelect">Perguruan Tinggi</label>
+                      <div class="controls">
+                          <%= collection_select(:prodi, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt, {}, {:style => "width:500px", :data => {:form => "univ", :placeholder => "Pilih Perguruan Tinggi"}}) %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Fakultas</label>
+                      <div class="controls">
+                          <%= f.text_field :fakultas, :id => "required", :class => "grd-white input-xlarge", :placeholder => "ex. Fakultas XYZ", :data => {:validate => {:required => true, :messages => {:required => "Fakultas harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputSelect">Jenjang Program Studi</label>
+                      <div class="controls">
+                          <%= collection_select(:prodi, :id, JenjangProdi.order("jenjang ASC"), :id, :jenjang, {}, {:style => "width:200px", :data => {:form => "jenjang", :placeholder => "Pilih Jenjang Program Studi"}}) %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Tahun Berdiri</label>
+                      <div class="controls">
+                          <%= f.text_field :tahun_berdiri, :id => "required", :class => "grd-white input-xlarge", :placeholder => "ex. 1888", :data => {:validate => {:required => true, :messages => {:required => "Tahun Berdiri harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Email</label>
+                      <div class="controls">
+                          <%= f.text_field :email, :id => "required", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Email harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Website</label>
+                      <div class="controls">
+                          <%= f.text_field :website, :id => "required", :class => "grd-white", :placeholder => "ex. http://xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Website harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Alamat</label>
+                      <div class="controls">
+                          <%= f.text_area :alamat, :rows => "3", :placeholder => "Isikan alamat" %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputSelect">Kota</label>
+                      <div class="controls">
+                          <%= collection_select(:prodi, :kota_id, Kota.order("kota ASC"), :id, :kota, {}, {:style => "width:200px", :data => {:form => "kota", :placeholder => "Pilih Kota"}}) %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Telepon</label>
+                      <div class="controls">
+                          <%= f.text_field :telepon, :id => "required", :class => "grd-white", :placeholder => "Isikan nomor telepon", :data => {:validate => {:required => true, :messages => {:required => "Telepon harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputUpload">Upload Logo Jurusan</label>
+                      <div class="controls">
+                          <%= f.file_field :image, :data => {:form => "uniform"} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputEditorSimple">Profil</label>
+                      <div class="controls">
+                          <%= f.text_area :profile, :class => "span10", :rows => "8", :data => {:form => "profil"}, :placeholder => "Isikan profil ..." %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jumlah Mahasiswa</label>
+                      <div class="controls">
+                          <%= f.text_field :jumlah_mahasiswa, :id => "required", :class => "grd-white", :placeholder => "Isikan jumlah mahasiswa"%>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputEditorSimple">Bidang Studi</label>
+                      <div class="controls">
+                          <%= f.text_area :bidang_studi, :class => "span10", :rows => "8", :data => {:form => "bidang"}, :placeholder => "Isikan deskripsi bidang studi ..." %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputEditorSimple">Kompetensi</label>
+                      <div class="controls">
+                          <%= f.text_area :kompetensi, :class => "span10", :rows => "8", :data => {:form => "kompetensi"}, :placeholder => "Isikan kompetensi ..." %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputEditorSimple">Seleksi Masuk</label>
+                      <div class="controls">
+                          <%= f.text_area :seleksi_masuk, :class => "span10", :rows => "8", :data => {:form => "seleksi"}, :placeholder => "Isikan seleksi masuk ..." %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jumlah Dosen Professor</label>
+                      <div class="controls">
+                          <%= f.text_field :total_dosen_prof, :id => "required", :class => "grd-white", :placeholder => "total dosen professor"%>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jumlah Dosen Master</label>
+                      <div class="controls">
+                          <%= f.text_field :total_dosen_master, :id => "required", :class => "grd-white", :placeholder => "total dosen master"%>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jumlah Dosen Sarjana</label>
+                      <div class="controls">
+                          <%= f.text_field :total_dosen_sarjana, :id => "required", :class => "grd-white", :placeholder => "total dosen sarjana"%>
+                      </div>
+                  </div>
+                  <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                      <button type="button" class="btn">Cancel</button>
+                  </div>
+              <% end %>
+          </div><!-- /box-body -->
+      </div><!-- /box -->
+  </div><!-- /span -->
+</div>
 
-<%= form_for @prodi, :url => univ_prodis_path(@prodi.univ), :html => { :multipart => true } do |f| %>
-<fieldset>
-   <div id="legend">
-      <legend class="">Tambah Jurusan</legend>
-   </div>
-   <% if @prodi.errors.any? %>
-   <div class="alert alert-error">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <div>
-         <% @prodi.errors.full_messages.each do |msg| %>
-         <%= msg %><br>
-         <% end %>
-      </div>
-   </div>
-   <% end %>
-   <div class="control-group">
-      <%= f.label "Nama Jurusan:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :nama_prodi, :class => "input-xlarge", :placeholder => "Nama Jurusan" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Universitas:", :class => "control-label" %>
-      <div class="controls">
-         <%= collection_select(:prodi, :univ_id, Univ.all, :id, :nama_pt) %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Fakultas:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :fakultas, :class => "input-xlarge", :placeholder => "Fakultas" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Jenjang:", :class => "control-label" %>
-      <div class="controls">
-         <%= collection_select(:prodi, :jenjang_prodi_id, JenjangProdi.all, :id, :jenjang) %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Tahun Berdiri:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :tahun_berdiri, :class => "input-medium", :placeholder => "Tahun Berdiri" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Email:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :email, :class => "input-large", :placeholder => "Email" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Website:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :website, :class => "input-xlarge", :placeholder => "Website" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Alamat:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_area :alamat, :rows => "3", :class => "field span4", :placeholder => "Alamat" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Kota:", :class => "control-label" %>
-      <div class="controls">
-         <%= collection_select(:prodi, :kota_id, Kota.all, :id, :kota) %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Telepon:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :telepon, :class => "input-xlarge", :placeholder => "Telepon" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Fax:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :fax, :class => "input-xlarge", :placeholder => "Fax" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Upload Logo:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.file_field :logo %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Profile:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_area :profile, :rows => "6", :class => "field editor", :placeholder => "Profile" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Jumlah Mahasiswa:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :jumlah_mahasiswa, :class => "input-xlarge", :placeholder => "Jumlah Mahasiswa" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Bidang Studi:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_area :bidang_studi, :rows => "6", :class => "field editor", :placeholder => "Bidang Studi" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Kompetensi:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_area :kompetensi, :rows => "6", :class => "field editor", :placeholder => "Kompetensi" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Seleksi Masuk:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_area :seleksi_masuk, :rows => "5", :class => "field editor", :placeholder => "Seleksi Masuk" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Jumlah Dosen Professor:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :total_dosen_prof, :class => "input-medium", :placeholder => "" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Jumlah Dosen Master:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :total_dosen_master, :class => "input-medium", :placeholder => "" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <%= f.label "Jumlah Dosen Sarjana:", :class => "control-label" %>
-      <div class="controls">
-         <%= f.text_field :total_dosen_sarjana, :class => "input-medium", :placeholder => "" %>
-      </div>
-   </div>
-   <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
-         <button class="btn btn-primary">Save</button>
-         <button class="btn" type="reset">Reset</button>
-      </div>
-   </div>
-</fieldset>
+
 <script type="text/javascript">
-   $(function() {
-      $('.editor').each(function(){
-         CKEDITOR.replace( $(this).attr('id') );
-      });
+   $(document).ready(function() {
+       // try your js
+       
+       // peity chart
+       $("span[data-chart=peity-bar]").peity("bar");
+       
+
+       $('.delete').on('click', function () {
+           return confirm('Anda yakin akan menghapus data ini?');
+       });
+
+       // uniform
+       $('[data-form=uniform]').uniform()
+
+       // select2
+       $('[data-form=univ]').select2();
+       $('[data-form=jenjang]').select2();
+       $('[data-form=kota]').select2();
+
+       // wysihtml5
+       $('[data-form=bidang]').wysihtml5();
+       $('[data-form=profil]').wysihtml5();
+       $('[data-form=seleksi]').wysihtml5();
+       $('[data-form=kompetensi]').wysihtml5();
+
+       // gallery setup
+       $('.gallery-selector').change(function(){
+           checked = $(this).attr('checked');
+           checked = (checked == undefined) ? false : true ;
+           
+           $('input.selecter, .gallery-selector').attr('checked', checked);
+           $.uniform.update('.gallery-selector');
+           
+           // toggle class for thumbnail
+           thumbnail = $('input.selecter').attr('checked', checked).next();
+           if(checked == true){
+               thumbnail.addClass('active');
+           }
+           else{
+               thumbnail.removeClass('active')
+           }
+       });
+       
+       $('.thumbnail-control .controls').click(function(e){
+           selecter = $(this).parent().parent().prev();
+           checked  = selecter.attr('checked');
+           if(checked == undefined){
+               checked = true;
+           }
+           else{
+               checked = false;
+               $('.gallery-selector').attr('checked', checked);
+               $.uniform.update('.gallery-selector');
+           }
+           
+           $(selecter).attr('checked', checked);
+           thumbnail = $(selecter).next();
+           if(e.target.nodeName == 'DIV'){
+               thumbnail.toggleClass('active');
+           }
+       });
+                       
+       // prettyPhoto
+       $("a[rel^='prettyPhoto']").prettyPhoto();                
    });
+
 </script>
-<% end %>
