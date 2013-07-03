@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531083549) do
+ActiveRecord::Schema.define(:version => 20130703060516) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -364,6 +364,7 @@ ActiveRecord::Schema.define(:version => 20130531083549) do
     t.integer  "univ_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.string   "image"
   end
 
   add_index "univgalleries", ["univ_id"], :name => "index_univgalleries_on_univ_id"

@@ -47,6 +47,8 @@ class UnivsController < ApplicationController
 
   def edit
     @univ = Univ.find(params[:id])
+    @univgallery = Univgallery.new
+    @univgalleries = Univgallery.where(:univ_id => @univ)
     render :layout => "admin"
   end
 
