@@ -57,6 +57,8 @@ class ProdisController < ApplicationController
 
   def edit
     @prodi = Prodi.find(params[:id])
+    @prodigallery = ProdiGallery.new
+    @prodigalleries = ProdiGallery.where(:prodi_id => @prodi)
     render :layout => "admin"
 
   end
@@ -66,6 +68,8 @@ class ProdisController < ApplicationController
     if @prodi.update_attributes(params[:prodi])
       redirect_to prodis_list_path, notice: 'Jurusan was successfully updated.' 
     else
+      @prodigallery = ProdiGallery.new
+      @prodigalleries = ProdiGallery.where(:prodi_id => @prodi)
       render action: "edit", :layout => "admin"
     end   
   end

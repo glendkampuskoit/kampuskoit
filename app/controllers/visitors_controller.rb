@@ -1,4 +1,10 @@
 class VisitorsController < ApplicationController
+
+	def index
+		@visitors = Visitor.all
+		render :layout => "admin"
+	end
+
 	def create
 		@visitor = Visitor.new(params[:visitor])
 	  	if @visitor.save

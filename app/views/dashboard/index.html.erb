@@ -3,22 +3,22 @@
  <div class="shortcut-group">
      <ul class="a-btn-group">
          <li>
-             <a href="#" class="a-btn" rel="tooltip" title="Lihat list PT">
+            <%= link_to univs_list_path, :class => "a-btn", :rel => "tooltip", :title => "Lihat List Perguruan Tinggi" do %>
                  <div class="grd-white">
                      <span></span>
                      <span><i class="icofont-building color-silver-dark"></i></span>
                      <span><i class="icofont-list-alt color-silver-dark"></i></span>
                  </div>
-             </a>
+             <% end %>
          </li>
          <li>
-             <a href="#" class="a-btn" rel="tooltip" title="Lihat List Jurusan">
+             <%= link_to prodis_list_path, :class => "a-btn", :rel => "tooltip", :title => "Lihat List Program Studi" do %>
                  <div class="grd-white">
                      <span></span>
                      <span><i class="icofont-hospital color-silver-dark"></i></span>
                      <span><i class="icofont-list-alt color-silver-dark"></i></span>
                  </div>
-             </a>
+             <% end %>
          </li>
          <li>
              <a href="#" class="a-btn" rel="tooltip" title="List Subscriber">

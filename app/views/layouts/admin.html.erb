@@ -168,17 +168,17 @@
                         <div class="content-header">
                             <ul class="content-header-action pull-right">
                                 <li>
-                                    <a href="#">
+                                    <%= link_to univs_list_path do %>
                                         <span data-chart="peity-bar" data-height="32" data-colours='["#00A600", "#00A600"]'>5,3,9,6,5,9,7,3,5,2</span>
                                         <div class="action-text color-green">8765 <span class="helper-font-small color-silver-dark">Perguruan Tinggi</span></div>
-                                    </a>
+                                    <% end %>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="#">
+                                    <%= link_to prodis_list_path do %>
                                         <span data-chart="peity-bar" data-height="32" data-colours='["#00A0B1", "#00A0B1"]'>9,7,9,6,3,5,3,5,5,2</span>
-                                        <div class="action-text color-teal">1437 <span class="helper-font-small color-silver-dark">Prodi</span></div>
-                                    </a>
+                                        <div class="action-text color-teal">1437 <span class="helper-font-small color-silver-dark">Program Studi</span></div>
+                                    <% end %>
                                 </li>
                             </ul>
                             <h2><i class="icofont-home"></i> Dashboard </h2>
@@ -201,7 +201,9 @@
                         </div><!--/content-body -->
                     </div><!-- /content -->
                 </div><!-- /span content -->
-                
+<%
+=begin 
+%>
                 <!-- span side-right -->
                 <div class="span2">
                     <!-- side-right -->
@@ -487,7 +489,9 @@
                         </div><!-- /sidebar-right -->
                     </aside><!-- /side-right -->
                 </div><!-- /span side-right -->
-                
+<% 
+=end 
+%>        
             </div><!--/row-->
         </section><!--/section content-->
 

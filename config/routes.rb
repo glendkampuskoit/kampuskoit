@@ -53,6 +53,7 @@ Campus::Application.routes.draw do
     resources :subscribers, only: [:index, :edit, :update, :show, :destroy]
     resources :admin_profiles, only: [:edit, :update]
     resources :univgalleries, only: [:create, :destroy]
+    resources :prodi_galleries, only: [:create, :destroy]
 
     # special for univ & prodi list
     match '/univs_list', to: 'univs#list'
