@@ -69,6 +69,22 @@
                                     <span class="sidebar-text">Admin</span>
                                 <% end %>
                             </li>
+                            <li>
+                                <%= link_to visitors_list_path do %>
+                                    <div class="helper-font-24">
+                                        <i class="icofont-user-md"></i>
+                                    </div>
+                                    <span class="sidebar-text">Visitor</span>
+                                <% end %>
+                            </li>
+                            <li>
+                                <%= link_to subscribers_list_path do %>
+                                    <div class="helper-font-24">
+                                        <i class="icofont-user"></i>
+                                    </div>
+                                    <span class="sidebar-text">Subscriber</span>
+                                <% end %>
+                            </li>
                             <% #end %>
                             <% #if current_user.role == 'admin' || current_user.role == 'editor' %>
                             <li>

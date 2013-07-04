@@ -16,4 +16,10 @@ class VisitorsController < ApplicationController
 	  		redirect_to home_path
 	  	end
 	end
+	
+	def destroy
+		@visitor = Visitor.find(params[:id])
+		@visitor.destroy
+		redirect_to visitors_list_path
+	end
 end

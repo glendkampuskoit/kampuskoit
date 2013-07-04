@@ -5,6 +5,6 @@ class AddUnivKerjasamaForeignKeys < ActiveRecord::Migration
   end
 
   def down
-  	remove_column :univ_id
+  	remove_column :univkerjasamas, :univ_id
   end
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ProdiGallery do
-    before { @prodigallery = ProdiGallery.new(caption: "gazebo", description:"Ruang kumpul Jurusan Sistem Infromasi", image:"cangkrukan2.jpg", prodi: FactoryGirl.create(:prodi)) }
+    before { @prodigallery = ProdiGallery.new(caption: "gazebo", description:"Ruang kumpul Jurusan Sistem Infromasi", image: File.open(File.join(Rails.root, '/spec/fixtures/files/cangkrukan.jpg')), prodi: FactoryGirl.create(:prodi)) }
 
     subject{ @prodigallery }
     it { should respond_to(:caption) }

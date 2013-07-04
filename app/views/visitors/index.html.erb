@@ -1,4 +1,4 @@
-<% provide(:title, "Data Subscriber") %>
+<% provide(:title, "Data Visitor") %>
 <div class="row-fluid">
     <div class="span12">
         <div class="box corner-all">
@@ -7,25 +7,23 @@
                     <a data-box="collapse"><i class="icofont-caret-up"></i></a>
                     <a data-box="close" data-hide="bounceOutRight">&times;</a>
                 </div>
-                <span>Data Subscriber</span>
+                <span>Data Visitor</span>
             </div>
             <div class="box-body">
                 <table id="datatables" class="table table-hover responsive">
                     <thead>
                         <tr>
-                            <th>Nama</th>
                             <th>Email</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
-                      <% @subscribers.each do |subscriber| %>
+                      <% @visitors.each do |visitor| %>
                         <tr>
-                            <td><%= subscriber.name %></td>
-                            <td><%= subscriber.email %></td>
-                            <td class="center">
+                           <td><%= visitor.email %></td>
+                           <td class="center">
                                 <span class="label label-important">
-                                    <%= link_to "Delete", subscriber_path(subscriber), method: :delete, :class => "delete" %>
+                                    <%= link_to "Delete", visitor_path(visitor), method: :delete, :class => "delete" %>
                                 </span>
                             </td>
                         </tr>

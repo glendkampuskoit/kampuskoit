@@ -5,7 +5,7 @@ describe Univgallery do
   before { @univgallery = Univgallery.new(univ: FactoryGirl.create(:univ), 
     caption: "Fakutas Teknologi Informasi", 
     description:"Kantor Pusat Fakultas Teknologi Informasi",
-    image:"cangkrukan2.jpg") }
+    image: File.open(File.join(Rails.root, '/spec/fixtures/files/cangkrukan.jpg')) ) }
 
   subject{ @univgallery }
   it { should respond_to(:caption) }

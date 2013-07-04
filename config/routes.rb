@@ -49,8 +49,8 @@ Campus::Application.routes.draw do
       resources :prodis, only: [:new, :create, :edit, :update, :destroy]
     end
     resources :feedbacks, only: [:index, :show, :destroy]
-    resources :visitors, only: [:index, :edit, :update, :show, :destroy]
-    resources :subscribers, only: [:index, :edit, :update, :show, :destroy]
+    resources :visitors, only: [:destroy]
+    resources :subscribers, only: [:edit, :update, :show, :destroy]
     resources :admin_profiles, only: [:edit, :update]
     resources :univgalleries, only: [:create, :destroy]
     resources :prodi_galleries, only: [:create, :destroy]
@@ -58,6 +58,8 @@ Campus::Application.routes.draw do
     # special for univ & prodi list
     match '/univs_list', to: 'univs#list'
     match '/prodis_list', to: 'prodis#list'
+    match '/visitors_list', to: 'visitors#index'
+    match '/subscribers_list', to: 'subscribers#index'
   end
   
   #match '*path', :controller => "visitors", :action => "new"

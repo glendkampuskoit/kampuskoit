@@ -24,4 +24,10 @@ describe "Visitor" do
       end
     end
   end
+
+  describe "Visitor list" do
+    before { visit visitors_list_path }
+
+    it { page.should have_selector('title', text: "Data Visitor") }
+  end
 end

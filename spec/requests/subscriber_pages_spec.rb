@@ -61,4 +61,10 @@ describe "Subscriber Pages" do
 		end
 	end
 
+	describe "go to subscriber list" do
+		before { visit subscribers_list_path }
+
+		it { should have_selector('title', text: "Data Subscriber") }
+	end
+
 end
