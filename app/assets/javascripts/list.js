@@ -1,5 +1,6 @@
 //= require widgets
 //= require jquery
+//= require jquery_ujs
 //= require jquery-migrate-1.1.1
 //= require jquery-ui.min
 //= require bootstrap
