@@ -45,7 +45,7 @@ describe "Homes" do
       end
 
       it "if user choose jurusan, should visit jurusan path" do
-        page.should have_selector('title', :text => "Jurusan")
+        page.should have_selector('title', :text => "Program Studi")
       end
     end
 

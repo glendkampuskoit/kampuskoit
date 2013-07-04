@@ -11,7 +11,7 @@ describe "Prodi Search" do
 
   describe "prodi index page" do
     it "should have title Jurusan" do
-      page.should have_selector('title', :text => 'Jurusan')
+      page.should have_selector('title', :text => 'Pencarian Program Studi')
     end
   end
 
@@ -21,7 +21,7 @@ describe "Prodi Search" do
       click_button search_prodi
     end
     it "should do search" do
-      page.should have_selector('title', :text => 'Jurusan')
+      page.should have_selector('title', :text => 'Pencarian Program Studi')
     end
   end
 end

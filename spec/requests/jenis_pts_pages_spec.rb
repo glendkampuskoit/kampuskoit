@@ -18,7 +18,7 @@ describe "Jenis Perguruan Tinggi Page" do
   	describe "add new one" do
   		let(:save) { "Save" }
   		before do
-  			fill_in "jenis_pt_jenis", with: "Universitas"
+  			fill_in "jenis_pt", with: "Universitas"
   		end
 
   		it "should create a jenis pt" do
@@ -36,7 +36,7 @@ describe "Jenis Perguruan Tinggi Page" do
 
   	describe "update record" do
   		before do
-	  		fill_in "jenis_pt_jenis", with: "Institut"
+	  		fill_in "jenis_pt", with: "Institut"
 	  	end
 
 	  	it "should create a jenis pt" do

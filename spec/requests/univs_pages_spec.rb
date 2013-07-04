@@ -20,27 +20,27 @@ describe "Univ Page" do
   describe "go to univ list on admin panel" do
     before { visit univs_list_path }
     it "should have title List Perguruan Tinggi" do
-      page.should have_selector('title', :text => "List Perguruan Tinggi")
+      page.should have_selector('title', :text => "Data Perguruan Tinggi")
     end     
   end
 
   describe "fill with valid data" do
     before do
-      fill_in "univ_nama_pt", with: "Universitas Airlangga"
-      fill_in "univ_tahun_berdiri", with: "1990"
-      fill_in "univ_email", with: "info@airlangga.ac.id"
-      fill_in "univ_website", with: "http://airlangga.ac.id"
-      select(jenis_pt.jenis, :from => "univ_jenis_pt_id")
-      fill_in "univ_alamat", with: "Jl Sukolilo ujung"
-      select(kota.kota, :from => "univ_kota_id")
-      fill_in "univ_telepon", with: "0866677665"
-      select("Negeri", :from => "univ_status_negeri")
-      fill_in "univ_deskripsi", with: "Universitas airlangga adalah ..."
-      fill_in "univ_profile", with: "Universitas airlangga adalah ..."
-      fill_in "univ_visi", with: "Memajukan Negeri"
-      #fill_in "univ_misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
-      fill_in "univ_seleksi_masuk", with: "SMPB, Nyogok"
-      fill_in "univ_kapasitas_akademik", with: "terdiri dari 5 guru dan 5 skk"
+      fill_in "nama_pt", with: "Universitas Airlangga"
+      fill_in "tahun_berdiri", with: "1990"
+      fill_in "email", with: "info@airlangga.ac.id"
+      fill_in "website", with: "http://airlangga.ac.id"
+      select(jenis_pt.jenis, :from => "jenis_pt")
+      fill_in "alamat", with: "Jl Sukolilo ujung"
+      select(kota.kota, :from => "kota")
+      fill_in "telepon", with: "0866677665"
+      select("Negeri", :from => "status_pt")
+      fill_in "deskripsi", with: "Universitas airlangga adalah ..."
+      fill_in "profil", with: "Universitas airlangga adalah ..."
+      fill_in "visi", with: "Memajukan Negeri"
+      #fill_in "misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
+      fill_in "seleksi_masuk", with: "SMPB, Nyogok"
+      fill_in "kapasitas_akademik", with: "terdiri dari 5 guru dan 5 skk"
     end
 
     it "should create a univ" do
@@ -54,21 +54,21 @@ describe "Univ Page" do
 
     describe "then edit record" do
       before do
-        fill_in "univ_nama_pt", with: "Universitas Airlangga"
-        fill_in "univ_tahun_berdiri", with: "1990"
-        fill_in "univ_email", with: "info@airlangga.ac.id"
-        fill_in "univ_website", with: "http://airlangga.ac.id"
-        select(jenis_pt.jenis, :from => "univ_jenis_pt_id")
-        fill_in "univ_alamat", with: "Jl Sukolilo ujung"
-        select(kota.kota, :from => "univ_kota_id")
-        fill_in "univ_telepon", with: "0866677665"
-        select("Negeri", :from => "univ_status_negeri")
-        fill_in "univ_deskripsi", with: "Universitas airlangga adalah ..."
-        fill_in "univ_profile", with: "Universitas airlangga adalah ..."
-        fill_in "univ_visi", with: "Memajukan Negeri"
-        #fill_in "univ_misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
-        fill_in "univ_seleksi_masuk", with: "SMPB, Nyogok"
-        fill_in "univ_kapasitas_akademik", with: "terdiri dari 5 guru dan 5 skk"
+        fill_in "nama_pt", with: "Universitas Airlangga"
+        fill_in "tahun_berdiri", with: "1990"
+        fill_in "email", with: "info@airlangga.ac.id"
+        fill_in "website", with: "http://airlangga.ac.id"
+        select(jenis_pt.jenis, :from => "jenis_pt")
+        fill_in "alamat", with: "Jl Sukolilo ujung"
+        select(kota.kota, :from => "kota")
+        fill_in "telepon", with: "0866677665"
+        select("Negeri", :from => "status_pt")
+        fill_in "deskripsi", with: "Universitas airlangga adalah ..."
+        fill_in "profil", with: "Universitas airlangga adalah ..."
+        fill_in "visi", with: "Memajukan Negeri"
+        #fill_in "misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
+        fill_in "seleksi_masuk", with: "SMPB, Nyogok"
+        fill_in "kapasitas_akademik", with: "terdiri dari 5 guru dan 5 skk"
       end
 
       it "should create a univ" do

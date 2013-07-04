@@ -17,7 +17,7 @@ describe "Kota Page" do
 
     describe "fill with valid data" do
       before do
-        fill_in "kota_kota", with: "Surabaya"
+        fill_in "kota", with: "Surabaya"
         select(provinsi.provinsi, :from => "kota_provinsi_id")
       end
 
@@ -43,7 +43,7 @@ describe "Kota Page" do
     # update record
     describe "update record" do
       before do
-        fill_in "kota_kota", with: "Surabaya"
+        fill_in "kota", with: "Surabaya"
         select(kota.provinsi.provinsi, :from => "kota_provinsi_id")
       end
       it "should create a kota" do

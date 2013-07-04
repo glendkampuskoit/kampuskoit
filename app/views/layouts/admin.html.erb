@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Admin Panel - Kampus.co.id</title>
+        <title><%= yield(:title) %> - Kampus.co.id</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="stilearning">
@@ -60,7 +60,7 @@
                                     <span class="sidebar-text">Dashboard</span>
                                 <% end %>
                             </li>
-                            <% if current_user.role == 'admin' %>
+                            <% # if current_user.role == 'admin' %>
                             <li>
                                 <%= link_to admins_path do %>
                                     <div class="helper-font-24">
@@ -69,8 +69,8 @@
                                     <span class="sidebar-text">Admin</span>
                                 <% end %>
                             </li>
-                            <% end %>
-                            <% if current_user.role == 'admin' || current_user.role == 'editor' %>
+                            <% #end %>
+                            <% #if current_user.role == 'admin' || current_user.role == 'editor' %>
                             <li>
                                 <a href="#">
                                     <div class="helper-font-24">
@@ -113,7 +113,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <% end %>
+                            <% #end %>
                             <li>
                                 <a href="#">
                                     <div class="helper-font-24">

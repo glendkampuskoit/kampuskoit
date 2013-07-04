@@ -7,7 +7,7 @@ describe "Jenjang Prodi Page" do
   describe "go to index page" do
     before { visit jenjang_prodis_path }
     
-    it { should have_selector('title', text: "Jenjang Jurusan") }
+    it { should have_selector('title', text: "Data Jenjang Program Studi") }
   end
 
   describe "go to tambah jenjang prodi page" do
@@ -18,8 +18,8 @@ describe "Jenjang Prodi Page" do
   	describe "add new one" do
   		let(:save) { "Save" }
   		before do
-  			fill_in "jenjang_prodi_jenjang", with: "S1"
-        fill_in "jenjang_prodi_keterangan", with: "Sarjana"
+  			fill_in "jenjang", with: "S1"
+        fill_in "keterangan", with: "Sarjana"
   		end
 
   		it "should create a jenjang prodi" do
@@ -37,8 +37,8 @@ describe "Jenjang Prodi Page" do
 
   	describe "update record" do
   		before do
-	  		fill_in "jenjang_prodi_jenjang", with: "S2"
-        fill_in "jenjang_prodi_keterangan", with: "Master"
+	  		fill_in "jenjang", with: "S2"
+        fill_in "keterangan", with: "Master"
 	  	end
 
 	  	it "should create a jenjang prodi" do

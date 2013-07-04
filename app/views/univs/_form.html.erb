@@ -9,7 +9,13 @@
               <span><%= yield(:title) %></span>
           </div>
           <div class="box-body">
-              <%= form_for @univ, :url => "/admin/univs", :html => {:class => "form-horizontal", :multipart => true, :id => "form-validate", :novalidate => "novalidate" } do |f| %>
+            <% if params[:action] == "new" || params[:action] == "create" 
+                url = "/admin/univs"
+              elsif params[:action] == "edit" || params[:action] == "update"
+                url = "/admin/univs/#{@univ.id}"
+              end                  
+            %>
+              <%= form_for @univ, :url => url, :html => {:class => "form-horizontal", :multipart => true, :id => "form-validate", :novalidate => "novalidate" } do |f| %>
                   <% if @univ.errors.any? %>
                      <div class="alert alert-error">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -23,55 +29,55 @@
                   <div class="control-group">
                       <label class="control-label" for="required">Nama Perguruan Tinggi</label>
                       <div class="controls">
-                          <%= f.text_field :nama_pt, :id => "required", :class => "grd-white input-xxlarge", :placeholder => "ex. Universitas XYZ", :data => {:validate => {:required => true, :messages => {:required => "Nama Perguruan Tinggi harus diisi"}}} %>
+                          <%= f.text_field :nama_pt, :id => "nama_pt", :class => "grd-white input-xxlarge", :placeholder => "ex. Universitas XYZ", :data => {:validate => {:required => true, :messages => {:required => "Nama Perguruan Tinggi harus diisi"}}} %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Tahun Berdiri</label>
                       <div class="controls">
-                          <%= f.text_field :tahun_berdiri, :id => "required", :class => "grd-white", :placeholder => "ex. 1888", :data => {:validate => {:required => true, :messages => {:required => "Tahun Berdiri harus diisi"}}} %>
+                          <%= f.text_field :tahun_berdiri, :id => "tahun_berdiri", :class => "grd-white", :placeholder => "ex. 1888", :data => {:validate => {:required => true, :messages => {:required => "Tahun Berdiri harus diisi"}}} %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="inputSelect">Status</label>
                       <div class="controls">
-                          <%= select_tag("univ[status_negeri]", options_for_select([["Perguruan Tinggi Negeri", "negeri"], ["Perguruan Tinggi Swasta", "swasta"]]), {:style => "width:200px", :data => {:form => "status"}}) %>
+                          <%= select_tag("univ[status_negeri]", options_for_select([["Perguruan Tinggi Negeri", "negeri"], ["Perguruan Tinggi Swasta", "swasta"]]), {:style => "width:200px", :id => "status_pt", :data => {:form => "status"}}) %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="inputSelect">Jenis Perguruan Tinggi</label>
                       <div class="controls">
-                          <%= collection_select(:univ, :jenis_pt_id, JenisPt.order("jenis ASC"), :id, :jenis, {}, {:style => "width:200px", :data => {:form => "jenis_pt", :placeholder => "Pilih Jenis Perguruan Tinggi"}}) %>
+                          <%= collection_select(:univ, :jenis_pt_id, JenisPt.order("jenis ASC"), :id, :jenis, {}, {:style => "width:200px", :id => "jenis_pt", :data => {:form => "jenis_pt", :placeholder => "Pilih Jenis Perguruan Tinggi"}}) %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Email</label>
                       <div class="controls">
-                          <%= f.text_field :email, :id => "required", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Email harus diisi"}}} %>
+                          <%= f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Email harus diisi"}}} %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Website</label>
                       <div class="controls">
-                          <%= f.text_field :website, :id => "required", :class => "grd-white", :placeholder => "ex. http://xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Website harus diisi"}}} %>
+                          <%= f.text_field :website, :id => "website", :class => "grd-white", :placeholder => "ex. http://xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Website harus diisi"}}} %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Alamat</label>
                       <div class="controls">
-                          <%= f.text_area :alamat, :rows => "3", :placeholder => "Isikan alamat" %>
+                          <%= f.text_area :alamat, :id => "alamat", :rows => "3", :placeholder => "Isikan alamat" %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="inputSelect">Kota</label>
                       <div class="controls">
-                          <%= collection_select(:univ, :kota_id, Kota.order("kota ASC"), :id, :kota, {}, {:style => "width:200px", :data => {:form => "kota", :placeholder => "Pilih Kota"}}) %>
+                          <%= collection_select(:univ, :kota_id, Kota.order("kota ASC"), :id, :kota, {}, {:style => "width:200px", :id => "kota", :data => {:form => "kota", :placeholder => "Pilih Kota"}}) %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Telepon</label>
                       <div class="controls">
-                          <%= f.text_field :telepon, :id => "required", :class => "grd-white", :placeholder => "Isikan nomor telepon", :data => {:validate => {:required => true, :messages => {:required => "Telepon harus diisi"}}} %>
+                          <%= f.text_field :telepon, :id => "telepon", :class => "grd-white", :placeholder => "Isikan nomor telepon", :data => {:validate => {:required => true, :messages => {:required => "Telepon harus diisi"}}} %>
                       </div>
                   </div>
                   <div class="control-group">
@@ -83,31 +89,31 @@
                   <div class="control-group">
                       <label class="control-label" for="inputEditorSimple">Deskripsi</label>
                       <div class="controls">
-                          <%= f.text_area :deskripsi, :id => "inputEditorSimple", :class => "span10", :rows => "8", :data => {:form => "deskripsi"}, :placeholder => "Isikan deskripsi ..." %>
+                          <%= f.text_area :deskripsi, :id => "deskripsi", :class => "span10", :rows => "8", :data => {:form => "deskripsi"}, :placeholder => "Isikan deskripsi ..." %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="inputEditorSimple">Profil</label>
                       <div class="controls">
-                          <%= f.text_area :profile, :class => "span10", :rows => "8", :data => {:form => "profil"}, :placeholder => "Isikan profil ..." %>
+                          <%= f.text_area :profile, :id => "profil", :class => "span10", :rows => "8", :data => {:form => "profil"}, :placeholder => "Isikan profil ..." %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="inputEditorSimple">Visi dan Misi</label>
                       <div class="controls">
-                          <%= f.text_area :visi, :class => "span10", :rows => "8", :data => {:form => "visi"}, :placeholder => "Isikan visi dan misi ..." %>
+                          <%= f.text_area :visi, :id => "visi", :class => "span10", :rows => "8", :data => {:form => "visi"}, :placeholder => "Isikan visi dan misi ..." %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="inputEditorSimple">Seleksi Masuk</label>
                       <div class="controls">
-                          <%= f.text_area :seleksi_masuk, :class => "span10", :rows => "8", :data => {:form => "seleksi"}, :placeholder => "Isikan deskripsi seleksi masuk ..." %>
+                          <%= f.text_area :seleksi_masuk, :id => "seleksi_masuk", :class => "span10", :rows => "8", :data => {:form => "seleksi"}, :placeholder => "Isikan deskripsi seleksi masuk ..." %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="inputEditorSimple">Kapasitas Akademik</label>
                       <div class="controls">
-                          <%= f.text_area :kapasitas_akademik, :class => "span10", :rows => "8", :data => {:form => "kapasitas"}, :placeholder => "Isikan kapasitas akademik ..." %>
+                          <%= f.text_area :kapasitas_akademik, :id => "kapasitas_akademik", :class => "span10", :rows => "8", :data => {:form => "kapasitas"}, :placeholder => "Isikan kapasitas akademik ..." %>
                       </div>
                   </div>
                   <div class="form-actions">
