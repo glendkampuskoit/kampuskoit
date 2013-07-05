@@ -2,8 +2,7 @@
 /***#website-kampusalt01#***/
 /**Header**/
 /**Content**/
-/**Footer**/
-/***#website-kampus01#***/
+/**Footer**homepage#***/
 /**Content**/
 /**Footer**/
 /***#website-kampus02#***/
@@ -18,19 +17,19 @@
 /**Content**/
 /**Footer**/
 /***Fonts List***/
-@font-face { font-family: 'archivo_narrowbold'; src: url("/assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.eot"); src: url("/assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.woff") format("woff"), url("/assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.ttf") format("truetype"), url("/assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.svg#archivo_narrowbold") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'archivo_narrowbold'; src: url("/assets/archivenarrowbold/archivonarrow-bold-webfont.eot"); src: url("/assets/archivenarrowbold/archivonarrow-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.woff") format("woff"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.ttf") format("truetype"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.svg#archivo_narrowbold") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'archivo_narrowregular'; src: url("/assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.eot"); src: url("/assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.woff") format("woff"), url("/assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.ttf") format("truetype"), url("/assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.svg#archivo_narrowregular") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'archivo_narrowregular'; src: url("/assets/archivenarrowregular/archivonarrow-regular-webfont.eot"); src: url("/assets/archivenarrowregular/archivonarrow-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.woff") format("woff"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.ttf") format("truetype"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.svg#archivo_narrowregular") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'HelveticaNeueLTPro77BoldCondensed'; src: url("/assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot"); src: url("/assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot") format("embedded-opentype"), url("/assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.woff") format("woff"), url("/assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.ttf") format("truetype"), url("/assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.svg#HelveticaNeueLTPro77BoldCondensed") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'HelveticaNeueLTPro77BoldCondensed'; src: url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot"); src: url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot") format("embedded-opentype"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.woff") format("woff"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.ttf") format("truetype"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.svg#HelveticaNeueLTPro77BoldCondensed") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'source_sans_probold'; src: url("/assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.eot"); src: url("/assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.woff") format("woff"), url("/assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.ttf") format("truetype"), url("/assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.svg#source_sans_probold") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'source_sans_probold'; src: url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.eot"); src: url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.woff") format("woff"), url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.ttf") format("truetype"), url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.svg#source_sans_probold") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'source_sans_proitalic'; src: url("/assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.eot"); src: url("/assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.woff") format("woff"), url("/assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.ttf") format("truetype"), url("/assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.svg#source_sans_proitalic") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'source_sans_proitalic'; src: url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.eot"); src: url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.woff") format("woff"), url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.ttf") format("truetype"), url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.svg#source_sans_proitalic") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'source_sans_proregular'; src: url("/assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.eot"); src: url("/assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.woff") format("woff"), url("/assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.ttf") format("truetype"), url("/assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.svg#source_sans_proregular") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'source_sans_proregular'; src: url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.eot"); src: url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.woff") format("woff"), url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.ttf") format("truetype"), url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.svg#source_sans_proregular") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'source_sans_prosemibold'; src: url("/assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.eot"); src: url("/assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.woff") format("woff"), url("/assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.ttf") format("truetype"), url("/assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'source_sans_prosemibold'; src: url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.eot"); src: url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.woff") format("woff"), url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.ttf") format("truetype"), url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold") format("svg"); font-weight: normal; font-style: normal; }
 
 /***Mixin***/
 /**Fonts Mixin**/
@@ -142,12 +141,12 @@ fieldset { border: none; margin-top: 0.3em; }
 .description-panel .active-section { background: #1b75b2; -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s; -ms-transition: all 0.5s; transition: all 0.5s; }
 .description-panel .active-section .desc-title, .description-panel .active-section .desc-text, .description-panel .active-section .desc-link { color: white; }
 .description-panel .active-section .desc-link:hover { color: rgba(255, 255, 255, 0.5); }
-.description-panel .active-section .panel-image-1 { background: url("/assets/images/website-kampus01/panel-icon-1-hover.png") no-repeat center; }
-.description-panel .active-section .panel-image-2 { background: url("/assets/images/website-kampus01/panel-icon-2-hover.png") no-repeat center; }
-.description-panel .active-section .panel-image-3 { background: url("/assets/images/website-kampus01/panel-icon-3-hover.png") no-repeat center; }
-.description-panel .panel-image-1 { background: url("/assets/images/website-kampus01/panel-icon-1.png") no-repeat center; width: 48px; height: 48px; display: block; margin: 0 auto; }
-.description-panel .panel-image-2 { background: url("/assets/images/website-kampus01/panel-icon-2.png") no-repeat center; width: 44px; height: 51px; display: block; margin: 0 auto; }
-.description-panel .panel-image-3 { background: url("/assets/images/website-kampus01/panel-icon-3.png") no-repeat center; width: 59px; height: 40px; display: block; margin: 0 auto; }
+.description-panel .active-section .panel-image-1 { background: url("/assets/homepage/panel-icon-1-hover.png") no-repeat center; }
+.description-panel .active-section .panel-image-2 { background: url("/assets/homepage/panel-icon-2-hover.png") no-repeat center; }
+.description-panel .active-section .panel-image-3 { background: url("/assets/homepage/panel-icon-3-hover.png") no-repeat center; }
+.description-panel .panel-image-1 { background: url("/assets/homepage/panel-icon-1.png") no-repeat center; width: 48px; height: 48px; display: block; margin: 0 auto; }
+.description-panel .panel-image-2 { background: url("/assets/homepage/panel-icon-2.png") no-repeat center; width: 44px; height: 51px; display: block; margin: 0 auto; }
+.description-panel .panel-image-3 { background: url("/assets/homepage/panel-icon-3.png") no-repeat center; width: 59px; height: 40px; display: block; margin: 0 auto; }
 .description-panel p { padding-left: 17%; padding-right: 17%; margin-bottom: 0; line-height: 1.2; }
 .description-panel .desc-title { font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #404041; padding-top: 25px; margin-top: 0; }
 .description-panel .panel-image-fix-1 { padding-top: 27px; }
@@ -166,7 +165,7 @@ footer { background: #e8e8e9; }
 
 .right-footer { padding-top: 30px; }
 
-.socmedbar { background: url("/assets/images/website-kampus01/socmedbar.png") no-repeat left center; width: 300px; height: 25px; margin-bottom: 10px; }
+.socmedbar { background: url("/assets/homepage/socmedbar.png") no-repeat left center; width: 300px; height: 25px; margin-bottom: 10px; }
 @media screen and (max-width: 768px) { .socmedbar { background-position: center; margin: 0 auto 10px auto; } }
 
 .copyright, .newsletter-text { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #58595b; }
