@@ -1,48 +1,277 @@
-<% provide(:title, 'Trusted Indonesian Campus Review') %>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 
-<div class="jumbotron masthead">
-   <div class="container">
-      <p><%= image_tag("logo.png", :alt => "Kampus Logo") %></p>
-      <p>Informasi dan Peringkat Kampus di Indonesia</p>
-      
-      <div class="row-fluid">
-         <div class="span4 offset4">
-            <div class="tabbable">
-               <ul class="nav nav-tabs">
-                  <li class="active"><a href="#semua" data-toggle="tab">Semua</a></li>
-                  <li><a href="#pt" data-toggle="tab">Perguruan Tinggi</a></li>
-                  <li><a href="#prodi" data-toggle="tab">Jurusan</a></li>
-               </ul>
-               <div class="tab-content">
-                  <div class="tab-pane active" id="semua">
-                     <div class="input-append">
-                        <%= form_tag(search_path, :method => "get") do %>
-                        <%= text_field_tag(:keyword_all, "", :class => "input-xlarge", :placeholder => 'cari perguruan tinggi/jurusan') %>
-                        <button id="search_all" class="btn" type="submit"><i class="icon-search glyphw"></i></button>
-                        <% end %>
-                     </div>
-                     <span class="style2"></span>
-                  </div>
-                  <div class="tab-pane" id="pt">
-                     <div class="input-append">
-                        <%= form_tag(univs_path, :method => "get") do %>
-                        <%= text_field_tag(:keyword_pt, "", :class => "input-xlarge", :placeholder => 'cari perguruan tinggi') %>
-                        <button id="search_pt" class="btn" type="submit"><i class="icon-search glyphw"></i></button>
-                        <% end %>
-                     </div>
-                  </div>
-                  <div class="tab-pane" id="prodi">
-                     <div class="input-append">
-                        <%= form_tag(prodis_path, :method => "get") do %>
-                        <%= text_field_tag(:keyword_prodi, "", :class => "input-xlarge", :placeholder => 'cari jurusan') %>
-                        <button id="search_prodi" class="btn" type="submit"><i class="icon-search glyphw"></i></button>
-                        <% end %>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+<head>
+   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Selamat Datang di Kampus.co.id</title>
+  
+  <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
+  
+  <link rel="stylesheet" href="<%= asset_path('front/normalize.css') %>" />  
+  <link rel="stylesheet" href="<%= asset_path('front/foundation-kampus01.css') %>" />  
+  <link rel="stylesheet" href="<%= asset_path('front/website-kampus01.css') %>" /> 
+  <script src="<%= asset_path ('vendor/custom.modernizr.js') %>"></script>
+
+</head>
+<body>
+  <header>
+    <nav>      
+      <ul>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Rating</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div role="main">
+    <div class="row">
+      <div class="small-5 small-centered columns logo-fix">
+        <img class="double-fix" src="assets/images/website-kampus01/logo.png">
       </div>
-   </div>
-</div>
+    </div>
+    <div class="row">
+      <div class="small-7 small-centered columns">
+        <form>
+          <fieldset>
+            <div class="row">
+              <div class="large-12 columns">                
+                <input type="text" class="custom-input">                
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-12 columns">
+                <ul class="button-group">
+                  <li class="width-20 start-round"><a class="active-button small button custom-border start-round">Semua</a></li>
+                  <li class="width-40"><a class="small button custom-border">Perguruan Tinggi</a></li>
+                  <li class="width-20"><a class="small button custom-border">Jurusan</a></li>
+                  <li class="width-20 end-round"><a class="small button custom-border end-round">Provinsi</a></li>
+                </ul>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="secondary">
+    <div class="row compare-panel">
+      <div class="large-12 columns">
+        <div class="row compare-header">
+          <div class="large-12 columns">
+            <div class="row">
+              <div class="large-5 columns">
+                <p class="left-compare-label">
+                  <span class="hashtag">#</span>
+                  <span class="compare-label-1">1</span>
+                </p>
+                <p class="right-compare-label">
+                  <span class="compare-label-2">Ranking Kampus</span><span class="compare-label-3">10 Most Favorite Campus</span>
+                </p>
+              </div>
+              <div class="large-7 columns">
+                <p class="left-compare-label">
+                  <span class="hashtag">#</span>
+                  <span class="compare-label-1">2</span>
+                </p>
+                <p class="right-compare-label">
+                  <span class="compare-label-2">Compare</span><span class="compare-label-3">Compare Your Selected Campus</span>
+                </p>            
+              </div>  
+            </div>            
+          </div>
+        </div>
+        <div class="row compare-box">
+          <div class="compare-box-left-shadow">
+            <img src="assets/images/website-kampus01/compare-box-left.png">
+          </div>
+          <div class="compare-box-bottom-shadow">
+            <img src="assets/images/website-kampus01/compare-box-bottom.png">
+          </div>
+          <div class="compare-box-right-shadow">
+            <img src="assets/images/website-kampus01/compare-box-right.png">
+          </div>
+          <div class="large-5 columns top-ten">
+            <div class="row hidden-compare-label">
+              <div class="small-5 small-centered columns center-fix-1">
+                <p class="left-compare-label">
+                  <span class="hashtag">#</span>
+                  <span class="compare-label-1">1</span>
+                </p>
+                <p class="right-compare-label">
+                  <span class="compare-label-2">Ranking Kampus</span><span class="compare-label-3">10 Most Favorite Campus</span>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-12 columns">
+                <ul>
+                  <li>1. Universitas Indonesia</li>
+                  <li>2. Universitas Gajahmada</li>
+                  <li>3. Institut Teknologi 10 Nopember</li>
+                  <li>4. Institut Teknologi Bandung</li>
+                  <li>5. Universitas Brawijaya</li>
+                  <li>6. Politeknik Negeri Malang</li>
+                  <li>7. Universitas Airlangga</li>
+                  <li>8. Universitas Ciputra Surabaya</li>
+                  <li>9. Universitas 17 Agustus 1945 Surabaya</li>
+                  <li>10. Universitas Islam Indonesia</li>
+                </ul>
+              </div>
+            </div>            
+          </div>
+          <div class="large-7 columns compare-pair">
+            <form>
+              <fieldset>
+                <div class="row hidden-compare-label">
+                  <div class="small-5 small-centered columns center-fix-2">
+                    <p class="left-compare-label">
+                      <span class="hashtag">#</span>
+                      <span class="compare-label-1">2</span>
+                    </p>
+                    <p class="right-compare-label">
+                      <span class="compare-label-2">Compare</span><span class="compare-label-3">Compare Your Selected Campus</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="large-6 columns pair-left">
+                    <div class="row">
+                      <div class="large-11 columns">
+                        <label>Nama Kampus</label>
+                        <input type="text" placeholder="Input Nama Perguruan Tinggi">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="large-11 columns">
+                        <label class="space-top">Jurusan</label>
+                        <input type="text" placeholder="Input Jurusan">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="large-6 columns pair-right">
+                    <div class="row">
+                      <div class="large-11 columns right">
+                        <label>Nama Kampus</label>
+                        <input type="text" placeholder="Input Nama Perguruan Tinggi">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="large-11 columns right">
+                        <label class="space-top">Jurusan</label>
+                        <input type="text" placeholder="Input Jurusan">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row compare-submit">
+                  <div class="small-4 large-3 small-centered columns">
+                    <input type="submit" value="Compare" class="tiny small-centered button compare-button">
+                  </div>
+                </div>
+              </fieldset>
+            </form>            
+          </div>        
+        </div>
+      </div>
+    </div>
+    <div class="row description-panel">
+      <div class="large-4 columns">
+        <section>
+          <h6 class="desc-title">Informasi</h6>
+          <p class="desc-text">Kampus.co.id adalah situs yang melakukan pemeringkatan, penilaian dan ulasan (ranking, rating and review) perguruan tinggi di Indonesia</p>
+          <p class="panel-image-fix-1"><span class="panel-image-1"></span></p>
+        </section>        
+      </div>
+      <div class="large-4 columns">
+        <section>
+          <h6 class="desc-title">Support</h6>
+          <ul>
+            <li><a class="desc-link" href="#">F.A.Q</a></li>
+            <li><a class="desc-link" href="#">Terms & Condition</a></li>
+            <li><a class="desc-link" href="#">kampusnews.com</a></li>
+          </ul>
+          <p class="panel-image-fix-2"><span class="panel-image-2"></span></p>
+        </section>        
+      </div>
+      <div class="large-4 columns">
+        <section>
+          <h6 class="desc-title">Kontak</h6>
+          <p class="desc-text">Kampus.co.id<br>P : 031-3490049<br><a href="mailto:info@kampus.co.id">info@kampus.co.id</a><br>Jl. Kutisari Indah 135 Surabaya<br>Jawa Timur, Indonesia</p>
+          <p class="panel-image-fix-3"><span class="panel-image-3"></span></p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="row">
+      <div class="large-6 push-6 columns right-footer">      
+        <form class="newsletter-form">          
+          <div class="row">            
+            <div class="small-10 large-7 columns right newsletter-search">
+              <div class="row">
+                <div class="large-12 columns">
+                  <label class="right newsletter-label">Newsletter</label>
+                </div>
+              </div>
+              <div class="row collapse">                
+                <div class="small-9 columns">
+                  <input type="text" class="fix-textbox">
+                </div>
+                <div class="small-3 columns">
+                  <a href="#" class="button prefix">Submit</a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <p class="right newsletter-text">Berlangganan kampus.co.id melalui email</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="large-6 pull-6 columns left-footer">
+        <div class="row">
+          <div class="small-12 columns">
+            <div class="socmedbar">
+              
+            </div>
+          </div>          
+        </div>
+        <div class="row">
+          <div class="small-12 columns">
+            <p class="copyright">©2013 kampus.co.id | All Right Reserved</p>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </footer>
 
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  
+  <script src="javascripts/foundation.min.js"></script>
+  
+  <script>
+    $(document).foundation();
+    $(document).ready(function() {
+      $(".button-group a").click(function(){
+        $(".button-group a").removeClass("active-button");
+        $(this).addClass("active-button");
+      });
+      $(".description-panel section").mouseenter(function(){
+        $(this).addClass("active-section");        
+      })
+      $(".description-panel section").mouseleave(function(){
+        $(this).removeClass("active-section");
+      })
+    });
+  </script>
+</body>
+</html>
