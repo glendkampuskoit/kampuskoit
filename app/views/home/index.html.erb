@@ -10,8 +10,8 @@
   <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
   
   <link rel="stylesheet" href="<%= asset_path('front/normalize.css') %>" />  
-  <link rel="stylesheet" href="<%= asset_path('front/foundation-kampus01.css') %>" />  
-  <link rel="stylesheet" href="<%= asset_path('front/website-kampus01.css') %>" /> 
+  <link rel="stylesheet" href="<%= asset_path('front/foundation-homepage.css') %>" />  
+  <link rel="stylesheet" href="<%= asset_path('front/homepage.css') %>" /> 
   <script src="<%= asset_path ('vendor/custom.modernizr.js') %>"></script>
 
 </head>
@@ -28,7 +28,7 @@
   <div role="main">
     <div class="row">
       <div class="small-5 small-centered columns logo-fix">
-        <img class="double-fix" src="assets/images/website-kampus01/logo.png">
+        <img class="double-fix" src="<%= asset_path('homepage/logo.png') %> ">
       </div>
     </div>
     <div class="row">
@@ -84,13 +84,13 @@
         </div>
         <div class="row compare-box">
           <div class="compare-box-left-shadow">
-            <img src="assets/images/website-kampus01/compare-box-left.png">
+            <img src="<%= asset_path('homepage/compare-box-left.png') %>">
           </div>
           <div class="compare-box-bottom-shadow">
-            <img src="assets/images/website-kampus01/compare-box-bottom.png">
+            <img src="<%= asset_path('homepage/compare-box-bottom.png') %>">
           </div>
           <div class="compare-box-right-shadow">
-            <img src="assets/images/website-kampus01/compare-box-right.png">
+            <img src="<%= asset_path('homepage/compare-box-right.png') %>">
           </div>
           <div class="large-5 columns top-ten">
             <div class="row hidden-compare-label">
@@ -252,11 +252,11 @@
 
   <script>
   document.write('<script src=' +
-  ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+  ('__proto__' in {} ? '/assets/vendor/zepto' : '/assets/vendor/jquery') +
   '.js><\/script>')
   </script>
   
-  <script src="javascripts/foundation.min.js"></script>
+  <script src="/assets/foundation.min.js"></script>
   
   <script>
     $(document).foundation();
