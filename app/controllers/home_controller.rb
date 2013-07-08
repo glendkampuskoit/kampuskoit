@@ -1,12 +1,12 @@
 class HomeController < ApplicationController
   
   def index
-  	subscriber = current_subscriber
-	if subscriber
-    survey = SurveyAlumni.find_by_subscriber_id(subscriber.id) if subscriber
-    flash[:survey] = true if !survey 
-	end
+  #subscriber = current_subscriber
+	#if subscriber
+  #  survey = SurveyAlumni.find_by_subscriber_id(subscriber.id) if subscriber
+  #  flash[:survey] = true if !survey 
 
+  @univratings = Univrating.where(:status => "1").order("score DESC").limit(10)
   render :layout => false
 
   end

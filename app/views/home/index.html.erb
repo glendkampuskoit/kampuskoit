@@ -19,9 +19,11 @@
   <header>
     <nav>      
       <ul>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Rating</a></li>
-        <li><a href="#">Login</a></li>
+        <li><%= link_to "Home", home_path %></li>
+        <li><%= link_to "Ranking", rating_path %></li>
+        <li><%= link_to "Perguruan Tinggi", univs_path %></li>
+        <li><%= link_to "Program Studi", prodis_path %></li>
+        <li><%= link_to "Login", login_path %></li>
       </ul>
     </nav>
   </header>
@@ -33,20 +35,19 @@
     </div>
     <div class="row">
       <div class="small-7 small-centered columns">
-        <form>
+        <form action="<%= search_path %>" id="search">
           <fieldset>
             <div class="row">
-              <div class="large-12 columns">                
-                <input type="text" class="custom-input">                
+              <div class="large-12 columns">
+                <%= text_field_tag(:keyword, "", :class => "custom-input") %>
               </div>
             </div>
             <div class="row">
               <div class="large-12 columns">
                 <ul class="button-group">
-                  <li class="width-20 start-round"><a class="active-button small button custom-border start-round">Semua</a></li>
-                  <li class="width-40"><a class="small button custom-border">Perguruan Tinggi</a></li>
-                  <li class="width-20"><a class="small button custom-border">Jurusan</a></li>
-                  <li class="width-20 end-round"><a class="small button custom-border end-round">Provinsi</a></li>
+                  <li class="width-20 start-round"><a class="active-button small button custom-border start-round" id="all">Semua</a></li>
+                  <li class="width-40"><a class="small button custom-border" id="pt">Perguruan Tinggi</a></li>
+                  <li class="width-40 end-round"><a class="small button custom-border end-round" id="prodi">Program Studi</a></li>
                 </ul>
               </div>
             </div>
@@ -107,16 +108,14 @@
             <div class="row">
               <div class="small-12 columns">
                 <ul>
-                  <li>1. Universitas Indonesia</li>
-                  <li>2. Universitas Gajahmada</li>
-                  <li>3. Institut Teknologi 10 Nopember</li>
-                  <li>4. Institut Teknologi Bandung</li>
-                  <li>5. Universitas Brawijaya</li>
-                  <li>6. Politeknik Negeri Malang</li>
-                  <li>7. Universitas Airlangga</li>
-                  <li>8. Universitas Ciputra Surabaya</li>
-                  <li>9. Universitas 17 Agustus 1945 Surabaya</li>
-                  <li>10. Universitas Islam Indonesia</li>
+                  <%
+                    rangking = 0
+                    if @univratings.any?
+                      @univratings.each do |univrating|
+                  %>
+                    <li><%= rangking = rangking + 1 %>. <%= link_to univrating.univ.nama_pt.titleize, univ_path(@univrating.univ) %></li>
+                    <% end %>
+                  <% end %>
                 </ul>
               </div>
             </div>            
@@ -204,50 +203,7 @@
       </div>
     </div>
   </div>
-  <footer>
-    <div class="row">
-      <div class="large-6 push-6 columns right-footer">      
-        <form class="newsletter-form">          
-          <div class="row">            
-            <div class="small-10 large-7 columns right newsletter-search">
-              <div class="row">
-                <div class="large-12 columns">
-                  <label class="right newsletter-label">Newsletter</label>
-                </div>
-              </div>
-              <div class="row collapse">                
-                <div class="small-9 columns">
-                  <input type="text" class="fix-textbox">
-                </div>
-                <div class="small-3 columns">
-                  <a href="#" class="button prefix">Submit</a>
-                </div>
-              </div>
-              <div class="row">
-                <div class="large-12 columns">
-                  <p class="right newsletter-text">Berlangganan kampus.co.id melalui email</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="large-6 pull-6 columns left-footer">
-        <div class="row">
-          <div class="small-12 columns">
-            <div class="socmedbar">
-              
-            </div>
-          </div>          
-        </div>
-        <div class="row">
-          <div class="small-12 columns">
-            <p class="copyright">©2013 kampus.co.id | All Right Reserved</p>
-          </div>
-        </div>        
-      </div>
-    </div>
-  </footer>
+  <%= render :partial => "layouts/footer" %>
 
 
   <script>
@@ -267,10 +223,28 @@
       });
       $(".description-panel section").mouseenter(function(){
         $(this).addClass("active-section");        
-      })
+      });
       $(".description-panel section").mouseleave(function(){
         $(this).removeClass("active-section");
-      })
+      });
+
+
+      // change form action dynamically
+      $('#all').click(function(){
+        $('#search').attr('action', '<%= search_path %>');
+      });
+
+      $('#pt').click(function(){
+        $('#search').attr('action', '<%= univs_path %>');
+      });
+
+      $('#prodi').click(function(){
+        $('#search').attr('action', '<%= prodis_path %>');
+      });
+
+      $('#provinsi').click(function(){
+        $('#search').attr('action', '<%= search_path %>');
+      });
     });
   </script>
 </body>

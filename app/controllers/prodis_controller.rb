@@ -35,7 +35,7 @@ class ProdisController < ApplicationController
     orders = "nama_prodi ASC" if params[:urutan] == "1"
     orders = "nama_prodi DESC" if params[:urutan] == "2"
 
-    @prodis = Prodi.search params[:keyword_prodi], :with => withs, :order => orders, :page => params[:page], :per_page => 10
+    @prodis = Prodi.search params[:keyword], :with => withs, :order => orders, :page => params[:page], :per_page => 10
     @params_value = params
 
   end
@@ -76,7 +76,7 @@ class ProdisController < ApplicationController
 
   def list
     @prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
-    #@prodis = Prodi.search params[:keyword_prodi], :page => params[:page], :per_page => 10
+    #@prodis = Prodi.search params[:keyword], :page => params[:page], :per_page => 10
     render :layout => "admin"
   end
 

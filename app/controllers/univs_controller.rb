@@ -27,7 +27,7 @@ class UnivsController < ApplicationController
     orders = "nama_pt ASC" if params[:urutan] == "1"
     orders = "nama_pt DESC" if params[:urutan] == "2"
 
-    @univs = Univ.search params[:keyword_pt], :with => withs, :order => orders, :page => params[:page], :per_page => 10
+    @univs = Univ.search params[:keyword], :with => withs, :order => orders, :page => params[:page], :per_page => 10
     @params_value = params
   end
 
@@ -71,7 +71,7 @@ class UnivsController < ApplicationController
 
   def list
     @univs = Univ.paginate(:page => params[:page], :per_page => 30)
-    #@univs = Univ.search params[:keyword_pt], :page => params[:page], :per_page => 30
+    #@univs = Univ.search params[:keyword], :page => params[:page], :per_page => 30
     render :layout => "admin"
   end
 end

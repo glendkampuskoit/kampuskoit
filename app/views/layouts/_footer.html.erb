@@ -1,7 +1,8 @@
 <footer>
   <div class="row">
     <div class="large-6 push-6 columns right-footer">      
-      <form class="newsletter-form">          
+      <form class="newsletter-form">
+      <%= form_for Visitor.new, :class => "newsletter-form" do |f| %>
         <div class="row">            
           <div class="small-10 large-7 columns right newsletter-search">
             <div class="row">
@@ -11,10 +12,10 @@
             </div>
             <div class="row collapse">                
               <div class="small-9 columns">
-                <input type="text" class="fix-textbox">
-              </div>
+                <%= f.text_field :email, :placeholder => "Email", :class => "fix-textbox", :required => true %>
+              </div> 
               <div class="small-3 columns">
-                <a href="#" class="button prefix">Submit</a>
+                <button type="submit" class="button prefix">Submit</button>
               </div>
             </div>
             <div class="row">
@@ -24,7 +25,7 @@
             </div>
           </div>
         </div>
-      </form>
+      <% end %>
     </div>
     <div class="large-6 pull-6 columns left-footer">
       <div class="row">
@@ -42,3 +43,5 @@
     </div>
   </div>
 </footer>
+<%= render :partial => "layouts/ga" if Rails.env == "production" %>
+<%= debug(params) if Rails.env.development? %>

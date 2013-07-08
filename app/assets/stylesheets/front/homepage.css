@@ -40,7 +40,7 @@ button, .button { box-shadow: none; }
 
 /***Header***/
 header nav { background: -webkit-linear-gradient(left, #02569e, #013066); background: -moz-linear-gradient(left, #02569e, #013066); background: -o-linear-gradient(left, #02569e, #013066); background: -ms-linear-gradient(left, #02569e, #013066); background: linear-gradient(left, #02569e, #013066); width: 100%; min-height: 34px; height: auto; -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5); box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5); }
-header ul { list-style-type: none; overflow: hidden; width: 190px; float: right; margin-bottom: 0; padding-top: 8px; }
+header ul { list-style-type: none; overflow: hidden; width: 430px; float: right; margin-bottom: 0; padding-top: 8px; }
 header li { float: left; border-right: 1px solid #01467f; }
 header li:last-child { border-right: none; }
 header a { display: block; font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; padding-left: 15px; padding-right: 15px; color: white; text-align: center; -webkit-transition: all 0.4s; -moz-transition: all 0.4s; -o-transition: all 0.4s; -ms-transition: all 0.4s; transition: all 0.4s; }
@@ -177,6 +177,7 @@ footer { background: #e8e8e9; }
 .newsletter-label { font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; margin-bottom: 10px; }
 
 .newsletter-form input[type="text"] { height: 22px; padding: 0 5px; margin: 0; border-radius: 5px; }
+.newsletter-form input[type="email"] { height: 22px; padding: 0 5px; margin: 0; border-radius: 5px; }
 .newsletter-form .fix-textbox { width: 77%; float: right; }
 @media screen and (max-width: 768px) { .newsletter-form .fix-textbox { width: 100%; } }
 .newsletter-form .prefix, .newsletter-form .postfix { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; height: 22px; padding: 0; margin: 0; line-height: 22px; border-radius: 5px; border: none; font-style: italic; font-size: 0.750em; background: gray; }
