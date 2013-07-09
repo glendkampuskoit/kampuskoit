@@ -2,7 +2,8 @@
 /***#website-kampusalt01#***/
 /**Header**/
 /**Content**/
-/**Footer**homepage#***/
+/**Footer**/
+/***#website-kampus01#***/
 /**Content**/
 /**Footer**/
 /***#website-kampus02#***/
@@ -38,6 +39,8 @@ body { min-width: 320px; overflow-x: hidden; }
 
 button, .button { box-shadow: none; }
 
+.alert-box { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; }
+
 /***Header***/
 header nav { background: -webkit-linear-gradient(left, #02569e, #013066); background: -moz-linear-gradient(left, #02569e, #013066); background: -o-linear-gradient(left, #02569e, #013066); background: -ms-linear-gradient(left, #02569e, #013066); background: linear-gradient(left, #02569e, #013066); width: 100%; min-height: 34px; height: auto; -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5); box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5); }
 header ul { list-style-type: none; overflow: hidden; width: 430px; float: right; margin-bottom: 0; padding-top: 8px; }
@@ -48,7 +51,7 @@ header a:hover { -webkit-transition: all 0.4s; -moz-transition: all 0.4s; -o-tra
 
 /***Content***/
 div[role="main"] { background: whitesmoke; padding-top: 40px; }
-div[role="main"] .custom-input { background: white url("/assets/images/website-kampusalt01/search-icon.png") no-repeat 96% center; height: 2em; font-size: 2em; border-top-left-radius: 10px; border-top-right-radius: 10px; margin-bottom: 0; padding-right: 45px; }
+div[role="main"] .custom-input { background: white url("../assets/images/website-kampusalt01/search-icon.png") no-repeat 96% center; height: 2em; font-size: 2em; border-top-left-radius: 10px; border-top-right-radius: 10px; margin-bottom: 0; padding-right: 45px; }
 @media screen and (max-width: 480px) { div[role="main"] .custom-input { height: 2.2em; font-size: 1.1em; } }
 
 .logo-fix { width: 38%; }
@@ -118,6 +121,8 @@ fieldset { border: none; margin-top: 0.3em; }
 .top-ten { padding-top: 30px; padding-left: 50px; }
 @media screen and (max-width: 768px) { .top-ten { padding-left: 0.9375em; } }
 .top-ten ul { border-right: 1px solid #0093cd; -webkit-box-shadow: 1px 0 0 #0568a4; box-shadow: 1px 0 0 #0568a4; }
+.top-ten ul a { color: white; }
+.top-ten ul a:hover { color: #d9d9d9; }
 @media screen and (max-width: 768px) { .top-ten ul { border-right: none; box-shadow: none; border-bottom: 1px solid #0093cd; box-shadow: 0 1px 0 #0568a4; padding-bottom: 30px; } }
 
 .compare-pair { padding-top: 6px; }
@@ -148,11 +153,11 @@ fieldset { border: none; margin-top: 0.3em; }
 .description-panel .panel-image-2 { background: url("/assets/homepage/panel-icon-2.png") no-repeat center; width: 44px; height: 51px; display: block; margin: 0 auto; }
 .description-panel .panel-image-3 { background: url("/assets/homepage/panel-icon-3.png") no-repeat center; width: 59px; height: 40px; display: block; margin: 0 auto; }
 .description-panel p { padding-left: 17%; padding-right: 17%; margin-bottom: 0; line-height: 1.2; }
-.description-panel .desc-title { font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #404041; padding-top: 25px; margin-top: 0; }
+.description-panel .desc-title { font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.813em; color: #404041; padding-top: 25px; margin-top: 0; }
 .description-panel .panel-image-fix-1 { padding-top: 27px; }
-.description-panel .panel-image-fix-2 { padding-top: 7px; }
-.description-panel .panel-image-fix-3 { padding-top: 21px; }
-.description-panel .desc-text, .description-panel .desc-link { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.688em; color: #58595b; }
+.description-panel .panel-image-fix-2 { padding-top: 14px; }
+.description-panel .panel-image-fix-3 { padding-top: 19px; }
+.description-panel .desc-text, .description-panel .desc-link { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #58595b; }
 .description-panel ul { list-style-type: none; }
 .description-panel ul li { line-height: 0.875em; }
 .description-panel .desc-link:hover { color: #323334; }
@@ -163,10 +168,16 @@ footer { background: #e8e8e9; }
 .left-footer { padding-top: 50px; }
 @media screen and (max-width: 768px) { .left-footer { padding-top: 5px; } }
 
-.right-footer { padding-top: 30px; }
+.right-footer { padding-top: 25px; }
 
-.socmedbar { background: url("/assets/homepage/socmedbar.png") no-repeat left center; width: 300px; height: 25px; margin-bottom: 10px; }
-@media screen and (max-width: 768px) { .socmedbar { background-position: center; margin: 0 auto 10px auto; } }
+.socmed-wrapper { padding-bottom: 32px; }
+@media screen and (max-width: 768px) { .socmed-wrapper { width: 250px; margin: 0 auto !important; text-align: center; } }
+
+.socmed-1, .socmed-2, .socmed-3 { height: 25px; float: left; }
+
+.socmed-3 { width: 85px; }
+
+.fb-share { background: url("/assets/homepage/fb-share-icon.png") no-repeat center 8px; padding: 5px 30px; }
 
 .copyright, .newsletter-text { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #58595b; }
 
@@ -177,7 +188,6 @@ footer { background: #e8e8e9; }
 .newsletter-label { font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; margin-bottom: 10px; }
 
 .newsletter-form input[type="text"] { height: 22px; padding: 0 5px; margin: 0; border-radius: 5px; }
-.newsletter-form input[type="email"] { height: 22px; padding: 0 5px; margin: 0; border-radius: 5px; }
 .newsletter-form .fix-textbox { width: 77%; float: right; }
 @media screen and (max-width: 768px) { .newsletter-form .fix-textbox { width: 100%; } }
 .newsletter-form .prefix, .newsletter-form .postfix { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; height: 22px; padding: 0; margin: 0; line-height: 22px; border-radius: 5px; border: none; font-style: italic; font-size: 0.750em; background: gray; }

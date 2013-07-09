@@ -18,7 +18,7 @@ describe "Homes" do
 
     describe "visitor do search" do      
       before do
-        fill_in "keyword_all", with: "airlangga"
+        fill_in "keyword", with: "airlangga"
         click_button "search_all"
       end
 
@@ -29,7 +29,7 @@ describe "Homes" do
 
     describe "visitor do search with params Perguruan Tinggi" do      
       before do
-        fill_in "keyword_pt", with: "airlangga"
+        fill_in "keyword", with: "airlangga"
         click_button "search_pt"
       end
 
@@ -40,7 +40,7 @@ describe "Homes" do
 
     describe "visitor do search with params Jurusan" do      
       before do
-        fill_in "keyword_prodi", with: "kedokteran"
+        fill_in "keyword", with: "kedokteran"
         click_button "search_prodi"
       end
 
@@ -56,7 +56,7 @@ describe "Homes" do
       it { should have_selector('title', text: "Ranking Perguruan Tinggi") } 
     end
 
-    describe "Visitor go to Signup page" do
+    pending "Visitor go to Signup page" do
       before do 
         click_link "Signup"
       end

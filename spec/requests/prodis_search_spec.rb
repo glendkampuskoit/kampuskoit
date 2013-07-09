@@ -5,7 +5,7 @@ describe "Prodi Search" do
   let(:search_prodi) { "search_prodi" }
   before do
     visit home_path
-    fill_in "keyword_prodi", with: "Ekonomi"
+    fill_in "keyword", with: "Ekonomi"
     click_button search_prodi
   end
 
@@ -17,7 +17,7 @@ describe "Prodi Search" do
 
   describe "go to jurusan profile page" do
     before do
-      fill_in "keyword_prodi", with: "Ekonomi"
+      fill_in "keyword", with: "Ekonomi"
       click_button search_prodi
     end
     it "should do search" do

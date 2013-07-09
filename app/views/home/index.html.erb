@@ -5,7 +5,7 @@
 <head>
    <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Selamat Datang di Kampus.co.id</title>
+  <title>Kampus.co.id | Trusted Indonesian Campus Review</title>
   
   <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
   
@@ -27,6 +27,21 @@
       </ul>
     </nav>
   </header>
+
+  <% if flash[:newsletter_error] != nil %>
+     <div data-alert class="alert-box alert" align="center">
+        <%= flash[:newsletter_error] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+  <% end %>
+
+  <% if flash[:newsletter_success] != nil %>
+     <div data-alert class="alert-box" align="center">
+        <%= flash[:newsletter_success] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+  <% end %>
+
   <div role="main">
     <div class="row">
       <div class="small-5 small-centered columns logo-fix">
@@ -113,7 +128,7 @@
                     if @univratings.any?
                       @univratings.each do |univrating|
                   %>
-                    <li><%= rangking = rangking + 1 %>. <%= link_to univrating.univ.nama_pt.titleize, univ_path(@univrating.univ) %></li>
+                    <li style="font-color=#aaaaaa"><%= rangking = rangking + 1 %>. <%= link_to univrating.univ.nama_pt.titleize, univ_path(univrating.univ), :target => "_blank" %></li>
                     <% end %>
                   <% end %>
                 </ul>
@@ -175,37 +190,10 @@
         </div>
       </div>
     </div>
-    <div class="row description-panel">
-      <div class="large-4 columns">
-        <section>
-          <h6 class="desc-title">Informasi</h6>
-          <p class="desc-text">Kampus.co.id adalah situs yang melakukan pemeringkatan, penilaian dan ulasan (ranking, rating and review) perguruan tinggi di Indonesia</p>
-          <p class="panel-image-fix-1"><span class="panel-image-1"></span></p>
-        </section>        
-      </div>
-      <div class="large-4 columns">
-        <section>
-          <h6 class="desc-title">Support</h6>
-          <ul>
-            <li><a class="desc-link" href="#">F.A.Q</a></li>
-            <li><a class="desc-link" href="#">Terms & Condition</a></li>
-            <li><a class="desc-link" href="#">kampusnews.com</a></li>
-          </ul>
-          <p class="panel-image-fix-2"><span class="panel-image-2"></span></p>
-        </section>        
-      </div>
-      <div class="large-4 columns">
-        <section>
-          <h6 class="desc-title">Kontak</h6>
-          <p class="desc-text">Kampus.co.id<br>P : 031-3490049<br><a href="mailto:info@kampus.co.id">info@kampus.co.id</a><br>Jl. Kutisari Indah 135 Surabaya<br>Jawa Timur, Indonesia</p>
-          <p class="panel-image-fix-3"><span class="panel-image-3"></span></p>
-        </section>
-      </div>
-    </div>
+    <%= render :partial => "layouts/support" %>
   </div>
   <%= render :partial => "layouts/footer" %>
-
-
+  
   <script>
   document.write('<script src=' +
   ('__proto__' in {} ? '/assets/vendor/zepto' : '/assets/vendor/jquery') +

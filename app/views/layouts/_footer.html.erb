@@ -1,8 +1,7 @@
 <footer>
   <div class="row">
-    <div class="large-6 push-6 columns right-footer">      
-      <form class="newsletter-form">
-      <%= form_for Visitor.new, :class => "newsletter-form" do |f| %>
+    <div class="large-6 push-6 columns right-footer">
+      <%= form_for Visitor.new, :html => {:class => "newsletter-form"} do |f| %>
         <div class="row">            
           <div class="small-10 large-7 columns right newsletter-search">
             <div class="row">
@@ -29,11 +28,24 @@
     </div>
     <div class="large-6 pull-6 columns left-footer">
       <div class="row">
-        <div class="small-12 columns">
-          <div class="socmedbar">
-            
+        <div class="small-5 small-centered large-12 columns socmed-wrapper">            
+          <div class="socmed-1">
+            <a class="fb-share" href="#" 
+            onclick="
+              window.open(
+                'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+                'facebook-share-dialog', 
+                'width=626,height=436'); 
+              return false;">
+            </a>
           </div>
-        </div>          
+          <div class="socmed-2">              
+            <iframe src="http://www.facebook.com/plugins/like.php?locale=en_US&href=https%3A%2F%2Fwww.facebook.com%2Fkampuscoid&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:21px;" allowTransparency="true"></iframe>
+          </div>
+          <div class="socmed-3">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="kampuscoid" data-lang="en">Tweet</a>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="small-12 columns">
@@ -43,5 +55,8 @@
     </div>
   </div>
 </footer>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
 <%= render :partial => "layouts/ga" if Rails.env == "production" %>
 <%= debug(params) if Rails.env.development? %>

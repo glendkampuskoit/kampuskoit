@@ -28,14 +28,14 @@ describe "Authentication" do
 
   		it { should_not have_selector('title', text: "Login") } 
 
-      describe "click button logout" do
+      pending "click button logout" do
         before { click_link 'Logout' }
         it { should have_link ('Login') }
       end
   	end
   end
 
-  describe "login in homepage" do
+  pending "login in homepage" do
     before { visit root_path }
     
     describe "with invalid information" do
