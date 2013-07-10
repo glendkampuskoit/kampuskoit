@@ -1,67 +1,74 @@
-<% provide(:title, 'Ranking Perguruan Tinggi') %>
-<div class="container-fluid page-header">
-   <div class="container">
-      <h1>Rangking</h1>
-      <p class="lead">Rangking Perguruan Tinggi seluruh Indonesia</p>
+
+ <div class="row category-panel">
+   <div class="large-5 columns">
+     <ul class="button-group even-3">
+       <li><a href="#" class="button medium alert">Global</a></li>
+       <li><a href="#" data-dropdown="drop1" class="button dropdown alert">Kategori</a></li>
+       <li><a href="#" data-dropdown="drop2" class="button dropdown alert">Regional</a></li>          
+     </ul>
    </div>
-</div>
-<div class="container">
-   <div class="row">
-      <div class="span12">
-         <ul class="nav nav-tabs">
-            <li class="active"><a href="#global" data-toggle="tab">Nasional</a></li>
-            <!--<li class="dropdown">
-               <a href="#kategori" data-toggle="dropdown" class="dropdown-toggle">Berdasarkan Kategori <b class="caret"></b></a>
-               <ul class="dropdown-menu">
-                  <% @jenis_pts.each do |jenis_pt| %>
-                  <li><a href="#"><%= jenis_pt.jenis %></a></li>
-                  <% end %>
-               </ul>
-            </li>
-            <li class="dropdown">
-               <a href="#regional" data-toggle="dropdown" class="dropdown-toggle">Berdasarkan Regional <b class="caret"></b></a>
-               <ul class="dropdown-menu">
-                  <% @provinsis.each do |provinsi| %>
-                  <li><a href="#"><%= provinsi.provinsi %></a></li>
-                  <% end %>
-               </ul>
-            </li>-->
-         </ul>
-         <div class="tab-content">
-            <div class="tab-pane active" id="global">
-               <table class="table table-bordered table-striped">
-                  <thead>
-                     <tr>
-                        <th rowspan="2">Rangking</th>
-                        <th rowspan="2">Perguruan Tinggi</th>
-                        <th colspan="3">
-                           <div align="center">Kriteria</div>
-                        </th>
-                        <th rowspan="2">Total</th>
-                     </tr>
-                     <tr>
-                        <th>Government</th>
-                        <th>College</th>
-                        <th>Society</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <% rangking = 0 %>
-                     <% @univratings.each do |univrating| %>
-                     <tr>
-                        <td>#<%= rangking = rangking + 1 %></td>
-                        <td><%= univrating.univ.nama_pt.titleize %></td>
-                        <td><%= univrating.government %></td>
-                        <td><%= univrating.college %></td>
-                        <td><%= univrating.society %></td>
-                        <td><%= univrating.score %></td>
-                     </tr>
-                     <% end %>
-                  </tbody>
-               </table>
-            </div>
+ </div>
+ <div class="row">
+   <div class="large-9 columns">
+     <div class="row category-post">
+       <div class="large-12 columns">
+         <div class="row">
+           <div class="large-12 columns">
+             <h3 class="post-header">
+               Peringkat Seluruh Perguruan Tinggi
+             </h3>
+             <p class="post-author">
+               last updated - <span>5 Juni 2013</span>
+             </p>
+           </div>
          </div>
-      </div>
+         <div class="row">
+           <div class="large-12 columns">  
+           <% @univrating.each do |univrating| %>              
+             <article class="article-post">
+               <div class="row">
+                 <div class="small-5 large-5 columns">
+                   <img src="<%= univrating.univ.univgalleries.first %>" alt="post-image-1" />
+                 </div>
+                 <div class="small-7 large-7 columns">
+                   <h6 class="entry-header"><a href="#">Institut Teknologi Bandung</a></h6>
+                   <div class="rating">
+                         
+                   </div>
+                   <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                   <div class="entry-more">                            
+                     <a href="#" class="tiny button read-more-button left">Read more</a>  
+                     <p class="entry-link right">
+                       <span><a href="#">http://ui.ac.id</a></span>
+                       <span class="entry-link-separator">|</span>
+                       <span><a href="mailto:info@ui.ac.id">info@ui.ac.id</a></span>
+                     </p>                            
+                   </div>
+                 </div>
+               </div>
+             </article>
+             <div class="row">
+               <div class="small-3 small-centered columns">
+                 <a href="#" class="button small nav-bottom"></a>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>        
    </div>
-</div>
-<hr>
+   <%= render :partial => "layouts/sidebar" %>
+ </div>
+
+<!--Dropdown Content-->
+<ul id="drop1" class="f-dropdown">
+   <% @jenis_pts.each do |jenis_pt| %>
+      <li><a href="#"><%= jenis_pt.jenis %></a></li>
+   <% end %>
+</ul>
+
+<ul id="drop2" class="f-dropdown">
+   <% @provinsis.each do |provinsi| %>
+      <li><a href="#"><%= provinsi.provinsi %></a></li> 
+   <% end %>
+</ul>
