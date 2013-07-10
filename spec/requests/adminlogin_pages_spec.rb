@@ -7,7 +7,7 @@ describe "AdminLogin" do
   before { visit new_admin_session_path }
 
   describe "admin login page" do
-  	it { should have_selector('title', text: "Administrator Login") } 
+  	it { should have_selector('title', text: "Login In - Kampus.co.id Admin Panel") } 
   end
 
   describe "login with valid information" do

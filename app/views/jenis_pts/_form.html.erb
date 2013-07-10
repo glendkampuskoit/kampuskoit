@@ -1,30 +1,49 @@
-   <%= form_for @jenis_pt do |f| %>
-   <fieldset>
-      <div id="legend">
-         <legend class=""><%= yield(:title) %></legend>
-      </div>
-      <% if @jenis_pt.errors.any? %>
-         <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <div>
-               <% @jenis_pt.errors.full_messages.each do |msg| %>
-               <%= msg %><br>
-               <% end %>
-            </div>
-         </div>
-      <% end %>
-      <div class="control-group">
-         <%= f.label "Jenis:", :class => "control-label" %>
-         <div class="controls">
-            <%= f.text_field :jenis, :class => "input-xlarge", :placeholder => "Jenis PT" %>
-         </div>
-      </div>
-      <div class="control-group">
-         <!-- Button -->
-         <div class="controls">
-            <button class="btn btn-primary">Save</button>
-            <button class="btn" type="reset">Reset</button>
-         </div>
-      </div>
-   </fieldset>
-   <% end %>  
+<div class="row-fluid">
+  <div class="span12">
+      <div class="box corner-all">
+          <div class="box-header grd-white corner-top">
+              <div class="header-control">
+                  <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                  <a data-box="close" data-hide="bounceOutRight">&times;</a>
+              </div>
+              <span><%= yield(:title) %></span>
+          </div>
+          <div class="box-body">
+              <%= form_for @jenis_pt, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f| %>
+                  <% if @jenis_pt.errors.any? %>
+                     <div class="alert alert-error">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <div>
+                           <% @jenis_pt.errors.full_messages.each do |msg| %>
+                           <%= msg %><br>
+                           <% end %>
+                        </div>
+                     </div>
+                  <% end %>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jenis</label>
+                      <div class="controls">
+                          <%= f.text_field :jenis, :id => "jenis_pt", :class => "grd-white", :placeholder => "ex. JenisXYZ", :data => {:validate => "{required: true, messages:{required:'Jenis Perguruan Tinggi harus diisi'}}"} %>
+                      </div>
+                  </div>
+                  <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                      <button type="button" class="btn" onclick="history.go(-1);">Cancel</button>
+                  </div>
+              <% end %>
+          </div><!-- /box-body -->
+      </div><!-- /box -->
+  </div><!-- /span -->
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // try your js
+        
+        // peity chart
+        $("span[data-chart=peity-bar]").peity("bar");
+
+        // uniform
+        $('[data-form=uniform]').uniform();
+    });
+
+</script>

@@ -1,0 +1,306 @@
+<div class="row-fluid">
+  <div class="span12">
+      <div class="box corner-all">
+          <div class="box-header grd-white corner-top">
+              <div class="header-control">
+                  <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                  <a data-box="close" data-hide="bounceOutRight">&times;</a>
+              </div>
+              <span><%= yield(:title) %></span>
+          </div>
+          <div class="box-body">
+            <% if params[:action] == "new" || params[:action] == "create" 
+                url = univ_prodis_path(@prodi.univ)
+              elsif params[:action] == "edit" || params[:action] == "update"
+                url = "/admin/univs/#{@prodi.univ.id}/prodis/#{@prodi.id}"
+              end                  
+            %>
+              <%= form_for @prodi, :url => url, :html => {:class => "form-horizontal", :multipart => true, :id => "form-validate", :novalidate => "novalidate" } do |f| %>
+                  <% if @prodi.errors.any? %>
+                     <div class="alert alert-error">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <div>
+                           <% @prodi.errors.full_messages.each do |msg| %>
+                           <%= msg %><br>
+                           <% end %>
+                        </div>
+                     </div>
+                  <% end %>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Nama Program Studi</label>
+                      <div class="controls">
+                          <%= f.text_field :nama_prodi, :id => "nama_prodi", :class => "grd-white input-xxlarge", :placeholder => "ex. Jurusan XYZ", :data => {:validate => "{required: true, messages:{required:'Nama Program Studi harus diisi'}}"} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputSelect">Perguruan Tinggi</label>
+                      <div class="controls">
+                          <%= collection_select(:prodi, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt, {}, {:style => "width:500px", :id => "univ", :data => {:form => "univ", :placeholder => "Pilih Perguruan Tinggi"}}) %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Fakultas</label>
+                      <div class="controls">
+                          <%= f.text_field :fakultas, :id => "fakultas", :class => "grd-white input-xlarge", :placeholder => "ex. Fakultas XYZ", :data => {:validate => {:required => true, :messages => {:required => "Fakultas harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputSelect">Jenjang Program Studi</label>
+                      <div class="controls">
+                          <%= collection_select(:prodi, :jenjang_prodi_id, JenjangProdi.order("jenjang ASC"), :id, :jenjang, {}, {:style => "width:200px", :id => "jenjang_prodi", :data => {:form => "jenjang", :placeholder => "Pilih Jenjang Program Studi"}}) %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Tahun Berdiri</label>
+                      <div class="controls">
+                          <%= f.text_field :tahun_berdiri, :id => "tahun_berdiri", :class => "grd-white input-xlarge", :placeholder => "ex. 1888", :data => {:validate => {:required => true, :messages => {:required => "Tahun Berdiri harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Email</label>
+                      <div class="controls">
+                          <%= f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Email harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Website</label>
+                      <div class="controls">
+                          <%= f.text_field :website, :id => "website", :class => "grd-white", :placeholder => "ex. http://xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Website harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Alamat</label>
+                      <div class="controls">
+                          <%= f.text_area :alamat, :rows => "3", :id => "alamat", :placeholder => "Isikan alamat" %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputSelect">Kota</label>
+                      <div class="controls">
+                          <%= collection_select(:prodi, :kota_id, Kota.order("kota ASC"), :id, :kota, {}, {:style => "width:200px", :id => "kota", :data => {:form => "kota", :placeholder => "Pilih Kota"}}) %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Telepon</label>
+                      <div class="controls">
+                          <%= f.text_field :telepon, :id => "telepon", :class => "grd-white", :placeholder => "Isikan nomor telepon", :data => {:validate => {:required => true, :messages => {:required => "Telepon harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Fax</label>
+                      <div class="controls">
+                          <%= f.text_field :fax, :id => "fax", :class => "grd-white", :placeholder => "Isikan nomor Fax", :data => {:validate => {:required => true, :messages => {:required => "Fax harus diisi"}}} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputUpload">Upload Logo Jurusan</label>
+                      <div class="controls">
+                          <%= f.file_field :image, :data => {:form => "uniform"} %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputEditorSimple">Profil</label>
+                      <div class="controls">
+                          <%= f.text_area :profile, :id => "profil", :class => "span10", :rows => "8", :data => {:form => "profil"}, :placeholder => "Isikan profil ..." %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jumlah Mahasiswa</label>
+                      <div class="controls">
+                          <%= f.text_field :jumlah_mahasiswa, :id => "jumlah_mahasiswa", :class => "grd-white", :placeholder => "Isikan jumlah mahasiswa"%>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputEditorSimple">Bidang Studi</label>
+                      <div class="controls">
+                          <%= f.text_area :bidang_studi, :id => "bidang_studi", :class => "span10", :rows => "8", :data => {:form => "bidang"}, :placeholder => "Isikan deskripsi bidang studi ..." %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputEditorSimple">Kompetensi</label>
+                      <div class="controls">
+                          <%= f.text_area :kompetensi, :id => "kompetensi", :class => "span10", :rows => "8", :data => {:form => "kompetensi"}, :placeholder => "Isikan kompetensi ..." %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="inputEditorSimple">Seleksi Masuk</label>
+                      <div class="controls">
+                          <%= f.text_area :seleksi_masuk, :id => "seleksi_masuk", :class => "span10", :rows => "8", :data => {:form => "seleksi"}, :placeholder => "Isikan seleksi masuk ..." %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jumlah Dosen Professor</label>
+                      <div class="controls">
+                          <%= f.text_field :total_dosen_prof, :id => "total_dosen_prof", :class => "grd-white", :placeholder => "total dosen professor"%>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jumlah Dosen Master</label>
+                      <div class="controls">
+                          <%= f.text_field :total_dosen_master, :id => "total_dosen_master", :class => "grd-white", :placeholder => "total dosen master"%>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Jumlah Dosen Sarjana</label>
+                      <div class="controls">
+                          <%= f.text_field :total_dosen_sarjana, :id => "total_dosen_sarjana", :class => "grd-white", :placeholder => "total dosen sarjana"%>
+                      </div>
+                  </div>
+                  <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                      <button type="button" class="btn">Cancel</button>
+                  </div>
+              <% end %>
+          </div><!-- /box-body -->
+      </div><!-- /box -->
+  </div><!-- /span -->
+</div>
+
+<% if params[:action] == "edit" || params[:action] == "update" %>
+<div class="row-fluid">
+  <div class="span12">
+      <div class="box corner-all">
+          <div class="box-header grd-white corner-top">
+              <div class="header-control">
+                  <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                  <a data-box="close" data-hide="bounceOutRight">&times;</a>
+              </div>
+              <span>Update Program Studi Galeri</span>
+          </div>
+          <div class="box-body">
+            <%= form_for @prodigallery, :html => {:id => "form-validate", :novalidate => "novalidate", :class => "form-horizontal"} do |f| %>
+                <% if @prodigallery.errors.any? %>
+                   <div class="alert alert-error">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <div>
+                         <% @prodigallery.errors.full_messages.each do |msg| %>
+                         <%= msg %><br>
+                         <% end %>
+                      </div>
+                   </div>
+                <% end %>
+                <div class="control-group">
+                    <label class="control-label" for="inputUpload">Upload Logo</label>
+                    <div class="controls">
+                        <%= f.file_field :image, :id => "inputUpload", :data => {:form => "uniform"} %>
+                    </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="required">Caption</label>
+                  <div class="controls">
+                      <%= f.text_field :caption, :class => "grd-white" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="required">Deskripsi</label>
+                    <div class="controls">
+                      <%= f.text_area :description, :rows => "3", :placeholder => "Isikan deskripsi" %>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <% if @prodigalleries.present? %>
+                    <div class="controls">
+                        <div class="gallery-content">
+                            <ul class="thumbnails" id="portfolio-list">
+                              <% @prodigalleries.each do |gallery| %>
+                                <li class="design">
+                                    <!-- use checkbox for helper event -->
+                                    <input class="selecter" type="checkbox" name="item[]" value="1.jpg" />
+                                    <div class="thumbnail">
+                                        <%= image_tag(gallery.image_url(:thumb), :alt => gallery.description, :onerror => "this.src='/assets/default.jpg';", :width => "120", :height => "120") %>
+                                        <div class="thumbnail-control">
+                                            <div class="controls">
+                                                <a href="<%= gallery.image_url %>" rel="prettyPhoto[gallery]" title="<%= gallery.description%>"><i class="icofont-search"></i></a>
+                                                <%= link_to prodi_gallery_path(gallery), method: :delete, :class => "delete" do %> <i class="icofont-trash"></i> <% end %>
+
+                                                <p class="description"><%= gallery.caption %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <% end %>
+                            </ul>
+                        </div>   
+                    </div>
+                    <% end %>
+                </div>
+                <div class="form-actions">
+                  <%= f.hidden_field :prodi_id, :value => @prodi.id %>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="reset" class="btn">Reset</button>
+                </div>
+            <% end %>                                        
+          </div><!-- /box-body -->
+      </div><!-- /box -->
+  </div><!-- /span -->
+</div>
+<% end %>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+       // try your js
+       
+       // peity chart
+       $("span[data-chart=peity-bar]").peity("bar");
+       
+
+       $('.delete').on('click', function () {
+           return confirm('Anda yakin akan menghapus data ini?');
+       });
+
+       // uniform
+       $('[data-form=uniform]').uniform()
+
+       // select2
+       $('[data-form=univ]').select2();
+       $('[data-form=jenjang]').select2();
+       $('[data-form=kota]').select2();
+
+       // wysihtml5
+       $('[data-form=bidang]').wysihtml5();
+       $('[data-form=profil]').wysihtml5();
+       $('[data-form=seleksi]').wysihtml5();
+       $('[data-form=kompetensi]').wysihtml5();
+
+       // gallery setup
+       $('.gallery-selector').change(function(){
+           checked = $(this).attr('checked');
+           checked = (checked == undefined) ? false : true ;
+           
+           $('input.selecter, .gallery-selector').attr('checked', checked);
+           $.uniform.update('.gallery-selector');
+           
+           // toggle class for thumbnail
+           thumbnail = $('input.selecter').attr('checked', checked).next();
+           if(checked == true){
+               thumbnail.addClass('active');
+           }
+           else{
+               thumbnail.removeClass('active')
+           }
+       });
+       
+       $('.thumbnail-control .controls').click(function(e){
+           selecter = $(this).parent().parent().prev();
+           checked  = selecter.attr('checked');
+           if(checked == undefined){
+               checked = true;
+           }
+           else{
+               checked = false;
+               $('.gallery-selector').attr('checked', checked);
+               $.uniform.update('.gallery-selector');
+           }
+           
+           $(selecter).attr('checked', checked);
+           thumbnail = $(selecter).next();
+           if(e.target.nodeName == 'DIV'){
+               thumbnail.toggleClass('active');
+           }
+       });
+                       
+       // prettyPhoto
+       $("a[rel^='prettyPhoto']").prettyPhoto();                
+   });
+
+</script>

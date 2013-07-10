@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login In - Kampus.co.id Admin Panel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="the trusted indonesian campus review">
+        <meta name="author" content="kampuscoid">
+        
+        <link href="http://fonts.googleapis.com/css?family=Aclonica:regular" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/bootstrap.css" rel="stylesheet">
+        <link href="/assets/bootstrap-responsive.css" rel="stylesheet">
+        <!-- default theme -->
+        <link id="style-base" href="/assets/stilearn.css" rel="stylesheet">
+        <link id="style-responsive" href="/assets/stilearn-responsive.css" rel="stylesheet">
+        <link id="style-helper" href="/assets/stilearn-helper.css" rel="stylesheet">
+        <!-- usage -->
+        <link href="/assets/stilearn-icon.css" rel="stylesheet">
+        <link href="/assets/font-awesome.css" rel="stylesheet">
+        <link href="/assets/animate.css" rel="stylesheet">
+        <link href="/assets/uniform.default.css" rel="stylesheet">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+
+        <%= csrf_meta_tags %>
+
+    </head>
+
+    <body>
+        <!-- section header -->
+        <header class="header" data-spy="affix" data-offset-top="0">
+            <!--nav bar helper-->
+            <div class="navbar-helper">
+                <div class="row-fluid">
+                    <!--panel site-name-->
+                    <div class="span2">
+                        <div class="panel-sitename">
+                            <h2><a href="index.html"><span class="color-teal">Kampus</span>.co.id</a></h2>
+                        </div>
+                    </div>
+                    <!--/panel name-->
+                </div>
+            </div><!--/nav bar helper-->
+        </header>
+        
+        <!-- section content -->
+        <section class="section">
+            <div class="container">
+
+                <%= yield %>
+                
+            </div><!-- /container -->
+            
+            <!-- modal recover -->
+            <div id="modal-recover" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal-recoverLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 id="modal-recoverLabel">Reset password <small>Username Or Email Address</small></h3>
+                </div>
+                <div class="modal-body">
+                    <form id="form-recover" method="post">
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="text" data-validate="{required: true, email:true, messages:{required:'Please enter field email', email:'Please enter a valid email address'}}" name="recover" />
+                                <p class="help-block helper-font-small">Enter your username or email address and we will send you a link to reset your password.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <input type="submit" form="form-recover" class="btn btn-primary" value="Send reset link" >
+                </div>
+            </div><!-- /modal recover-->
+        </section>
+        
+        <!-- javascript
+        ================================================== -->
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <script src="/assets/jquery.js"></script>
+        <script src="/assets/bootstrap.js"></script>
+        <script src="/assets/uniform/jquery.uniform.js"></script>
+        
+        <script src="/assets/validate/jquery.metadata.js"></script>
+        <script src="/assets/validate/jquery.validate.js"></script>
+        
+        <script type="text/javascripts">
+            $(document).ready(function() {
+                // try your js
+                
+                // uniform
+                $('[data-form=uniform]').uniform();
+                
+                // validate
+                $('#sign-in').validate();
+                $('#sign-up').validate();
+                $('#form-recover').validate();
+            })
+        </script>
+    </body>
+</html>

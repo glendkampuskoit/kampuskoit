@@ -1,5 +1,8 @@
 class SubscribersController < ApplicationController
+  
   def index
+    @subscribers = Subscriber.all 
+    render :layout => "admin"
   end
   
   def new
@@ -39,5 +42,11 @@ class SubscribersController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def destroy
+    @subscriber = Subscriber.find(params[:id])
+    @subscriber.destroy
+    redirect_to subscribers_list_path
   end
 end

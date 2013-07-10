@@ -47,6 +47,8 @@ class UnivsController < ApplicationController
 
   def edit
     @univ = Univ.find(params[:id])
+    @univgallery = Univgallery.new
+    @univgalleries = Univgallery.where(:univ_id => @univ)
     render :layout => "admin"
   end
 
@@ -55,6 +57,8 @@ class UnivsController < ApplicationController
     if @univ.update_attributes(params[:univ])
       redirect_to univs_list_path, notice: 'Perguruan Tinggi was successfully updated.' 
     else
+      @univgallery = Univgallery.new
+      @univgalleries = Univgallery.where(:univ_id => @univ)
       render action: "edit", :layout => "admin"
     end    
   end

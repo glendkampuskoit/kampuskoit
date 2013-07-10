@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "Admins Manager" do
   
   subject { page }
+  let(:univ) { FactoryGirl.create(:univ) }
 
   before { visit admins_path }
 
@@ -11,7 +12,10 @@ describe "Admins Manager" do
   end
 
   describe "add new admin" do
-    before { visit new_admin_path }
+    before do 
+      univ
+      visit new_admin_path 
+    end
     let(:submit) { "Save" }
 
     describe "with invalid information" do
@@ -22,11 +26,12 @@ describe "Admins Manager" do
 
     describe "with valid information" do
       before do
-        fill_in "admin_nama", with: "Agung Laksono"
-        fill_in "admin_email", with: "agung@yahoo.com"
-        select("Admin", :from => "admin_role")
-        fill_in "admin_password", with: "foobar"
-        fill_in "admin_password_confirmation", with: "foobar"
+        fill_in "nama", with: "Agung Laksono"
+        fill_in "email", with: "agung@yahoo.com"
+        select("Admin", :from => "role")
+        select(univ.nama_pt, :from => "univ")
+        fill_in "password", with: "foobar"
+        fill_in "password_confirmation", with: "foobar"
       end
 
       it "should create a admin" do
@@ -38,13 +43,17 @@ describe "Admins Manager" do
   describe "update admin" do
     let(:submit) { "Save" }
     let(:admin) { FactoryGirl.create(:admin) }
-    before { visit edit_admin_path(admin) }    
+    before do 
+      univ
+      visit edit_admin_path(admin) 
+    end
 
     describe "with valid information" do
       before do
-        fill_in "admin_nama", with: admin.nama
-        fill_in "admin_email", with: admin.email
-        select("Admin", :from => "admin_role")
+        fill_in "nama", with: admin.nama
+        fill_in "email", with: admin.email
+        select("Admin", :from => "role")
+        select(univ.nama_pt, :from => "univ")
       end
 
       it "should create a admin" do

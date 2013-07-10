@@ -1,5 +1,5 @@
 class AdminSessionsController < ApplicationController
-	layout "admin"
+	layout "login"
 	
   def new
     if current_user
