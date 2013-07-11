@@ -1,12 +1,15 @@
 require 'spec_helper'
 
-pending "Univ Search" do
+describe "Univ Search", :js => true do
 
   let(:search_pt) { "search_pt" }
+
+  keypress = "var e = $.Event('keydown', { keyCode: 13 }); $('body').trigger(e);"
+
   before do
     visit home_path
     fill_in "keyword", with: "Surabaya"
-    click_button search_pt
+    page.driver.execute_script(keypress)
   end
 
   describe "univ index page" do
@@ -18,7 +21,7 @@ pending "Univ Search" do
   describe "go to univ profile page" do
     before do
       fill_in "keyword", with: "Surabaya"
-      click_button search_pt
+      page.driver.execute_script(keypress)
     end
     it "should do search" do
       page.should have_selector('title', :text => 'Pencarian Perguruan Tinggi')

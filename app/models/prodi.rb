@@ -29,5 +29,6 @@ class Prodi < ActiveRecord::Base
 	friendly_id :nama_prodi, :use => :scoped, :scope => :univ
 
 	mount_uploader :logo, ProdiLogoUploader
+	mount_uploader :prodi_featured_image, ProdiFeaturedImageUploader
 
 end

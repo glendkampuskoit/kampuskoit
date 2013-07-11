@@ -5,6 +5,8 @@ describe "Homes" do
   subject { page }
 
   before { visit home_path }
+
+  keypress = "var e = $.Event('keydown', { keyCode: 13 }); $('body').trigger(e);"
   
   describe "Home Page Index" do
     
@@ -19,7 +21,7 @@ describe "Homes" do
     describe "visitor do search" do      
       before do
         fill_in "keyword", with: "airlangga"
-        click_button "search_all"
+        page.driver.execute_script(keypress)
       end
 
       it "should visit search result path" do
@@ -30,7 +32,7 @@ describe "Homes" do
     describe "visitor do search with params Perguruan Tinggi" do      
       before do
         fill_in "keyword", with: "airlangga"
-        click_button "search_pt"
+        page.driver.execute_script(keypress)
       end
 
       it "if user choose perguruan tinggi, should visit PT path" do
@@ -41,7 +43,7 @@ describe "Homes" do
     describe "visitor do search with params Jurusan" do      
       before do
         fill_in "keyword", with: "kedokteran"
-        click_button "search_prodi"
+        page.driver.execute_script(keypress)
       end
 
       it "if user choose jurusan, should visit jurusan path" do

@@ -83,6 +83,8 @@ Spork.each_run do
     ActiveSupport::Dependencies.clear
   end
 
+  Capybara.javascript_driver = :webkit
+
   FactoryGirl.reload
 
 end

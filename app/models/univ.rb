@@ -28,4 +28,5 @@ class Univ < ActiveRecord::Base
 	friendly_id :nama_pt, :use => :slugged
 
 	mount_uploader :image, ImageUploader
+	mount_uploader :featured_image, UnivFeaturedImageUploader
 end

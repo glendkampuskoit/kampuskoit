@@ -1,4 +1,3 @@
-
  <div class="row category-panel">
    <div class="large-5 columns">
      <ul class="button-group even-3">
@@ -24,29 +23,30 @@
          </div>
          <div class="row">
            <div class="large-12 columns">  
-           <% @univrating.each do |univrating| %>              
+           <% @univratings.each do |univrating| %>              
              <article class="article-post">
                <div class="row">
                  <div class="small-5 large-5 columns">
-                   <img src="<%= univrating.univ.univgalleries.first %>" alt="post-image-1" />
+                   <%= image_tag(univrating.univ.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';") %>
                  </div>
                  <div class="small-7 large-7 columns">
-                   <h6 class="entry-header"><a href="#">Institut Teknologi Bandung</a></h6>
+                   <h6 class="entry-header"><%= link_to univrating.univ.nama_pt.titleize, univ_path(univrating.univ) %></h6>
                    <div class="rating">
                          
                    </div>
                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                   <div class="entry-more">                            
-                     <a href="#" class="tiny button read-more-button left">Read more</a>  
+                   <div class="entry-more">
+                     <%= link_to "Read More", univ_path(univrating.univ), :class => "tiny button read-more-button left" %>  
                      <p class="entry-link right">
-                       <span><a href="#">http://ui.ac.id</a></span>
+                       <span><%= link_to univrating.univ.website, univrating.univ.website, :target => "_blank" %></span>
                        <span class="entry-link-separator">|</span>
-                       <span><a href="mailto:info@ui.ac.id">info@ui.ac.id</a></span>
+                       <span><%= mail_to univrating.univ.email, univrating.univ.email %></span>
                      </p>                            
                    </div>
                  </div>
                </div>
              </article>
+             <% end %>
              <div class="row">
                <div class="small-3 small-centered columns">
                  <a href="#" class="button small nav-bottom"></a>
