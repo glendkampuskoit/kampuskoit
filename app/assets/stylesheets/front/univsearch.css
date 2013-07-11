@@ -18,19 +18,19 @@
 /**Content**/
 /**Footer**/
 /***Fonts List***/
-@font-face { font-family: 'archivo_narrowbold'; src: url("../assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.eot"); src: url("../assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.woff") format("woff"), url("../assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.ttf") format("truetype"), url("../assets/fonts/archivenarrowbold/archivonarrow-bold-webfont.svg#archivo_narrowbold") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'archivo_narrowbold'; src: url("/assets/archivenarrowbold/archivonarrow-bold-webfont.eot"); src: url("/assets/archivenarrowbold/archivonarrow-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.woff") format("woff"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.ttf") format("truetype"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.svg#archivo_narrowbold") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'archivo_narrowregular'; src: url("../assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.eot"); src: url("../assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.woff") format("woff"), url("../assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.ttf") format("truetype"), url("../assets/fonts/archivenarrowregular/archivonarrow-regular-webfont.svg#archivo_narrowregular") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'archivo_narrowregular'; src: url("/assets/archivenarrowregular/archivonarrow-regular-webfont.eot"); src: url("/assets/archivenarrowregular/archivonarrow-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.woff") format("woff"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.ttf") format("truetype"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.svg#archivo_narrowregular") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'HelveticaNeueLTPro77BoldCondensed'; src: url("../assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot"); src: url("../assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot") format("embedded-opentype"), url("../assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.woff") format("woff"), url("../assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.ttf") format("truetype"), url("../assets/fonts/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.svg#HelveticaNeueLTPro77BoldCondensed") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'HelveticaNeueLTPro77BoldCondensed'; src: url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot"); src: url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot") format("embedded-opentype"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.woff") format("woff"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.ttf") format("truetype"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.svg#HelveticaNeueLTPro77BoldCondensed") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'source_sans_probold'; src: url("../assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.eot"); src: url("../assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.woff") format("woff"), url("../assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.ttf") format("truetype"), url("../assets/fonts/sourcesansprobold/sourcesanspro-bold-webfont.svg#source_sans_probold") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'source_sans_probold'; src: url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.eot"); src: url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.woff") format("woff"), url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.ttf") format("truetype"), url("/assets/sourcesansprobold/sourcesanspro-bold-webfont.svg#source_sans_probold") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'source_sans_proitalic'; src: url("../assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.eot"); src: url("../assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.woff") format("woff"), url("../assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.ttf") format("truetype"), url("../assets/fonts/sourcesansproitalic/sourcesanspro-italic-webfont.svg#source_sans_proitalic") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'source_sans_proitalic'; src: url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.eot"); src: url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.woff") format("woff"), url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.ttf") format("truetype"), url("/assets/sourcesansproitalic/sourcesanspro-italic-webfont.svg#source_sans_proitalic") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'source_sans_proregular'; src: url("../assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.eot"); src: url("../assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.woff") format("woff"), url("../assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.ttf") format("truetype"), url("../assets/fonts/sourcesansproregular/sourcesanspro-regular-webfont.svg#source_sans_proregular") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'source_sans_proregular'; src: url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.eot"); src: url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.woff") format("woff"), url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.ttf") format("truetype"), url("/assets/sourcesansproregular/sourcesanspro-regular-webfont.svg#source_sans_proregular") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'source_sans_prosemibold'; src: url("../assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.eot"); src: url("../assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.woff") format("woff"), url("../assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.ttf") format("truetype"), url("../assets/fonts/sourcesansprosemibold/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'source_sans_prosemibold'; src: url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.eot"); src: url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.woff") format("woff"), url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.ttf") format("truetype"), url("/assets/sourcesansprosemibold/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold") format("svg"); font-weight: normal; font-style: normal; }
 
 /***Mixin***/
 /**Fonts Mixin**/
@@ -39,12 +39,14 @@ body { min-width: 320px; overflow-x: hidden; }
 
 button, .button { box-shadow: none; }
 
+.alert-box { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; }
+
 /***Header***/
 header nav { background: -webkit-linear-gradient(left, #02569e, #013066); background: -moz-linear-gradient(left, #02569e, #013066); background: -o-linear-gradient(left, #02569e, #013066); background: -ms-linear-gradient(left, #02569e, #013066); background: linear-gradient(left, #02569e, #013066); width: 100%; min-height: 67px; height: auto; }
 @media screen and (max-width: 420px) { header nav { height: 105px; } }
-header .logo-nav { list-style-type: none; padding-top: 17px; float: left; padding-left: 30px; width: 230px; }
+header .logo-nav { list-style-type: none; padding-top: 17px; float: left; margin-bottom: 0; width: 230px; }
 @media screen and (max-width: 420px) { header .logo-nav { padding-left: 0; margin: 0 auto; float: none; width: 182px; } }
-header .nav-bar { list-style-type: none; overflow: hidden; width: 190px; float: right; margin-bottom: 0; padding-top: 23px; }
+header .nav-bar { list-style-type: none; overflow: hidden; width: 425px; float: right; margin-bottom: 0; padding-top: 23px; }
 @media screen and (max-width: 480px) { header .nav-bar { padding-left: 0; margin: 0 auto; float: none; width: 182px; padding-top: 15px; } }
 header li { float: left; border-right: 1px solid #01467f; }
 header li:last-child { border-right: none; }
@@ -54,8 +56,8 @@ header a:hover { -webkit-transition: all 0.4s; -moz-transition: all 0.4s; -o-tra
 .header-extension { padding-top: 10px; background: -webkit-linear-gradient(left, #02569e, #013066); background: -moz-linear-gradient(left, #02569e, #013066); background: -o-linear-gradient(left, #02569e, #013066); background: -ms-linear-gradient(left, #02569e, #013066); background: linear-gradient(left, #02569e, #013066); width: 100%; height: auto; border-bottom: 4.5px solid #8e8e8e; }
 .header-extension input[type="text"], .header-extension .custom.dropdown, .header-extension .button.postfix { font-size: 1em !important; }
 @media screen and (max-width: 640px) { .header-extension input[type="text"], .header-extension .custom.dropdown, .header-extension .button.postfix { font-size: 0.75em !important; } }
-.header-extension .custom-input { background: white url("../assets/images/website-kampus03/search-icon.png") no-repeat 5% center; padding-left: 40px !important; padding-top: 6px; padding-bottom: 6px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; }
-.header-extension .custom-input:hover, .header-extension .custom-input:focus { background-image: url("../assets/images/website-kampus03/search-icon.png"); background-repeat: no-repeat; background-position: 5% center; }
+.header-extension .custom-input { background: white url("/assets/ranking/search-icon.png") no-repeat 5% center; padding-left: 40px !important; padding-top: 6px; padding-bottom: 6px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; }
+.header-extension .custom-input:hover, .header-extension .custom-input:focus { background-image: url("/assets/ranking/search-icon.png"); background-repeat: no-repeat; background-position: 5% center; }
 .header-extension a.current { font-family: "source_sans_proitalic", sans-serif, tahoma; font-weight: normal; font-style: normal; color: #9d9fa2 !important; }
 .header-extension .postfix { border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-top: 2px solid #319bd7; border-bottom: none; font-family: "source_sans_proitalic", sans-serif, tahoma; font-weight: normal; font-style: normal; background: -webkit-linear-gradient(top, #0b89d0, #0166a5); background: -moz-linear-gradient(top, #0b89d0, #0166a5); background: -o-linear-gradient(top, #0b89d0, #0166a5); background: -ms-linear-gradient(top, #0b89d0, #0166a5); background: linear-gradient(top, #0b89d0, #0166a5); }
 .header-extension .postfix:hover { background: -webkit-linear-gradient(bottom, #0b89d0, #0166a5); background: -moz-linear-gradient(bottom, #0b89d0, #0166a5); background: -o-linear-gradient(bottom, #0b89d0, #0166a5); background: -ms-linear-gradient(bottom, #0b89d0, #0166a5); background: linear-gradient(bottom, #0b89d0, #0166a5); }
@@ -69,8 +71,11 @@ header a:hover { -webkit-transition: all 0.4s; -moz-transition: all 0.4s; -o-tra
 /***Content***/
 div[role="main"] { padding-top: 30px; padding-bottom: 30px; }
 
-.search-result { background: whitesmoke; border-radius: 8px; border: 1px solid #4affff; }
-.search-result article { border-bottom: 1px solid #dedede; padding-top: 25px; padding-bottom: 25px; }
+.search-result { border-radius: 8px; }
+.search-result article { border-bottom: 1px solid #dedede; padding-top: 25px; padding-bottom: 25px; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s; -ms-transition: all 0.5s; transition: all 0.5s; }
+.search-result article > div { padding-left: 0.9375em; padding-right: 0.9375em; }
+.search-result article:hover { background: whitesmoke; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s; -ms-transition: all 0.5s; transition: all 0.5s; }
+.search-result article:first-child { border-top-left-radius: 10px; border-top-right-radius: 10px; }
 .search-result article:last-child { border: none; }
 
 .pagination-centered { margin-top: 20px; }
@@ -82,7 +87,7 @@ ul.pagination li { margin-left: 0; }
 
 .entry-header { margin-top: 0; margin-bottom: 3px; font-size: 1.125em; color: #26a0d7; font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; }
 
-.rating { background: url("../assets/images/website-kampus04/rating.png") no-repeat center; width: 109px; height: auto; padding-bottom: 27px; }
+.entry-place { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #262626; }
 
 .entry-text { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.688em; color: #6d6e70; }
 
@@ -118,18 +123,18 @@ ul.pagination li { margin-left: 0; }
 .description-panel .active-section { background: #1b75b2; -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s; -ms-transition: all 0.5s; transition: all 0.5s; }
 .description-panel .active-section .desc-title, .description-panel .active-section .desc-text, .description-panel .active-section .desc-link { color: white; }
 .description-panel .active-section .desc-link:hover { color: rgba(255, 255, 255, 0.5); }
-.description-panel .active-section .panel-image-1 { background: url("../assets/images/website-kampus04/panel-icon-1-hover.png") no-repeat center; }
-.description-panel .active-section .panel-image-2 { background: url("../assets/images/website-kampus04/panel-icon-2-hover.png") no-repeat center; }
-.description-panel .active-section .panel-image-3 { background: url("../assets/images/website-kampus04/panel-icon-3-hover.png") no-repeat center; }
-.description-panel .panel-image-1 { background: url("../assets/images/website-kampus04/panel-icon-1.png") no-repeat center; width: 48px; height: 48px; display: block; margin: 0 auto; }
-.description-panel .panel-image-2 { background: url("../assets/images/website-kampus04/panel-icon-2.png") no-repeat center; width: 44px; height: 51px; display: block; margin: 0 auto; }
-.description-panel .panel-image-3 { background: url("../assets/images/website-kampus04/panel-icon-3.png") no-repeat center; width: 59px; height: 40px; display: block; margin: 0 auto; }
+.description-panel .active-section .panel-image-1 { background: url("/assets/ranking/panel-icon-1-hover.png") no-repeat center; }
+.description-panel .active-section .panel-image-2 { background: url("/assets/ranking/panel-icon-2-hover.png") no-repeat center; }
+.description-panel .active-section .panel-image-3 { background: url("/assets/ranking/panel-icon-3-hover.png") no-repeat center; }
+.description-panel .panel-image-1 { background: url("/assets/ranking/panel-icon-1.png") no-repeat center; width: 48px; height: 48px; display: block; margin: 0 auto; }
+.description-panel .panel-image-2 { background: url("/assets/ranking/panel-icon-2.png") no-repeat center; width: 44px; height: 51px; display: block; margin: 0 auto; }
+.description-panel .panel-image-3 { background: url("/assets/ranking/panel-icon-3.png") no-repeat center; width: 59px; height: 40px; display: block; margin: 0 auto; }
 .description-panel p { padding-left: 17%; padding-right: 17%; margin-bottom: 0; line-height: 1.2; }
-.description-panel .desc-title { font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #404041; padding-top: 25px; margin-top: 0; }
+.description-panel .desc-title { font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.813em; color: #404041; padding-top: 25px; margin-top: 0; }
 .description-panel .panel-image-fix-1 { padding-top: 27px; }
-.description-panel .panel-image-fix-2 { padding-top: 7px; }
-.description-panel .panel-image-fix-3 { padding-top: 21px; }
-.description-panel .desc-text, .description-panel .desc-link { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.688em; color: #58595b; }
+.description-panel .panel-image-fix-2 { padding-top: 14px; }
+.description-panel .panel-image-fix-3 { padding-top: 19px; }
+.description-panel .desc-text, .description-panel .desc-link { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #58595b; }
 .description-panel ul { list-style-type: none; }
 .description-panel ul li { line-height: 0.875em; }
 .description-panel .desc-link:hover { color: #323334; }
@@ -140,10 +145,16 @@ footer { background: #cdcdcd; }
 .left-footer { padding-top: 50px; }
 @media screen and (max-width: 768px) { .left-footer { padding-top: 5px; } }
 
-.right-footer { padding-top: 30px; }
+.right-footer { padding-top: 25px; }
 
-.socmedbar { background: url("../assets/images/website-kampus04/socmedbar.png") no-repeat left center; width: 300px; height: 25px; margin-bottom: 10px; }
-@media screen and (max-width: 768px) { .socmedbar { background-position: center; margin: 0 auto 10px auto; } }
+.socmed-wrapper { padding-bottom: 32px; }
+@media screen and (max-width: 768px) { .socmed-wrapper { width: 250px; margin: 0 auto !important; text-align: center; } }
+
+.socmed-1, .socmed-2, .socmed-3 { height: 25px; float: left; }
+
+.socmed-3 { width: 85px; }
+
+.fb-share { background: url("/assets/ranking/fb-share-icon.png") no-repeat center 8px; padding: 5px 30px; }
 
 .copyright, .newsletter-text { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #58595b; }
 

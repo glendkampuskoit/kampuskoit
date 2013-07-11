@@ -5,14 +5,19 @@
 <head>
    <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Kampus.co.id - website-kampus02-equal-logo</title>
+  <title>Kampus.co.id - <%= yield(:title) %></title>
   
   <% if params[:controller] == "rating" %>
-   <%= stylesheet_link_tag "ranking", :media => "all" %>
-  <% end %>  
+    <%= stylesheet_link_tag "ranking", :media => "all" %>
+  <% elsif params[:controller] == "univs"%>
+    <%= stylesheet_link_tag "univsearch", :media => "all" %>
+  <% end %>
 </head>
 <body>
   <%= render :partial => "layouts/header" %>
+  <% if params[:controller] == "univs"%>
+    <%= render :partial => "univs/header_extension" %>
+  <% end %>
   <div role="main">
    <%= yield %>
   </div>
@@ -38,10 +43,15 @@
     $(document).ready(function() {      
       $(".description-panel section").mouseenter(function(){
         $(this).addClass("active-section");        
-      })
+      });
       $(".description-panel section").mouseleave(function(){
         $(this).removeClass("active-section");
-      })      
+      });
+
+      $('.checkall').on('click', function () {
+          //$(this).closest('form').find(':checkbox').prop('checked', this.checked);
+          console.log('diklk');
+      });
     });
   </script>
 </body>

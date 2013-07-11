@@ -1,103 +1,70 @@
-<% provide(:title, 'Pencarian Perguruan Tinggi') %>
-<header class="jumbotron subhead" id="overview">
-   <div class="container">
-      <%= form_tag(univs_path, :method => "get", :class => 'form-inline') do %>
-      <fieldset>
-         <legend>Pencarian Perguruan Tinggi</legend>
-         <br />
-         <%= text_field_tag(:keyword_pt, "", :placeholder => 'Type something') %>
-         <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi), :prompt => "Semua Provinsi" %>
-         <%= select_tag "jenis_pt_id", options_from_collection_for_select(@jenis_pts, :id, :jenis), :prompt => "Semua Kategori" %>
-         <button id="search_pt" type="submit" class="btn"><i class="icon-search glyphw"></i> Cari</button>
-      </fieldset>
-      <% end %>
-   </div>
-</header>
-<div class="container">
-   <div style="padding: 10px; padding-bottom: 0px;"></div>
-   <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      Ditemukan <%= @univs.count %> hasil pencarian. Gunakan <a href="#filter" data-toggle="collapse"> <strong>Filter & Shorting</strong></a> untuk pencarian lebih detail.
-   </div>
-   <div id="filter" class="row-fluid collapse">
-    <%= form_tag(univs_path, :method => "get") do %>
-      <div class="well">
-         <legend>Filter & Shorting</legend>
-         <div class="controls controls-row">
-            <label class="span2"><span>Kata Kunci</span></label>
-            <label class="span2"><span>Provinsi</span></label>
-            <label class="span2"><span>Kategori</span></label>
-         </div>
-         <div class="controls controls-row">
-            <%= text_field_tag(:keyword_pt, @params_value[:keyword_pt], :class => "span2", :placeholder => 'Type something') %>
-            <%= select_tag "provinsi_id", options_from_collection_for_select(@provinsis, :id, :provinsi, :selected => @params_value[:provinsi_id] ), :prompt => "Semua Provinsi", :class => "span2" %>
-            <%= select_tag "jenis_pt_id", options_from_collection_for_select(@jenis_pts, :id, :jenis, :selected => @params_value[:jenis_pt_id]), :prompt => "Semua Kategori", :class => "span2" %>
-         </div>
-         <br>
-         <div class="controls controls-row checkbox">
-            <label class="span2"><span><input type="checkbox" class="checkall"> Semua Filter</span></label>
-            <label class="span2"><span><%= check_box_tag(:ptn_check, @params_value[:ptn_check], @params_value[:ptn_check].present? ? true : false) %>Perguruan Tinggi Negeri</span></label>
-            <label class="span2"><span><%= check_box_tag(:pts_check, @params_value[:pts_check], @params_value[:pts_check].present? ? true : false) %>Perguruan Tinggi Swasta</span></label>
-         </div>
-         <div class="controls controls-row checkbox">
-            <label class="span2"><span><%= check_box_tag(:pendaftaran_check, @params_value[:pendaftaran_check]) %>Membuka Pendaftaran</span></label>
-            <label class="span2"><span><%= check_box_tag(:beasiswa_check, @params_value[:beasiswa_check]) %>Tersedia Beasiswa</span></label>
-         </div>
-         <br>
-         <div class="controls controls-row">
-            <%= select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "span2", :prompt => "Urutkan berdasarkan") %>&nbsp;
-            <button id="search_pt" type="submit" class="btn"><i class="icon-search glyphw"></i> Cari</button>
-         </div>
-         <script type="text/javascript">
-            $(function () {
-                $('.checkall').on('click', function () {
-                    $(this).closest('form').find(':checkbox').prop('checked', this.checked);
-                });
-            });
-         </script>
-      </div>
-      <% end %>
-   </div>
-   <div class="row">
-      <div class="span12">
-         <ul class="nav nav-tabs">
-            <li class="active"><a href="#global" data-toggle="tab">Hasil Pencarian</a></li>
-         </ul>
-         <div class="tab-content">
-            <div class="tab-pane active" id="global">
-               <div class="span10">
-                  <% @univs.each do |univ| %>
-                  <div class="row">
-                     <div class="span2"><%= link_to image_tag(univ.image_url(:thumb), :alt => "PT Logo", :onerror => "this.src='/assets/default.jpg';"), univ_path(univ), :class => "thumbnail" %></div>
-                     <div class="span6">
-                        <h4><a href="<%= univ_path(univ) %>" class="header-link"><%= univ.nama_pt.present? ? univ.nama_pt.titleize : "-Unknown Nama PT-" %></a></h4>
-                        <% if univ.kota.present? %>
-                        <%= univ.kota.kota.present? ? univ.kota.kota.titleize : "-Unknown Kota-" %>, <%= univ.kota.provinsi.provinsi.present? ? univ.kota.provinsi.provinsi.titleize : "-Unknown Provinsi-" %>
-                        <% end %>
-                        <p> <i class="icon-home glyphw"></i> <%= univ.telepon.present? ? univ.telepon : "-" %> <br>
-                           <i class="icon-envelope glyphw"></i> <%= univ.email.present? ? univ.email : "-" %>
-                        </p>
-                        <p>
-                           <% if univ.prodis.present?  %>
-                           <span class="label label-info">jurusan terkait</span>
-                           <% else %>
-                           <span class="label label-important">belum ada data jurusan</span>
-                           <% end %>
-                           &nbsp;&nbsp;
-                           <% univ.prodis.take(4).each do |prodi| %>
-                           <% if prodi.present? %>
-                           <i class="icon-ok glyphw"></i> <%= link_to prodi.nama_prodi, [univ, prodi]%> &nbsp;&nbsp;
-                           <% end %>
-                           <% end %>
-                        </p>
-                     </div>
-                  </div>
+ <% provide(:title, 'Pencarian Perguruan Tinggi') %>
+ <div class="row">
+   <div class="large-9 columns">
+     <div class="row">
+       <div class="large-12 columns">
+         <p class="result-number">Ditemukan <%= @univs.count %> Hasil Pencarian</p>
+       </div>
+     </div>
+     <div class="row search-result">
+       <div class="large-12 columns">
+         <% @univs.each do |univ| %>
+         <article>
+           <div class="row">
+             <div class="small-5 large-5 columns">
+               <%= image_tag(univ.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';") %>
+             </div>
+             <div class="small-7 large-7 columns">
+               <h6 class="entry-header"><%= link_to univ.nama_pt.titleize, univ_path(univ)%></h6>
+               <p class="entry-place">
+                  <% if univ.kota.present? %>
+                  <%= univ.kota.kota.titleize %>, <%= univ.kota.provinsi.provinsi.titleize %>
                   <% end %>
-                  <%= will_paginate @univs, :renderer => BootstrapPagination::Rails %>
+               </p>
+
+               <p class="entry-text"><%= univ.deskripsi %></p>
+               <div class="entry-more">
+                  <%= link_to "Read More", univ_path(univ), :class => "tiny button read-more-button left" %>
+                 <p class="entry-link right">
+                   <span><%= link_to univ.website, univ.website, :target => "_blank" %></span>
+                   <span class="entry-link-separator">|</span>
+                   <span><%= mail_to univ.email, univ.email %></span>
+                 </p>
                </div>
-            </div>
+             </div>
+           </div>
+         </article>
+         <% end %>         
+         <div class="pagination-centered">
+           <ul class="pagination">
+             <li class="arrow unavailable"><a href="">&laquo;</a></li>
+             <li class="arrow unavailable"><a href="">&lsaquo;</a></li>
+             <li class="current"><a href="">1</a></li>
+             <li><a href="">2</a></li>
+             <li><a href="">3</a></li>                
+             <li class="unavailable"><a href="">&hellip;</a></li>
+             <li><a href="">12</a></li>
+             <li><a href="">13</a></li>
+             <li class="arrow"><a href="">&rsaquo;</a></li>
+             <li class="arrow"><a href="">&raquo;</a></li>
+           </ul>
          </div>
-      </div>
+       </div>
+     </div>
    </div>
-</div>
-<hr>
+   <div class="large-3 columns">
+     <div class="row sidebar">
+       <div class="large-12 columns">
+         <section>
+           <h5 class="widget-title">Lorem Ipsum</h5>
+           <p class="widget-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+         </section>            
+         <section>
+           <h5 class="widget-title">Lorem Ipsum</h5>
+           <img class="widget-image" src="assets/images/website-kampus04/widget-image.jpg">
+           <p class="widget-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+         </section>            
+       </div>
+     </div>
+   </div>
+ </div>

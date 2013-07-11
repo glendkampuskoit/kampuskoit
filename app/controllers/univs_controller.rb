@@ -2,8 +2,8 @@ class UnivsController < ApplicationController
   load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy, :list] if Rails.env.development? || Rails.env.production?
 
   def index
-    @provinsis = Provinsi.all
-    @jenis_pts = JenisPt.all
+    @provinsis = Provinsi.order("provinsi ASC")
+    @jenis_pts = JenisPt.order("jenis ASC")
 
     withs = {}
 
