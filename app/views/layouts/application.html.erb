@@ -9,11 +9,27 @@
   
   <% if params[:controller] == "rating" %>
     <%= stylesheet_link_tag "ranking", :media => "all" %>
-  <% elsif params[:controller] == "univs"%>
+  <% elsif params[:controller] == "univs" && params[:action] == "index" %>
     <%= stylesheet_link_tag "univsearch", :media => "all" %>
-  <% elsif params[:controller] == "prodis"%>
+  <% elsif params[:controller] == "prodis" && params[:action] == "index" %>
     <%= stylesheet_link_tag "prodisearch", :media => "all" %>
+  <% elsif (params[:controller] == "univs" && params[:action] == "show") || (params[:controller] == "prodis" && params[:action] == "show") %>
+    <%= stylesheet_link_tag "profil", :media => "all" %>
+    <noscript>
+      <style>
+        .es-carousel ul{
+          display:block;
+        }
+      </style>
+    </noscript>
+    <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">  
+      <div class="rg-image-wrapper">
+        <div class="rg-image"></div>
+        <div class="rg-loading"></div>        
+      </div>
+    </script>
   <% end %>
+
 </head>
 <body>
   <%= render :partial => "layouts/header" %>
@@ -41,6 +57,9 @@
   <script src="/assets/foundation.min.js"></script>
 
   <%= javascript_include_tag "application" %>
+  <% if params[:controller] == "univs" && params[:action] == "show" %>
+    <%= javascript_include_tag "univprofile" %>
+  <% end %>
 
   <script>
     $(document).foundation();

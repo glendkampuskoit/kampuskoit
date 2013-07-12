@@ -65,7 +65,12 @@ class UnivsController < ApplicationController
 
   def show
     @univ = Univ.find(params[:id])
+    @univrating = Univrating.where("univ_id = :univ AND status = :status", {univ: @univ, status: 1}).first
     @fakultases = ActiveRecord::Base.connection.execute("select distinct fakultas from prodis where univ_id = '#{@univ.id}'").to_a
+
+    @provinsis = Provinsi.order("provinsi ASC")
+    @jenis_pts = JenisPt.order("jenis ASC")
+    @params_value = { :keyword => "", :provinsi_id => @univ.kota.provinsi.id, :jenis_pt_id => @univ.jenis_pt.id }
 
     #trick for friendly_id
     if request.path != univ_path(@univ)

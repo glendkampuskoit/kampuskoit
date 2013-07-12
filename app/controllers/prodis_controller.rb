@@ -76,6 +76,9 @@ class ProdisController < ApplicationController
 
   def show
     @prodi = Prodi.find(params[:id])
+    @provinsis = Provinsi.order("provinsi ASC")
+    @jenjang_prodis = JenjangProdi.order("jenjang ASC")
+    @params_value = { :keyword => "", :provinsi_id => @prodi.kota.provinsi.id, :jenjang_prodi_id => @prodi.jenjang_prodi.id }
   end
 
   def list

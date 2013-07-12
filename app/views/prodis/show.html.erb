@@ -1,280 +1,162 @@
 <% provide(:title, @prodi.nama_prodi) %>
-<div class="container-fluid page-header">
-   <div class="row-fluid">
-      <div class="span7 offset1">
-         <h2><%= @prodi.jenjang_prodi.jenjang.present? ? @prodi.jenjang_prodi.jenjang : "-Unknown Jenjang-" %> - <%= @prodi.nama_prodi.present? ? @prodi.nama_prodi : "-Unknown Jurusan-" %>            
-         </h2>
-         <h3><%= @prodi.univ.nama_pt.present? ? @prodi.univ.nama_pt.titleize : "-Unknown PT-" %></h3>
-         <h4>Terakreditasi: <%= @prodi.prodi_akreditasis.where(:status => "1").first.present? ? @prodi.prodi_akreditasis.where(:status => "1").first : "-Unknown Akreditasi-"  %></h4>
-      </div>
-      <div class="span2"> <a href="#" class="thumbnail"><%= image_tag(@prodi.logo_url(:thumb), :alt => "Prodi Logo",  :onerror => "this.src='/assets/default.jpg';") %></a> </div>
-   </div>
-</div>
-<div class="container-fluid">
-   <div class="row-fluid">
-      <div class="span8 offset1">
-         <ul class="nav nav-tabs">
-            <li class="active"><a href="#profile" data-toggle="tab"><i class="icon-folder-open glyphw"></i>  Profile</a></li>
-            <li><a href="#gallery" data-toggle="tab"><i class="icon-picture glyphw"></i> Gallery</a></li>
-            <li><a href="#prospektus" data-toggle="tab"><i class="icon-briefcase glyphw"></i> Prospektus Jurusan</a></li>
-            <li><a href="#silabus" data-toggle="tab"><i class="icon-book glyphw"></i> Silabus Pendidikan</a></li>
-            <li><a href="#lain" data-toggle="tab"><i class="icon-share glyphw"></i> Lain-lain</a></li>
-         </ul>
-         <div class="tab-content">
-            <div class="tab-pane active" id="profile">
-               <div class="accordion" id="profile_tab">
-                  <div class="accordion-group">
-                     <div class="accordion-heading">
-                        <span class="accordion-toggle"><strong>Data Kampus</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#keterangan">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="keterangan" class="accordion-body collapse in">
-                        <div class="accordion-inner">
-                           <table class="table">
-                              <thead>
-                                 <tr>
-                                    <td>Status</td>
-                                    <td><%= @prodi.jenjang_prodi.jenjang.present? ? @prodi.jenjang_prodi.jenjang : "-belum ada data-" %></td>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 <tr>
-                                    <td>Fakultas</td>
-                                    <td><%= @prodi.fakultas.present? ? @prodi.fakultas.titleize : "-belum ada data-" %></td>
-                                 </tr>
-                                 <tr>
-                                    <td>Tahun Berdiri</td>
-                                    <td><%= @prodi.tahun_berdiri.present? ? @prodi.tahun_berdiri : "-belum ada data-" %></td>
-                                 </tr>
-                                 <tr>
-                                    <td>Jumlah Mahasiswa</td>
-                                    <td><%= @prodi.jumlah_mahasiswa.present? ? @prodi.jumlah_mahasiswa : "-belum ada data-" %></td>
-                                 </tr>
-                                 <tr>
-                                    <td>Alamat</td>
-                                    <td><%= @prodi.alamat.present? ? @prodi.alamat : "-belum ada data-" %>, <%= @prodi.kota.kota.present? ? @prodi.kota.kota.titleize : "-belum ada data-" %>
-                                 </tr>
-                                 <tr>
-                                    <td>Telepon</td>
-                                    <td><%= @prodi.telepon.present? ? @prodi.telepon : "-belum ada data-" %></td>
-                                 </tr>
-                                 <tr>
-                                    <td>Email</td>
-                                    <td><%= @prodi.email.present? ? @prodi.email : "-belum ada data-" %></td>
-                                 </tr>
-                                 <tr>
-                                    <td>Website</td>
-                                    <td><%= @prodi.website.present? ? link_to(@prodi.website, @prodi.website) : "-belum ada data-" %></td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="accordion-group">
-                     <div class="accordion-heading"> 
-                        <span class="accordion-toggle"><strong>Deskripsi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#deskripsi">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="deskripsi" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                           <p><%= @prodi.profile.present? ? @prodi.profile : "-belum ada data-" %></p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="accordion-group">
-                     <div class="accordion-heading"> 
-                        <span class="accordion-toggle"><strong>Bidang Studi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#visimisi">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="visimisi" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                           <p><%= @prodi.bidang_studi.present? ? @prodi.bidang_studi : "-belum ada data-" %></p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="accordion-group">
-                     <div class="accordion-heading"> 
-                        <span class="accordion-toggle"><strong>Kompetensi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#staff">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="staff" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                           <p><%= @prodi.kompetensi.present? ? @prodi.kompetensi : "-belum ada data-" %></p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="accordion-group">
-                     <div class="accordion-heading"> 
-                        <span class="accordion-toggle"><strong>Staff Pendukung</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#kapasitas-akademik">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="kapasitas-akademik" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                           <table class="table">
-                              <thead>
-                                 <tr>
-                                    <td><%= @prodi.total_dosen_prof.present? ? @prodi.total_dosen_prof : "-belum ada data-" %> Dosen Professor</td>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 <tr>
-                                    <td><%= @prodi.total_dosen_doktor.present? ? @prodi.total_dosen_doktor : "-belum ada data-" %> Dosen Doktor</td>
-                                 </tr>
-                                 <tr>
-                                    <td><%= @prodi.total_dosen_master.present? ? @prodi.total_dosen_master : "-belum ada data-" %> Dosen Master</td>
-                                 </tr>
-                                 <tr>
-                                    <td><%= @prodi.total_dosen_sarjana.present? ? @prodi.total_dosen_sarjana : "-belum ada data-" %> Dosen Sarjana</td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="accordion-group">
-                     <div class="accordion-heading"> 
-                        <span class="accordion-toggle"><strong>Seleksi Masuk</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#profile_tab" href="#seleksi-masuk">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="seleksi-masuk" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                           <p><%= @prodi.seleksi_masuk.present? ? @prodi.seleksi_masuk : "-belum ada data-" %></p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="tab-pane" id="gallery">
-               <% if @prodi.prodi_galleries.present? %>
-               <div id="myCarousel" class="carousel slide">
-                  <ol class="carousel-indicators">
-                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                     <li data-target="#myCarousel" data-slide-to="1"></li>
-                     <li data-target="#myCarousel" data-slide-to="2"></li>
-                  </ol>
-                  <div class="carousel-inner">
-                    <% @prodi.prodi_galleries.each do |gallery| %>
-                     <div class="item active">
-                        <%= image_tag(gallery.path, :alt => "Image Galleries") %>
-                        <div class="carousel-caption">
-                           <h4><%= gallery.caption %></h4>
-                           <p><%= gallery.description %></p>
-                        </div>
-                     </div>
-                     <% end %>
-                  </div>
-               </div>
-               <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a> 
-               <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a> 
-               <% else %>
-               -belum ada data-
-               <% end %>
-            </div>
-            <div class="tab-pane" id="prospektus">
-               -belum ada data-
-            </div>
-            <div class="tab-pane" id="silabus">
-               -belum ada data-
-            </div>
-            <div class="tab-pane" id="lain">
-               <div class="accordion" id="lain_tab">
-                  <div class="accordion-group">
-                     <div class="accordion-heading"> 
-                        <span class="accordion-toggle"><strong>Fasilitas</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#fasilitas">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="fasilitas" class="accordion-body collapse in">
-                        <div class="accordion-inner">
-                           <% if @prodi.prodi_fasils.present? %>
-                           <table class="table">
-                              <thead>
-                                <% @prodi.prodi_fasils.each do |fasilitas| %>
-                                 <tr>
-                                    <td><%= fasilitas.fasilitas %></td>
-                                 </tr>
-                                 <% end %>
-                              </thead>
-                           </table>
-                           <% else %>
-                           -belum ada data-
-                           <% end %>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="accordion-group">
-                     <div class="accordion-heading"> 
-                        <span class="accordion-toggle"><strong>Biaya</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#biaya">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="biaya" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                           <% if @prodi.prodi_biayas.present? %>
-                           <table class="table">
-                              <thead>
-                                 <tr>
-                                    <td>Nilai</td>
-                                    <td>Biaya</td>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                <% @prodi.prodi_biayas.each do |biaya| %>
-                                 <tr>
-                                    <td><%= biaya.nilai %></td>
-                                    <td><%= biaya.biaya %></td>
-                                 </tr>
-                                 <% end %>
-                              </tbody>
-                           </table>
-                           <% else %>
-                           -belum ada data-
-                           <% end %>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="accordion-group">
-                     <div class="accordion-heading">
-                        <span class="accordion-toggle"><strong>Prestasi</strong>
-                        <a class="btn pull-right" data-toggle="collapse" data-parent="#lain_tab" href="#prestasi">Lihat Detail</a>
-                        </span> 
-                     </div>
-                     <div id="prestasi" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                           <% if @prodi.prodi_biayas.present? %>
-                           <table class="table">
-                              <thead>
-                                 <tr>
-                                    <td>Tahun</td>
-                                    <td>Prestasi</td>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                <% @prodi.prodi_prestasis.each do |prestasi| %>
-                                 <tr>
-                                    <td><%= prestasi.tahun %></td>
-                                    <td><%= prestasi.prestasi %></td>
-                                 </tr>
-                                 <% end %>
-                              </tbody>
-                           </table>
-                           <% else %>
-                           -belum ada data-
-                           <% end %>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+ <div class="row">
+   <div class="large-9 columns">        
+     <div class="row highlight">
+       <div class="large-12 columns">
+         <div class="left-highlight">
+           <%= image_tag @prodi.logo_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';"%>
          </div>
-      </div>
+         <div class="right-highlight">
+           <h4 class="post-header-prodi">
+               <%= @prodi.nama_prodi.titleize %>
+           </h4>
+           <h5 class="post-sub-header-prodi">
+               <%= @prodi.univ.nama_pt.titleize %>
+           </h5>
+           <p class="post-author">
+             Last updated - <span><%= @prodi.updated_at %></span>
+           </p>
+         </div>
+       </div>
+     </div>
+     <div class="row gallery">
+       <div class="large-12 columns">
+         <% if @prodigalleries.present? %>
+         <div id="rg-gallery" class="rg-gallery">
+           <div class="rg-thumbs">
+             <!-- Elastislide Carousel Thumbnail Viewer -->
+             <div class="es-carousel-wrapper">
+               <div class="es-nav">
+                 <span class="es-nav-prev">Previous</span>
+                 <span class="es-nav-next">Next</span>
+               </div>
+               <div class="es-carousel">
+                 <ul>
+                  <% foreach @prodigalleries do |gallery| %>
+                   <li>
+                     <%= link_to "#" do %><%= image_tag gallery.image_url(:thumb), :alt => "Gambar belum tersedia", :data => {:large => gallery.image_url, :description => gallery.caption } %><% end %>
+                   </li>
+                   <% end %>
+                 </ul>
+               </div>
+             </div>
+             <!-- End Elastislide Carousel Thumbnail Viewer -->
+           </div><!-- rg-thumbs -->
+         </div><!-- rg-gallery -->
+         <% end %>
+       </div>
+     </div>
+     <div class="row profile">
+       <div class="large-12 columns">
+         <div class="row profile-panel">
+           <div class="large-12 columns">
+             <ul class="button-group">
+               <li><a href="#" class="small button">Profil</a></li>
+               <li><a href="#" class="small button">Gallery</a></li>
+               <li><a href="#" class="small button">Prospectus</a></li>
+               <li><a href="#" class="small button">Lain-lain</a></li>
+               <li><a href="#" class="small button profile-fb">&nbsp</a></li>
+               <li><a href="#" class="small button profile-twitter">&nbsp</a></li>
+               <li><a href="#" class="small button profile-youtube">&nbsp</a></li>
+               <li><a href="#" class="small button button-fixer">&nbsp</a></li>
+             </ul>
+             <div class="profile-panel-shadow">
+               
+             </div>
+           </div>
+         </div>
+         <div class="row information">
+           <div class="large-12 columns">
+             <h5 class="information-title">Keterangan</h5>
+             <form>
+               <fieldset>
+                 <div class="row">
+                     <div class="small-9 large-7">
+                     <div class="row">
+                       <div class="small-3 columns">
+                         <label class="left inline">Jenjang</label>
+                       </div>
+                       <div class="small-9 columns">
+                         <label class="left inline">: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<%= @prodi.jenjang_prodi.jenjang %> <%= @prodi.jenjang_prodi.keterangan.present? ? "- #{@prodi.jenjang_prodi.keterangan}" : "" %></label>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="row">
+                   <div class="small-9 large-7">
+                     <div class="row">
+                       <div class="small-3 columns">
+                         <label class="left inline">Tahun Berdiri</label>
+                       </div>
+                       <div class="small-9 columns">
+                         <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.tahun_berdiri.present? ? @prodi.tahun_berdiri : "-" %></label>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="row">
+                   <div class="small-9 large-7">
+                     <div class="row">
+                       <div class="small-3 columns">
+                         <label class="left inline">Alamat</label>
+                       </div>
+                       <div class="small-9 columns">
+                         <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.alamat.present? ? @prodi.alamat : "-" %></label>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="row">
+                   <div class="small-9 large-7">
+                     <div class="row">
+                       <div class="small-3 columns">
+                         <label class="left inline">Email</label>
+                       </div>
+                       <div class="small-9 columns">
+                         <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= mail_to @prodi.email, @prodi.email.present? ? @prodi.email : "-" %></label>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="row">
+                   <div class="small-9 large-7">
+                     <div class="row">
+                       <div class="small-3 columns">
+                         <label class="left inline">Website</label>
+                       </div>
+                       <div class="small-9 columns">
+                         <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= link_to @prodi.website, @prodi.website.present? ? @prodi.website : "-" %></label>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="row">
+                   <div class="small-9 large-7">
+                     <div class="row">
+                       <div class="small-3 columns">
+                         <label class="left inline">Telephone</label>
+                       </div>
+                       <div class="small-9 columns">
+                         <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.telepon.present? ? @prodi.telepon : "-" %></label>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </fieldset>
+             </form>
+           </div>
+         </div>
+         <div class="row description">
+           <div class="large-5 columns">
+             <%= image_tag @prodi.logo_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';"%>
+           </div>
+           <div class="large-7 columns">
+             <h5 class="description-title">Deskripsi</h5>
+             <p class="description-text"><%= @prodi.profile.present? ? @prodi.profile : "- belum ada deskripsi -" %></p>
+           </div>
+         </div>
+       </div>            
+     </div>
    </div>
-</div>
-<hr>
+   <%= render :partial => "layouts/sidebar" %>
+ </div>
