@@ -1,7 +1,7 @@
 <div class="header-extension">
   <div class="row">
-    <div class="large-12 columns">      
-      <form class="custom">          
+    <div class="large-12 columns">
+        <%= form_tag(prodis_path, :method => "get", :class => 'custom') do %>
           <div class="row collapse">
             <div class="small-4 columns">
               <%= text_field_tag(:keyword, @params_value[:keyword], :class => "custom-input", :placeholder => "Masukkan kata kunci ...") %>
@@ -40,7 +40,7 @@
               <%= select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "medium filter right", :prompt => "Urutkan berdasarkan") %>
             </div>
           </div>
-      </form>
+      <% end %>
     </div>
   </div>
 </div>

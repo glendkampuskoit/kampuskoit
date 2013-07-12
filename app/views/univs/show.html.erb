@@ -38,9 +38,7 @@
                  <ul>
                   <% @univ.univgalleries.each do |gallery| %>
                    <li>
-                     <%= link_to "#" do %> 
-                        <%= image_tag gallery.image_url(:thumb), :data => {:large => gallery.image_url, :description => gallery.caption }, :alt => "Gambar belum tersedia" %>
-                     <% end %>
+                     <%= link_to image_tag(gallery.image_url(:thumb), :alt => "Gambar belum tersedia", :data => {:large => gallery.image_url, :description => gallery.caption }), "#" %>
                    </li>
                    <% end %>
                  </ul>
