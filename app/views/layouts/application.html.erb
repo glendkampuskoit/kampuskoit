@@ -11,12 +11,16 @@
     <%= stylesheet_link_tag "ranking", :media => "all" %>
   <% elsif params[:controller] == "univs"%>
     <%= stylesheet_link_tag "univsearch", :media => "all" %>
+  <% elsif params[:controller] == "prodis"%>
+    <%= stylesheet_link_tag "prodisearch", :media => "all" %>
   <% end %>
 </head>
 <body>
   <%= render :partial => "layouts/header" %>
-  <% if params[:controller] == "univs"%>
+  <% if params[:controller] == "univs" %>
     <%= render :partial => "univs/header_extension" %>
+  <% elsif params[:controller] == "prodis" %>
+    <%= render :partial => "prodis/header_extension" %>
   <% end %>
   <div role="main">
    <%= yield %>

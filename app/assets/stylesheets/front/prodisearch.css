@@ -20,7 +20,7 @@
 /***Fonts List***/
 @font-face { font-family: 'archivo_narrowbold'; src: url("/assets/archivenarrowbold/archivonarrow-bold-webfont.eot"); src: url("/assets/archivenarrowbold/archivonarrow-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.woff") format("woff"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.ttf") format("truetype"), url("/assets/archivenarrowbold/archivonarrow-bold-webfont.svg#archivo_narrowbold") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'archivo_narrowregular'; src: url("/assets/archivonarrowregular/archivonarrow-regular-webfont.eot"); src: url("/assets/archivenarrowregular/archivonarrow-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.woff") format("woff"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.ttf") format("truetype"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.svg#archivo_narrowregular") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'archivo_narrowregular'; src: url("/assets/archivenarrowregular/archivonarrow-regular-webfont.eot"); src: url("/assets/archivenarrowregular/archivonarrow-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.woff") format("woff"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.ttf") format("truetype"), url("/assets/archivenarrowregular/archivonarrow-regular-webfont.svg#archivo_narrowregular") format("svg"); font-weight: normal; font-style: normal; }
 
 @font-face { font-family: 'HelveticaNeueLTPro77BoldCondensed'; src: url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot"); src: url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.eot") format("embedded-opentype"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.woff") format("woff"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.ttf") format("truetype"), url("/assets/helveticaneueltprobd-cn/helveticaneueltpro-bdcn.svg#HelveticaNeueLTPro77BoldCondensed") format("svg"); font-weight: normal; font-style: normal; }
 
@@ -85,7 +85,9 @@ ul.pagination li { margin-left: 0; }
 
 .result-number { font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 1.125em; color: #26a0d7; }
 
-.entry-header { margin-top: 0; margin-bottom: 3px; font-size: 1.125em; color: #26a0d7; font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; }
+.entry-header { margin-top: 0; font-size: 1.125em; color: #26a0d7; font-family: "source_sans_probold", sans-serif, tahoma; font-weight: normal; font-style: normal; margin-bottom: 0; }
+
+.entry-sub-header { font-family: "source_sans_prosemibold", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.875em; margin-top: 0; color: #5a5a5a; }
 
 .entry-place { font-family: "source_sans_proregular", sans-serif, tahoma; font-weight: normal; font-style: normal; font-size: 0.750em; color: #262626; }
 

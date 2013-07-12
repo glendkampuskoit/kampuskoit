@@ -1,12 +1,12 @@
 /*
- *= require bootstrap
- *= require bootstrap-responsive
- *= require stilearn
- *= require stilearn-responsive
- *= require stilearn-helper
- *= require stilearn-icon
- *= require font-awesome
- *= require animate
- *= require DT_bootstrap
- *= require responsive-tables
+ *= require admin/bootstrap
+ *= require admin/bootstrap-responsive
+ *= require admin/stilearn
+ *= require admin/stilearn-responsive
+ *= require admin/stilearn-helper
+ *= require admin/stilearn-icon
+ *= require admin/font-awesome
+ *= require admin/animate
+ *= require admin/DT_bootstrap
+ *= require admin/responsive-tables
 */
