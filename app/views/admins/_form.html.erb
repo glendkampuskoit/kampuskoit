@@ -29,7 +29,7 @@
                   <div class="control-group">
                       <label class="control-label" for="required">Email</label>
                       <div class="controls">
-                          <%= f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => "{required: true, messages:{required:'Email harus diisi'}}"} %>
+                          <%= f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => "{required: true, email:true, messages:{required:'Email harus diisi', email: 'Format email tidak valid'}}"} %>
                       </div>
                   </div>
                   <div class="control-group">
@@ -48,13 +48,13 @@
                   <div class="control-group">
                       <label class="control-label" for="required">Password</label>
                       <div class="controls">
-                          <%= f.password_field :password, :id => "password", :class => "grd-white", :data => {:validate =>"{required: true, messages:{required:'Password harus diisi'}}"} %>
+                          <%= f.password_field :password, :id => "password", :class => "grd-white", :data => {:validate =>"{required: true, minlength: 6, messages:{required:'Password harus diisi', minlength:'Password minimal 6 karakter'}}"} %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Konfirmasi Password</label>
                       <div class="controls">
-                          <%= f.password_field :password_confirmation, :id => "password_confirmation", :class => "grd-white", :data => {:validate => "{required: true, messages:{required:'Password Konfirmasi harus diisi'}}"} %>
+                          <%= f.password_field :password_confirmation, :id => "password_confirmation", :class => "grd-white", :data => {:validate => "{required: true, equalTo: '#password', messages:{required:'Password Konfirmasi harus diisi', equalTo: 'Password konfirmasi harus sesuai'}}"} %>
                       </div>
                   </div>
                   <% end %>
@@ -79,6 +79,8 @@
 
         // select2
         $('[data-form=select2]').select2();
+
+        $('#form-validate').validate();
     });
 
 </script>

@@ -41,7 +41,7 @@
                   <div class="control-group">
                       <label class="control-label" for="required">Fakultas</label>
                       <div class="controls">
-                          <%= f.text_field :fakultas, :id => "fakultas", :class => "grd-white input-xlarge", :placeholder => "ex. Fakultas XYZ", :data => {:validate => {:required => true, :messages => {:required => "Fakultas harus diisi"}}} %>
+                          <%= f.text_field :fakultas, :id => "fakultas", :class => "grd-white input-xlarge", :placeholder => "ex. Fakultas XYZ", :data => {:validate => "{required: true, messages: {required: 'Fakultas harus diisi'}}" } %>
                       </div>
                   </div>
                   <div class="control-group">
@@ -53,19 +53,19 @@
                   <div class="control-group">
                       <label class="control-label" for="required">Tahun Berdiri</label>
                       <div class="controls">
-                          <%= f.text_field :tahun_berdiri, :id => "tahun_berdiri", :class => "grd-white input-xlarge", :placeholder => "ex. 1888", :data => {:validate => {:required => true, :messages => {:required => "Tahun Berdiri harus diisi"}}} %>
+                          <%= f.text_field :tahun_berdiri, :id => "tahun_berdiri", :class => "grd-white input-xlarge", :placeholder => "ex. 1888", :data => {:validate => "{required: true, maxlength: 4, minlength:4, number:true, messages: {required: 'Tahun Berdiri harus diisi', maxlength: 'Tahun berdiri terdiri dari 4 karakter numeric', minlength: 'Tahun berdiri terdiri dari 4 karakter numerik', number: 'Tahun berdiri terdiri dari 4 karakter numerik'}}" } %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Email</label>
                       <div class="controls">
-                          <%= f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Email harus diisi"}}} %>
+                          <%= f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => "{required: true, email: true, messages: {required: 'Email harus diisi', email: 'Format email tidak valid'}}" } %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Website</label>
                       <div class="controls">
-                          <%= f.text_field :website, :id => "website", :class => "grd-white", :placeholder => "ex. http://xyz.com", :data => {:validate => {:required => true, :messages => {:required => "Website harus diisi"}}} %>
+                          <%= f.text_field :website, :id => "website", :class => "grd-white", :placeholder => "ex. http://xyz.com", :data => {:validate => "{required: true, messages: {required: 'Website harus diisi'}}"} %>
                       </div>
                   </div>
                   <div class="control-group">
@@ -83,13 +83,13 @@
                   <div class="control-group">
                       <label class="control-label" for="required">Telepon</label>
                       <div class="controls">
-                          <%= f.text_field :telepon, :id => "telepon", :class => "grd-white", :placeholder => "Isikan nomor telepon", :data => {:validate => {:required => true, :messages => {:required => "Telepon harus diisi"}}} %>
+                          <%= f.text_field :telepon, :id => "telepon", :class => "grd-white", :placeholder => "Isikan nomor telepon", :data => {:validate => "{required: true, messages: {required: 'Telepon harus diisi'}}"} %>
                       </div>
                   </div>
                   <div class="control-group">
                       <label class="control-label" for="required">Fax</label>
                       <div class="controls">
-                          <%= f.text_field :fax, :id => "fax", :class => "grd-white", :placeholder => "Isikan nomor Fax", :data => {:validate => {:required => true, :messages => {:required => "Fax harus diisi"}}} %>
+                          <%= f.text_field :fax, :id => "fax", :class => "grd-white", :placeholder => "Isikan nomor Fax", :data => {:validate => "{required: true, messages: {required: 'Fax harus diisi'}}"} %>
                       </div>
                   </div>
                   <div class="control-group">
@@ -318,7 +318,8 @@
        });
                        
        // prettyPhoto
-       $("a[rel^='prettyPhoto']").prettyPhoto();                
+       $("a[rel^='prettyPhoto']").prettyPhoto();
+       $('#form-validate').validate();
    });
 
 </script>
