@@ -31,4 +31,15 @@ class Prodi < ActiveRecord::Base
 	mount_uploader :logo, ProdiLogoUploader
 	mount_uploader :featured_image, ProdiFeaturedImageUploader
 
+	before_validation :add_url_protocol
+
+	#url validation
+	protected
+
+	def add_url_protocol
+			unless self.website[/^http:\/\//] || self.website[/^https:\/\//]
+				self.website = 'http://' + self.website
+			end
+	end
+
 end

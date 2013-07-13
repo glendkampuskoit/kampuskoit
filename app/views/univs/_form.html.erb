@@ -116,6 +116,25 @@
                           <%= f.text_area :kapasitas_akademik, :id => "kapasitas_akademik", :class => "span10", :rows => "8", :data => {:form => "kapasitas"}, :placeholder => "Isikan kapasitas akademik ..." %>
                       </div>
                   </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Facebook</label>
+                      <div class="controls">
+                          http://facebook.com/ <%= f.text_field :facebook, :id => "facebook", :class => "grd-white" %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Twitter</label>
+                      <div class="controls">
+                          http://twitter.com/<%= f.text_field :twitter, :id => "twitter", :class => "grd-white" %>
+                      </div>
+                  </div>
+                  <div class="control-group">
+                      <label class="control-label" for="required">Youtube</label>
+                      <div class="controls">
+                          http://youtube.com/<%= f.text_field :telepon, :id => "youtube", :class => "grd-white" %>
+                      </div>
+                  </div>
+                  
                   <div class="form-actions">
                       <button type="submit" class="btn btn-primary">Save</button>
                       <button type="button" class="btn">Cancel</button>

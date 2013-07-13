@@ -41,6 +41,9 @@ describe "Univ Page" do
       #fill_in "misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
       fill_in "seleksi_masuk", with: "SMPB, Nyogok"
       fill_in "kapasitas_akademik", with: "terdiri dari 5 guru dan 5 skk"
+      fill_in "facebook", with: "http://facebook.com/kampuscoid"
+      fill_in "twitter", with: "http://twitter.com/kampuscoid"
+      fill_in "youtube", with: "http://youtube.com/kampuscoid"
     end
 
     it "should create a univ" do
@@ -69,6 +72,9 @@ describe "Univ Page" do
         #fill_in "misi", with: "Menjalankan fungsi universitas sebagai lembaga pendidikan sarjana"
         fill_in "seleksi_masuk", with: "SMPB, Nyogok"
         fill_in "kapasitas_akademik", with: "terdiri dari 5 guru dan 5 skk"
+        fill_in "facebook", with: "http://facebook.com/kampuscoid"
+        fill_in "twitter", with: "http://twitter.com/kampuscoid"
+        fill_in "youtube", with: "http://youtube.com/kampuscoid"
       end
 
       it "should create a univ" do

@@ -11,7 +11,10 @@ describe Univ do
 		telepon: '087999', 
 		status_negeri: 'negeri',
 		kota: FactoryGirl.create(:kota),
-		jenis_pt: FactoryGirl.create(:jenis_pt)
+		jenis_pt: FactoryGirl.create(:jenis_pt),
+		facebook: 'kampuscoid',
+		twitter: 'kampuscoid',
+		youtube: 'kampuscoid'
 		)}
 	subject { @univ }
 
@@ -24,6 +27,9 @@ describe Univ do
 	it { should respond_to(:status_negeri) }
 	it { should respond_to(:kota) }
 	it { should respond_to(:jenis_pt) }
+	it { should respond_to(:facebook) }
+	it { should respond_to(:twitter)}
+	it { should respond_to(:youtube)}
 
 	it { should belong_to(:kota) }
 	it { should belong_to(:jenis_pt) }
@@ -102,5 +108,23 @@ describe Univ do
 			@univ_dup.save
 		end		
 		it { should_not be_valid }
+	end
+
+	describe "website must have protocol" do
+		let(:website) { "its.ac.id" }
+		before do
+			@univ_dup = Univ.new(
+				nama_pt: 'institut teknologi surabaya', 
+				tahun_berdiri: '1999', 
+				email: 'redaksi2@its.com', 
+				website: website,
+				alamat: 'Sukolilo Surabaya', 
+				telepon: '087999', 
+				status_negeri: 'negeri',
+				kota: FactoryGirl.create(:kota),
+				jenis_pt: FactoryGirl.create(:jenis_pt))
+			@univ_dup.save
+		end		
+		it { @univ_dup.website.should == "http://#{website}" }
 	end
 end

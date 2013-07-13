@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711055707) do
+ActiveRecord::Schema.define(:version => 20130713090700) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -165,6 +165,9 @@ ActiveRecord::Schema.define(:version => 20130711055707) do
     t.string   "slug"
     t.string   "logo"
     t.string   "featured_image"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "youtube"
   end
 
   add_index "prodis", ["kota_id"], :name => "index_prodis_on_kota_id"
@@ -428,6 +431,9 @@ ActiveRecord::Schema.define(:version => 20130711055707) do
     t.string   "slug"
     t.string   "image"
     t.string   "featured_image"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "youtube"
   end
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"

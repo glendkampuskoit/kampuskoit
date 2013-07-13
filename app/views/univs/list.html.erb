@@ -29,7 +29,7 @@
                         <tr>
                             <td><%= univ.id %></td>
                             <td><%= univ.nama_pt %></td>
-                            <td><%= univ.kota.present? ? univ.kota.provinsi.provinsi : "-Unknown Provinsi-" %></td>
+                            <td><%= univ.kota.present? ? univ.kota.provinsi.provinsi : " - " %></td>
                             <td class="center">
                                 <span class="label label-info">
                                     <%= link_to "Edit",edit_univ_path(univ) %>

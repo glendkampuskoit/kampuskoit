@@ -2,10 +2,19 @@ require 'spec_helper'
 
 describe Prodi do
 
-	before { @prodi = Prodi.new(nama_prodi: 'Sistem Informasi', fakultas: 'Fakultas Teknologi Informasi', tahun_berdiri: '2000',
-		alamat: 'ITS Sukolilo Surabaya', telepon: '088989898', email: 'si@its.ac.id', 
-		website: 'si.its.ac.id', univ: FactoryGirl.create(:univ), kota: FactoryGirl.create(:kota),
-		jenjang_prodi: FactoryGirl.create(:jenjang_prodi)) }
+	before { @prodi = Prodi.new(nama_prodi: 'Sistem Informasi', 
+		fakultas: 'Fakultas Teknologi Informasi', tahun_berdiri: '2000',
+		alamat: 'ITS Sukolilo Surabaya', 
+		telepon: '088989898', 
+		email: 'si@its.ac.id', 
+		website: 'si.its.ac.id', 
+		univ: FactoryGirl.create(:univ), 
+		kota: FactoryGirl.create(:kota),
+		jenjang_prodi: FactoryGirl.create(:jenjang_prodi),
+		facebook: 'sisteminformasi',
+		twitter: 'sisteminformasi',
+		youtube: 'sisteminformasi')
+	}
 
 	subject { @prodi }
 
@@ -15,6 +24,9 @@ describe Prodi do
 	it { should respond_to(:telepon) }
 	it { should respond_to(:email) }
 	it { should respond_to(:website) }
+	it { should respond_to(:facebook)}
+	it { should respond_to(:twitter)}
+	it { should respond_to(:youtube)}
 
 	it { should belong_to(:univ) }
 	it { should belong_to(:kota) }
@@ -91,5 +103,25 @@ describe Prodi do
 			@prodi_dup.save
 		end
 		it { should_not be_valid }
+	end
+
+	describe "website must be have protocol" do
+		let (:website) { "si.its.ac.id" }
+		before do
+			@prodi_dup = Prodi.new(
+				nama_prodi: 'Sistem Informasi', 
+				fakultas: 'Fakultas Teknologi Informasi', 
+				tahun_berdiri: '2000',
+				alamat: 'ITS Sukolilo Surabaya', 
+				telepon: '088989898', 
+				email: 'si2@its.ac.id', 
+				website: website, 
+				univ: @prodi.univ, 
+				kota: FactoryGirl.create(:kota),
+				jenjang_prodi: @prodi.jenjang_prodi)
+			@prodi_dup.save
+		end
+
+		it { @prodi_dup.website.should == "http://#{website}" } 
 	end
 end

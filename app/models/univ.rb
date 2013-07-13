@@ -29,4 +29,15 @@ class Univ < ActiveRecord::Base
 
 	mount_uploader :image, ImageUploader
 	mount_uploader :featured_image, UnivFeaturedImageUploader
+
+	before_validation :add_url_protocol
+
+	#url validation
+	protected
+
+	def add_url_protocol
+			unless self.website[/^http:\/\//] || self.website[/^https:\/\//]
+				self.website = 'http://' + self.website
+			end
+	end
 end
