@@ -101,7 +101,7 @@
                   <div class="control-group">
                       <label class="control-label" for="inputEditorSimple">Profil</label>
                       <div class="controls">
-                          <%= f.text_area :profile, :id => "profil", :class => "span10", :rows => "8", :data => {:form => "profil"}, :placeholder => "Isikan profil ..." %>
+                          <%= f.text_area :profile, :id => "profil", :class => "span10", :rows => "8", :placeholder => "Isikan profil ..." %>
                       </div>
                   </div>
                   <div class="control-group">
@@ -198,7 +198,7 @@
                    </div>
                 <% end %>
                 <div class="control-group">
-                    <label class="control-label" for="inputUpload">Upload Logo</label>
+                    <label class="control-label" for="inputUpload">Tambah Gallery</label>
                     <div class="controls">
                         <%= f.file_field :image, :id => "inputUpload", :data => {:form => "uniform"} %>
                     </div>
@@ -276,7 +276,6 @@
 
        // wysihtml5
        $('[data-form=bidang]').wysihtml5();
-       $('[data-form=profil]').wysihtml5();
        $('[data-form=seleksi]').wysihtml5();
        $('[data-form=kompetensi]').wysihtml5();
 
