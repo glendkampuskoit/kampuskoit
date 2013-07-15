@@ -27,7 +27,7 @@ html .fc,
 
 .fc td,
 .fc th {
-    padding: 0;
+    padding: 0; 
     vertical-align: top;
 }
 
