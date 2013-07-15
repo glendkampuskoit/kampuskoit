@@ -79,8 +79,12 @@ class UnivsController < ApplicationController
   end
 
   def list
-    @univs = Univ.paginate(:page => params[:page], :per_page => 30)
-    #@univs = Univ.search params[:keyword], :page => params[:page], :per_page => 30
+    #@univs = Univ.paginate(:page => params[:page], :per_page => 10)
+    if params[:keyword].present?
+      @univs = Univ.where("nama_pt LIKE ?", "%#{params[:keyword]}%").paginate(:page => params[:page], :per_page => 10)
+    else
+      @univs = Univ.paginate(:page => params[:page], :per_page => 10)
+    end
     render :layout => "admin"
   end
 end
