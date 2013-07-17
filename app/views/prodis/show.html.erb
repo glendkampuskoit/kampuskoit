@@ -55,9 +55,9 @@
                <li><a href="#" class="small button">Gallery</a></li>
                <li><a href="#" class="small button">Prospectus</a></li>
                <li><a href="#" class="small button">Lain-lain</a></li>
-               <li><a href="<%= @prodi.facebook %>" class="small button profile-fb">&nbsp</a></li>
-               <li><a href="<%= @prodi.twitter %>" class="small button profile-twitter">&nbsp</a></li>
-               <li><a href="<%= @prodi.youtube %>" class="small button profile-youtube">&nbsp</a></li>
+               <li><a href='<%= @prodi.facebook.present? ? "http://facebook.com/#{@prodi.facebook}" : "#" %>' class="small button profile-fb">&nbsp</a></li>
+               <li><a href='<%= @prodi.twitter.present? ? "http://twitter.com/#{@prodi.twitter}" : "#" %>' class="small button profile-twitter">&nbsp</a></li>
+               <li><a href='<%= @prodi.youtube.present? ? "http://youtube.com/user/#{@prodi.youtube}" : "#" %>' class="small button profile-youtube">&nbsp</a></li>
                <li><a href="#" class="small button button-fixer">&nbsp</a></li>
              </ul>
              <div class="profile-panel-shadow">
