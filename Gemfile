@@ -55,7 +55,7 @@ gem "friendly_id"
 gem 'bootstrap-wysiwyg-rails'
 gem 'rmagick'
 gem 'carrierwave'
-gem 'capybara-webkit'
+#gem 'capybara-webkit'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
