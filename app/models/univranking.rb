@@ -1,4 +1,4 @@
-class Univrating < ActiveRecord::Base
+class Univranking < ActiveRecord::Base
 
 	belongs_to :univ, :foreign_key => :univ_id
 

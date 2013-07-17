@@ -20,7 +20,7 @@
     <nav>      
       <ul>
         <li><%= link_to "Home", home_path %></li>
-        <li><%= link_to "Ranking", rating_path %></li>
+        <li><%= link_to "Ranking", ranking_path %></li>
         <li><%= link_to "Perguruan Tinggi", univs_path %></li>
         <li><%= link_to "Program Studi", prodis_path %></li>
         <li><%= link_to "Login", login_path %></li>
@@ -125,10 +125,10 @@
                 <ul>
                   <%
                     rangking = 0
-                    if @univratings.any?
-                      @univratings.each do |univrating|
+                    if @univrankings.any?
+                      @univrankings.each do |univranking|
                   %>
-                    <li style="font-color=#aaaaaa"><%= rangking = rangking + 1 %>. <%= link_to univrating.univ.nama_pt.titleize, univ_path(univrating.univ), :target => "_blank" %></li>
+                    <li style="font-color=#aaaaaa"><%= rangking = rangking + 1 %>. <%= link_to univranking.univ.nama_pt.titleize, univ_path(univranking.univ), :target => "_blank" %></li>
                     <% end %>
                   <% end %>
                 </ul>

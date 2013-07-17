@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width" />
   <title>Kampus.co.id - <%= yield(:title) %></title>
   
-  <% if params[:controller] == "rating" %>
+  <% if params[:controller] == "ranking" %>
     <%= stylesheet_link_tag "ranking", :media => "all" %>
   <% elsif params[:controller] == "univs" && params[:action] == "index" %>
     <%= stylesheet_link_tag "univsearch", :media => "all" %>
