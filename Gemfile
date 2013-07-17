@@ -24,6 +24,7 @@ end
 # group for tests only
 group :test do
 	gem 'capybara', '1.1.2'
+	gem 'capybara-webkit'
 	gem 'guard-rspec', '0.5.5'
 	gem 'guard-spork', '0.3.2'
 	gem 'spork', '0.9.0'
@@ -55,7 +56,6 @@ gem "friendly_id"
 gem 'bootstrap-wysiwyg-rails'
 gem 'rmagick'
 gem 'carrierwave'
-gem 'capybara-webkit'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

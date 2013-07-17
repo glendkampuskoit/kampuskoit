@@ -15,6 +15,7 @@ describe "Univ Search", :js => true do
   describe "univ index page" do
     it "should have title Pencarian Perguruan Tinggi" do
       page.should have_selector('title', :text => 'Pencarian Perguruan Tinggi')
+                                                   
     end
   end
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Homes" do
+describe "Homes", :js => true do
 
   subject { page }
 
@@ -66,7 +66,7 @@ describe "Homes" do
     end
   end
 
-  describe "visitor send feedback" do
+  pending "visitor send feedback" do
     before do
       fill_in "feedback_from", with: "anita@yahoo.com"
       fill_in "feedback_feed", with: "Selamat siang"

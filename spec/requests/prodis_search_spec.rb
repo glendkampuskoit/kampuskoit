@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Prodi Search" do
+describe "Prodi Search", :js => true do
 
   let(:search_prodi) { "search_prodi" }
 

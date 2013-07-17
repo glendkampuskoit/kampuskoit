@@ -26,7 +26,7 @@ Campus::Application.routes.draw do
 
   match '/confirm', controller: 'subscribers', action: 'confirm'
   match '/search', to: 'search#result'
-  match '/rating', to: 'rating#index'
+  match '/ranking', to: 'ranking#index'
 
   # for admin panel pages
   #namespace :admin do
