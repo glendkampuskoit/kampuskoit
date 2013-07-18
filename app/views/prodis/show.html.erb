@@ -14,7 +14,7 @@
                <%= @prodi.univ.nama_pt.titleize %>
            </h5>
            <p class="post-author">
-             Last updated - <span><%= @prodi.updated_at %></span>
+             Last Updated - <span><%= @prodi.updated_at.to_formatted_s(:long_ordinal) %></span>
            </p>
          </div>
        </div>
