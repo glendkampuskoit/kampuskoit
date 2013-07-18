@@ -11,7 +11,7 @@
                <%= @univ.nama_pt.titleize %>
            </h3>
            <p class="post-author">
-             Last Updated - <span><%= @univ.updated_at %></span>
+             Last Updated - <span><%= @univ.updated_at.to_formatted_s(:long_ordinal) %></span>
            </p>
            <div class="rating">
                          
