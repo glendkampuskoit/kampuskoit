@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(:version => 20130717070215) do
 
   add_index "prodi_biayas", ["prodi_id"], :name => "index_prodi_biayas_on_prodi_id"
 
+  create_table "prodi_fasilitas", :force => true do |t|
+    t.text     "fasilitas"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "prodi_id"
+  end
+
+  add_index "prodi_fasilitas", ["prodi_id"], :name => "index_prodi_fasilitas_on_prodi_id"
+
   create_table "prodi_fasilitas_galleries", :force => true do |t|
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
