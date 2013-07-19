@@ -3,3 +3,125 @@
 
 en:
   hello: "Hello world"
+  activerecord: 
+    attributes:
+      univ:
+        nama_pt: "Nama Perguruan Tinggi"
+        tahun_berdiri: "Tahun Berdiri"
+        email: "Alamat Email"
+        alamat: "Alamat"
+        telepon: "Telepon"
+        status_negeri: "Status Perguruan Tinggi"
+        kota: "Kota"
+        jenis_pt: "Kategori Perguruan Tinggi"
+      prodi:
+        nama_prodi: "Nama Program Studi"
+        fakultas: "Fakultas"
+        tahun_berdiri: "Tahun Berdiri"
+        alamat: "Alamat"
+        telepon: "Telepon"
+        website: "Website"
+        univ: "Perguruan Tinggi"
+        kota: "Kota"
+        jenjang_prodi: "Jenjang Program Studi"
+        email: "Alamat Email"
+      admin:
+        nama: "Nama"
+        email: "Alamat Email"
+        password: "Password"
+        password_confirmation: "Konfirmasi Password"
+      jenis_pt:
+        jenis: "Kategori Perguruan Tinggi"
+      jenjang_prodi:
+        jenjang: "Jenjang Program Studi"
+      kota:
+        kota: "Nama Kota"
+      provinsi:
+        provinsi: "Nama Provinsi"
+    errors:
+      models:
+        univ:
+          attributes:
+            nama_pt:
+              blank: "harus diisi"
+              too_long: "terlalu panjang. Maksimal 255 Karakter"
+              taken: "sudah terdaftar"
+            tahun_berdiri:
+              blank: "harus diisi"
+              wrong_length:  "harus terdiri dari 4 angka numerik"
+            alamat:
+              blank: "harus diisi"
+            telepon:
+              blank: "harus diisi"
+            status_negeri:
+              blank: "harus diisi"
+            kota:
+              blank: "harus diisi"
+            jenis_pt:
+              blank: "harus diisi"
+            email:
+              blank: "harus diisi"
+              taken: "sudah terdaftar"
+              invalid: "tidak valid"
+        prodi:
+          attributes:
+            nama_prodi:
+              blank: "harus diisi"
+              too_long: "terlalu panjang. Maksimal 255 Karakter"
+              taken: "sudah terdaftar"
+            fakultas:
+              blank: "harus diisi"
+            tahun_berdiri:
+              blank: "harus diisi"
+              wrong_length: "harus terdiri dari 4 angka numerik"
+            alamat:
+              blank: "harus diisi"
+            telepon:
+              blank: "harus diisi"
+            website:
+              blank: "harus diisi"
+            email:
+              blank: "harus diisi"
+              taken: "sudah terdaftar"
+              invalid: "tidak valid"
+            univ:
+              blank: "harus dipilih"
+            kota:
+              blank: "harus diisi"
+            jenjang_prodi:
+              blank: "harus diisi"
+        admin:
+          attributes:
+            nama:
+              blank: "harus diisi"
+            email:
+              blank: "harus diisi"
+              taken: "sudah terdaftar"
+              invalid: "tidak valid"
+            univ:
+              blank: "harus dipilih"
+            password:
+              blank: "harus diisi"
+            password_confirmation:
+              blank: "harus diisi"
+        kota:
+          attributes:
+            kota:
+              blank: "harus diisi"
+              taken: "sudah terdaftar"
+            provinsi:
+              blank: "harus dipilih"
+        jenis_pt:
+          attributes:
+            jenis:
+              blank: "harus diisi"
+              taken: "sudah terdaftar"
+        jenjang_prodi:
+          attributes:
+            jenjang:
+              blank: "harus diisi"
+        provinsi:
+          attributes:
+            provinsi:
+              blank: "harus diisi"
+              taken: "sudah terdaftar"

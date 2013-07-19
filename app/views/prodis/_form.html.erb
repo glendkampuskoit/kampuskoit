@@ -186,7 +186,7 @@
               <span>Update Program Studi Galeri</span>
           </div>
           <div class="box-body">
-            <%= form_for @prodigallery, :html => {:id => "form-validate", :novalidate => "novalidate", :class => "form-horizontal"} do |f| %>
+            <%= form_for @prodigallery, :html => {:id => "form-gallery", :novalidate => "novalidate", :class => "form-horizontal"} do |f| %>
                 <% if @prodigallery.errors.any? %>
                    <div class="alert alert-error">
                       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -206,13 +206,13 @@
                 <div class="control-group">
                   <label class="control-label" for="required">Caption</label>
                   <div class="controls">
-                      <%= f.text_field :caption, :class => "grd-white" %>
+                      <%= f.text_field :caption, :class => "grd-white", :data => {:validate => "{required: true, messages: {required: 'Caption harus diisi'}}"} %>
                   </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="required">Deskripsi</label>
                     <div class="controls">
-                      <%= f.text_area :description, :rows => "3", :placeholder => "Isikan deskripsi" %>
+                      <%= f.text_area :description, :rows => "3", :placeholder => "Isikan deskripsi", :data => {:validate => "{required: true, messages: {required: 'Deskripsi harus diisi'}}"} %>
                     </div>
                 </div>
                 <div class="control-group">
@@ -319,6 +319,7 @@
        // prettyPhoto
        $("a[rel^='prettyPhoto']").prettyPhoto();
        $('#form-validate').validate();
+       $('#form-gallery').validate();
    });
 
 </script>

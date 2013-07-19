@@ -12,9 +12,8 @@ class Univ < ActiveRecord::Base
 	has_many :univkerjasamas, :dependent => :delete_all
 	has_many :univprestasis, :dependent => :delete_all
 
-	validates :nama_pt, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }
-	validates :tahun_berdiri, presence: true, length: { maximum: 4 }
-	validates :email, presence: true, length: { maximum: 255 }
+	validates :nama_pt, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }, :reduce => true
+	validates :tahun_berdiri, presence: true, length: { is: 4 }, :reduce => true
 	validates :alamat, presence: true
 	validates :telepon, presence: true
 	validates :status_negeri, presence: true
@@ -22,7 +21,7 @@ class Univ < ActiveRecord::Base
 	validates :jenis_pt, presence: true
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+	validates :email, presence: true, length: { maximum: 255 },  format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, :reduce => true
 
 	#validates :slug, presence: true
 	friendly_id :nama_pt, :use => :slugged
