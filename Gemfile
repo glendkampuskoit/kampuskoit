@@ -74,4 +74,3 @@ gem 'chronic'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'omniauth-facebook'
-
