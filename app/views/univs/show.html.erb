@@ -1,10 +1,10 @@
-<% provide(:title, @univ.nama_pt) %>
+<% provide(:title, @univ.nama_pt.titleize) %>
  <div class="row">
    <div class="large-9 columns">        
      <div class="row highlight">
        <div class="large-12 columns">
-         <div class="left-highlight">
-           <%= image_tag @univ.image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/profile/logo.jpg';" %>
+        <div class="left-highlight">
+           <%= image_tag @univ.logo_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/profile/logo.jpg';" %>
          </div>
          <div class="right-highlight">
            <h3 class="post-header">
@@ -38,7 +38,7 @@
                  <ul>
                   <% @univ.univgalleries.each do |gallery| %>
                    <li>
-                     <%= link_to image_tag(gallery.image_url(:thumb), :alt => "Gambar belum tersedia", :data => {:large => gallery.image_url, :description => gallery.caption }), "#" %>
+                     <%= link_to image_tag(gallery.image_url(:thumb), :alt => "Gambar belum tersedia", :data => {:large => gallery.image_url(:slide), :description => gallery.caption }), "#" %>
                    </li>
                    <% end %>
                  </ul>
