@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717070215) do
+ActiveRecord::Schema.define(:version => 20130720161058) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -73,15 +73,6 @@ ActiveRecord::Schema.define(:version => 20130717070215) do
   end
 
   add_index "prodi_biayas", ["prodi_id"], :name => "index_prodi_biayas_on_prodi_id"
-
-  create_table "prodi_fasilitas", :force => true do |t|
-    t.text     "fasilitas"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "prodi_id"
-  end
-
-  add_index "prodi_fasilitas", ["prodi_id"], :name => "index_prodi_fasilitas_on_prodi_id"
 
   create_table "prodi_fasilitas_galleries", :force => true do |t|
     t.datetime "created_at",     :null => false
@@ -438,7 +429,7 @@ ActiveRecord::Schema.define(:version => 20130717070215) do
     t.string   "created_by"
     t.string   "updated_by"
     t.string   "slug"
-    t.string   "image"
+    t.string   "logo"
     t.string   "featured_image"
     t.string   "facebook"
     t.string   "twitter"

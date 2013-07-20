@@ -85,6 +85,22 @@
                     <div class="controls">
                         <%= f.file_field :image, :data => {:form => "uniform"} %>
                     </div>
+                    <div class="controls">
+                        <% if @univ.logo_url.present? %>
+                          <%= image_tag @univ.logo_url(:thumb) %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputUpload">Upload Featured Image</label>
+                    <div class="controls">
+                        <%= f.file_field :featured_image, :data => {:form => "uniform"} %>
+                    </div>
+                    <% if @univ.featured_image_url.present? %>
+                      <div class="controls">
+                          <%= image_tag @univ.featured_image_url(:thumb) %>
+                      </div>
+                    <% end %>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputEditorSimple">Deskripsi</label>
