@@ -28,7 +28,7 @@ class Univ < ActiveRecord::Base
 
 	mount_uploader :logo, ProdiLogoUploader
 	mount_uploader :featured_image, UnivFeaturedImageUploader
-
+																		
 	before_validation :add_url_protocol
 
 	#url validation
