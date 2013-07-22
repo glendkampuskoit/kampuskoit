@@ -37,7 +37,7 @@ class UnivFeaturedImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :scale => [260, 170]
+    process :resize_to_limit => [260, 170]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
