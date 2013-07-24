@@ -1,30 +1,30 @@
 <footer>
   <div class="row">
-    <div class="large-6 push-6 columns right-footer">
+    <div class="large-6 push-6 columns right-footer">      
       <%= form_for Visitor.new, :html => {:class => "newsletter-form"} do |f| %>
-        <div class="row">            
-          <div class="small-10 large-7 columns right newsletter-search">
-            <div class="row">
-              <div class="large-12 columns">
-                <label class="right newsletter-label">Newsletter</label>
-              </div>
+      <div class="row">            
+        <div class="small-10 large-7 columns right newsletter-search">
+          <div class="row">
+            <div class="large-12 columns">
+              <label class="right newsletter-label">Newsletter</label>
             </div>
-            <div class="row collapse">                
-              <div class="small-9 columns">
-                <%= f.text_field :email, :placeholder => "Email", :class => "fix-textbox", :required => true %>
-              </div> 
-              <div class="small-3 columns">
-                <button type="submit" class="button prefix">Submit</button>
-              </div>
+          </div>
+          <div class="row collapse">                
+            <div class="small-9 columns">
+              <%= f.text_field :email, :placeholder => "Email", :class => "fix-textbox", :required => true %>
+            </div> 
+            <div class="small-3 columns">
+              <button type="submit" class="button prefix">Submit</button>
             </div>
-            <div class="row">
-              <div class="large-12 columns">
-                <p class="right newsletter-text">Berlangganan kampus.co.id melalui email</p>
-              </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <p class="right newsletter-text">Berlangganan kampus.co.id melalui email</p>
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
     </div>
     <div class="large-6 pull-6 columns left-footer">
       <div class="row">
@@ -55,8 +55,5 @@
     </div>
   </div>
 </footer>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.  getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>
 
 <%= render :partial => "layouts/ga" if Rails.env == "production" %>
-<%= debug(params) if Rails.env.development? %>
