@@ -10,11 +10,11 @@
   <% if params[:controller] == "ranking" %>
     <%= stylesheet_link_tag "ranking", :media => "all" %>
   <% elsif params[:controller] == "univs" && params[:action] == "index" %>
-    <%= stylesheet_link_tag "univsearch", :media => "all" %>
+    <%= stylesheet_link_tag "univ_search", :media => "all" %>
   <% elsif params[:controller] == "prodis" && params[:action] == "index" %>
-    <%= stylesheet_link_tag "prodisearch", :media => "all" %>
-  <% elsif (params[:controller] == "univs" && params[:action] == "show") || (params[:controller] == "prodis" && params[:action] == "show") %>
-    <%= stylesheet_link_tag "profil", :media => "all" %>
+    <%= stylesheet_link_tag "prodi_search", :media => "all" %>
+  <% elsif (params[:controller] == "univs" && params[:action] == "show") %>
+    <%= stylesheet_link_tag "univ_profile", :media => "all" %>
     <noscript>
       <style>
         .es-carousel ul{
@@ -28,6 +28,21 @@
         <div class="rg-loading"></div>        
       </div>
     </script>
+  <% elsif (params[:controller] == "prodis" && params[:action] == "show") %>
+    <%= stylesheet_link_tag "prodi_profile", :media => "all" %>
+    <noscript>
+      <style>
+        .es-carousel ul{
+          display:block;
+        }
+      </style>
+    </noscript>
+    <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">  
+      <div class="rg-image-wrapper">
+        <div class="rg-image"></div>
+        <div class="rg-loading"></div>        
+      </div>
+    </script>    
   <% end %>
 
 </head>
@@ -52,13 +67,9 @@
   '.js><\/script>')
   </script>
 
-  <script src="/assets/front/vendor/custom.modernizr.js"></script>    
-  <script src="/assets/front/vendor/jquery.js"></script>  
-  <script src="/assets/front/foundation.min.js"></script>
-
   <%= javascript_include_tag "application" %>
   <% if params[:controller] == "univs" && params[:action] == "show" %>
-    <%= javascript_include_tag "univprofile" %>
+    <%= javascript_include_tag "front/univ_profile" %>
   <% end %>
 
   <script>
@@ -76,6 +87,8 @@
           console.log('diklk');
       });
     });
+  </script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   </script>
 </body>
 </html>
