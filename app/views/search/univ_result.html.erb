@@ -1,0 +1,56 @@
+<% provide(:title, 'Hasil Pencarian') %>
+ <div class="row">
+   <div class="large-9 columns">
+     <div class="row category-panel">
+       <div class="large-5 columns">
+         <ul class="button-group even-2">
+           <li><%= link_to "Perguruan Tinggi", "#{search_path}?att=univ&keyword=#{@params_value[:keyword]}", :class => "button medium alert active-category" %></li>
+           <li><%= link_to "Program Studi", "#{search_path}?att=prodi&keyword=#{@params_value[:keyword]}", :class => "button medium alert" %></li>
+         </ul>
+       </div>
+     </div>
+     <div class="row">
+       <div class="large-12 columns">
+         <p class="result-number">Ditemukan <%= @univs.count %> hasil pencarian</p>
+       </div>
+     </div>
+     <div class="row search-result">
+       <div class="large-12 columns">
+         <% @univs.each do |univ| %>
+         <article>
+           <div class="row">
+             <div class="small-5 large-5 columns">
+               <%= image_tag(univ.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';") %> 
+             </div>
+             <div class="small-7 large-7 columns">
+               <h6 class="entry-header"><%= link_to univ.nama_pt.titleize, univ_path(univ) %></h6>
+               <p class="entry-place">
+                  <% if univ.kota.present? %>
+                     <%= univ.kota.kota.titleize %>, <%= univ.kota.provinsi.provinsi.titleize %>
+                  <% end %>
+               </p>
+               <p class="entry-text"><%= univ.deskripsi %></p>
+               <div class="entry-more">
+                 <%= link_to "Read More", univ_path(univ), :class => "tiny button read-more-button left" %>
+                 <p class="entry-link right">
+                   <% if univ.website.present? && univ.email.present? %>
+                     <span><%= link_to univ.website, univ.website, :target => "_blank" %></span>
+                     <span class="entry-link-separator">|</span>
+                     <span><%= mail_to univ.email, univ.email %></span>
+                  <% elsif univ.email.present? %>
+                    <span><%= mail_to univ.email, univ.email %></span>
+                  <% elsif univ.email.present? %>
+                    <span><%= mail_to univ.email, univ.email %></span>
+                  <% end %>
+                 </p>
+               </div>
+             </div>
+           </div>
+         </article>
+         <% end %>       
+         <%= will_paginate @univs, :renderer => PaginationListLinkRenderer, :class => "pagination-centered" %>
+       </div>
+     </div>
+   </div>
+   <%= render :partial => "layouts/sidebar" %>
+ </div>

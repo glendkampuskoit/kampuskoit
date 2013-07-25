@@ -3,9 +3,3 @@
  *= require front/foundation
  *= require front/search_all_univ
 */
-
-@import "front/_base.css.scss";
-@import "front/_fonts.css.scss";
-@import "front/_footer.css.scss";
-@import "front/_mixin.css.scss";
-@import "front/_variables.css.scss";

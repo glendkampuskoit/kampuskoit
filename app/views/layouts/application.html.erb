@@ -11,6 +11,10 @@
     <%= stylesheet_link_tag "ranking", :media => "all" %>
   <% elsif params[:controller] == "univs" && params[:action] == "index" %>
     <%= stylesheet_link_tag "univ_search", :media => "all" %>
+  <% elsif params[:controller] == "search" && params[:att] == "univ" %>
+    <%= stylesheet_link_tag "search_all_univ", :media => "all" %>
+  <% elsif params[:controller] == "search" && params[:att] == "prodi" %>
+    <%= stylesheet_link_tag "search_all_prodi", :media => "all" %>
   <% elsif params[:controller] == "prodis" && params[:action] == "index" %>
     <%= stylesheet_link_tag "prodi_search", :media => "all" %>
   <% elsif (params[:controller] == "univs" && params[:action] == "show") %>
@@ -48,9 +52,9 @@
 </head>
 <body>
   <%= render :partial => "layouts/header" %>
-  <% if params[:controller] == "univs" %>
+  <% if params[:controller] == "univs" || (params[:controller] == "search" && params[:att] == "univ") %>
     <%= render :partial => "univs/header_extension" %>
-  <% elsif params[:controller] == "prodis" %>
+  <% elsif params[:controller] == "prodis" || (params[:controller] == "search" && params[:att] == "prodi") %>
     <%= render :partial => "prodis/header_extension" %>
   <% end %>
   <div role="main">
