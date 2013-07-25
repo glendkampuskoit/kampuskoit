@@ -48,13 +48,13 @@
 
   <script>
   document.write('<script src=' +
-  ('__proto__' in {} ? '/assets/vendor/zepto' : '/assets/vendor/jquery') +
+  ('__proto__' in {} ? '/assets/front/vendor/zepto' : '/assets/front/vendor/jquery') +
   '.js><\/script>')
   </script>
 
-  <script src="/assets/vendor/custom.modernizr.js"></script>    
-  <script src="/assets/vendor/jquery.js"></script>  
-  <script src="/assets/foundation.min.js"></script>
+  <script src="/assets/front/vendor/custom.modernizr.js"></script>    
+  <script src="/assets/front/vendor/jquery.js"></script>  
+  <script src="/assets/front/foundation.min.js"></script>
 
   <%= javascript_include_tag "application" %>
   <% if params[:controller] == "univs" && params[:action] == "show" %>
