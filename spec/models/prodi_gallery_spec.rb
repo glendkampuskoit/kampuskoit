@@ -25,7 +25,7 @@ describe ProdiGallery do
     	it { should_not be_valid }
   	end
 
-  	describe "When image is blank" do
+  	pending "When image is blank" do
     	before { @prodigallery.image = "" } 
     	it { should_not be_valid }
   	end
