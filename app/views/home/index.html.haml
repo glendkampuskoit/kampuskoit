@@ -1,169 +1,170 @@
-<!DOCTYPE html>
-<!--[if IE 8]>         %html{ class: "no-js lt-ie9", lang: "en" }  <![endif]-->
-<!--[if gt IE 8]><!--> %html{ class: "no-js lt-ie9", lang: "en" } <!--<![endif]-->
+%html{ class: "no-js", lang: "en" }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ name: "viewport", content: "width=device-width" }
+    %title Kampus.co.id - Trusted Indonesia Campus Review
+    %link{ href: "http://fonts.googleapis.com/css?family=Alef", rel: "stylesheet", type: "text/css" }
+    = stylesheet_link_tag "homepage", :media => "all"
+    %script{ src: "#{asset_path('front/vendor/custom.modernzr')}" }
 
-%head
-  %meta { charset: "utf-8" }
-  %meta { name: "viewport", content: "width=device-width" }
-  %title Kampus.co.id - Trusted Indonesia Campus Review
-  %link { href: "http://fonts.googleapis.com/css?family=Alef", rel: "stylesheet", type: "text/css" }
+  %body
+    %header
+      %nav
+        %ul
+          %li= link_to "Home", home_path
+          %li= link_to "Ranking", ranking_path
+          %li= link_to "Perguruan Tinggi", univs_path
+          %li= link_to "Program Studi", prodis_path
+          %li= link_to "Login", login_path
 
-  <%= stylesheet_link_tag "homepage", :media => "all" %>
+    - if flash[:newsletter_error] != nil 
+      %div{ :data-alert, class: "alert-box alert", align: "center" }
+        = flash[:newsletter_error]
+        %a{ href: "#", class: "close" } &times;
 
-  %script { script: "#{asset_path('front/vendor/custom.modernzr')" }
+    - if flash[:newsletter_success] != nil
+      %div{ :data-alert, class: "alert-box", align: "center" }
+        = flash[:newsletter_success]
+        %a{ href: "#", class: "close" } &times;
 
-%body
-  %header
-    %nav
-      %ul
-        %li= link_to "Home", home_path
-        %li= link_to "Ranking", ranking_path
-        %li= link_to "Perguruan Tinggi", univs_path
-        %li= link_to "Program Studi", prodis_path
-        %li= link_to "Login", login_path
+    %div{ role: "main" }
+      .row
+        .small-5.small-centered.columns.logo-fix
+          %img{ class: "double-fix", src: "#{ asset_path('front/homepage/logo.png') }" }
+      .row
+        .small-7.small-centered.columns
+          %form{ action: "#{ search_path }", id: "search"}
+            %fieldset
+              .row
+                .large-12.columns
+                  .row.collapse.custom-input
+                    .small-9.large-10.columns= text_field_tag(:keyword, "")
+                    .small-3.large-2.columns= submit_tag("", :class => "button prefix", :id => "btn_search")
+              .row
+                .large-12.columns
+                  %ul.button-group
+                    %li.width-20.start-round
+                      %a.active-button.small.button.custom-border.start-round#all Semua
+                    %li.width-40
+                      %a.small.button.custom-border#pt Perguruan Tinggi
+                    %li.width-40.end-round
+                      %a.small.button.custom-border.end-round#prodi Program Studi
+    .secondary
+      .row.compare-panel
+        .large-12.columns
+          .row.compare-header
+            .large-12.columns
+              .row
+                .large-5.columns
+                  %p.left-compare-label
+                    %span.hashtag #
+                    %span.compare-label-1 1
+                  %p.right-compare-label
+                    %span.compare-label-2 Ranking Kampus
+                    %span.compare-label-3 Top Ten Best University
+                .large-7.columns
+                  %p.left-compare-label
+                    %span.hashtag #
+                    %span.compare-label-1 2
+                  %p.right-compare-label
+                    %span.compare-label-2 Compare
+                    %span.compare-label-3 Compare Your Selected Campus
+          .row.compare-box
+            .compare-box-left-shadow= image_tag('front/homepage/compare-box-left.png')
+            .compare-box-bottom-shadow= image_tag('front/homepage/compare-box-bottom.png')
+            .compare-box-right-shadow= image_tag('front/homepage/compare-box-right.png')
+            .large-5.columns.top-ten
+              .row.hidden-compare-label
+                .small-5.small-centered.columns.center-fix
+                  %p.left-compare-label
+                    %span.hashtag #
+                    %span.compare-label-1
+                  %p.right-compare-label
+                    %span.compare-label-2 Ranking Kampus
+                    %span.compare-label-3 Top Ten Best University
+              .row
+                .small-12.columns
+                  %ul
+                    - rangking = 0
+                    - if @univrankings.any?
+                      - @univrankings.each do |univranking|
+                        %li
+                          = "#{rangking += 1}."
+                          = link_to univranking.univ.nama_pt.titleize, univ_path(univranking.univ), :target => "_blank"
+            .large-7.columns.compare-pair
+              %form
+                %fieldset
+                  .row.hidden-compare-label
+                    .small-5.small-centered.columns.center-fix
+                      %p.left-compare-label
+                        %span.hashtag #
+                        %span.compare-label-1 2
+                      %p.right-compare-label
+                        %span.compare-label-2 Compare
+                        %span.compare-label-3 Compare Your Selected Campus
+                  .row
+                    .large-6.columns.pair-left
+                      .row
+                        .large-11.columns
+                          %label Nama Kampus
+                          = text_field_tag "", "", :placeholder => "Input Nama Perguruan Tinggi"
+                      .row
+                        .large-11.columns
+                          %label.space-top Program Studi
+                          = text_field_tag "", "", :placeholder => "Input Program Studi"
+                    .large-6.columns.pair-right
+                      .row
+                        .large-11.columns.right
+                          %label Nama Kampus
+                          = text_field_tag "", "", :placeholder => "Input Nama Perguruan Tinggi"
+                      .row
+                        .large-11.columns.right
+                          %label.space-top Program Studi
+                          = text_field_tag "", "", :placeholder => "Input Program Studi"
+                  .row.compare-submit
+                    .small-4.large-3.small-centered.columns
+                      = submit_tag "", class: "tiny small-centered button compare-button", value: "Compare"
 
-  <% if flash[:newsletter_error] != nil %>
-    %div{ data: {:alert}, class: "alert-box alert", align: "center" }
-      = flash[:newsletter_error]
-      %a { href: "#", class: "close" } &times;
-  <% end %>
 
-  <% if flash[:newsletter_success] != nil %>
-      %div{ data: {:alert}, class: "alert-box", align: "center" }
-      = flash[:newsletter_success]
-      %a { href: "#", class: "close" } &times;
-  <% end %>
+      = render :partial => "layouts/support"
+    = render :partial => "layouts/footer" 
 
-%body
-  %div{ role: "main" }
-    .row
-      .small-5.small-centered.columns.logo-fix
-        %img{ class: "double-fix" src: "#{ asset_path('front/homepage/logo.png') }" }
-    .row
-      .small-7.small-centered.columns
-        %form{ action: "#{ search_path }", id: "search"}
-          %fieldset
-            .row
-              .large-12.columns
-                .row.collapse.custom-input
-                  .small-9.large-10.columns= text_field_tag(:keyword, "")
-                  .small-3.large-2.columns= submit_tag("", :class => "button prefix", :id => "btn_search")
-            .row
-              .large-12.columns
-                %ul.button-group
-                  %li.width-20.start-round
-                    %a.active-button.small.button.custom-border.start-round#all Semua
-                  %li.width-40
-                    %a.small.button.custom-border#pt Perguruan Tinggi
-                  %li.width-40.end-round
-                    %a.small.button.custom-border.end-round#prodi Program Studi
-  .secondary
-    .row.compare-panel
-      .large-12.columns
-        .row.compare-header
-          .large-12.columns
-            .row
-              .large-5.columns
-                %p.left-compare-label
-                  %span.hashtag #
-                  %span.compare-label-1 1
-                %p.right-compare-label
-                  %span.compare-label-2 Ranking kampus
-                  %span.compare-label-3 Top Ten Best University
-              .large-7.columns
-                %p.left-compare-label
-                  %span.compare-label-2 Compare
-                  %span.compare-label-3 Compare Your Selected Campus
-        .row.compare-box
-          .compare-box-left-shadow= image_tag('front/homepage/compare-box-left.png')
-          .compare-box-left-shadow= image_tag('front/homepage/compare-box-bottom.png')
-          .compare-box-left-shadow= image_tag('front/homepage/compare-box-right.png')
-          .large-5.columns.top-ten
-            .row.hidden-compare-label
-              .small-5.small-centered.columns.center-fix
-                %p.left-compare-label
-                  %span.hashtag #
-                  %span.compare-label-1
-                %p.right-compare-label
-                  %span.compare-label-2 Ranking Kampus
-                  %span.compare-label-3 Top Ten Best University
-            .row
-              .small-12-columns
-                %ul
-                <%
-                  rangking = 0
-                  if @univrankings.any?
-                    @univrankings.each do |univranking|
-                %>
-                <li style="font-color=#aaaaaa"><%= rangking = rangking + 1 %>. <%= link_to univranking.univ.nama_pt.titleize, univ_path(univranking.univ), :target => "_blank" %></li>
-                    <% end %>
-                  <% end %>
-          .large-7.columns.compare-pair
-            %form
-              %fieldset
-                .row.hidden-compare-label
-                  .small-5.small-centered.columns.center-fix
-                    %p.left-compare-label
-                      %span.hashtag
-                      %span.compare-label-1
-                    %p.right-compare-label
-                      %span.compare-label-2 Compare
-                      %span.compare-label-3 Compare Your Selected Campus
-                .row
-                  .large-6.columns.pair-left
-                    .row
-                      .large-11.columns
-                        %label Nama Kampus
-                        <input type="text" placeholder="Input Nama Perguruan Tinggi">
-                    .row
-                      .large-11.columns
-                        %label.space-top Program Studi
-                        <input type="text" placeholder="Input Program Studi">
-                .row.compare-submit
-                  .small-4.large-3.small-centered.columns
-                    <input type="submit" value="Compare" class="tiny small-centered button compare-button">
-    = render :partial => "layouts/support"
-  = render :partial => "layouts/footer"
+    :javascript
+      document.write('<script src=' + ('__proto__' in {} ? '/assets/front/vendor/zepto' : '/assets/front/vendor/jquery') +'.js><\/script>')
+    
+    %script{ src: "/assets/front/foundation.min.js" } 
+    
+    :javascript
+      $(document).foundation();
+      $(document).ready(function() {
+        $(".button-group a").click(function(){
+          $(".button-group a").removeClass("active-button");
+          $(this).addClass("active-button");
+        });
+        $(".description-panel section").mouseenter(function(){
+          $(this).addClass("active-section");        
+        })
+        $(".description-panel section").mouseleave(function(){
+          $(this).removeClass("active-section");
+        });
 
-  <script>
-  document.write('<script src=' +
-  ('__proto__' in {} ? '/assets/front/vendor/zepto' : '/assets/front/vendor/jquery') +
-  '.js><\/script>')
-  </script>
-  
-  <script src="/assets/front/foundation.min.js"></script>
-  
-  <script>
-    $(document).foundation();
-    $(document).ready(function() {
-      $(".button-group a").click(function(){
-        $(".button-group a").removeClass("active-button");
-        $(this).addClass("active-button");
+        // change form action dynamically
+        $('#all').click(function(){
+          $('#search').attr('action', '<%= search_path %>');
+        });
+
+        $('#pt').click(function(){
+          $('#search').attr('action', '<%= univs_path %>');
+        });
+
+        $('#prodi').click(function(){
+          $('#search').attr('action', '<%= prodis_path %>');
+        });
+
+        $('#provinsi').click(function(){
+          $('#search').attr('action', '<%= search_path %>');
+        });
       });
-      $(".description-panel section").mouseenter(function(){
-        $(this).addClass("active-section");        
-      })
-      $(".description-panel section").mouseleave(function(){
-        $(this).removeClass("active-section");
-      });
 
-      // change form action dynamically
-      $('#all').click(function(){
-        $('#search').attr('action', '<%= search_path %>');
-      });
-
-      $('#pt').click(function(){
-        $('#search').attr('action', '<%= univs_path %>');
-      });
-
-      $('#prodi').click(function(){
-        $('#search').attr('action', '<%= prodis_path %>');
-      });
-
-      $('#provinsi').click(function(){
-        $('#search').attr('action', '<%= search_path %>');
-      });
-    });
-  </script>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-  </script>
+    :javascript
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
