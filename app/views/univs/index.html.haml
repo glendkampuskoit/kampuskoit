@@ -1,0 +1,34 @@
+- provide(:title, 'Pencarian Perguruan Tinggi')
+.row
+  .large-9.columns
+    .row
+      .large-12.columns
+        %p.result-number "Ditemukan #{ @univs.count } Hasil Pencarian"
+    .row.search-result
+      .large-12.columns
+        - @univs.each do |univ|
+          %article
+            .row
+              .small-5.large-5.columns
+                = image_tag(univ.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';")
+              .small-7.large-7.columns
+                %h6.entry-header= link_to univ.nama_pt.titleize, univ_path(univ)
+                %p.entry-place
+                  - if univ.kota.present?
+                    #{ univ.kota.kota.titleize }, #{ univ.kota.provinsi.provinsi.titleize }
+                    
+                %p.entry-text= univ.deskripsi
+                .entry-more
+                  = link_to "Read More", univ_path(univ), :class => "tiny button read-more-button left" 
+                  %p.entry-link.right
+                    - if univ.website.present? && univ.email.present? 
+                      %span= link_to univ.website, univ.website, :target => "_blank"
+                      %span.entry-link-separator &#x20;|
+                      %span= mail_to univ.email, univ.email
+                    - elsif univ.email.present?
+                      %span= mail_to univ.email, univ.email
+                    - elsif univ.email.present? 
+                      %span= mail_to univ.email, univ.email
+
+        = will_paginate @univs, :renderer => PaginationListLinkRenderer, :class => "pagination-centered" 
+  = render :partial => "layouts/sidebar"

@@ -1,0 +1,59 @@
+- provide(:title, 'Ranking Perguruan Tinggi')
+
+.row.category-panel
+  .large-5.columns
+    %ul.button-group.even-3
+      %li= link_to "Global", ranking_path, class: "button medium alert"
+      %li= link_to "Kategori", "#", data: { dropdown: "kategori" }, class: "button dropdown alert"
+      %li= link_to "Provinsi", "#", data: { dropdown: "provinsi" }, class: "button dropdown alert"
+
+.row
+  .large-9.columns
+    .row.category-post
+      .large-12.columns
+        .row
+          .large-12.columns
+            %h3.post-header
+              = @title
+            %p.post-author
+              Last Updated - %span 5 Juni 2013
+        .row
+          .large-12.columns
+            - i = 0
+            - @univrankings.each do |univranking|
+              %article.article-post
+                .row
+                  .small-5.large-5.columns
+                    = image_tag(univranking.univ.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';")
+                  .small-7.large-7.columns
+                    %p.rank= i += 1
+                    %h6.entry-header= link_to univranking.univ.nama_pt.titleize, univ_path(univranking.univ)
+
+                    .rating
+
+                    %p.entry-text= univranking.univ.deskripsi
+                    .entry-more
+                      = link_to "Read More", univ_path(univranking.univ), :class => "tiny button read-more-button left"
+                      %p.entry-link.right
+                        - if univranking.univ.website.present? && univranking.univ.email.present?
+                          %span= link_to univranking.univ.website.downcase, univranking.univ.website, :target => "_blank"
+                          %span.entry-link-separator |
+                          %span= mail_to univranking.univ.email, univranking.univ.email.downcase
+                        - elsif univranking.univ.email.present?
+                          %span= mail_to univranking.univ.email, univranking.univ.email.downcase
+                        - elsif univranking.univ.email.present? 
+                          %span= mail_to univranking.univ.email, univranking.univ.email.downcase
+
+            .row
+              .small-3.small-centered.columns
+                = link_to "", "#", class: "button small nav-bottom"
+  = render :partial => "layouts/sidebar"
+
+<!--Dropdown Content-->
+%ul.f-dropdown#kategori
+  - @jenis_pts.each do |jenis_pt|
+    %li= link_to jenis_pt.jenis, "#{ranking_path}?kategori=#{jenis_pt.id}"
+
+%ul.f-dropdown#provinsi
+  - @provinsis.each do |provinsi|
+    %li= link_to provinsi.provinsi, "#{ranking_path}?provinsi=#{provinsi.id}"

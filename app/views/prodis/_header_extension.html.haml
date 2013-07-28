@@ -1,0 +1,39 @@
+.header-extension
+  .row
+    .large-12.columns
+      = form_tag(prodis_path, :method => "get", :class => 'custom') do 
+        .row.collapse
+          .small-4.columns
+            = text_field_tag(:keyword, @params_value[:keyword], :class => "custom-input", :placeholder => "Masukkan kata kunci ...")
+          .small-3.columns
+            = select_tag :provinsi_id, options_from_collection_for_select(@provinsis, :id, :provinsi, :selected => @params_value[:provinsi_id]), :prompt => "Semua Provinsi"
+          .small-3.columns
+            = select_tag :jenjang_prodi_id, options_from_collection_for_select(@jenjang_prodis, :id, :jenjang), :prompt => "Semua Jenjang"
+          .small-2.columns
+            = submit_tag "Search", class: "button postfix"
+
+        .row.collapse
+          .large-8.columns
+            .small-3.large-3.columns
+              %label{ class: "filter-label", for: "checkbox2" }
+                = check_box_tag(:no_akreditasi, @params_value[:no_akreditasi], @params_value[:no_akreditasi].present? ? true : false, :id => "checkbox2", :style => "display: none;")
+                %span.custom.checkbox
+                Tidak Terakreditasi
+            .small-3.large-3.columns
+              %label{ class: "filter-label", for: "checkbox3" }
+                = check_box_tag(:akreditasi_a, @params_value[:akreditasi_a], @params_value[:akreditasi_a].present? ? true : false, :id => "checkbox3", :style => "display: none;") 
+                %span.custom.checkbox
+                Akreditasi A
+            .small-3.large-3.columns
+              %label{ class: "filter-label", for: "checkbox4" }
+                = check_box_tag(:akreditasi_b, @params_value[:akreditasi_b], @params_value[:akreditasi_b].present? ? true : false, :id => "checkbox4", :style => "display: none;")
+                %span.custom.checkbox
+                Akreditasi B
+            .small-3.large-3.columns
+              %label{ class: "filter-label", for: "checkbox5" }
+                = check_box_tag(:akreditasi_c, @params_value[:akreditasi_c], @params_value[:akreditasi_c].present? ? true : false, :id => "checkbox5", :style => "display: none;") 
+                %span.custom.checkbox
+                Akreditasi C
+
+          .small-8.large-4.columns
+            = select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "medium filter right", :prompt => "Urutkan berdasarkan") 
