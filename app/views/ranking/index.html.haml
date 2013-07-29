@@ -16,7 +16,8 @@
             %h3.post-header
               = @title
             %p.post-author
-              Last Updated - %span 5 Juni 2013
+              Last Updated - 
+              %span 5 Juni 2013
         .row
           .large-12.columns
             - i = 0
@@ -37,7 +38,7 @@
                       %p.entry-link.right
                         - if univranking.univ.website.present? && univranking.univ.email.present?
                           %span= link_to univranking.univ.website.downcase, univranking.univ.website, :target => "_blank"
-                          %span.entry-link-separator |
+                          %span.entry-link-separator &#x20;|
                           %span= mail_to univranking.univ.email, univranking.univ.email.downcase
                         - elsif univranking.univ.email.present?
                           %span= mail_to univranking.univ.email, univranking.univ.email.downcase
