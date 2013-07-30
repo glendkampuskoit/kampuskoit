@@ -20,7 +20,7 @@
       .row
         .small-5.small-centered.large-12.columns.socmed-wrapper
           .socmed-1
-            %a{ class: "fb-share", href: "#", onclick: "window.open( 'https://www.facebook.com/sharer/sharer.php?u=http://kampus.co.id', 'facebook-share-dialog', 'width=626,height=436');return false;"}
+            %a{ class: "fb-share", href: "#", onclick: "window.open( 'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(document.location.href), 'facebook-share-dialog', 'width=626,height=436');return false;"}
           .socmed-2
             %iframe{ src: "http://www.facebook.com/plugins/like.php?locale=en_US&href=https%3A%2F%2Fwww.facebook.com%2Fkampuscoid&send=true&layout=button_count&width=100&show_faces=false&font=arial&colorscheme=light&action=like&height=21", scrolling: "no", frameborder: "0", style: "border:none; overflow:hidden; width:75px; height:21px;", allowTransparency: "true"}
           .socmed-3
