@@ -1,0 +1,38 @@
+/***Mixin***/
+
+/**Fonts Mixin**/
+@mixin arc-bold{
+	font-family: "archivo_narrowbold", sans-serif, tahoma !important;
+	font-weight: normal;
+    font-style: normal;
+}
+@mixin arc-regular{
+	font-family: "archivo_narrowregular", sans-serif, tahoma !important;
+	font-weight: normal;
+    font-style: normal;
+}
+@mixin hlv-bold-cn{
+	font-family: "HelveticaNeueLTPro77BoldCondensed", sans-serif, tahoma !important;
+	font-weight: normal;
+    font-style: normal;
+}
+@mixin src-bold{
+	font-family: "source_sans_probold", sans-serif, tahoma !important;
+	font-weight: normal;
+    font-style: normal;
+}
+@mixin src-italic{
+	font-family: "source_sans_proitalic", sans-serif, tahoma !important;
+	font-weight: normal;
+    font-style: normal;
+}
+@mixin src-regular{
+	font-family: "source_sans_proregular", sans-serif, tahoma !important;
+	font-weight: normal;
+    font-style: normal;
+}
+@mixin src-semibold{
+	font-family: "source_sans_prosemibold", sans-serif, tahoma !important;
+	font-weight: normal;
+    font-style: normal;    
+}

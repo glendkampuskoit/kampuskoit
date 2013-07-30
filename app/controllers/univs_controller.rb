@@ -55,7 +55,8 @@ class UnivsController < ApplicationController
   def update
     @univ = Univ.find(params[:id])
     if @univ.update_attributes(params[:univ])
-      redirect_to univs_list_path, notice: 'Perguruan Tinggi was successfully updated.' 
+      #redirect_to univs_list_path, notice: 'Perguruan Tinggi was successfully updated.' 
+      redirect_to edit_univ_path(@univ), notice: 'Perguruan Tinggi berhasil diupdate.' 
     else
       @univgallery = Univgallery.new
       @univgalleries = Univgallery.where(:univ_id => @univ)

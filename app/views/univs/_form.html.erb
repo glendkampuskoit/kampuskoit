@@ -4,6 +4,14 @@
     url = "/admin/univs/#{@univ.id}"
   end                  
 %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Berhasil!</strong> <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <div class="row-fluid">
   <div class="span12">
       <div class="box corner-all">
@@ -41,7 +49,7 @@
                 <div class="control-group">
                     <label class="control-label" for="inputSelect">Status</label>
                     <div class="controls">
-                        <%= select_tag("univ[status_negeri]", options_for_select([["Perguruan Tinggi Negeri", "negeri"], ["Perguruan Tinggi Swasta", "swasta"]]), {:style => "width:200px", :id => "status_pt", :data => {:form => "status"}}) %>
+                        <%= select_tag("univ[status_negeri]", options_for_select([["Perguruan Tinggi Swasta", "swasta"], ["Perguruan Tinggi Negeri", "negeri"]], @univ.status_negeri? ? @univ.status_negeri : "Perguruan Tinggi Swasta"), {:style => "width:200px", :id => "status_pt", :data => {:form => "status"}}) %>
                     </div>
                 </div>
                 <div class="control-group">
@@ -83,13 +91,13 @@
                 <div class="control-group">
                     <label class="control-label" for="inputUpload">Upload Logo Perguruan Tinggi</label>
                     <div class="controls">
-                        <%= f.file_field :image, :data => {:form => "uniform"} %>
+                        <%= f.file_field :logo, :data => {:form => "uniform"} %>
                     </div>
-                    <div class="controls">
-                        <% if @univ.logo_url.present? %>
-                          <%= image_tag @univ.logo_url(:thumb) %>
-                        <% end %>
-                    </div>
+                    <% if @univ.logo_url.present? %>
+                      <div class="controls">
+                        <%= image_tag @univ.logo_url(:thumb) %>
+                      </div>
+                    <% end %>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputUpload">Upload Featured Image</label>

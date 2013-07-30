@@ -1,0 +1,84 @@
+%html{ class: "no-js", lang: "en" }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ name: "viewport", content: "width=device-width" }
+    %title= "Kampus.co.id - #{ yield(:title) }"
+    
+    - if params[:controller] == "ranking"
+      = stylesheet_link_tag "ranking", :media => "all"
+    - elsif params[:controller] == "univs" && params[:action] == "index"
+      = stylesheet_link_tag "univ_search", :media => "all"
+    - elsif params[:controller] == "search" && params[:att] == "univ"
+      = stylesheet_link_tag "search_all_univ", :media => "all"
+    - elsif params[:controller] == "search" && params[:att] == "prodi"
+      = stylesheet_link_tag "search_all_prodi", :media => "all"
+    - elsif params[:controller] == "prodis" && params[:action] == "index"
+      = stylesheet_link_tag "prodi_search", :media => "all"
+    - elsif (params[:controller] == "univs" && params[:action] == "show")
+      = stylesheet_link_tag "univ_profile", :media => "all"
+      %noscript
+        :css
+          .es-carousel ul{
+            display:block;
+          }
+      %script{ id: "img-wrapper-tmpl", type: "text/x-jquery-tmpl" } 
+        .rg-image-wrapper
+          .rg-image
+          .rg-loading
+
+    - elsif (params[:controller] == "prodis" && params[:action] == "show")
+      = stylesheet_link_tag "prodi_profile", :media => "all"
+      %noscript
+        :css
+          .es-carousel ul{
+            display:block;
+          }
+
+      %script{ id: "img-wrapper-tmpl", type: "text/x-jquery-tmpl" }
+        .rg-image-wrapper
+          .rg-image
+          .rg-loading
+
+  %body
+    = render :partial => "layouts/header"
+    - if params[:controller] == "univs" || (params[:controller] == "search" && params[:att] == "univ")
+      = render :partial => "univs/header_extension"
+    - elsif params[:controller] == "prodis" || (params[:controller] == "search" && params[:att] == "prodi")
+      = render :partial => "prodis/header_extension"
+
+    %div{ role: "main" }
+      = yield 
+
+    .secondary
+      = render :partial => "layouts/support"
+
+    = render :partial => "layouts/footer"
+
+    :javascript
+      document.write('<script src=' +
+      ('__proto__' in {} ? '/assets/front/vendor/zepto' : '/assets/front/vendor/jquery') +
+      '.js><\/script>');
+
+    = javascript_include_tag "application"
+
+    - if params[:controller] == "univs" && params[:action] == "show"
+      = javascript_include_tag "front/univ_profile"
+
+    :javascript
+      $(document).foundation();
+      $(document).ready(function() {      
+        $(".description-panel section").mouseenter(function(){
+          $(this).addClass("active-section");        
+        });
+        $(".description-panel section").mouseleave(function(){
+          $(this).removeClass("active-section");
+        });
+
+        $('.checkall').on('click', function () {
+            //$(this).closest('form').find(':checkbox').prop('checked', this.checked);
+            console.log('diklk');
+        });
+      });
+
+    :javascript
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
