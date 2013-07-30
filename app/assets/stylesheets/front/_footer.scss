@@ -1,0 +1,90 @@
+/***Footer***/
+
+.left-footer{
+	padding-top: 50px;
+	@media screen and(max-width: 768px) {
+		padding-top: 5px;
+	}
+}
+.right-footer{
+	padding-top: 25px;
+}
+.socmed-wrapper{
+	padding-bottom: 32px;
+	@media screen and (max-width: 768px) {
+		width: 250px;
+		margin: 0 auto !important;
+		text-align: center;
+	}
+}
+.socmed-1,.socmed-2,.socmed-3{	
+	height: 25px;
+	float: left;
+}
+.socmed-3{
+	width: 85px;
+}
+.fb-share{
+	background: url("/assets/front/footer/fb-share-icon.png") no-repeat center 8px;	
+	padding: 5px 30px;
+}
+.copyright,.newsletter-text{
+	@include src-regular;
+	font-size: 0.750em;
+	color: $copyright_text;
+}
+.copyright{
+	@media screen and (max-width: 768px) {
+		text-align: center;
+	}
+}
+.newsletter-text{
+	margin-top: 10px;
+}
+.newsletter-label{
+	@include src-bold;
+	font-size: 0.750em;
+	margin-bottom: 10px;
+}
+.newsletter-form{
+	input[type="text"]{
+		height: 22px;
+		padding: 0 5px;
+		margin: 0;
+		border-radius: 5px;
+	}
+	.fix-textbox{
+		width: 77%;
+		float: right;
+		font-style: italic;
+		@media screen and (max-width: 768px) {
+			width: 100%;
+		}
+	}
+	.prefix, .postfix{
+		@include src-regular;
+		height: 22px;
+		padding: 0;
+		margin: 0;
+		line-height: 22px;
+		border-radius: 5px;
+		border: none;
+		font-style: italic;
+		font-size: 0.750em;
+		background: $newsletter_button;
+	}
+	.prefix:hover, .postfix:hover{
+		background: darken($newsletter_button,15%);
+	}
+	.collapse{		
+		.columns:first-child{
+			right: -5px;
+		}
+	}
+	.newsletter-search{
+		@media screen and(max-width: 768px) {
+			float: none !important;
+			margin: 0 auto;
+		}
+	}
+}
