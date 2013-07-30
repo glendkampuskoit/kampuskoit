@@ -21,7 +21,8 @@ class Univ < ActiveRecord::Base
 	validates :jenis_pt, presence: true
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email, presence: true, length: { maximum: 255 },  format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, :reduce => true
+	#validates :email, presence: true, length: { maximum: 255 },  format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, :reduce => true
+	validates :email, presence: true, length: { maximum: 255 },  format: { with: VALID_EMAIL_REGEX }, :reduce => true
 
 	#validates :slug, presence: true
 	friendly_id :nama_pt, :use => :slugged
@@ -35,8 +36,8 @@ class Univ < ActiveRecord::Base
 	protected
 
 	def add_url_protocol
-			unless self.website[/^http:\/\//] || self.website[/^https:\/\//]
-				self.website = 'http://' + self.website
-			end
+		unless self.website[/^http:\/\//] || self.website[/^https:\/\//]
+			self.website = 'http://' + self.website
+		end
 	end
 end
