@@ -176,7 +176,7 @@ div[role="main"]{
 	}	
 }
 .rank{
-	background: url("../assets/images/website-kampus02/icon-medal.png") no-repeat center;
+	background: url("/assets/front/ranking/icon-medal.png") no-repeat center;
 	width: 40px;
 	height: 57px;
 	margin-bottom: 0;	
@@ -188,7 +188,7 @@ div[role="main"]{
 	color: darken($entry_text,5%);
 }
 .rating{
-	background: url("../assets/images/common/rating.png") no-repeat center;
+	background: url("/assets/front/common/rating.png") no-repeat center;
 	width: 109px;
 	height: auto;
 	padding-bottom: 27px;
@@ -235,14 +235,14 @@ div[role="main"]{
 	}
 }
 .nav-bottom{
-	background: $arrow_button url("../assets/images/website-kampus02/arrow-bottom.png") no-repeat center;
+	background: $arrow_button url("/assets/front/ranking/arrow-bottom.png") no-repeat center;
 	width: 91px;
 	height: 24px;
 	margin: 35px 0;
 	border-radius: 3px;
 	border: none;
 	&:hover{
-		background: darken($arrow_button,10%) url("../assets/images/website-kampus02/arrow-bottom.png") no-repeat center;	
+		background: darken($arrow_button,10%) url("/assets/front/ranking/arrow-bottom.png") no-repeat center;	
 	}
 }
 .widget-title{
@@ -299,31 +299,31 @@ div[role="main"]{
 			color: rgba(255,255,255,0.5);
 		}
 		.panel-image-1{
-			background: url("../assets/images/common/panel-icon-1-hover.png") no-repeat center;			
+			background: url("/assets/front/common/panel-icon-1-hover.png") no-repeat center;			
 		}
 		.panel-image-2{
-			background: url("../assets/images/common/panel-icon-2-hover.png") no-repeat center;			
+			background: url("/assets/front/common/panel-icon-2-hover.png") no-repeat center;			
 		}
 		.panel-image-3{
-			background: url("../assets/images/common/panel-icon-3-hover.png") no-repeat center;			
+			background: url("/assets/front/common/panel-icon-3-hover.png") no-repeat center;			
 		}
 	}
 	.panel-image-1{
-		background: url("../assets/images/common/panel-icon-1.png") no-repeat center;
+		background: url("/assets/front/common/panel-icon-1.png") no-repeat center;
 		width: 48px;
 		height: 48px;
 		display: block;
 		margin: 0 auto;
 	}
 	.panel-image-2{
-		background: url("../assets/images/common/panel-icon-2.png") no-repeat center;
+		background: url("/assets/front/common/panel-icon-2.png") no-repeat center;
 		width: 44px;
 		height: 51px;
 		display: block;
 		margin: 0 auto;
 	}
 	.panel-image-3{
-		background: url("../assets/images/common/panel-icon-3.png") no-repeat center;
+		background: url("/assets/front/common/panel-icon-3.png") no-repeat center;
 		width: 59px;
 		height: 40px;
 		display: block;
