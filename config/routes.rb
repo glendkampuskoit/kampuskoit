@@ -60,6 +60,7 @@ Campus::Application.routes.draw do
     match '/prodis_list', to: 'prodis#list'
     match '/visitors_list', to: 'visitors#index'
     match '/subscribers_list', to: 'subscribers#index'
+    match '/ranking_list', to: 'ranking#list'
   end
   
   #match '*path', :controller => "visitors", :action => "new"
