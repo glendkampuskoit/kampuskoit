@@ -277,20 +277,20 @@
 
        // gallery setup
        $('.gallery-selector').change(function(){
-           checked = $(this).attr('checked');
-           checked = (checked == undefined) ? false : true ;
-           
-           $('input.selecter, .gallery-selector').attr('checked', checked);
-           $.uniform.update('.gallery-selector');
-           
-           // toggle class for thumbnail
-           thumbnail = $('input.selecter').attr('checked', checked).next();
-           if(checked == true){
-               thumbnail.addClass('active');
-           }
-           else{
-               thumbnail.removeClass('active')
-           }
+         checked = $(this).attr('checked');
+         checked = (checked == undefined) ? false : true ;
+         
+         $('input.selecter, .gallery-selector').attr('checked', checked);
+         $.uniform.update('.gallery-selector');
+         
+         // toggle class for thumbnail
+         thumbnail = $('input.selecter').attr('checked', checked).next();
+         if(checked == true){
+           thumbnail.addClass('active');
+         }
+         else{
+           thumbnail.removeClass('active')
+         }
        });
        
        $('.thumbnail-control .controls').click(function(e){

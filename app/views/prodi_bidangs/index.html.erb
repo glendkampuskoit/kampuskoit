@@ -27,7 +27,7 @@
             <% @prodi_bidangs.each do |bidang| %>
               <tr>
                 <td><%= bidang.nama_bidang %></td>
-                <td><%= bidang.id %></td>
+                <td><%= bidang.level %></td>
                 <td class="center">
                   <span class="label label-info">
                     <%= link_to "Edit",edit_prodi_bidang_path(bidang) %>
