@@ -203,31 +203,20 @@ div[role="main"]{
 	padding-top: 6px;
 	float: left;
 }
-.share-button-wrapper{	
-	cursor: pointer;	
-	display: inline-block;
-}
-.share-fix-1{
-	-webkit-transform: translateY(5px);
-	-moz-transform: translateY(5px);
-	-o-transform: translateY(5px);
-	-ms-transform: translateY(5px);
-	transform: translateY(5px);
-}
-.share-fix-2{
-	-webkit-transform: translateY(4px);
-	-moz-transform: translateY(4px);
-	-o-transform: translateY(4px);
-	-ms-transform: translateY(4px);
-	transform: translateY(4px);
-}
 .facebook-share-page-button{
-	background: url("/assets/front/footer/fb-share-icon.png") no-repeat center;
-	padding: 6px 25px;
+	background: url("/assets/front/profile/icon-share-facebook.png") no-repeat center;
+	padding: 8px 8px;
 	padding-top: 5px;
 }
+#custom-tweet-button{
+	background: url("/assets/front/profile/icon-share-twitter.png") no-repeat center;
+	padding: 8px 9px;
+	padding-top: 5px;
+	display: inline;
+	cursor: pointer;
+}
 .note{	
-	padding-top: 30px;
+	padding-top: 45px;
 	@include src-regular;
 	font-size: 0.688em;
 	color: $note;
