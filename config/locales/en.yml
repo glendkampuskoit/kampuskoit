@@ -38,6 +38,11 @@ en:
         kota: "Nama Kota"
       provinsi:
         provinsi: "Nama Provinsi"
+      prodi_bidang:
+        nama_bidang: "Nama Bidang Program Studi"
+        level: "Level"
+        deskripsi: "Deskripsi"
+        lapangan_kerja: "Lapangan Kerja"
     errors:
       models:
         univ:
@@ -125,3 +130,14 @@ en:
             provinsi:
               blank: "harus diisi"
               taken: "sudah terdaftar"
+        prodi_bidang:
+          attributes:
+            nama_bidang:
+              blank: "harus diisi"
+              taken: "sudah terdaftar"
+            level:
+              blank: "harus diisi"
+            deskripsi:
+              blank: "harus diisi"
+            lapangan_kerja:
+              blank: "harus diisi"

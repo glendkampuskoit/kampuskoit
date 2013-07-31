@@ -35,7 +35,13 @@
           <div class="control-group">
             <label class="control-label" for="inputEditorSimple">Deskripsi</label>
             <div class="controls">
-              <%= f.text_area :deskripsi, :id => "deskripsi", :class => "span10", :rows => "8", :data => {:form => "deskripsi"}, :placeholder => "Isikan deskripsi seleksi masuk ..." %>
+              <%= f.text_area :deskripsi, :id => "deskripsi", :class => "span10", :rows => "8", :data => {:form => "deskripsi"}, :placeholder => "Isikan deskripsi ..." %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputEditorSimple">Lapangan Kerja</label>
+            <div class="controls">
+              <%= f.text_area :lapangan_kerja, :id => "lapangan_kerja", :class => "span10", :rows => "8", :data => {:form => "lapangan_kerja"}, :placeholder => "Isikan lapangan_kerja ..." %>
             </div>
           </div>
           <div class="form-actions">
@@ -59,6 +65,7 @@
 
     //wysisyg
     $('[data-form=deskripsi]').wysihtml5();
+    $('[data-form=lapangan_kerja]').wysihtml5();
 
     // select2
     $('#form-validate').validate();
