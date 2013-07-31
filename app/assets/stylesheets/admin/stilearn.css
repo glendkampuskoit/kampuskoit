@@ -11,7 +11,7 @@
     min-height: 50px;
     padding-top: 10px;
     z-index: 99;
-    background: #333333 url('/assets/bg-body-bar.jpg');
+    background: #333333 url('/assets/admin/bg-body-bar.jpg');
     background-position:0 0;
     background-repeat:repeat no-repeat;
     border-bottom: 1px solid #2E2E2E;
@@ -335,7 +335,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     display: block;
     height: 100%;
     top: 60px;
-    background: #333333 url('/assets/bg-body-bar.jpg');
+    background: #333333 url('/assets/admin/bg-body-bar.jpg');
     border: 1px solid #2E2E2E;
     width: 6.382978723404255%;
     *width: 6.329787234042553%;
@@ -428,7 +428,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     display: block;
     height:100%;
     top: 60px;
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
 /*    width: 14.893617021276595%;
     *width: 14.840425531914894%;*/
     width: 16%;
@@ -461,7 +461,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     border-right: 0 none;
     padding: 2px 10px;
     line-height: 30px;
-    background: #E9E9E9 url('/assets/bg-content-header.png');
+    background: #E9E9E9 url('/assets/admin/bg-content-header.png');
     font-size: .8em;
     z-index: 97;
 }
@@ -469,7 +469,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
 .sidebar-right > .sidebar-right-header{
     padding: 10px 20px 10px 20px;
     border-bottom: 1px solid #CDCDCD;
-    background: #E9E9E9 url('/assets/bg-content-header.png');
+    background: #E9E9E9 url('/assets/admin/bg-content-header.png');
     color: #626262;
     height: 40px;
     max-height: 40px;
@@ -523,7 +523,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     font-size: .8em;
 }
 .sidebar-right > .sidebar-right-control{
-    background: #E9E9E9 url('/assets/bg-content-header.png');
+    background: #E9E9E9 url('/assets/admin/bg-content-header.png');
     font-size: .8em;
     height: 36px;
     margin: 0px;
@@ -565,7 +565,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     padding: 0px 10px;
 }
 .sidebar-right-control > ul.sr-control-item > li.active{
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
 }
 .sidebar-right-control > ul.sr-control-item > li.active:after{
     position: absolute;
@@ -600,7 +600,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     list-style: none;
 }
 .side-contact ul.contact-list li.contact-alt:hover{
-    background: #f1f1f1 url('/assets/noise.png');
+    background: #f1f1f1 url('/assets/admin/noise.png');
 }
 .side-contact ul.contact-list .contact-alt:first-child{
     border: 1px solid #CDCDCD;
@@ -611,7 +611,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
 }
 .side-contact ul.contact-list .contact-alt.active{
     border-left: none;
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
     color: #00A0B1;
 }
 
@@ -663,14 +663,14 @@ ul.dropdown-notification > li.dropdown-header:hover{
     border: 1px solid #CDCDCD;
     border-bottom: none;
     overflow: hidden;
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
 }
 .side-chat .chat-header{
     padding: 10px 5px;
     border-bottom: 1px solid #CDCDCD;
     height: 24px;
     color: #626262;
-    background: #f1f1f1 url('/assets/noise.png');
+    background: #f1f1f1 url('/assets/admin/noise.png');
 }
 .side-chat .chat-header *{
     margin: auto;
@@ -755,7 +755,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
 .side-task > .task{
     margin: 0px;
     padding: 5px;
-    background: #EDEDED url('/assets/bg-content.jpg');
+    background: #EDEDED url('/assets/admin/bg-content.jpg');
     border-bottom: 1px solid #CDCDCD;
     white-space: nowrap;
     position: relative;
@@ -814,7 +814,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
 }
 .side-activity-header p{
     display: inline-block;
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
     padding-right: 5px;
 }
 
@@ -867,16 +867,16 @@ ul.dropdown-notification > li.dropdown-header:hover{
     white-space: nowrap;
     border: 1px solid #CDCDCD;
     border-top: none;
-    background: #EDEDED url('/assets/bg-content.jpg');
+    background: #EDEDED url('/assets/admin/bg-content.jpg');
 }
 
 .nav-side > li:hover{
-    background: #f1f1f1 url('/assets/noise.png');
+    background: #f1f1f1 url('/assets/admin/noise.png');
     color: #008299;
 }
 
 .nav-side > li.active{
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
     border-left: none;
     border-right: 5px solid #008299;
 }
@@ -1074,7 +1074,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     margin-left: -3.4%;
     margin-bottom: -62px;
     display: block;
-    background: #EDEDED url('/assets/bg-content.jpg');
+    background: #EDEDED url('/assets/admin/bg-content.jpg');
     border: 1px solid #CDCDCD;
     border-left: none;
     padding-bottom: 0px;
@@ -1101,7 +1101,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
 .content > .content-header{
     padding: 10px 20px 10px 20px;
     border-bottom: 1px solid #CDCDCD;
-    background: #E9E9E9 url('/assets/bg-content-header.png');
+    background: #E9E9E9 url('/assets/admin/bg-content-header.png');
     color: #626262;
 }
 
@@ -1205,7 +1205,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     list-style: none;
 }
 .content-breadcrumb > .breadcrumb{
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
     font-size: .8em;
     margin: 0px;
     border-bottom: 1px solid #CDCDCD;
@@ -1218,7 +1218,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
 }
 
 .content-breadcrumb > .breadcrumb-nav{
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
     border-bottom: 1px solid #CDCDCD;
 }
 .content-breadcrumb > .breadcrumb-nav > li{
@@ -1251,7 +1251,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
 .content > .content-body{
     padding: 40px 20px 40px 20px;
     font-size: .9em;
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
     min-height: 540px;
 }
 /* end content-body */
@@ -1295,7 +1295,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     border-top: none;
     position: relative;
     padding: 10px 20px 10px 20px;
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
 }
 .box > .box-body  form  .form-actions{
     margin-left: -20px;
@@ -1319,7 +1319,7 @@ ul.dropdown-notification > li.dropdown-header:hover{
     border: 1px solid #CDCDCD;
     padding: 5px;
     margin-bottom: 40px;
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
 }
 
 .box-tab > .box-header .nav-pills{
@@ -1952,7 +1952,7 @@ ul.b-btn-group li{
     border-radius:40px;
 }
 .a-btn span:nth-child(1){
-    background: transparent; /*url('/assets/arrow_down.png') no-repeat center center;*/
+    background: transparent; /*url('/assets/admin/arrow_down.png') no-repeat center center;*/
     opacity:0.2;
 }
 .a-btn .badge, .a-btn .label{
@@ -2405,7 +2405,7 @@ ul.b-btn-group li{
     list-style: none;
 }
 .message-contact ul.contact-list li.contact-alt:hover{
-    background: #f1f1f1 url('/assets/noise.png');
+    background: #f1f1f1 url('/assets/admin/noise.png');
 }
 
 .message-contact ul.contact-list .contact-alt{
@@ -2490,7 +2490,7 @@ ul.b-btn-group li{
 .message-content, .new-message{
     border-bottom: none;
     overflow: hidden;
-    background: #FFFFFF url('/assets/noise.png');
+    background: #FFFFFF url('/assets/admin/noise.png');
 }
 .message-content .msg-body{
     height: 400px;
@@ -2517,18 +2517,18 @@ ul.b-btn-group li{
 }
 .msg-body .msg-in:hover,
 .msg-body .msg-out:hover{
-    background: #f1f1f1 url('/assets/noise.png');
+    background: #f1f1f1 url('/assets/admin/noise.png');
 }
 
 .msg-body .msg-in.selected,
 .msg-body .msg-out.selected{
     border-top: 1px solid #CDCDCD;
     border-bottom:  1px solid #A1A1A1;
-    background: #DDD url('/assets/noise.png');
+    background: #DDD url('/assets/admin/noise.png');
 }
 .msg-body .msg-in.selected:hover,
 .msg-body .msg-out.selected:hover{
-    background: #DDD url('/assets/noise.png');
+    background: #DDD url('/assets/admin/noise.png');
 }
 
 .msg-body .msg-in .msg-time,
@@ -2590,7 +2590,7 @@ ul.b-btn-group li{
 a[rel=to-top]{
     position: fixed;
     right: 10px;
-    background: #E9E9E9 url('/assets/bg-content-header.png');
+    background: #E9E9E9 url('/assets/admin/bg-content-header.png');
     color: #626262;
     bottom: 0px;
     margin: 0px;
@@ -2609,7 +2609,7 @@ a[rel=to-top]{
 
 a[rel=to-top]:hover{
     color: #F1F1F1;
-    background: #008299 url('/assets/noise.png');
+    background: #008299 url('/assets/admin/noise.png');
     border: 1px solid #00a0b1;
 }
 

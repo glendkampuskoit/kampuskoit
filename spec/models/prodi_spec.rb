@@ -10,6 +10,7 @@ describe Prodi do
 		website: 'si.its.ac.id', 
 		univ: FactoryGirl.create(:univ), 
 		kota: FactoryGirl.create(:kota),
+		prodi_bidang: FactoryGirl.create(:prodi_bidang),
 		jenjang_prodi: FactoryGirl.create(:jenjang_prodi),
 		facebook: 'sisteminformasi',
 		twitter: 'sisteminformasi',
@@ -31,6 +32,7 @@ describe Prodi do
 	it { should belong_to(:univ) }
 	it { should belong_to(:kota) }
 	it { should belong_to(:jenjang_prodi) }
+	it { should belong_to(:prodi_bidang) }
   it { should have_many(:prodi_prestasis).dependent(:delete_all) }
   it { should have_many(:prodi_silabuses).dependent(:delete_all) }
   it { should have_many(:prodi_fasils).dependent(:delete_all) }
@@ -85,6 +87,11 @@ describe Prodi do
 				@prodi.should be_valid
 			end
 		end
+	end
+
+	describe "when prodi_bidang is blank" do
+		before { @prodi.prodi_bidang = nil }
+		it { should be_valid }
 	end
 
 	describe "nama prodi, jenjang, University must be unique with case insensitive" do

@@ -1,0 +1,12 @@
+%header
+  %nav
+    .row
+      .large-12.columns
+        %ul.logo-nav
+          %li= image_tag asset_path('front/header/logo-nav.png')
+        %ul.nav-bar
+          %li= link_to "Home", home_path 
+          %li= link_to "Ranking", ranking_path
+          %li= link_to "Perguruan Tinggi", univs_path
+          %li= link_to "Program Studi", prodis_path
+          %li= link_to "Login", "#"

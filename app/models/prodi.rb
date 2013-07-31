@@ -5,6 +5,7 @@ class Prodi < ActiveRecord::Base
 	belongs_to :univ, :foreign_key => :univ_id
 	belongs_to :kota, :foreign_key => :kota_id
 	belongs_to :jenjang_prodi, :foreign_key => :jenjang_prodi_id
+	belongs_to :prodi_bidang, :foreign_key => :prodi_bidang_id
 	has_many :prodi_prestasis, :dependent => :delete_all
 	has_many :prodi_fasils, :dependent => :delete_all
 	has_many :prodi_silabuses, :dependent => :delete_all

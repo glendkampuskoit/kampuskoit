@@ -1,0 +1,32 @@
+%footer
+  .row
+    .large-6.push-6.columns.right-footer
+      = form_for Visitor.new, :html => {:class => "newsletter-form"} do |f|
+        .row
+          .small-10.large-7.columns.right.newsletter-search
+            .row
+              .large-12.columns
+                %label.right.newsletter-label Newsletter
+            .row.collapse
+              .small-9.columns
+                = f.text_field :email, :placeholder => "Email", :class => "fix-textbox", :required => true
+              .small-3.columns
+                = submit_tag "Submit", class: "button prefix"
+            .row
+              .large-12.columns
+                %p.right.newsletter-text Berlangganan Kampus.co.id melalui email
+
+    .large-6.pull-6.columns.left-footer
+      .row
+        .small-5.small-centered.large-12.columns.socmed-wrapper
+          .socmed-1
+            %a{ class: "fb-share", href: "#", onclick: "window.open( 'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(document.location.href), 'facebook-share-dialog', 'width=626,height=436');return false;"}
+          .socmed-2
+            %iframe{ src: "http://www.facebook.com/plugins/like.php?locale=en_US&href=https%3A%2F%2Fwww.facebook.com%2Fkampuscoid&send=true&layout=button_count&width=100&show_faces=false&font=arial&colorscheme=light&action=like&height=21", scrolling: "no", frameborder: "0", style: "border:none; overflow:hidden; width:75px; height:21px;", allowTransparency: "true"}
+          .socmed-3
+            %a{ href: "https://twitter.com/share", class: "twitter-share-button", data: {via: "kampuscoid", lang: "en", url: "http://kampus.co.id"}} Tweet
+      .row
+        .small-12.columns
+          %p.copyright ©2013 kampus.co.id | All Right Reserved
+
+= render :partial => "layouts/ga" if Rails.env == "production"

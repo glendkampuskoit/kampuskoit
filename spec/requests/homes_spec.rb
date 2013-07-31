@@ -15,39 +15,39 @@ describe "Homes", :js => true do
     end
 
     it "Index page should have right title : Kampus.co.id | Trusted Indonesian Campus Review" do
-      page.should have_selector('title', :text => "Kampus.co.id | Trusted Indonesian Campus Review")
+      page.should have_selector('title', :content => "Kampus.co.id | Trusted Indonesian Campus Review")
     end
 
-    describe "visitor do search" do      
+    describe "visitor do search" do
       before do
         fill_in "keyword", with: "airlangga"
         page.driver.execute_script(keypress)
       end
 
       it "should visit search result path" do
-        page.should have_selector('title', :text => "Hasil Pencarian")
+        page.should have_selector('title', :content => "Hasil Pencarian")
       end
     end
 
-    describe "visitor do search with params Perguruan Tinggi" do      
+    describe "visitor do search with params Perguruan Tinggi" do
       before do
         fill_in "keyword", with: "airlangga"
         page.driver.execute_script(keypress)
       end
 
       it "if user choose perguruan tinggi, should visit PT path" do
-        page.should have_selector('title', :text => "Perguruan Tinggi")
+        page.should have_selector('title', :content => "Perguruan Tinggi")
       end
     end
 
-    describe "visitor do search with params Jurusan" do      
+    describe "visitor do search with params Jurusan" do
       before do
         fill_in "keyword", with: "kedokteran"
         page.driver.execute_script(keypress)
       end
 
       it "if user choose jurusan, should visit jurusan path" do
-        page.should have_selector('title', :text => "Program Studi")
+        page.should have_selector('title', :content => "Program Studi")
       end
     end
 
@@ -55,14 +55,14 @@ describe "Homes", :js => true do
       before do 
         click_link "Ranking"
       end
-      it { should have_selector('title', text: "Ranking Perguruan Tinggi") } 
+      it { should have_selector('title', content: "Ranking Perguruan Tinggi") } 
     end
 
     pending "Visitor go to Signup page" do
       before do 
         click_link "Signup"
       end
-      it { should have_selector('title', text: "Signup") } 
+      it { should have_selector('title', content: "Signup") } 
     end
   end
 

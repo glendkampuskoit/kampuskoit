@@ -1,0 +1,40 @@
+.header-extension
+  .row
+    .large-12.columns
+      = form_for univs_path, :method => "get", :html => { :class => "custom" } do
+        .row.collapse
+          .small-4.columns
+            = text_field_tag(:keyword, @params_value[:keyword], :class => "custom-input", :placeholder => "Masukkan kata kunci ...")
+          .small-3.columns
+            = select_tag :provinsi_id, options_from_collection_for_select(@provinsis, :id, :provinsi, :selected => @params_value[:provinsi_id]), :prompt => "Semua Provinsi"
+          .small-3.columns
+            = select_tag :jenis_pt_id, options_from_collection_for_select(@jenis_pts, :id, :jenis, :selected => @params_value[:jenis_pt_id]), :prompt => "Semua Kategori"
+          .small-2.columns
+            = submit_tag "Search", class: "button postfix"
+
+        .row.collapse
+          .large-8.columns
+            .row
+              .small-3.large-3.columns
+                %label{ class: "filter-label", for: "checkbox1"}
+                  %input{ type: "checkbox", id: "checkbox1", style: "display: none;", class: "checkall" }
+                  %span.checkall.custom.checkbox
+                  Semua Filter
+
+              .small-3.large-3.columns
+                %label{ class: "filter-label", for: "checkbox" }
+                  = check_box_tag(:ptn_check, @params_value[:ptn_check], @params_value[:ptn_check].present? ? true : false, id: "checkbox2", style: "display: none;")
+                  %span.custom.checkbox
+                  PT Negeri
+
+              .small-3.large-3.columns
+                %label{ class: "filter-label", for: "checkbox3" }
+                  = check_box_tag(:pts_check, @params_value[:pts_check], @params_value[:pts_check].present? ? true : false, :id => "checkbox3", :style => "display: none;")
+                  %span.custom.checkbox
+                  PT Swasta
+
+              .small-3.large-3.columns
+
+          .small-8.large-4.columns
+            = select_tag("urutan", options_for_select([['Ascending (A-Z)', 1], ['Descending (Z-A)', 2]], :selected => @params_value[:urutan]), :class => "medium filter right", :prompt => "Urutkan berdasarkan")
+            &nbsp;

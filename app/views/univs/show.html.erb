@@ -17,12 +17,12 @@
                         
           </div>
           <div class="share-page">
-            <span>Share this page: </span>
+            
             <!--Facebook share button -->
             <a class="facebook-share-page-button" href="#" 
               onclick="
                 window.open(
-                  'https://www.facebook.com/sharer/sharer.php?u=http://kampus.co.id/univs/institut-teknologi-bandung', 
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
                   'facebook-share-dialog', 
                   'width=626,height=436'); 
                 return false;">
@@ -30,13 +30,12 @@
             </a>
             <!--Twitter share button -->
             <div id="custom-tweet-button">
-              <a href="https://twitter.com/share?url=http://kampus.co.id/univs/institut-teknologi-bandung&via=kampuscoid" target="_blank">&nbsp;</a>
+              <a href="javascript:twitter_url();">&nbsp;</a>
             </div>
             <!--Linkedin share button -->
-            <a class="linkedin-share-page-button" href="http://www.linkedin.com/shareArticle?mini=true&url=http://kampus.co.id/univs/institut-teknologi-bandung&title=TheTitleOfYourWebPageGoesHere&summary=TheSummaryOfYourWebPageGoesHere&source=TheNameOfYourSiteGoesHere" rel="nofollow" onclick="NewWindow(this.href,'template_window','550','400','yes','center');return false" onfocus="this.blur()"> <img src="/assets/front/profile/icon-share-linkedin.png" title="Share on LinkedIn" alt="Share on LinkedIn" width="20" height="20" border="0" /> </a>
+            <a class="linkedin-share-page-button" href="javascript:linkedin_url();" rel="nofollow"> <img src="/assets/front/profile/icon-share-linkedin.png" title="Share on LinkedIn" alt="Share on LinkedIn" width="20" height="20" border="0" /> </a>
             <!--Google+ share button -->
-            <a href="https://plus.google.com/share?url={http://kampus.co.id/univs/institut-teknologi-bandung}" onclick="javascript:window.open(this.href,
-            '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+            <a href="javascript:gugelplus_url();"><img
             src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
           <% if @univrating.present? %>
@@ -204,3 +203,28 @@
   </div>
   <%= render :partial => "layouts/sidebar" %>
 </div>
+
+<script>
+  function twitter_url(){
+    var url;
+    url = "https://twitter.com/share?url="+encodeURIComponent(location.href)+"&via=kampuscoid";
+    window.open(url, 'width=626,height=436'); 
+    return false;
+  }
+
+  function gugelplus_url(){
+    var url = "https://plus.google.com/share?url={"+encodeURIComponent(location.href)+"}";
+    window.open(
+      url,
+      '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+    return false;
+  }
+
+  function linkedin_url(){
+    var url = "https://plus.google.com/share?url={"+encodeURIComponent(location.href)+"}";
+    var url = "http://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href)+"&title=<%= @univ.nama_pt.titleize %>&summary=<%= @univ.nama_pt.titleize %>&source=TheNameOfYourSiteGoesHere";
+
+    window.open(url,'template_window','550','400','yes','center');
+    return false;
+  }
+</script>
