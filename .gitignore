@@ -21,7 +21,7 @@
 /db/schema.rb
 
 # ignore gemfile.lock
-Gemfile.lock
+#Gemfile.lock
 
 # guardfile
 Guardfile

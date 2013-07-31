@@ -68,5 +68,6 @@ FactoryGirl.define do
 		sequence(:nama_bidang) { |n| "Bidang Prodi#{n}" }
 		level 5
 		deskripsi "Belajar IT"
+		lapangan_kerja "Dosen dan Programmer"
 	end
 end

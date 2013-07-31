@@ -17,6 +17,7 @@ describe "Prodi Bidang Page" do
         fill_in "nama_bidang", with: "Sistem Informasi"
         fill_in "level", with: 5
         fill_in "deskripsi", with: "Belajar IT"
+        fill_in "lapangan_kerja", with: "Dosen dan pogrammer"
       end
 
       it "should add new record" do
@@ -35,7 +36,9 @@ describe "Prodi Bidang Page" do
         fill_in "nama_bidang", with: "Sistem Informasi"
         fill_in "level", with: 5
         fill_in "deskripsi", with: "Belajar IT"
+        fill_in "deskripsi", with: "Dosen dan Pengajar"
       end
+      
       it "should not create a record - just updated" do
         expect { click_button "Save" }.not_to change(ProdiBidang, :count)
       end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731005003) do
+ActiveRecord::Schema.define(:version => 20130731082102) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -78,8 +78,9 @@ ActiveRecord::Schema.define(:version => 20130731005003) do
     t.string   "nama_bidang"
     t.integer  "level"
     t.text     "deskripsi"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.text     "lapangan_kerja"
   end
 
   create_table "prodi_fasilitas_galleries", :force => true do |t|
