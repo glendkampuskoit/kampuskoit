@@ -1,7 +1,7 @@
 <% provide(:title, "Ranking Perguruan Tinggi") %>
 <div class="row-fluid">
     <div class="span12">
-    <%= form_tag(ranking_list_path, :method => "get", :class => 'form-inline pull-right') do %>
+    <%= form_tag(ranking_list_path, :method => "get", :class => 'form-inline') do %>
         <%= text_field_tag(:keyword, "", :class => 'input-xlarge', :placeholder => 'Pencarian..') %>
     <% end %>
     </div>
@@ -20,6 +20,7 @@
                 <table class="table table-hover responsive">
                     <thead>
                         <tr>
+                            <th>Ranking</th>
                             <th>Kode PT</th>
                             <th>Nama Perguruan Tinggi</th>
                             <th>Government</th>
@@ -29,14 +30,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% no = @univrankings.offset %>
                         <% @univrankings.each do |ranking| %>
                         <tr>
-                          <td><%= ranking.univ_id %></td>
-                          <td><%= ranking.univ.nama_pt %></td>
-                          <td><%= ranking.government %></td>
-                          <td><%= ranking.college %></td>
-                          <td><%= ranking.society %></td>
-                          <td><%= ranking.score %></td>
+                            <td>#<%= no += 1 %></td>
+                            <td><%= ranking.univ_id %></td>
+                            <td><%= ranking.univ.nama_pt %></td>
+                            <td><%= ranking.government %></td>
+                            <td><%= ranking.college %></td>
+                            <td><%= ranking.society %></td>
+                            <td><%= ranking.score %></td>
                         </tr>
                         <% end %>
                     </tbody>
