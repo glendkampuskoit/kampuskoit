@@ -3,8 +3,8 @@ class ProvinsisController < ApplicationController
 	layout "admin"
 	
 	def index
-		#@provinsis = Provinsi.all
-		@provinsis = Provinsi.paginate(:page => params[:page], :per_page => 30)
+		@provinsis = Provinsi.all
+		#@provinsis = Provinsi.paginate(:page => params[:page], :per_page => 30)
 	end
 
 	def new
