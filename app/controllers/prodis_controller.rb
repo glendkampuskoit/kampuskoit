@@ -89,7 +89,7 @@ class ProdisController < ApplicationController
     else
       @prodis = Prodi.paginate(:page => params[:page], :per_page => 10)
     end
-    #render :layout => "admin"
+    render :layout => "admin"
   end
 
   def destroy

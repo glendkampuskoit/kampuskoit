@@ -63,4 +63,10 @@ FactoryGirl.define do
 		password  "password"
 		password_confirmation	"password"
 	end
+
+	factory :prodi_bidang do
+		sequence(:nama_bidang) { |n| "Bidang Prodi#{n}" }
+		level 5
+		deskripsi "Belajar IT"
+	end
 end
