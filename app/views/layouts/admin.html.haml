@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "utf-8" }
+      %title= "Kampus.co.id - #{ yield(:title) }"
+      %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport"}
+        %meta{ content: "", name: "description"}
+          %meta{ content: "stilearning", name: "author"}
+
+            %link{ href: "http://fonts.googleapis.com/css?family=Aclonica:regular", rel: "stylesheet", type: "text/css"}
+            - if params[:controller] == "dashboard"
+              = stylesheet_link_tag "list", :media => "all"
+              = javascript_include_tag "dashboard"
+            - elsif params[:action] == "index" || params[:action] == "list"
+              = stylesheet_link_tag "list", :media => "all"
+              = javascript_include_tag "list"
+            - elsif params[:action] == "new" || params[:action] == "edit" || params[:action] == "update" || params[:action] == "create"
+              = stylesheet_link_tag "form", :media => "all"
+              = javascript_include_tag "form"
+            /[if lt IE 9]
+              %script{ src: "js/html5shiv.js" }
+  %body
+    = render partial: "layouts/admin_header"
+
+    %section.section
+      .row-fluid
+        .span1
+          %aside.side-left
+            %ul.sidebar
+              %li.active.first
+                = link_to dashboard_path, title: "dashboard" do
+                  .helper-font-24
+                    %i.icofont-dashboard
+                  %span.sidebar-text Dashboard
+                %li
+                  = link_to admins_path do
+                    .helper-font-24
+                      %i.icofont-user
+                    %span.sidebar-text Admin
+                %li
+                  = link_to visitors_list_path do
+                    .helper-font-24
+                      %i.icofont-user-md
+                    %span.sidebar-text Visitor
+                %li
+                  = link_to subscribers_list_path do
+                    .helper-font-24
+                      %i.icofont-user
+                    %span.sidebar-text Subscriber
+                %li
+                  %a{ href: "#" }
+                    .helper-font-24
+                      %i.icofont-folder-open
+                    %span.sidebar-text Master
+                  %ul.sub-sidebar.corner-top.shadow-silver-dark
+                    %li
+                      = link_to provinsis_path, title: "provinsi" do
+                        .helper-font-24
+                          %i.icofont-th-large
+                        %span.sidebar-text Provinsi
+                    %li
+                      = link_to kotas_path, title: "login" do
+                        .helper-font-24
+                          %i.icofont-th
+                        %span.sidebar-text Kota
+                    %li
+                      = link_to jenis_pts_path, title: "jenis perguruan tinggi" do
+                        .helper-font-24
+                          %i.icofont-tags
+                        %span.sidebar-text Jenis PT
+                    %li
+                      = link_to jenjang_prodis_path, title: "jenjang program studi" do
+                        .helper-font-24
+                          %i.icofont-tag
+                        %span.sidebar-text Jenjang
+                    %li
+                      = link_to prodi_bidangs_path, title: "bidang program studi" do
+                        .helper-font-24
+                          %i.icofont-columns
+                        %span.sidebar-text Bidang
+                %li
+                  %a{ href: "#" }
+                    .helper-font-24
+                      %i.icofont-hdd
+                    %span.sidebar-text Data
+                  %ul.sub-sidebar.corner-top.shadow-silver-dark
+                    %li
+                      = link_to univs_list_path, title: "perguruan tinggi" do
+                        .helper-font-24
+                          %i.icofont-building
+                        %span.sidebar-text PT
+                    %li
+                      = link_to prodis_list_path, title: "prodi" do
+                        .helper-font-24
+                          %i.icofont-hospital
+                        %span.sidebar-text Prodi
+                %li
+                  = link_to ranking_list_path, title: "ranking pt" do
+                    .helper-font-24
+                      %i.icofont-star
+                    %span.sidebar-text Ranking
+                %li
+                  = link_to admin_logout_path, title: "logout" do
+                    .helper-font-24
+                      %i.icofont-off
+                    %span.sidebar-text Logout
+
+        .span9
+          .content
+            .content-header
+              %ul.content-header-action.pull-right
+                %li
+                  = link_to univs_list_path do
+                    %span{ data: { chart: "peity-bar", colours: "[\"#00A600\", \"#00A600\"]", height: "32" }} 5,3,9,6,5,9,7,3,5,2
+                    .action-text.color-green
+                      8765
+                      %span.helper-font-small.color-silver-dark Perguruan Tinggi
+                %li.divider
+                %li
+                  = link_to prodis_list_path do
+                    %span{ data: { chart: "peity-bar", colours: "[\"#00A0B1\", \"#00A0B1\"]", height: "32" }} 9,7,9,6,3,5,3,5,5,2
+                    .action-text.color-teal
+                      1437
+                      %span.helper-font-small.color-silver-dark Program Studi
+              %h2
+                %i.icofont-home
+
+            .content-breadcrumb
+              %ul.breadcrumb
+                %li
+                  = link_to dashboard_path do
+                    %i.icofont-home 
+                    Dashboard
+                  %span.divider &rsaquo;
+                %li.active Data elements
+            
+            .content-body= yield
+
+    %footer
+      %a{ href: "#top", rel: "to-top"}
+        %i.icofont-circle-arrow-up

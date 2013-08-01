@@ -1,0 +1,52 @@
+- provide(:title, "Ranking Perguruan Tinggi")
+.row-fluid
+  .span12
+    = form_tag(ranking_list_path, :method => "get", :class => 'form-inline') do
+      = text_field_tag(:keyword, "", :class => 'input-xlarge', :placeholder => 'Pencarian..')
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Ranking Perguruan Tinggi
+      .box-body
+        %table.table.table-hover.responsive
+          %thead
+            %tr
+              %th Ranking
+              %th Kode PT
+              %th Nama Perguruan Tinggi
+              %th Government
+              %th College
+              %th Society
+              %th Total
+          %tbody
+            - no = @univrankings.offset
+            - @univrankings.each do |ranking|
+              %tr
+                %td
+                  \##{no += 1}
+                %td= ranking.univ_id
+                %td= ranking.univ.nama_pt
+                %td= ranking.government
+                %td= ranking.college
+                %td= ranking.society
+                %td= ranking.score
+        = will_paginate @univrankings, :renderer => BootstrapPagination::Rails
+      / /box-body
+    / /box
+  / /span
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+
+      $('.delete').on('click', function () {
+          return confirm('Anda yakin akan menghapus data ini?');
+      });
+  });

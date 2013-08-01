@@ -1,0 +1,240 @@
+- if params[:action] == "new" || params[:action] == "create"
+  - url = "/admin/univs"
+- elsif params[:action] == "edit" || params[:action] == "update"
+  - url = "/admin/univs/#{@univ.id}"
+  
+- if flash[:notice]
+  .alert.alert-success
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    %strong Berhasil!
+    = flash[:notice]
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span= yield(:title)
+      .box-body
+        = form_for @univ, :url => url, :html => {:class => "form-horizontal", :multipart => true, :id => "form-validate", :novalidate => "novalidate" } do |f|
+          - if @univ.errors.any?
+            .alert.alert-error
+              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+              %div
+                - @univ.errors.full_messages.each do |msg|
+                  = msg
+                  %br
+          .control-group
+            %label.control-label{:for => "required"} Nama Perguruan Tinggi
+            .controls
+              = f.text_field :nama_pt, :id => "nama_pt", :class => "grd-white input-xxlarge", :placeholder => "ex. Universitas XYZ", :data => {:validate => "{required: true, messages: {required: 'Nama Perguruan Tinggi harus diisi'}}"}
+          .control-group
+            %label.control-label{:for => "required"} Tahun Berdiri
+            .controls
+              = f.text_field :tahun_berdiri, :id => "tahun_berdiri", :class => "grd-white", :placeholder => "ex. 1888", :data => {:validate => "{required: true, maxlength: 4, minlength:4, number:true, messages: {required: 'Tahun Berdiri harus diisi', maxlength: 'Tahun berdiri terdiri dari 4 karakter numeric', minlength: 'Tahun berdiri terdiri dari 4 karakter numerik', number: 'Tahun berdiri terdiri dari 4 karakter numerik'}}"}
+          .control-group
+            %label.control-label{:for => "inputSelect"} Status
+            .controls
+              = select_tag("univ[status_negeri]", options_for_select([["Perguruan Tinggi Swasta", "swasta"], ["Perguruan Tinggi Negeri", "negeri"]], @univ.status_negeri? ? @univ.status_negeri : "Perguruan Tinggi Swasta"), {:style => "width:200px", :id => "status_pt", :data => {:form => "status"}})
+          .control-group
+            %label.control-label{:for => "inputSelect"} Jenis Perguruan Tinggi
+            .controls
+              = collection_select(:univ, :jenis_pt_id, JenisPt.order("jenis ASC"), :id, :jenis, {}, {:style => "width:200px", :id => "jenis_pt", :data => {:form => "jenis_pt", :placeholder => "Pilih Jenis Perguruan Tinggi"}})
+          .control-group
+            %label.control-label{:for => "required"} Email
+            .controls
+              = f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => "{required: true, email:true, messages: {required: 'Email harus diisi', email: 'Format email tidak valid'}}"}
+          .control-group
+            %label.control-label{:for => "required"} Website
+            .controls
+              = f.text_field :website, :id => "website", :class => "grd-white", :placeholder => "ex. http://xyz.com", :data => {:validate => "{required: true, messages: {required: 'Website harus diisi'}}"}
+          .control-group
+            %label.control-label{:for => "required"} Alamat
+            .controls
+              = f.text_area :alamat, :id => "alamat", :rows => "3", :placeholder => "Isikan alamat"
+          .control-group
+            %label.control-label{:for => "inputSelect"} Kota
+            .controls
+              = collection_select(:univ, :kota_id, Kota.order("kota ASC"), :id, :kota, {}, {:style => "width:200px", :id => "kota", :data => {:form => "kota", :placeholder => "Pilih Kota"}})
+          .control-group
+            %label.control-label{:for => "required"} Telepon
+            .controls
+              = f.text_field :telepon, :id => "telepon", :class => "grd-white", :placeholder => "Isikan nomor telepon", :data => {:validate => "{required: true, messages: {required: 'Telepon harus diisi'}}"}
+          .control-group
+            %label.control-label{:for => "inputUpload"} Upload Logo Perguruan Tinggi
+            .controls
+              = f.file_field :logo, :data => {:form => "uniform"}
+            - if @univ.logo_url.present?
+              .controls
+                = image_tag @univ.logo_url(:thumb)
+          .control-group
+            %label.control-label{:for => "inputUpload"} Upload Featured Image
+            .controls
+              = f.file_field :featured_image, :data => {:form => "uniform"}
+            - if @univ.featured_image_url.present?
+              .controls
+                = image_tag @univ.featured_image_url(:thumb)
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Deskripsi
+            .controls
+              = f.text_area :deskripsi, :id => "deskripsi", :class => "span10", :rows => "8", :placeholder => "Isikan deskripsi ..."
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Profil
+            .controls
+              = f.text_area :profile, :id => "profil", :class => "span10", :rows => "8", :data => {:form => "profil"}, :placeholder => "Isikan profil ..."
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Visi dan Misi
+            .controls
+              = f.text_area :visi, :id => "visi", :class => "span10", :rows => "8", :data => {:form => "visi"}, :placeholder => "Isikan visi dan misi ..."
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Seleksi Masuk
+            .controls
+              = f.text_area :seleksi_masuk, :id => "seleksi_masuk", :class => "span10", :rows => "8", :data => {:form => "seleksi"}, :placeholder => "Isikan deskripsi seleksi masuk ..."
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Kapasitas Akademik
+            .controls
+              = f.text_area :kapasitas_akademik, :id => "kapasitas_akademik", :class => "span10", :rows => "8", :data => {:form => "kapasitas"}, :placeholder => "Isikan kapasitas akademik ..."
+          .control-group
+            %label.control-label{:for => "required"} Facebook
+            .controls
+              http://facebook.com/ #{f.text_field :facebook, :id => "facebook", :class => "grd-white"}
+          .control-group
+            %label.control-label{:for => "required"} Twitter
+            .controls
+              http://twitter.com/#{f.text_field :twitter, :id => "twitter", :class => "grd-white"}
+          .control-group
+            %label.control-label{:for => "required"} Youtube
+            .controls
+              http://youtube.com/user/#{f.text_field :youtube, :id => "youtube", :class => "grd-white"}
+          .form-actions
+            %button.btn.btn-primary{:type => "submit"} Save
+            %button.btn{:type => "button"} Cancel
+      / /box-body
+    / /box
+  / /span
+- if params[:action] == "edit" || params[:action] == "update"
+  .row-fluid
+    .span12
+      .box.corner-all
+        .box-header.grd-white.corner-top
+          .header-control
+            %a{"data-box" => "collapse"}
+              %i.icofont-caret-up
+            %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+          %span Update Perguruan Tinggi Galeri
+        .box-body
+          = form_for @univgallery, :html => {:id => "form-gallery", :novalidate => "novalidate", :class => "form-horizontal"} do |f|
+            - if @univgallery.errors.any?
+              .alert.alert-error
+                %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+                %div
+                  - @univgallery.errors.full_messages.each do |msg|
+                    = msg
+                    %br
+            .control-group
+              %label.control-label{:for => "inputUpload"} Tambah Gallery
+              .controls
+                = f.file_field :image, :id => "inputUpload", :data => {:form => "uniform"}
+            .control-group
+              %label.control-label{:for => "required"} Caption
+              .controls
+                = f.text_field :caption, :class => "grd-white", :data => {:validate => "{required: true, messages: {required: 'Caption harus diisi'}}"}
+            .control-group
+              %label.control-label{:for => "required"} Deskripsi
+              .controls
+                = f.text_area :description, :rows => "3", :placeholder => "Isikan deskripsi", :data => {:validate => "{required: true, messages: {required: 'Deskripsi harus diisi'}}"}
+            .control-group
+              - if @univgalleries.present?
+                .controls
+                  .gallery-content
+                    %ul#portfolio-list.thumbnails
+                      - @univgalleries.each do |gallery|
+                        %li.design
+                          / use checkbox for helper event
+                          %input.selecter{:name => "item[]", :type => "checkbox", :value => "1.jpg"}/
+                          .thumbnail
+                            = image_tag(gallery.image_url(:thumb), :alt => gallery.description, :onerror => "this.src='/assets/default.jpg';", :width => "120", :height => "120")
+                            .thumbnail-control
+                              .controls
+                                %a{:href => gallery.image_url, :rel => "prettyPhoto[gallery]", :title => gallery.description}
+                                  %i.icofont-search
+                                = link_to univgallery_path(gallery), method: :delete, :class => "delete" do
+                                  %i.icofont-trash
+                                %p.description= gallery.caption
+            .form-actions
+              = f.hidden_field :univ_id, :value => @univ.id
+              %button.btn.btn-primary{:type => "submit"} Save
+              %button.btn{:type => "reset"} Reset
+        / /box-body
+      / /box
+    / /span
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+      
+
+      $('.delete').on('click', function () {
+          return confirm('Anda yakin akan menghapus data ini?');
+      });
+
+      // uniform
+      $('[data-form=uniform]').uniform()
+
+      // select2
+      $('[data-form=status]').select2();
+      $('[data-form=jenis_pt]').select2();
+      $('[data-form=kota]').select2();
+
+      // wysihtml5
+      $('[data-form=profil]').wysihtml5();
+      $('[data-form=visi]').wysihtml5();
+      $('[data-form=seleksi]').wysihtml5();
+      $('[data-form=kapasitas]').wysihtml5();
+
+      // gallery setup
+      $('.gallery-selector').change(function(){
+        checked = $(this).attr('checked');
+        checked = (checked == undefined) ? false : true ;
+        
+        $('input.selecter, .gallery-selector').attr('checked', checked);
+        $.uniform.update('.gallery-selector');
+        
+        // toggle class for thumbnail
+        thumbnail = $('input.selecter').attr('checked', checked).next();
+        if(checked == true){
+          thumbnail.addClass('active');
+        }
+        else{
+          thumbnail.removeClass('active')
+        }
+      });
+      
+      $('.thumbnail-control .controls').click(function(e){
+          selecter = $(this).parent().parent().prev();
+          checked  = selecter.attr('checked');
+          if(checked == undefined){
+              checked = true;
+          }
+          else{
+              checked = false;
+              $('.gallery-selector').attr('checked', checked);
+              $.uniform.update('.gallery-selector');
+          }
+          
+          $(selecter).attr('checked', checked);
+          thumbnail = $(selecter).next();
+          if(e.target.nodeName == 'DIV'){
+              thumbnail.toggleClass('active');
+          }
+      });
+                      
+      // prettyPhoto
+      $("a[rel^='prettyPhoto']").prettyPhoto();
+      $('#form-validate').validate();
+      $('#form-gallery').validate();
+  });

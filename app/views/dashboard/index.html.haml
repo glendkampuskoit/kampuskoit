@@ -1,0 +1,172 @@
+- provide(:title, "Dashboard")
+/ dashboar
+/ shortcut button
+.shortcut-group
+  %ul.a-btn-group
+    %li
+      = link_to univs_list_path, :class => "a-btn", :rel => "tooltip", :title => "Lihat List Perguruan Tinggi" do
+        .grd-white
+          %span
+          %span
+            %i.icofont-building.color-silver-dark
+          %span
+            %i.icofont-list-alt.color-silver-dark
+    %li
+      = link_to prodis_list_path, :class => "a-btn", :rel => "tooltip", :title => "Lihat List Program Studi" do
+        .grd-white
+          %span
+          %span
+            %i.icofont-hospital.color-silver-dark
+          %span
+            %i.icofont-list-alt.color-silver-dark
+    %li
+      %a.a-btn{:href => "#", :rel => "tooltip", :title => "List Subscriber"}
+        .grd-white
+          %span
+          %span
+            %i.icofont-envelope.color-silver-dark
+          %span
+            %i.icofont-envelope-alt.color-teal
+        .badge.badge-info 9
+        / don't use span here!
+    %li.clearfix
+/ /shortcut button
+.divider-content
+  %span
+/ tab stat
+.box-tab.corner-all
+  .box-header.corner-top
+    .header-control.pull-right
+      %a{"data-box" => "collapse"}
+        %i.icofont-caret-up
+    %ul#tab-stat.nav.nav-tabs
+      %li.active
+        %a{"data-toggle" => "tab", :href => "#system-stat"} Statistics
+  .box-body
+    .tab-content
+      #system-stat.tab-pane.fade.in.active
+        .row-fluid
+          .span4
+            .dashboard-stat
+              #visitor-stat.chart{:style => "height: 120px;"}
+              .stat-label.grd-green.color-white Visitor
+          .span4
+            .dashboard-stat
+              #order-stat.chart{:style => "height: 120px;"}
+              .stat-label.grd-teal.color-white Subscriber
+/ /tab stat
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // normalize event tab-stat, we hack something here couse the flot re-draw event is any some bugs for this case
+      $('#tab-stat > a[data-toggle="tab"]').on('shown', function(){
+          if(sessionStorage.mode == 4){ // this hack only for mode side-only
+              $('body,html').animate({
+                  scrollTop: 0
+              }, 'slow');
+          }
+      });
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+                      
+      // Server stat circular by knob
+      $("input[data-chart=knob]").knob();
+      
+      // system stat flot
+      d1 = [ ['jan', 231], ['feb', 243], ['mar', 323], ['apr', 352], ['maj', 354], ['jun', 467], ['jul', 429] ];
+      d2 = [ ['jan', 87], ['feb', 67], ['mar', 96], ['apr', 105], ['maj', 98], ['jun', 53], ['jul', 87] ];
+      d3 = [ ['jan', 34], ['feb', 27], ['mar', 46], ['apr', 65], ['maj', 47], ['jun', 79], ['jul', 95] ];
+      
+      var visitor = $("#visitor-stat"),
+      order = $("#order-stat"),
+      user = $("#user-stat"),
+      
+      data_visitor = [{
+              data: d1,
+              color: '#00A600'
+          }],
+      data_order = [{
+              data: d2,
+              color: '#2E8DEF'
+          }],
+      data_user = [{
+              data: d3,
+              color: '#DC572E'
+          }],
+       
+      
+      options_lines = {
+          series: {
+              lines: {
+                  show: true,
+                  fill: true
+              },
+              points: {
+                  show: true
+              },
+              hoverable: true
+          },
+          grid: {
+              backgroundColor: '#FFFFFF',
+              borderWidth: 1,
+              borderColor: '#CDCDCD',
+              hoverable: true
+          },
+          legend: {
+              show: false
+          },
+          xaxis: {
+              mode: "categories",
+              tickLength: 0
+          },
+          yaxis: {
+              autoscaleMargin: 2
+          }
+
+      };
+      
+      // render stat flot
+      $.plot(visitor, data_visitor, options_lines);
+      $.plot(order, data_order, options_lines);
+      $.plot(user, data_user, options_lines);
+      
+      // tootips chart
+      function showTooltip(x, y, contents) {
+          $('' + contents + '').css( {
+              position: 'absolute',
+              display: 'none',
+              top: y + 5,
+              left: x + 5,
+              border: '0px',
+              padding: '2px 10px 2px 10px',
+              opacity: 0.9,
+              'font-size' : '11px'
+          }).appendTo("body").fadeIn(200);
+      }
+
+      var previousPoint = null;
+      $('#visitor-stat, #order-stat, #user-stat').bind("plothover", function (event, pos, item) {
+          
+          if (item) {
+              if (previousPoint != item.dataIndex) {
+                  previousPoint = item.dataIndex;
+
+                  $("#tooltip").remove();
+                  var x = item.datapoint[0].toFixed(2),
+                  y = item.datapoint[1].toFixed(2);
+                  label = item.series.xaxis.ticks[item.datapoint[0]].label;
+                  
+                  showTooltip(item.pageX, item.pageY,
+                  label + " = " + y);
+              }
+          }
+          else {
+              $("#tooltip").remove();
+              previousPoint = null;            
+          }
+          
+      });
+      // end tootips chart
+  });

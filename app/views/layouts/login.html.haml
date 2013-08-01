@@ -1,0 +1,71 @@
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "utf-8" }
+    %title Login In - Kampus.co.id Admin Panel
+    %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport" }
+    %meta{ content: "the trusted indonesian campus review", name: "description"}
+    %meta{ content: "kampuscoid", name: "author"}
+    %link{ href: "http://fonts.googleapis.com/css?family=Aclonica:regular", rel: "stylesheet", type: "text/css"}
+    %link{ href: "/assets/admin/bootstrap.css", rel: "stylesheet"}
+    %link{ href: "/assets/admin/bootstrap-responsive.css", rel: "stylesheet" }
+    %link#style-base{ href: "/assets/admin/stilearn.css", rel: "stylesheet" }
+    %link#style-responsive{ href: "/assets/admin/stilearn-responsive.css", rel: "stylesheet" }
+    %link#style-helper{ href: "/assets/admin/stilearn-helper.css", rel: "stylesheet" }
+    %link{ href: "/assets/admin/stilearn-icon.css", rel: "stylesheet" }
+    %link{ href: "/assets/admin/font-awesome.css", rel: "stylesheet" }
+    %link{ href: "/assets/admin/animate.css", rel: "stylesheet" }
+    %link{ href: "/assets/admin/uniform.default.css", rel: "stylesheet" }
+
+    / Le HTML5 shim, for IE6-8 support of HTML5 elements
+    /[if lt IE 9]
+      %script{ src: "http://html5shim.googlecode.com/svn/trunk/html5.js" }
+    = csrf_meta_tags
+
+  %body
+    %header.header{"data-offset-top" => "0", "data-spy" => "affix"}
+      .navbar-helper
+        .row-fluid
+          .span2
+            .panel-sitename
+              %h2
+                %a{ href: "#" }
+                  %span.color-teal> Kampus
+                  \.co.id
+
+    %section.section
+      .container= yield
+
+      #modal-recover.modal.hide.fade{ "aria-hidden" => "true", "aria-labelledby" => "modal-recoverLabel", role: "dialog", tabindex: "-1"}
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} &times;
+          %h3#modal-recoverLabel
+            Reset password
+            %small Username Or Email Address
+        .modal-body
+          %form#form-recover{ method: "post" }
+            .control-group
+              .controls
+                %input{"data-validate" => "{required: true, email:true, messages:{required:'Please enter field email', email:'Please enter a valid email address'}}", name: "recover", type: "text"}/
+                %p.help-block.helper-font-small Enter your username or email address and we will send you a link to reset your password.
+        .modal-footer
+          %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+          %input.btn.btn-primary{ form: "form-recover", type: "submit", value: "Send reset link"}
+
+    %script{ src: "http://platform.twitter.com/widgets.js", type: "text/javascript" }
+    %script{ src: "/assets/jquery.js" }
+    %script{ src: "/assets/admin/bootstrap.js" }
+    %script{ src: "/assets/admin/uniform/jquery.uniform.js" }
+    %script{ src: "/assets/admin/validate/jquery.metadata.js" }
+    %script{ src: "/assets/admin/validate/jquery.validate.js" }
+    %script{ type: "text/javascripts" }
+      $(document).ready(function() {
+      \// try your js
+      
+      \// uniform
+      $('[data-form=uniform]').uniform();
+      
+      \// validate
+      $('#sign-in').validate();
+      $('#sign-up').validate();
+      $('#form-recover').validate();
+      })

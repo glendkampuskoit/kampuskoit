@@ -1,0 +1,49 @@
+- provide(:title, "Data Program Studi")
+.row-fluid
+  .span12
+    = link_to "Tambah Program Studi", new_univ_prodi_path(0), :role => "button", :class => "btn btn-mini btn-primary"
+    = form_tag(prodis_list_path, :method => "get", :class => 'form-inline pull-right') do
+      = text_field_tag(:keyword, "", :class => 'input-xlarge', :placeholder => 'Pencarian..')
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Program Studi
+      .box-body
+        %table.table.table-hover.responsive
+          %thead
+            %tr
+              %th Kode
+              %th Nama Prodi
+              %th Perguruan Tinggi
+              %th Provinsi
+              %th &nbsp;
+          %tbody
+            - @prodis.each do |prodi|
+              %tr
+                %td= prodi.id
+                %td= prodi.nama_prodi
+                %td= prodi.univ.nama_pt
+                %td= prodi.kota.present? ? prodi.kota.provinsi.provinsi : "-Unknown Provinsi-"
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit",edit_univ_prodi_path(prodi.univ, prodi)
+                  %span.label.label-important
+                    = link_to "Delete", "/admin/univs/#{prodi.univ.id}/prodis/#{prodi.id}", method: :delete, :class => "delete"
+        = will_paginate @prodis, :renderer => BootstrapPagination::Rails
+
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+
+      $('.delete').on('click', function () {
+          return confirm('Anda yakin akan menghapus data ini?');
+      });
+  });

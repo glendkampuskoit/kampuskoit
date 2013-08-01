@@ -1,0 +1,35 @@
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span= yield(:title)
+      .box-body
+        = form_for @jenis_pt, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
+          - if @jenis_pt.errors.any?
+            .alert.alert-error
+              %button.close{"data-dismiss" => "alert", type: "button"} &times;
+              %div
+                - @jenis_pt.errors.full_messages.each do |msg|
+                  = msg
+                  %br
+          .control-group
+            %label.control-label{for: "required"} Jenis
+            .controls
+              = f.text_field :jenis, id: "jenis_pt", class: "grd-white", placeholder: "ex. JenisXYZ", data: { validate: "{required: true, messages:{required:'Jenis Perguruan Tinggi harus diisi'}}"}
+          .form-actions
+            %button.btn.btn-primary{ type: "submit" } Save
+            %button.btn{ onclick: "history.go(-1);", type: "button"} Cancel
+            s
+:javascript
+  $(document).ready(function() {
+
+      $("span[data-chart=peity-bar]").peity("bar");
+      
+      $('[data-form=uniform]').uniform();
+
+      $('#form-validate').validate();
+  });
