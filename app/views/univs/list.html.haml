@@ -1,0 +1,49 @@
+- provide(:title, "Data Perguruan Tinggi")
+.row-fluid
+  .span12
+    = link_to "Tambah Perguruan Tinggi", new_univ_path, :role => "button", :class => "btn btn-mini btn-primary"
+    = form_tag(univs_list_path, :method => "get", :class => 'form-inline pull-right') do
+      = text_field_tag(:keyword, "", :class => 'input-xlarge', :placeholder => 'Pencarian..')
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Perguruan Tinggi
+      .box-body
+        %table.table.table-hover.responsive
+          %thead
+            %tr
+              %th Kode
+              %th Perguruan Tinggi
+              %th Provinsi
+              %th &nbsp;
+          %tbody
+            - @univs.each do |univ|
+              %tr
+                %td= univ.id
+                %td= univ.nama_pt
+                %td= univ.kota.present? ? univ.kota.provinsi.provinsi : " - "
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit",edit_univ_path(univ)
+                  %span.label.label-important
+                    = link_to "Delete",univ_path(univ), method: :delete, :class =>"delete"
+        = will_paginate @univs, :renderer => BootstrapPagination::Rails
+      / /box-body
+    / /box
+  / /span
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+      
+      $('.delete').on('click', function () {
+          return confirm('Anda yakin akan menghapus data ini?');
+      });
+  });

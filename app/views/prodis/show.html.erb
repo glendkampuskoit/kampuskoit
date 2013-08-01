@@ -4,7 +4,7 @@
     <div class="row highlight">
       <div class="large-12 columns">
         <div class="left-highlight">
-          <%= image_tag @prodi.logo_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/logo.jpg';"%>
+          <%= image_tag @prodi.logo_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/logo.jpg';"%>
         </div>
         <div class="right-highlight">
           <h4 class="post-header">
@@ -17,12 +17,11 @@
             Last Updated - <span><%= @prodi.updated_at.to_formatted_s(:long_ordinal) %></span>
           </p>
           <div class="share-page">
-            <span>Share this page: </span>
             <!--Facebook share button -->
             <a class="facebook-share-page-button" href="#" 
               onclick="
                 window.open(
-                  'https://www.facebook.com/sharer/sharer.php?u=http://kampus.co.id/univs/institut-teknologi-bandung', 
+                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
                   'facebook-share-dialog', 
                   'width=626,height=436'); 
                 return false;">
@@ -30,13 +29,12 @@
             </a>
             <!--Twitter share button -->
             <div id="custom-tweet-button">
-              <a href="https://twitter.com/share?url=http://kampus.co.id/univs/institut-teknologi-bandung&via=kampuscoid" target="_blank">&nbsp;</a>
+              <a href="javascript:twitter_url();">&nbsp;</a>
             </div>
             <!--Linkedin share button -->
-            <a class="linkedin-share-page-button" href="http://www.linkedin.com/shareArticle?mini=true&url=http://kampus.co.id/univs/institut-teknologi-bandung&title=TheTitleOfYourWebPageGoesHere&summary=TheSummaryOfYourWebPageGoesHere&source=TheNameOfYourSiteGoesHere" rel="nofollow" onclick="NewWindow(this.href,'template_window','550','400','yes','center');return false" onfocus="this.blur()"> <img src="/assets/front/profile/icon-share-linkedin.png" title="Share on LinkedIn" alt="Share on LinkedIn" width="20" height="20" border="0" /> </a>
+            <a class="linkedin-share-page-button" href="javascript:linkedin_url();" rel="nofollow"> <img src="/assets/front/profile/icon-share-linkedin.png" title="Share on LinkedIn" alt="Share on LinkedIn" width="20" height="20" border="0" /> </a>
             <!--Google+ share button -->
-            <a href="https://plus.google.com/share?url={http://kampus.co.id/univs/institut-teknologi-bandung}" onclick="javascript:window.open(this.href,
-            '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+            <a href="javascript:gugelplus_url();"><img
             src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
           <div class="note"><span>Terakreditasi A</span></div>
@@ -59,7 +57,7 @@
                  <ul>
                   <% foreach @prodigalleries do |gallery| %>
                    <li>
-                     <%= link_to image_tag(gallery.image_url(:thumb), :alt => "Gambar belum tersedia", :data => {:large => gallery.image_url(:slide), :description => gallery.caption }), "#" %>
+                     <%= link_to image_tag(gallery.image_url(:thumb), alt: "Gambar belum tersedia", data: {large: gallery.image_url(:slide), description: gallery.caption }), "#" %>
                    </li>
                    <% end %>
                  </ul>
@@ -137,7 +135,7 @@
                               <label class="left inline">Website</label>
                             </div>
                             <div class="small-9 columns">
-                              <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= link_to @prodi.website, @prodi.website.present? ? @prodi.website : "-", :target => "_blank" %></label>
+                              <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= link_to @prodi.website, @prodi.website.present? ? @prodi.website : "-", target: "_blank" %></label>
                             </div>
                           </div>
                         </div>
@@ -160,7 +158,7 @@
               </div>
               <div class="row description">
                 <div class="large-12 columns">
-                  <%= image_tag @prodi.logo_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';"%>
+                  <%= image_tag @prodi.logo_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/default.jpg';"%>
                   <h5 class="description-title">Deskripsi</h5>
                   <p class="description-text"><%= @prodi.profile.present? ? @prodi.profile : "- belum ada deskripsi -" %></p>
                   <p>
@@ -200,5 +198,30 @@
       </div>            
     </div>
   </div>
-  <%= render :partial => "layouts/sidebar" %>
+  <%= render partial: "layouts/sidebar" %>
 </div>
+
+<script>
+  function twitter_url(){
+    var url;
+    url = "https://twitter.com/share?url="+encodeURIComponent(location.href)+"&via=kampuscoid";
+    window.open(url, 'width=626,height=436'); 
+    return false;
+  }
+
+  function gugelplus_url(){
+    var url = "https://plus.google.com/share?url={"+encodeURIComponent(location.href)+"}";
+    window.open(
+      url,
+      '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+    return false;
+  }
+
+  function linkedin_url(){
+    var url = "https://plus.google.com/share?url={"+encodeURIComponent(location.href)+"}";
+    var url = "http://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href)+"&title=<%= @prodi.nama_prodi.titleize %>&summary=<%= @prodi.nama_prodi.titleize %>&source=TheNameOfYourSiteGoesHere";
+
+    window.open(url,'template_window','550','400','yes','center');
+    return false;
+  }
+</script>

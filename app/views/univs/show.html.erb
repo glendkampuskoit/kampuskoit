@@ -4,7 +4,7 @@
     <div class="row highlight">
       <div class="large-12 columns">
         <div class="left-highlight">
-          <%= image_tag @univ.logo_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/logo.jpg';" %>
+          <%= image_tag @univ.logo_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/logo.jpg';" %>
         </div>
         <div class="right-highlight">
           <h3 class="post-header">
@@ -16,8 +16,7 @@
           <div class="rating">
                         
           </div>
-          <div class="share-page">
-            
+          <div class="share-page">            
             <!--Facebook share button -->
             <a class="facebook-share-page-button" href="#" 
               onclick="
@@ -38,8 +37,8 @@
             <a href="javascript:gugelplus_url();"><img
             src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
-          <% if @univrating.present? %>
-           <div class="note"><span>Ban PT: <%= @univrating.government %></span> | <span>Expertise: <%= @univrating.college %></span> | <span>Masyarakat: <%= @univrating.society %></span></div>
+          <% if @univranking.present? %>
+           <div class="note"><span>Government: <%= @univranking.government %></span> | <span>College: <%= @univranking.college %></span> | <span>Society: <%= @univranking.society %></span></div>
            <% end %>
         </div>
       </div>
@@ -60,7 +59,7 @@
                  <ul>
                   <% @univ.univgalleries.each do |gallery| %>
                    <li>
-                     <%= link_to image_tag(gallery.image_url(:thumb), :alt => "Gambar belum tersedia", :data => {:large => gallery.image_url(:slide), :description => gallery.caption }), "#" %>
+                     <%= link_to image_tag(gallery.image_url(:thumb), alt: "Gambar belum tersedia", data: { large: gallery.image_url(:slide), description: gallery.caption }), "#" %>
                    </li>
                    <% end %>
                  </ul>
@@ -138,7 +137,7 @@
                               <label class="left inline">Website</label>
                             </div>
                             <div class="small-9 columns">
-                              <label class="left inline">: &nbsp;&nbsp;&nbsp;<%= link_to @univ.website, @univ.website.present? ? @univ.website : "-", :target => "_blank" %></label>
+                              <label class="left inline">: &nbsp;&nbsp;&nbsp;<%= link_to @univ.website, @univ.website.present? ? @univ.website : "-", target: "_blank" %></label>
                             </div>
                           </div>
                         </div>
@@ -161,7 +160,7 @@
               </div>
               <div class="row description">
                 <div class="large-12 columns">
-                  <%= image_tag @univ.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';" %>
+                  <%= image_tag @univ.featured_image_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/default.jpg';" %>
                   <h5 class="description-title">Deskripsi</h5>
                   <p class="description-text"><%= @univ.deskripsi.present? ? @univ.deskripsi : "- belum ada deskripsi -" %></p>
                   
@@ -201,7 +200,7 @@
       </div>            
     </div>
   </div>
-  <%= render :partial => "layouts/sidebar" %>
+  <%= render partial: "layouts/sidebar" %>
 </div>
 
 <script>

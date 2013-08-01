@@ -1,0 +1,49 @@
+- provide(:title, "Data Kota")
+.row-fluid
+  .span12
+    = link_to "Tambah Kota", new_kota_path, role: "button", class: "btn btn-mini btn-primary"
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Kota
+      .box-body
+        %table#datatables.table.table-hover.responsive
+          %thead
+            %tr
+              %th Nama Kota
+              %th Provinsi
+              %th &nbsp;
+          %tbody
+            - @kotas.each do |kota|
+              %tr
+                %td= kota.kota
+                %td= kota.provinsi.provinsi
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit", edit_kota_path(kota)
+                  %span.label.label-important
+                    = link_to "Delete", kota_path(kota), method: :delete, class: "delete"
+
+:javascript
+  $(document).ready(function() {      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+                      
+      // datatables
+      $('#datatables').dataTable( {
+          "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+          "sPaginationType": "bootstrap",
+          "oLanguage": {
+                  "sLengthMenu": "_MENU_ records per page"
+          }
+      });
+
+      $('.delete').on('click', function () {
+          return confirm('Anda yakin akan menghapus data ini?');
+      });
+  });
