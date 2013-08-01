@@ -37,8 +37,8 @@
             <a href="javascript:gugelplus_url();"><img
             src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
-          <% if @univrating.present? %>
-           <div class="note"><span>Ban PT: <%= @univrating.government %></span> | <span>Expertise: <%= @univrating.college %></span> | <span>Masyarakat: <%= @univrating.society %></span></div>
+          <% if @univranking.present? %>
+           <div class="note"><span>Government: <%= @univranking.government %></span> | <span>College: <%= @univranking.college %></span> | <span>Society: <%= @univranking.society %></span></div>
            <% end %>
         </div>
       </div>
