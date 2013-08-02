@@ -42,23 +42,23 @@ class ProdisController < ApplicationController
 
   def new
     @prodi = Prodi.new
-    render :layout => "admin"
+    render layout: "admin"
   end
 
   def create
     @prodi = Prodi.new(params[:prodi])
 
     if @prodi.save
-      redirect_to prodis_list_path, notice: 'Prodi was successfully created.'
+      redirect_to prodis_list_path, notice: 'Program Studi berhasil ditambah.'
     else
-      render action: "new", :layout => "admin"
+      render action: "new", layout: "admin"
     end
   end
 
   def edit
     @prodi = Prodi.find(params[:id])
     @prodigallery = ProdiGallery.new
-    @prodigalleries = ProdiGallery.where(:prodi_id => @prodi)
+    @prodigalleries = ProdiGallery.where(prodi_id: @prodi)
     render layout: "admin"
 
   end
@@ -66,11 +66,11 @@ class ProdisController < ApplicationController
   def update
     @prodi = Prodi.find(params[:id])
     if @prodi.update_attributes(params[:prodi])
-      redirect_to prodis_list_path, notice: 'Jurusan was successfully updated.' 
+      redirect_to prodis_list_path, notice: 'Program Studi berhasil diupdate.' 
     else
       @prodigallery = ProdiGallery.new
-      @prodigalleries = ProdiGallery.where(:prodi_id => @prodi)
-      render action: "edit", :layout => "admin"
+      @prodigalleries = ProdiGallery.where(prodi_id: @prodi)
+      render action: "edit", layout: "admin"
     end   
   end
 

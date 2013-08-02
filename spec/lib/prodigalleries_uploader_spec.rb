@@ -3,12 +3,12 @@ require 'carrierwave/test/matchers'
 describe ProdigalleriesUploader do 
 	include CarrierWave::Test::Matchers
 
-	let(:prodigallery) { FactoryGirl.create(:prodigallery) }
+	let(:prodi_gallery) { FactoryGirl.create(:prodi_gallery) }
 
 	before do
 
 		ProdigalleriesUploader.enable_processing = true
-		@uploader = ProdigalleriesUploader.new(prodigallery, :image)
+		@uploader = ProdigalleriesUploader.new(prodi_gallery, :image)
 		@uploader.store!(File.open("spec/fixtures/files/cangkrukan.jpg"))
 	end
 

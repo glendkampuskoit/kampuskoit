@@ -1,3 +1,13 @@
+- if params[:action] == "new" || params[:action] == "create"
+  - url = univ_prodis_path(@prodi.univ)
+- elsif params[:action] == "edit" || params[:action] == "update"
+  - url = "/admin/univs/#{@prodi.univ.id}/prodis/#{@prodi.id}"
+
+- if flash[:notice]
+  .alert.alert-success
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    %strong Berhasil!
+    = flash[:notice]
 .row-fluid
   .span12
     .box.corner-all
@@ -8,12 +18,7 @@
           %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
         %span= yield(:title)
 
-      .box-body
-        - if params[:action] == "new" || params[:action] == "create"
-          - url = univ_prodis_path(@prodi.univ)
-        - elsif params[:action] == "edit" || params[:action] == "update"
-          - url = "/admin/univs/#{@prodi.univ.id}/prodis/#{@prodi.id}"
-          
+      .box-body          
         = form_for @prodi, url: url, html: {class: "form-horizontal", multipart: true, id: "form-validate", novalidate: "novalidate"} do |f|
           - if @prodi.errors.any?
             .alert.alert-error
