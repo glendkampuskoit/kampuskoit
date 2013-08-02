@@ -212,75 +212,71 @@
                                 %p.description= gallery.caption
             .form-actions
               = f.hidden_field :prodi_id, :value => @prodi.id
-              %button.btn.btn-primary{:type => "submit"} Save
-              %button.btn{:type => "reset"} Reset
-        / /box-body
-      / /box
-    / /span
+              %button.btn.btn-primary{type: "submit"} Save
+              %button.btn{type: "reset"} Reset
+
 :javascript
-  $(document).ready(function() {
-      // try your js
-      
-      // peity chart
-      $("span[data-chart=peity-bar]").peity("bar");
-      
+  $(document).ready(function() {      
+    // peity chart
+    $("span[data-chart=peity-bar]").peity("bar");
+    
 
-      $('.delete').on('click', function () {
-          return confirm('Anda yakin akan menghapus data ini?');
-      });
+    $('.delete').on('click', function () {
+        return confirm('Anda yakin akan menghapus data ini?');
+    });
 
-      // uniform
-      $('[data-form=uniform]').uniform()
+    // uniform
+    $('[data-form=uniform]').uniform()
 
-      // select2
-      $('[data-form=univ]').select2();
-      $('[data-form=jenjang]').select2();
-      $('[data-form=kota]').select2();
+    // select2
+    $('[data-form=univ]').select2();
+    $('[data-form=jenjang]').select2();
+    $('[data-form=kota]').select2();
 
-      // wysihtml5
-      $('[data-form=bidang]').wysihtml5();
-      $('[data-form=seleksi]').wysihtml5();
-      $('[data-form=kompetensi]').wysihtml5();
+    // wysihtml5
+    $('[data-form=bidang]').wysihtml5();
+    $('[data-form=seleksi]').wysihtml5();
+    $('[data-form=kompetensi]').wysihtml5();
 
-      // gallery setup
-      $('.gallery-selector').change(function(){
-          checked = $(this).attr('checked');
-          checked = (checked == undefined) ? false : true ;
-          
-          $('input.selecter, .gallery-selector').attr('checked', checked);
-          $.uniform.update('.gallery-selector');
-          
-          // toggle class for thumbnail
-          thumbnail = $('input.selecter').attr('checked', checked).next();
-          if(checked == true){
-              thumbnail.addClass('active');
-          }
-          else{
-              thumbnail.removeClass('active')
-          }
-      });
-      
-      $('.thumbnail-control .controls').click(function(e){
-          selecter = $(this).parent().parent().prev();
-          checked  = selecter.attr('checked');
-          if(checked == undefined){
-              checked = true;
-          }
-          else{
-              checked = false;
-              $('.gallery-selector').attr('checked', checked);
-              $.uniform.update('.gallery-selector');
-          }
-          
-          $(selecter).attr('checked', checked);
-          thumbnail = $(selecter).next();
-          if(e.target.nodeName == 'DIV'){
-              thumbnail.toggleClass('active');
-          }
-      });
-                      
-      // prettyPhoto
-      $("a[rel^='prettyPhoto']").prettyPhoto();
-      $('#form-validate').validate();
-      $('#form-gallery').validate();
+    // gallery setup
+    $('.gallery-selector').change(function(){
+        checked = $(this).attr('checked');
+        checked = (checked == undefined) ? false : true ;
+        
+        $('input.selecter, .gallery-selector').attr('checked', checked);
+        $.uniform.update('.gallery-selector');
+        
+        // toggle class for thumbnail
+        thumbnail = $('input.selecter').attr('checked', checked).next();
+        if(checked == true){
+            thumbnail.addClass('active');
+        }
+        else{
+            thumbnail.removeClass('active')
+        }
+    });
+    
+    $('.thumbnail-control .controls').click(function(e){
+        selecter = $(this).parent().parent().prev();
+        checked  = selecter.attr('checked');
+        if(checked == undefined){
+            checked = true;
+        }
+        else{
+            checked = false;
+            $('.gallery-selector').attr('checked', checked);
+            $.uniform.update('.gallery-selector');
+        }
+        
+        $(selecter).attr('checked', checked);
+        thumbnail = $(selecter).next();
+        if(e.target.nodeName == 'DIV'){
+            thumbnail.toggleClass('active');
+        }
+    });
+                    
+    // prettyPhoto
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+    $('#form-validate').validate();
+    $('#form-gallery').validate();
   });
