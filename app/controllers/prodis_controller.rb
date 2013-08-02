@@ -59,7 +59,7 @@ class ProdisController < ApplicationController
     @prodi = Prodi.find(params[:id])
     @prodigallery = ProdiGallery.new
     @prodigalleries = ProdiGallery.where(:prodi_id => @prodi)
-    render :layout => "admin"
+    render layout: "admin"
 
   end
 
@@ -78,18 +78,18 @@ class ProdisController < ApplicationController
     @prodi = Prodi.find(params[:id])
     @provinsis = Provinsi.order("provinsi ASC")
     @jenjang_prodis = JenjangProdi.order("jenjang ASC")
-    @params_value = { :keyword => "", :provinsi_id => @prodi.kota.provinsi.id, :jenjang_prodi_id => @prodi.jenjang_prodi.id }
+    @params_value = { keyword: "", provinsi_id: @prodi.kota.provinsi.id, jenjang_prodi_id: @prodi.jenjang_prodi.id }
   end
 
   def list
     #@prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
     #@prodis = Prodi.search params[:keyword], :page => params[:page], :per_page => 10
     if params[:keyword].present?
-      @univs = Prodi.where("nama_prodi LIKE :prodi", {prodi: params[:keyword]}).paginate(:page => params[:page], :per_page => 10)
+      @univs = Prodi.where("nama_prodi LIKE :prodi", {prodi: params[:keyword]}).paginate(page: params[:page], per_page: 10)
     else
-      @prodis = Prodi.paginate(:page => params[:page], :per_page => 10)
+      @prodis = Prodi.paginate(page: params[:page], per_page: 10)
     end
-    render :layout => "admin"
+    render layout: "admin"
   end
 
   def destroy

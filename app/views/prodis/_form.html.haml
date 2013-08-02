@@ -7,128 +7,160 @@
             %i.icofont-caret-up
           %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
         %span= yield(:title)
+
       .box-body
         - if params[:action] == "new" || params[:action] == "create"
           - url = univ_prodis_path(@prodi.univ)
         - elsif params[:action] == "edit" || params[:action] == "update"
           - url = "/admin/univs/#{@prodi.univ.id}/prodis/#{@prodi.id}"
           
-        = form_for @prodi, :url => url, :html => {:class => "form-horizontal", :multipart => true, :id => "form-validate", :novalidate => "novalidate" } do |f|
+        = form_for @prodi, url: url, html: {class: "form-horizontal", multipart: true, id: "form-validate", novalidate: "novalidate"} do |f|
           - if @prodi.errors.any?
             .alert.alert-error
-              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+              %button.close{"data-dismiss" => "alert", type: "button"} &times;
               %div
                 - @prodi.errors.full_messages.each do |msg|
                   = msg
                   %br
+
           .control-group
-            %label.control-label{:for => "required"} Nama Program Studi
+            %label.control-label{for: "required"} Nama Program Studi
             .controls
-              = f.text_field :nama_prodi, :id => "nama_prodi", :class => "grd-white input-xxlarge", :placeholder => "ex. Jurusan XYZ", :data => {:validate => "{required: true, messages:{required:'Nama Program Studi harus diisi'}}"}
+              = f.text_field :nama_prodi, id: "nama_prodi", class: "grd-white input-xxlarge", placeholder: "ex. Jurusan XYZ", data: { validate: "{required: true, messages:{required:'Nama Program Studi harus diisi'}}"}
+
           .control-group
-            %label.control-label{:for => "inputSelect"} Perguruan Tinggi
+            %label.control-label{for: "inputSelect"} Perguruan Tinggi
             .controls
-              = collection_select(:prodi, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt, {}, {:style => "width:500px", :id => "univ", :data => {:form => "univ", :placeholder => "Pilih Perguruan Tinggi"}})
+              = collection_select(:prodi, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt, {}, { style: "width:500px", id: "univ", data: { form: "univ", placeholder: "Pilih Perguruan Tinggi"}})
+
           .control-group
-            %label.control-label{:for => "required"} Fakultas
+            %label.control-label{for: "required"} Fakultas
             .controls
-              = f.text_field :fakultas, :id => "fakultas", :class => "grd-white input-xlarge", :placeholder => "ex. Fakultas XYZ", :data => {:validate => "{required: true, messages: {required: 'Fakultas harus diisi'}}" }
+              = f.text_field :fakultas, id: "fakultas", class: "grd-white input-xlarge", placeholder: "ex. Fakultas XYZ", data: {validate: "{required: true, messages: {required: 'Fakultas harus diisi'}}" }
+
           .control-group
-            %label.control-label{:for => "inputSelect"} Jenjang Program Studi
+            %label.control-label{for: "inputSelect"} Jenjang Program Studi
             .controls
-              = collection_select(:prodi, :jenjang_prodi_id, JenjangProdi.order("jenjang ASC"), :id, :jenjang, {}, {:style => "width:200px", :id => "jenjang_prodi", :data => {:form => "jenjang", :placeholder => "Pilih Jenjang Program Studi"}})
+              = collection_select(:prodi, :jenjang_prodi_id, JenjangProdi.order("jenjang ASC"), :id, :jenjang, {}, {style: "width:200px", id: "jenjang_prodi", data: {form: "jenjang", placeholder: "Pilih Jenjang Program Studi"}})
+
           .control-group
-            %label.control-label{:for => "required"} Tahun Berdiri
+            %label.control-label{for: "required"} Tahun Berdiri
             .controls
-              = f.text_field :tahun_berdiri, :id => "tahun_berdiri", :class => "grd-white input-xlarge", :placeholder => "ex. 1888", :data => {:validate => "{required: true, maxlength: 4, minlength:4, number:true, messages: {required: 'Tahun Berdiri harus diisi', maxlength: 'Tahun berdiri terdiri dari 4 karakter numeric', minlength: 'Tahun berdiri terdiri dari 4 karakter numerik', number: 'Tahun berdiri terdiri dari 4 karakter numerik'}}" }
+              = f.text_field :tahun_berdiri, id: "tahun_berdiri", class: "grd-white input-xlarge", placeholder: "ex. 1888", data: {validate: "{required: true, maxlength: 4, minlength:4, number:true, messages: {required: 'Tahun Berdiri harus diisi', maxlength: 'Tahun berdiri terdiri dari 4 karakter numeric', minlength: 'Tahun berdiri terdiri dari 4 karakter numerik', number: 'Tahun berdiri terdiri dari 4 karakter numerik'}}" }
+
           .control-group
-            %label.control-label{:for => "required"} Email
+            %label.control-label{for: "required"} Email
             .controls
-              = f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => "{required: true, email: true, messages: {required: 'Email harus diisi', email: 'Format email tidak valid'}}" }
+              = f.text_field :email, id: "email", class: "grd-white", placeholder: "ex. user@xyz.com", data: {validate: "{required: true, email: true, messages: {required: 'Email harus diisi', email: 'Format email tidak valid'}}" }
+
           .control-group
-            %label.control-label{:for => "required"} Website
+            %label.control-label{for: "required"} Website
             .controls
-              = f.text_field :website, :id => "website", :class => "grd-white", :placeholder => "ex. http://xyz.com", :data => {:validate => "{required: true, messages: {required: 'Website harus diisi'}}"}
+              = f.text_field :website, id: "website", class: "grd-white", placeholder: "ex. http://xyz.com", data: {validate: "{required: true, messages: {required: 'Website harus diisi'}}"}
+
           .control-group
-            %label.control-label{:for => "required"} Alamat
+            %label.control-label{for: "required"} Alamat
             .controls
-              = f.text_area :alamat, :rows => "3", :id => "alamat", :placeholder => "Isikan alamat"
+              = f.text_area :alamat, rows: "3", id: "alamat", placeholder: "Isikan alamat"
+
           .control-group
-            %label.control-label{:for => "inputSelect"} Kota
+            %label.control-label{for: "inputSelect"} Kota
             .controls
-              = collection_select(:prodi, :kota_id, Kota.order("kota ASC"), :id, :kota, {}, {:style => "width:200px", :id => "kota", :data => {:form => "kota", :placeholder => "Pilih Kota"}})
+              = collection_select(:prodi, :kota_id, Kota.order("kota ASC"), :id, :kota, {}, {style: "width:200px", id: "kota", data: {form: "kota", placeholder: "Pilih Kota"}})
+
           .control-group
-            %label.control-label{:for => "required"} Telepon
+            %label.control-label{for: "required"} Telepon
             .controls
-              = f.text_field :telepon, :id => "telepon", :class => "grd-white", :placeholder => "Isikan nomor telepon", :data => {:validate => "{required: true, messages: {required: 'Telepon harus diisi'}}"}
+              = f.text_field :telepon, id: "telepon", class: "grd-white", placeholder: "Isikan nomor telepon", data: {validate: "{required: true, messages: {required: 'Telepon harus diisi'}}"}
+
           .control-group
-            %label.control-label{:for => "required"} Fax
+            %label.control-label{for: "required"} Fax
             .controls
-              = f.text_field :fax, :id => "fax", :class => "grd-white", :placeholder => "Isikan nomor Fax", :data => {:validate => "{required: true, messages: {required: 'Fax harus diisi'}}"}
+              = f.text_field :fax, id: "fax", class: "grd-white", placeholder: "Isikan nomor Fax", data: {validate: "{required: true, messages: {required: 'Fax harus diisi'}}"}
+          
           .control-group
-            %label.control-label{:for => "inputUpload"} Upload Logo Jurusan
+            %label.control-label{for: "inputUpload"} Upload Logo Jurusan
             .controls
-              = f.file_field :logo, :data => {:form => "uniform"}
+              = f.file_field :logo, data: {form: "uniform"}
             - if @prodi.logo_url.present?
               .controls
                 = image_tag @prodi.logo_url(:thumb)
+          
           .control-group
-            %label.control-label{:for => "inputUpload"} Upload Featured Image
+            %label.control-label{for: "inputUpload"} Upload Featured Image
             .controls
-              = f.file_field :featured_image, :data => {:form => "uniform"}
+              = f.file_field :featured_image, data: {form: "uniform"}
             - if @prodi.featured_image_url.present?
               .controls
                 = image_tag @prodi.featured_image_url(:thumb)
+          
           .control-group
-            %label.control-label{:for => "inputEditorSimple"} Profil
+            %label.control-label{for: "inputEditorSimple"} Profil
             .controls
-              = f.text_area :profile, :id => "profil", :class => "span10", :rows => "8", :placeholder => "Isikan profil ..."
+              = f.text_area :profile, id: "profil", class: "span10", rows: "8", placeholder: "Isikan profil ..."
+          
           .control-group
-            %label.control-label{:for => "required"} Jumlah Mahasiswa
+            %label.control-label{for: "required"} Jumlah Mahasiswa
             .controls
-              = f.text_field :jumlah_mahasiswa, :id => "jumlah_mahasiswa", :class => "grd-white", :placeholder => "Isikan jumlah mahasiswa"
+              = f.text_field :jumlah_mahasiswa, id: "jumlah_mahasiswa", class: "grd-white", placeholder: "Isikan jumlah mahasiswa"
+          
           .control-group
-            %label.control-label{:for => "inputEditorSimple"} Bidang Studi
+            %label.control-label{for: "inputEditorSimple"} Bidang Studi
             .controls
-              = f.text_area :bidang_studi, :id => "bidang_studi", :class => "span10", :rows => "8", :data => {:form => "bidang"}, :placeholder => "Isikan deskripsi bidang studi ..."
+              = f.text_area :bidang_studi, id: "bidang_studi", class: "span10", rows: "8", data: {form: "bidang"}, placeholder: "Isikan deskripsi bidang studi ..."
+          
           .control-group
-            %label.control-label{:for => "inputEditorSimple"} Kompetensi
+            %label.control-label{for: "inputEditorSimple"} Kompetensi
             .controls
-              = f.text_area :kompetensi, :id => "kompetensi", :class => "span10", :rows => "8", :data => {:form => "kompetensi"}, :placeholder => "Isikan kompetensi ..."
+              = f.text_area :kompetensi, id: "kompetensi", class: "span10", rows: "8", data: {form: "kompetensi"}, placeholder: "Isikan kompetensi ..."
+
           .control-group
-            %label.control-label{:for => "inputEditorSimple"} Seleksi Masuk
+            %label.control-label{for: "silabus"} Upload Silabus
             .controls
-              = f.text_area :seleksi_masuk, :id => "seleksi_masuk", :class => "span10", :rows => "8", :data => {:form => "seleksi"}, :placeholder => "Isikan seleksi masuk ..."
+              = f.file_field :silabus, data: {form: "uniform"}
+            - if @prodi.silabus.present?
+              .controls
+                %object{ src: @prodi.silabus_url, width: "500", height: "375", type: "application/pdf"}
+          
           .control-group
-            %label.control-label{:for => "required"} Jumlah Dosen Professor
+            %label.control-label{for: "inputEditorSimple"} Seleksi Masuk
             .controls
-              = f.text_field :total_dosen_prof, :id => "total_dosen_prof", :class => "grd-white", :placeholder => "total dosen professor"
+              = f.text_area :seleksi_masuk, id: "seleksi_masuk", class: "span10", rows: "8", data: {form: "seleksi"}, placeholder: "Isikan seleksi masuk ..."
+          
           .control-group
-            %label.control-label{:for => "required"} Jumlah Dosen Master
+            %label.control-label{for: "required"} Jumlah Dosen Professor
             .controls
-              = f.text_field :total_dosen_master, :id => "total_dosen_master", :class => "grd-white", :placeholder => "total dosen master"
+              = f.text_field :total_dosen_prof, id: "total_dosen_prof", class: "grd-white", placeholder: "total dosen professor"
+          
           .control-group
-            %label.control-label{:for => "required"} Jumlah Dosen Sarjana
+            %label.control-label{for: "required"} Jumlah Dosen Master
             .controls
-              = f.text_field :total_dosen_sarjana, :id => "total_dosen_sarjana", :class => "grd-white", :placeholder => "total dosen sarjana"
+              = f.text_field :total_dosen_master, id: "total_dosen_master", class: "grd-white", placeholder: "total dosen master"
+          
           .control-group
-            %label.control-label{:for => "required"} Facebook
+            %label.control-label{for: "required"} Jumlah Dosen Sarjana
             .controls
-              http://facebook.com/#{f.text_field :facebook, :id => "facebook", :class => "grd-white"}
+              = f.text_field :total_dosen_sarjana, id: "total_dosen_sarjana", class: "grd-white", placeholder: "total dosen sarjana"
+          
           .control-group
-            %label.control-label{:for => "required"} Twitter
+            %label.control-label{for: "required"} Facebook
             .controls
-              http://twitter.com/#{f.text_field :twitter, :id => "twitter", :class => "grd-white"}
+              http://facebook.com/#{f.text_field :facebook, id: "facebook", class: "grd-white"}
+          
           .control-group
-            %label.control-label{:for => "required"} Youtube
+            %label.control-label{for: "required"} Twitter
             .controls
-              http://youtube.com/#{f.text_field :youtube, :id => "youtube", :class => "grd-white"}
+              http://twitter.com/#{f.text_field :twitter, id: "twitter", class: "grd-white"}
+          
+          .control-group
+            %label.control-label{for: "required"} Youtube
+            .controls
+              http://youtube.com/#{f.text_field :youtube, id: "youtube", class: "grd-white"}
+          
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:type => "button"} Cancel
-      / /box-body
-    / /box
-  / /span
+
 - if params[:action] == "edit" || params[:action] == "update"
   .row-fluid
     .span12
@@ -140,7 +172,7 @@
             %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
           %span Update Program Studi Galeri
         .box-body
-          = form_for @prodigallery, :html => {:id => "form-gallery", :novalidate => "novalidate", :class => "form-horizontal"} do |f|
+          = form_for @prodigallery, :html => {id: "form-gallery", :novalidate => "novalidate", class: "form-horizontal"} do |f|
             - if @prodigallery.errors.any?
               .alert.alert-error
                 %button.close{"data-dismiss" => "alert", :type => "button"} &times;
@@ -149,17 +181,17 @@
                     = msg
                     %br
             .control-group
-              %label.control-label{:for => "inputUpload"} Tambah Gallery
+              %label.control-label{for: "inputUpload"} Tambah Gallery
               .controls
-                = f.file_field :image, :id => "inputUpload", :data => {:form => "uniform"}
+                = f.file_field :image, id: "inputUpload", data: {form: "uniform"}
             .control-group
-              %label.control-label{:for => "required"} Caption
+              %label.control-label{for: "required"} Caption
               .controls
-                = f.text_field :caption, :class => "grd-white", :data => {:validate => "{required: true, messages: {required: 'Caption harus diisi'}}"}
+                = f.text_field :caption, class: "grd-white", data: {validate: "{required: true, messages: {required: 'Caption harus diisi'}}"}
             .control-group
-              %label.control-label{:for => "required"} Deskripsi
+              %label.control-label{for: "required"} Deskripsi
               .controls
-                = f.text_area :description, :rows => "3", :placeholder => "Isikan deskripsi", :data => {:validate => "{required: true, messages: {required: 'Deskripsi harus diisi'}}"}
+                = f.text_area :description, rows: "3", placeholder: "Isikan deskripsi", data: {validate: "{required: true, messages: {required: 'Deskripsi harus diisi'}}"}
             .control-group
               - if @prodigalleries.present?
                 .controls
@@ -175,7 +207,7 @@
                               .controls
                                 %a{:href => gallery.image_url, :rel => "prettyPhoto[gallery]", :title => gallery.description}
                                   %i.icofont-search
-                                = link_to prodi_gallery_path(gallery), method: :delete, :class => "delete" do
+                                = link_to prodi_gallery_path(gallery), method: :delete, class: "delete" do
                                   %i.icofont-trash
                                 %p.description= gallery.caption
             .form-actions

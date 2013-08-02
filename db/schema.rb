@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731082102) do
+ActiveRecord::Schema.define(:version => 20130802012331) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -118,6 +118,15 @@ ActiveRecord::Schema.define(:version => 20130731082102) do
 
   add_index "prodi_galleries", ["prodi_id"], :name => "index_prodi_galleries_on_prodi_id"
 
+  create_table "prodi_passing_grades", :force => true do |t|
+    t.integer  "tahun"
+    t.float    "grades"
+    t.string   "status"
+    t.integer  "prodi_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "prodi_prestasis", :force => true do |t|
     t.integer  "tahun"
     t.text     "prestasi"
@@ -178,6 +187,7 @@ ActiveRecord::Schema.define(:version => 20130731082102) do
     t.string   "twitter"
     t.string   "youtube"
     t.integer  "prodi_bidang_id"
+    t.string   "silabus"
   end
 
   add_index "prodis", ["kota_id"], :name => "index_prodis_on_kota_id"

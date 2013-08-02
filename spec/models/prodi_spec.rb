@@ -39,6 +39,7 @@ describe Prodi do
   it { should have_many(:prodi_galleries).dependent(:delete_all) }
   it { should have_many(:prodi_akreditasis).dependent(:delete_all) }
   it { should have_many(:prodi_biayas).dependent(:delete_all) }
+  it { should have_many(:prodi_passing_grades).dependent(:delete_all) }
 
   describe "should be valid" do
   	it { should be_valid }

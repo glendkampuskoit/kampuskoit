@@ -1,8 +1,5 @@
 class AddUnivbiayaForeignKey < ActiveRecord::Migration
-  def up
+  def change
   	add_column :univbiayas, :univ_id, :integer
-  end
-
-  def down
   end
 end

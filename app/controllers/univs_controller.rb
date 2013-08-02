@@ -74,9 +74,7 @@ class UnivsController < ApplicationController
     @params_value = { :keyword => "", :provinsi_id => @univ.kota.provinsi.id, :jenis_pt_id => @univ.jenis_pt.id }
 
     #trick for friendly_id
-    if request.path != univ_path(@univ)
-      redirect_to @univ, status: :moved_permanently
-    end
+    redirect_to @univ, status: :moved_permanently unless request.path == univ_path(@univ)
   end
 
   def list
