@@ -33,23 +33,23 @@ class UnivsController < ApplicationController
 
   def new
     @univ = Univ.new
-    render :layout => "admin"
+    render layout: "admin"
   end
 
   def create
     @univ = Univ.new(params[:univ])
     if @univ.save
-      redirect_to univs_list_path, notice: 'Univ was successfully created.'
+      redirect_to univs_list_path, notice: 'Perguruan Tinggi berhasil ditambah.'
     else
-      render action: "new", :layout => "admin"
+      render action: "new", layout: "admin"
     end
   end
 
   def edit
     @univ = Univ.find(params[:id])
     @univgallery = Univgallery.new
-    @univgalleries = Univgallery.where(:univ_id => @univ)
-    render :layout => "admin"
+    @univgalleries = Univgallery.where(univ_id: @univ)
+    render layout: "admin"
   end
 
   def update
@@ -59,8 +59,8 @@ class UnivsController < ApplicationController
       redirect_to edit_univ_path(@univ), notice: 'Perguruan Tinggi berhasil diupdate.' 
     else
       @univgallery = Univgallery.new
-      @univgalleries = Univgallery.where(:univ_id => @univ)
-      render action: "edit", :layout => "admin"
+      @univgalleries = Univgallery.where(univ_id: @univ)
+      render action: "edit", layout: "admin"
     end    
   end
 
@@ -74,9 +74,7 @@ class UnivsController < ApplicationController
     @params_value = { :keyword => "", :provinsi_id => @univ.kota.provinsi.id, :jenis_pt_id => @univ.jenis_pt.id }
 
     #trick for friendly_id
-    if request.path != univ_path(@univ)
-      redirect_to @univ, status: :moved_permanently
-    end
+    redirect_to @univ, status: :moved_permanently unless request.path == univ_path(@univ)
   end
 
   def list
@@ -86,6 +84,6 @@ class UnivsController < ApplicationController
     else
       @univs = Univ.paginate(:page => params[:page], :per_page => 10)
     end
-    render :layout => "admin"
+    render layout: "admin"
   end
 end

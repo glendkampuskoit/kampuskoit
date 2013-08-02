@@ -1,8 +1,5 @@
 class AddUnivJenisPtForeignKeys < ActiveRecord::Migration
-  def up
+  def change
   	add_column :univs, :jenis_pt_id, :integer
-  end
-
-  def down
   end
 end

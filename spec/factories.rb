@@ -70,4 +70,18 @@ FactoryGirl.define do
 		deskripsi "Belajar IT"
 		lapangan_kerja "Dosen dan Programmer"
 	end
+
+	factory :univgallery do
+		image File.open("spec/fixtures/files/cangkrukan.jpg")
+		caption "example gallery"
+		description "description gallery"
+		association :univ, :factory => :univ
+	end
+
+	factory :prodi_gallery do
+		image File.open("spec/fixtures/files/cangkrukan.jpg")
+		caption "example gallery"
+		description "description gallery"
+		association :prodi, :factory => :prodi
+	end
 end

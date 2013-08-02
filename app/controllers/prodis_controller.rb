@@ -42,35 +42,35 @@ class ProdisController < ApplicationController
 
   def new
     @prodi = Prodi.new
-    render :layout => "admin"
+    render layout: "admin"
   end
 
   def create
     @prodi = Prodi.new(params[:prodi])
 
     if @prodi.save
-      redirect_to prodis_list_path, notice: 'Prodi was successfully created.'
+      redirect_to prodis_list_path, notice: 'Program Studi berhasil ditambah.'
     else
-      render action: "new", :layout => "admin"
+      render action: "new", layout: "admin"
     end
   end
 
   def edit
     @prodi = Prodi.find(params[:id])
     @prodigallery = ProdiGallery.new
-    @prodigalleries = ProdiGallery.where(:prodi_id => @prodi)
-    render :layout => "admin"
+    @prodigalleries = ProdiGallery.where(prodi_id: @prodi)
+    render layout: "admin"
 
   end
 
   def update
     @prodi = Prodi.find(params[:id])
     if @prodi.update_attributes(params[:prodi])
-      redirect_to prodis_list_path, notice: 'Jurusan was successfully updated.' 
+      redirect_to prodis_list_path, notice: 'Program Studi berhasil diupdate.' 
     else
       @prodigallery = ProdiGallery.new
-      @prodigalleries = ProdiGallery.where(:prodi_id => @prodi)
-      render action: "edit", :layout => "admin"
+      @prodigalleries = ProdiGallery.where(prodi_id: @prodi)
+      render action: "edit", layout: "admin"
     end   
   end
 
@@ -78,18 +78,18 @@ class ProdisController < ApplicationController
     @prodi = Prodi.find(params[:id])
     @provinsis = Provinsi.order("provinsi ASC")
     @jenjang_prodis = JenjangProdi.order("jenjang ASC")
-    @params_value = { :keyword => "", :provinsi_id => @prodi.kota.provinsi.id, :jenjang_prodi_id => @prodi.jenjang_prodi.id }
+    @params_value = { keyword: "", provinsi_id: @prodi.kota.provinsi.id, jenjang_prodi_id: @prodi.jenjang_prodi.id }
   end
 
   def list
     #@prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
     #@prodis = Prodi.search params[:keyword], :page => params[:page], :per_page => 10
     if params[:keyword].present?
-      @univs = Prodi.where("nama_prodi LIKE :prodi", {prodi: params[:keyword]}).paginate(:page => params[:page], :per_page => 10)
+      @univs = Prodi.where("nama_prodi LIKE :prodi", {prodi: params[:keyword]}).paginate(page: params[:page], per_page: 10)
     else
-      @prodis = Prodi.paginate(:page => params[:page], :per_page => 10)
+      @prodis = Prodi.paginate(page: params[:page], per_page: 10)
     end
-    render :layout => "admin"
+    render layout: "admin"
   end
 
   def destroy

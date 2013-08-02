@@ -1,8 +1,5 @@
 class ChangeUnivratingToUnivranking < ActiveRecord::Migration
-  def up
+  def change
   	rename_table :univratings, :univrankings
-  end
-
-  def down
   end
 end
