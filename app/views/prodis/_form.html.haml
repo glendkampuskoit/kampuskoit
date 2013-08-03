@@ -8,6 +8,7 @@
     %button.close{"data-dismiss" => "alert", :type => "button"} ×
     %strong Berhasil!
     = flash[:notice]
+    
 .row-fluid
   .span12
     .box.corner-all
@@ -125,7 +126,8 @@
               = f.file_field :silabus, data: {form: "uniform"}
             - if @prodi.silabus.present?
               .controls
-                %object{ src: @prodi.silabus_url, width: "500", height: "375", type: "application/pdf"}
+                %object{ src: @prodi.silabus_url, width: "525", height: "600", type: "application/pdf"}
+                  %param{name: "zoom", value: "20%"}
           
           .control-group
             %label.control-label{for: "inputEditorSimple"} Seleksi Masuk
@@ -150,17 +152,17 @@
           .control-group
             %label.control-label{for: "required"} Facebook
             .controls
-              http://facebook.com/#{f.text_field :facebook, id: "facebook", class: "grd-white"}
+              %strong http://facebook.com/#{f.text_field :facebook, id: "facebook", class: "grd-white"}
           
           .control-group
             %label.control-label{for: "required"} Twitter
             .controls
-              http://twitter.com/#{f.text_field :twitter, id: "twitter", class: "grd-white"}
+              %strong http://twitter.com/#{f.text_field :twitter, id: "twitter", class: "grd-white"}
           
           .control-group
             %label.control-label{for: "required"} Youtube
             .controls
-              http://youtube.com/#{f.text_field :youtube, id: "youtube", class: "grd-white"}
+              %strong http://youtube.com/#{f.text_field :youtube, id: "youtube", class: "grd-white"}
           
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
