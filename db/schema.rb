@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819045001) do
+ActiveRecord::Schema.define(:version => 20130819074526) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -459,6 +459,26 @@ ActiveRecord::Schema.define(:version => 20130819045001) do
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"
   add_index "univs", ["slug"], :name => "index_univs_on_slug", :unique => true
+
+  create_table "univsubrankings", :force => true do |t|
+    t.integer  "univ_id"
+    t.float    "sub_akreditasi"
+    t.float    "sub_jenis"
+    t.float    "sub_degree"
+    t.float    "sub_skala"
+    t.float    "sub_jumlah_mahasiswa"
+    t.float    "sub_prestasi"
+    t.float    "sub_kerjasama"
+    t.float    "sub_alumni"
+    t.float    "sub_ekspertise"
+    t.float    "sub_rating_user"
+    t.float    "sub_popularity"
+    t.string   "status"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "univsubrankings", ["univ_id"], :name => "index_univsubrankings_on_univ_id"
 
   create_table "visitors", :force => true do |t|
     t.string   "email"
