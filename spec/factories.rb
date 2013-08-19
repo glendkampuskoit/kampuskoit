@@ -69,6 +69,7 @@ FactoryGirl.define do
 		level 5
 		deskripsi "Belajar IT"
 		lapangan_kerja "Dosen dan Programmer"
+		materi "Analitik"
 	end
 
 	factory :univgallery do
