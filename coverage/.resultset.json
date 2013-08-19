@@ -1949,8 +1949,13 @@
         null,
         null,
         null
+      ],
+      "/opt/sites/kampuskoit/app/models/univsubranking.rb": [
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1376890444
+    "timestamp": 1376899875
   }
 }
