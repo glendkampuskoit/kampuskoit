@@ -18,6 +18,7 @@
           %thead
             %tr
               %th Kode
+              %th Jenjang
               %th Nama Prodi
               %th Perguruan Tinggi
               %th Provinsi
@@ -26,6 +27,7 @@
             - @prodis.each do |prodi|
               %tr
                 %td= prodi.id
+                %td= prodi.jenjang_prodi.jenjang
                 %td= prodi.nama_prodi
                 %td= prodi.univ.nama_pt
                 %td= prodi.kota.present? ? prodi.kota.provinsi.provinsi : "-Unknown Provinsi-"

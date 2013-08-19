@@ -50,6 +50,11 @@
               = collection_select(:prodi, :jenjang_prodi_id, JenjangProdi.order("jenjang ASC"), :id, :jenjang, {}, {style: "width:200px", id: "jenjang_prodi", data: {form: "jenjang", placeholder: "Pilih Jenjang Program Studi"}})
 
           .control-group
+            %label.control-label{for: "inputSelect"} Bidang Program Studi
+            .controls
+              = collection_select(:prodi, :prodi_bidang_id, ProdiBidang.order("nama_bidang ASC"), :id, :nama_bidang, {}, {style: "width:450px", id: "prodi_bidang", data: {form: "prodi_bidang", placeholder: "Pilih Bidang Program Studi"}})
+
+          .control-group
             %label.control-label{for: "required"} Tahun Berdiri
             .controls
               = f.text_field :tahun_berdiri, id: "tahun_berdiri", class: "grd-white input-xlarge", placeholder: "ex. 1888", data: {validate: "{required: true, maxlength: 4, minlength:4, number:true, messages: {required: 'Tahun Berdiri harus diisi', maxlength: 'Tahun berdiri terdiri dari 4 karakter numeric', minlength: 'Tahun berdiri terdiri dari 4 karakter numerik', number: 'Tahun berdiri terdiri dari 4 karakter numerik'}}" }
@@ -239,6 +244,7 @@
     $('[data-form=univ]').select2();
     $('[data-form=jenjang]').select2();
     $('[data-form=kota]').select2();
+    $('[data-form=prodi_bidang]').select2();
 
     // wysihtml5
     $('[data-form=bidang]').wysihtml5();
