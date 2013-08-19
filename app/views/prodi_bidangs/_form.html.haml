@@ -32,6 +32,10 @@
             %label.control-label{:for => "inputEditorSimple"} Lapangan Kerja
             .controls
               = f.text_area :lapangan_kerja, :id => "lapangan_kerja", :class => "span10", :rows => "8", :data => {:form => "lapangan_kerja"}, :placeholder => "Isikan lapangan_kerja ..."
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Materi
+            .controls
+              = f.text_area :materi, :id => "materi", :class => "span10", :rows => "8", :data => {:form => "materi"}, :placeholder => "Isikan materi ..."
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
@@ -51,6 +55,7 @@
     //wysisyg
     $('[data-form=deskripsi]').wysihtml5();
     $('[data-form=lapangan_kerja]').wysihtml5();
+    $('[data-form=materi]').wysihtml5();
 
     // select2
     $('#form-validate').validate();

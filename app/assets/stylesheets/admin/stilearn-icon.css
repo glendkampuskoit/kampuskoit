@@ -9,11 +9,11 @@
 
 @font-face {
 	font-family: 'Typicons';
-	src: url('../font/typicons-regular-webfont.eot');
-	src: url('../font/typicons-regular-webfont.eot?#iefix') format('embedded-opentype'),
-		url('../font/typicons-regular-webfont.woff') format('woff'),
-		url('../font/typicons-regular-webfont.ttf') format('truetype'),
-		url('../font/typicons-regular-webfont.svg#TypiconsRegular') format('svg');
+	src: url('/assets/typicons/typicons-regular-webfont.eot');
+	src: url('/assets/typicons/typicons-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('/assets/typicons/typicons-regular-webfont.woff') format('woff'),
+		url('/assets/typicons/typicons-regular-webfont.ttf') format('truetype'),
+		url('/assets/typicons/typicons-regular-webfont.svg#TypiconsRegular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -158,8 +158,8 @@ li[class^="typicn-"].typicn-large:before, li[class*=" typicn-"].icofont-large:be
 
 @font-face {
   font-family: "Socialico";
-  src: url('../font/Socialico.eot');
-  src: url('../font/Socialico.eot?#iefix') format('eot'), url('../font/Socialico.ttf') format('truetype');
+  src: url('/assets/socialico/Socialico.eot');
+  src: url('/assets/socialico/Socialico.eot?#iefix') format('eot'), url('/assets/socialico/Socialico.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

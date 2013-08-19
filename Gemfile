@@ -31,6 +31,7 @@ group :test do
 	gem 'factory_girl_rails', '1.4.0'
 	gem 'shoulda-matchers'
 	gem 'thinking-sphinx-rspec-matchers'
+	gem 'simplecov', :require => false
 end
 
 # group for production

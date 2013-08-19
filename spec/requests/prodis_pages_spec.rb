@@ -5,6 +5,7 @@ describe "Prodi Page" do
   let(:kota) { FactoryGirl.create(:kota) }
   let(:univ) { FactoryGirl.create(:univ) }
   let(:jenjang_prodi) { FactoryGirl.create(:jenjang_prodi) }
+  let(:prodi_bidang) { FactoryGirl.create(:prodi_bidang)}
 
   let(:submit) { "Save" }
   
@@ -12,6 +13,7 @@ describe "Prodi Page" do
     kota
     univ
     jenjang_prodi
+    prodi_bidang
     visit new_univ_prodi_path(univ)
   end
 
@@ -38,6 +40,7 @@ describe "Prodi Page" do
       fill_in "website", with: "http://si.its.ac.id"
       fill_in "alamat", with: "Sukolilo Indah Kampus ITS"
       select(kota.kota, :from => "kota")
+      select(prodi_bidang.nama_bidang, :from => "prodi_bidang")
       fill_in "telepon", with: "089977876"
       fill_in "fax", with: "089977876"
       fill_in "profil", with: "Jurusan terbaik"
@@ -71,6 +74,7 @@ describe "Prodi Page" do
         fill_in "website", with: "http://si.its.ac.id"
         fill_in "alamat", with: "Sukolilo Indah Kampus ITS"
         select(kota.kota, :from => "kota")
+        select(prodi_bidang.nama_bidang, :from => "prodi_bidang")
         fill_in "telepon", with: "089977876"
         fill_in "fax", with: "089977876"
         fill_in "profil", with: "Jurusan terbaik"

@@ -168,19 +168,19 @@
 
         // change form action dynamically
         $('#all').click(function(){
-          $('#search').attr('action', '<%= search_path %>');
+          $('#search').attr('action', '#{search_path}');
         });
 
         $('#pt').click(function(){
-          $('#search').attr('action', '<%= univs_path %>');
+          $('#search').attr('action', '#{univs_path}');
         });
 
         $('#prodi').click(function(){
-          $('#search').attr('action', '<%= prodis_path %>');
+          $('#search').attr('action', '#{prodis_path}');
         });
 
         $('#provinsi').click(function(){
-          $('#search').attr('action', '<%= search_path %>');
+          $('#search').attr('action', '#{search_path}');
         });
       });
 

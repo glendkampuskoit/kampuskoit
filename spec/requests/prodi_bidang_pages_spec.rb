@@ -18,6 +18,7 @@ describe "Prodi Bidang Page" do
         fill_in "level", with: 5
         fill_in "deskripsi", with: "Belajar IT"
         fill_in "lapangan_kerja", with: "Dosen dan pogrammer"
+        fill_in "materi", with: "Analitik"
       end
 
       it "should add new record" do
@@ -36,7 +37,8 @@ describe "Prodi Bidang Page" do
         fill_in "nama_bidang", with: "Sistem Informasi"
         fill_in "level", with: 5
         fill_in "deskripsi", with: "Belajar IT"
-        fill_in "deskripsi", with: "Dosen dan Pengajar"
+        fill_in "lapangan_kerja", with: "Dosen dan Pengajar"
+        fill_in "materi", with: "Analitik"
       end
       
       it "should not create a record - just updated" do

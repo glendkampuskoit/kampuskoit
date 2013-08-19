@@ -37,11 +37,13 @@ class ProdigalleriesUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_limit => [65, 65]
+    #process :resize_to_limit => [65, 65]
+    process :resize_to_fill => [65, 65]
   end
 
   version :slide do
-    process :resize_to_limit => [640, 426]
+    #process :resize_to_limit => [640, 426]
+    process :resize_to_fill => [640, 426]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -52,8 +54,7 @@ class ProdigalleriesUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
-
+  def filename
+    "something.jpg" if original_filename
+  end
 end

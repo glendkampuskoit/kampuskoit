@@ -32,52 +32,57 @@
                   .helper-font-24
                     %i.icofont-dashboard
                   %span.sidebar-text Dashboard
-                %li
-                  = link_to admins_path do
-                    .helper-font-24
-                      %i.icofont-user
-                    %span.sidebar-text Admin
-                %li
-                  = link_to visitors_list_path do
-                    .helper-font-24
-                      %i.icofont-user-md
-                    %span.sidebar-text Visitor
-                %li
-                  = link_to subscribers_list_path do
-                    .helper-font-24
-                      %i.icofont-user
-                    %span.sidebar-text Subscriber
-                %li
-                  %a{ href: "#" }
-                    .helper-font-24
-                      %i.icofont-folder-open
-                    %span.sidebar-text Master
-                  %ul.sub-sidebar.corner-top.shadow-silver-dark
+                - if Rails.env == 'production' || Rails.env == 'development'
+                  - if current_user.role == 'admin'
                     %li
-                      = link_to provinsis_path, title: "provinsi" do
+                      = link_to admins_path do
                         .helper-font-24
-                          %i.icofont-th-large
-                        %span.sidebar-text Provinsi
+                          %i.icofont-user
+                        %span.sidebar-text Admin
                     %li
-                      = link_to kotas_path, title: "login" do
+                      = link_to visitors_list_path do
                         .helper-font-24
-                          %i.icofont-th
-                        %span.sidebar-text Kota
+                          %i.icofont-user-md
+                        %span.sidebar-text Visitor
                     %li
-                      = link_to jenis_pts_path, title: "jenis perguruan tinggi" do
+                      = link_to subscribers_list_path do
                         .helper-font-24
-                          %i.icofont-tags
-                        %span.sidebar-text Jenis PT
+                          %i.icofont-user
+                        %span.sidebar-text Subscriber
+
+                - if Rails.env == 'production' || Rails.env == 'development'
+                  - if current_user.role == 'admin' || current_user.role == 'editor'
                     %li
-                      = link_to jenjang_prodis_path, title: "jenjang program studi" do
+                      %a{ href: "#" }
                         .helper-font-24
-                          %i.icofont-tag
-                        %span.sidebar-text Jenjang
-                    %li
-                      = link_to prodi_bidangs_path, title: "bidang program studi" do
-                        .helper-font-24
-                          %i.icofont-columns
-                        %span.sidebar-text Bidang
+                          %i.icofont-folder-open
+                        %span.sidebar-text Master
+                      %ul.sub-sidebar.corner-top.shadow-silver-dark
+                        %li
+                          = link_to provinsis_path, title: "provinsi" do
+                            .helper-font-24
+                              %i.icofont-th-large
+                            %span.sidebar-text Provinsi
+                        %li
+                          = link_to kotas_path, title: "login" do
+                            .helper-font-24
+                              %i.icofont-th
+                            %span.sidebar-text Kota
+                        %li
+                          = link_to jenis_pts_path, title: "jenis perguruan tinggi" do
+                            .helper-font-24
+                              %i.icofont-tags
+                            %span.sidebar-text Jenis PT
+                        %li
+                          = link_to jenjang_prodis_path, title: "jenjang program studi" do
+                            .helper-font-24
+                              %i.icofont-tag
+                            %span.sidebar-text Jenjang
+                        %li
+                          = link_to prodi_bidangs_path, title: "bidang program studi" do
+                            .helper-font-24
+                              %i.icofont-columns
+                            %span.sidebar-text Bidang
                 %li
                   %a{ href: "#" }
                     .helper-font-24

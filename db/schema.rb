@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731082102) do
+ActiveRecord::Schema.define(:version => 20130819074526) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130731082102) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.text     "lapangan_kerja"
+    t.text     "materi"
   end
 
   create_table "prodi_fasilitas_galleries", :force => true do |t|
@@ -117,6 +118,15 @@ ActiveRecord::Schema.define(:version => 20130731082102) do
   end
 
   add_index "prodi_galleries", ["prodi_id"], :name => "index_prodi_galleries_on_prodi_id"
+
+  create_table "prodi_passing_grades", :force => true do |t|
+    t.integer  "tahun"
+    t.float    "grades"
+    t.string   "status"
+    t.integer  "prodi_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "prodi_prestasis", :force => true do |t|
     t.integer  "tahun"
@@ -178,6 +188,7 @@ ActiveRecord::Schema.define(:version => 20130731082102) do
     t.string   "twitter"
     t.string   "youtube"
     t.integer  "prodi_bidang_id"
+    t.string   "silabus"
   end
 
   add_index "prodis", ["kota_id"], :name => "index_prodis_on_kota_id"
@@ -448,6 +459,26 @@ ActiveRecord::Schema.define(:version => 20130731082102) do
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"
   add_index "univs", ["slug"], :name => "index_univs_on_slug", :unique => true
+
+  create_table "univsubrankings", :force => true do |t|
+    t.integer  "univ_id"
+    t.float    "sub_akreditasi"
+    t.float    "sub_jenis"
+    t.float    "sub_degree"
+    t.float    "sub_skala"
+    t.float    "sub_jumlah_mahasiswa"
+    t.float    "sub_prestasi"
+    t.float    "sub_kerjasama"
+    t.float    "sub_alumni"
+    t.float    "sub_ekspertise"
+    t.float    "sub_rating_user"
+    t.float    "sub_popularity"
+    t.string   "status"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "univsubrankings", ["univ_id"], :name => "index_univsubrankings_on_univ_id"
 
   create_table "visitors", :force => true do |t|
     t.string   "email"

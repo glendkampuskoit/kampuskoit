@@ -17,7 +17,7 @@
               = @title
             %p.post-author
               Last Updated - 
-              %span 5 Juni 2013
+              %span= @univrankings.first.updated_at.to_formatted_s(:long_ordinal)
         .row
           .large-12.columns
             - i = 0

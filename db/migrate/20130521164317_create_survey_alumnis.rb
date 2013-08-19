@@ -6,6 +6,7 @@ class CreateSurveyAlumnis < ActiveRecord::Migration
 
       t.timestamps
     end
+
     add_index :survey_alumnis, :subscriber_id
   end
 end

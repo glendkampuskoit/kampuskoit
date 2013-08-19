@@ -1,8 +1,5 @@
 class AddSubscriberPendidikanForeignKey < ActiveRecord::Migration
-  def up
+  def change
   	add_column :subscriber_pendidikans, :subscriber_id, :integer
-  end
-
-  def down
   end
 end
