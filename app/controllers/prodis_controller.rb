@@ -86,7 +86,8 @@ class ProdisController < ApplicationController
     #@prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
     #@prodis = Prodi.search params[:keyword], :page => params[:page], :per_page => 10
     if params[:keyword].present?
-      @univs = Prodi.where("nama_prodi LIKE :prodi", {prodi: params[:keyword]}).paginate(page: params[:page], per_page: 10)
+      #@prodis = Prodi.where("nama_prodi LIKE :prodi", {prodi: params[:keyword]}).paginate(page: params[:page], per_page: 10)
+      @prodis = Prodi.search params[:keyword], :page => params[:page], :per_page => 10
     else
       @prodis = Prodi.paginate(page: params[:page], per_page: 10)
     end
