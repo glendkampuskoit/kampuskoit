@@ -35,6 +35,9 @@ Guardfile
 
 /db/sphinx/**/*.*
 
+#ignore coverage
+/coverage/**/*.*
+
 
 # ignore gemfile
 Gemfile
