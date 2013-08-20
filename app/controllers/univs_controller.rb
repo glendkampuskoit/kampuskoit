@@ -39,7 +39,8 @@ class UnivsController < ApplicationController
   def create
     @univ = Univ.new(params[:univ])
     if @univ.save
-      redirect_to univs_list_path, notice: 'Perguruan Tinggi berhasil ditambah.'
+      #redirect_to univs_list_path, notice: 'Perguruan Tinggi berhasil ditambah.'
+      redirect_to edit_univ_path(@univ), notice: 'Perguruan Tinggi berhasil ditambah.' 
     else
       render action: "new", layout: "admin"
     end

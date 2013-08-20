@@ -24,7 +24,7 @@ FactoryGirl.define do
 	end	
 	
 	factory :jenis_pt do
-		sequence(:jenis){|n| "Jenis#{n}" }
+		sequence(:jenis){|n| "JenisPT#{n}" }
 	end	
 
 	factory :univ do
