@@ -43,21 +43,22 @@ describe "Homes", :js => true do
       end
     end
 
-=begin
-    describe "visitor do search with params Jurusan" do
+    describe "visitor do search with params Program Studi" do
       before do
-        page.find('a', :id => 'prodi').click
+        visit home_path
         fill_in "keyword", with: "kedokteran"
-        page.driver.execute_script(keypress)
+        all("a", :text => "Program Studi")[1].click
+        click_button "search_btn"
       end
 
-      it "if user choose jurusan, should visit jurusan path" do
-        page.should have_selector('title', :text => "Program Studi")
+      it "Should go to Prodi search result page" do
+        should have_selector('title', text: "Kampus.co.id - Pencarian Program Studi")
       end
     end
-
+    
     describe "Visitor go to Ranking Page" do
       before do 
+        visit home_path
         click_link "Ranking"
       end
       it { should have_selector('title', text: "Ranking Perguruan Tinggi") } 
@@ -69,7 +70,6 @@ describe "Homes", :js => true do
       end
       it { should have_selector('title', text: "Signup") } 
     end
-=end
   end
 
   pending "visitor send feedback" do

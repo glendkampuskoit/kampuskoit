@@ -6,7 +6,7 @@ describe "Prodi Bidang Page" do
   
   describe "go to prodi bidang index page" do
     before { visit prodi_bidangs_path }
-    it { page.should have_selector('title', :content => 'Data Bidang Program Studi') }
+    it { page.should have_selector('title', :text => 'Data Bidang Program Studi') }
   end
 
   describe "add prodi bidang" do
