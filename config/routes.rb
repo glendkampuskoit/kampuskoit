@@ -1,5 +1,9 @@
 Campus::Application.routes.draw do
 
+  get "prodi_fasil_galleries/create"
+
+  get "prodi_fasil_galleries/destroy"
+
   root to: 'home#index'
 
   resources :prodis, only: [:index]
@@ -46,7 +50,9 @@ Campus::Application.routes.draw do
     resources :jenjang_prodis
     resources :jenis_pts
     resources :univs, only: [:new, :create, :edit, :update, :destroy] do
-      resources :prodis, only: [:new, :create, :edit, :update, :destroy]
+      resources :prodis, only: [:new, :create, :edit, :update, :destroy] do
+        resources :prodi_fasils
+      end
     end
     resources :feedbacks, only: [:index, :show, :destroy]
     resources :visitors, only: [:destroy]
@@ -54,6 +60,7 @@ Campus::Application.routes.draw do
     resources :admin_profiles, only: [:edit, :update]
     resources :univgalleries, only: [:create, :destroy]
     resources :prodi_galleries, only: [:create, :destroy]
+    resources :prodi_fasilitas_galleries, only: [:create, :destroy]
     resources :prodi_bidangs
 
     # special for univ & prodi list

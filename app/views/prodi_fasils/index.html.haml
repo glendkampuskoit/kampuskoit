@@ -1,0 +1,73 @@
+- provide(:title, "Data Fasilitas Program Studi")
+
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Fasilitas Program Studi #{ @prodi.nama_prodi.titleize } - #{ @prodi.univ.nama_pt.titleize }
+      .box-body
+        %table#datatables.table.table-hover.responsive
+          %thead
+            %tr
+              %th Fasilitas
+              %th &nbsp;
+          %tbody
+            - @prodi_fasils.each do |fasil|
+              %tr
+                %td= fasil.fasilitas
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit", edit_univ_prodi_prodi_fasil_path(fasil.prodi, fasil.prodi.univ, fasil)
+                  %span.label.label-important
+                    = link_to "Delete", univ_prodi_prodi_fasil_path(fasil.prodi, fasil.prodi.univ, fasil), method: :delete, :class => "delete"
+
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span= yield(:title)
+      .box-body
+        = form_for @prodi_fasil, url: univ_prodi_prodi_fasils_path(@prodi.univ, @prodi), :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
+          - if @prodi_fasil.errors.any?
+            .alert.alert-error
+              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+              %div
+                - @prodi_fasil.errors.full_messages.each do |msg|
+                  = msg
+                  %br
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Fasilitas
+            .controls
+              = f.text_area :fasilitas, :id => "fasilitas", :class => "span7", :rows => "5", :data => {:form => "fasilitas"}, :placeholder => "Isikan fasilitas ..."
+          .form-actions
+            = f.hidden_field :prodi_id, id: "prodi_id", value: @prodi.id
+            %button.btn.btn-primary{:type => "submit"} Save
+            %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
+            
+
+:javascript
+  $(document).ready(function() {
+    // peity chart
+    $("span[data-chart=peity-bar]").peity("bar");
+                    
+    // datatables
+    $('#datatables').dataTable( {
+      "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+      "sPaginationType": "bootstrap",
+      "oLanguage": {
+              "sLengthMenu": "_MENU_ records per page"
+      }
+    });
+
+    $('.delete').on('click', function () {
+      return confirm('Anda yakin akan menghapus data ini?');
+    });
+  });

@@ -167,11 +167,14 @@
           .control-group
             %label.control-label{for: "required"} Youtube
             .controls
-              %strong http://youtube.com/#{f.text_field :youtube, id: "youtube", class: "grd-white"}
+              %strong http://youtube.com/user/#{f.text_field :youtube, id: "youtube", class: "grd-white"}
           
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:type => "button"} Cancel
+
+          .form-actions
+            = link_to "Update Fasilitas Prodi", univ_prodi_prodi_fasils_path(@prodi.univ, @prodi), class: "btn.btn-primary"            
 
 - if params[:action] == "edit" || params[:action] == "update"
   .row-fluid

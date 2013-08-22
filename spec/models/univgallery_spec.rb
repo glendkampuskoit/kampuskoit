@@ -8,6 +8,7 @@ describe Univgallery do
     image: File.open(File.join(Rails.root, '/spec/fixtures/files/cangkrukan.jpg')) ) }
 
   subject{ @univgallery }
+  
   it { should respond_to(:caption) }
   it { should respond_to(:description) }
   it { should respond_to(:univ) }

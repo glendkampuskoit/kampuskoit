@@ -61,7 +61,6 @@ class ProdisController < ApplicationController
     @prodigallery = ProdiGallery.new
     @prodigalleries = ProdiGallery.where(prodi_id: @prodi)
     render layout: "admin"
-
   end
 
   def update

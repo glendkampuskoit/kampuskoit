@@ -8,8 +8,7 @@ class ProdiGalleriesController < ApplicationController
     	redirect_to edit_univ_prodi_path(Univ.find(prodi.univ_id), prodi), notice: 'Galeri Program Studi berhasil diupdate.'
     else
       redirect_to edit_univ_prodi_path(Univ.find(prodi.univ_id), prodi), notice: 'Galeri Program Studi gagal diupdate.'
-    end  	
-
+    end
   end
 
   def destroy

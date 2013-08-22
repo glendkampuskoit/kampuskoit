@@ -72,6 +72,11 @@ FactoryGirl.define do
 		materi "Analitik"
 	end
 
+	factory :prodi_fasil do
+		sequence(:fasilitas) { |n| "Fasilitas Prodi#{n}" }
+		association :prodi, :factory => :prodi
+	end
+
 	factory :univgallery do
 		image File.open("spec/fixtures/files/cangkrukan.jpg")
 		caption "example gallery"
