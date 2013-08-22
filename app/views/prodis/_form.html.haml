@@ -173,8 +173,10 @@
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:type => "button"} Cancel
 
-          .form-actions
-            = link_to "Update Fasilitas Prodi", univ_prodi_prodi_fasils_path(@prodi.univ, @prodi), class: "btn.btn-primary"            
+          - if params[:action] == "edit" || params[:action] == "update"
+            .form-actions
+              = link_to "Fasilitas Prodi", univ_prodi_prodi_fasils_path(@prodi.univ, @prodi), class: "btn btn-inverse"
+              = link_to "Prestasi Prodi", univ_prodi_prodi_prestasis_path(@prodi.univ, @prodi), class: "btn btn-inverse" 
 
 - if params[:action] == "edit" || params[:action] == "update"
   .row-fluid

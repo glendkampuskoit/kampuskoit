@@ -51,7 +51,8 @@ Campus::Application.routes.draw do
     resources :jenis_pts
     resources :univs, only: [:new, :create, :edit, :update, :destroy] do
       resources :prodis, only: [:new, :create, :edit, :update, :destroy] do
-        resources :prodi_fasils
+        resources :prodi_fasils, except: [:new]
+        resources :prodi_prestasis, except: [:new]
       end
     end
     resources :feedbacks, only: [:index, :show, :destroy]

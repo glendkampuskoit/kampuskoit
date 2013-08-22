@@ -77,6 +77,12 @@ FactoryGirl.define do
 		association :prodi, :factory => :prodi
 	end
 
+	factory :prodi_prestasi do
+		tahun 2005
+		sequence(:prestasi) { |n| "Prestasi Prodi#{n}" }
+		association :prodi, :factory => :prodi
+	end
+
 	factory :univgallery do
 		image File.open("spec/fixtures/files/cangkrukan.jpg")
 		caption "example gallery"
