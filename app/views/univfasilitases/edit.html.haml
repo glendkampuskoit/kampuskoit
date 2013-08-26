@@ -65,11 +65,11 @@
             .controls
               = f.text_area :description, rows: "3", placeholder: "Isikan deskripsi", data: {validate: "{required: true, messages: {required: 'Deskripsi harus diisi'}}"}
           .control-group
-            - if @univ_fasilitas_gallery.present?
+            - if @univ_fasilitas_galleries.present?
               .controls
                 .gallery-content
                   %ul#portfolio-list.thumbnails
-                    - @univ_fasilitas_gallery.each do |gallery|
+                    - @univ_fasilitas_galleries.each do |gallery|
                       %li.design
                         / use checkbox for helper event
                         %input.selecter{:name => "item[]", :type => "checkbox", :value => "1.jpg"}/

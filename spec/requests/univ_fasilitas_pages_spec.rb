@@ -29,5 +29,4 @@ describe "Fasilitas Program Studi" do
 		end
 		it { expect { click_button "Save" }.not_to change(Univfasilitas, :count) }
 	end
-
 end
