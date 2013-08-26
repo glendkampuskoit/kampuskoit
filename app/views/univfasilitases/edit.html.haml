@@ -1,0 +1,143 @@
+- provide(:title, "Update Data Fasilitas Perguruan Tinggi")
+- if flash[:notice]
+  .alert.alert-success
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    %strong Berhasil!
+    = flash[:notice]
+    
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span= yield(:title)
+
+      .box-body          
+        = form_for @univfasilitas, url: univ_univfasilitas_path(@univfasilitas.univ, @univfasilitas), html: {class: "form-horizontal", multipart: true, id: "form-validate", novalidate: "novalidate"} do |f|
+          - if @univfasilitas.errors.any?
+            .alert.alert-error
+              %button.close{"data-dismiss" => "alert", type: "button"} &times;
+              %div
+                - @univfasilitas.errors.full_messages.each do |msg|
+                  = msg
+                  %br
+          
+          .control-group
+            %label.control-label{for: "inputEditorSimple"} Fasilitas
+            .controls
+              = f.text_area :fasilitas, id: "fasilitas", class: "span7", rows: "5", data: {form: "fasilitas"}, placeholder: "Isikan Fasilitas ..."
+          
+          .form-actions
+            %button.btn.btn-primary{:type => "submit"} Save
+            %button.btn{:type => "button"} Cancel           
+
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Update Fasilitas Perguruan Tinggi Galeri
+      .box-body
+        = form_for @univ_fasilitas_gallery, :html => {id: "form-gallery", :novalidate => "novalidate", class: "form-horizontal"} do |f|
+          - if @univ_fasilitas_gallery.errors.any?
+            .alert.alert-error
+              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+              %div
+                - @univ_fasilitas_gallery.errors.full_messages.each do |msg|
+                  = msg
+                  %br
+          .control-group
+            %label.control-label{for: "inputUpload"} Tambah Gallery
+            .controls
+              = f.file_field :image, id: "inputUpload", data: {form: "uniform"}
+          .control-group
+            %label.control-label{for: "required"} Caption
+            .controls
+              = f.text_field :caption, class: "grd-white", data: {validate: "{required: true, messages: {required: 'Caption harus diisi'}}"}
+          .control-group
+            %label.control-label{for: "required"} Deskripsi
+            .controls
+              = f.text_area :description, rows: "3", placeholder: "Isikan deskripsi", data: {validate: "{required: true, messages: {required: 'Deskripsi harus diisi'}}"}
+          .control-group
+            - if @univ_fasilitas_galleries.present?
+              .controls
+                .gallery-content
+                  %ul#portfolio-list.thumbnails
+                    - @univ_fasilitas_galleries.each do |gallery|
+                      %li.design
+                        / use checkbox for helper event
+                        %input.selecter{:name => "item[]", :type => "checkbox", :value => "1.jpg"}/
+                        .thumbnail
+                          = image_tag(gallery.image_url(:thumb), :alt => gallery.description, :onerror => "this.src='/assets/default.jpg';", :width => "120", :height => "120")
+                          .thumbnail-control
+                            .controls
+                              %a{:href => gallery.image_url, :rel => "prettyPhoto[gallery]", :title => gallery.description}
+                                %i.icofont-search
+                              = link_to univ_fasilitas_gallery_path(gallery), method: :delete, class: "delete" do
+                                %i.icofont-trash
+                              %p.description= gallery.caption
+          .form-actions
+            = f.hidden_field :prodi_fasil_id, :value => @univfasilitas.id
+            %button.btn.btn-primary{type: "submit"} Save
+            %button.btn{type: "reset"} Reset
+
+:javascript
+  $(document).ready(function() {      
+    // peity chart
+    $("span[data-chart=peity-bar]").peity("bar");
+    
+
+    $('.delete').on('click', function () {
+        return confirm('Anda yakin akan menghapus data ini?');
+    });
+
+    $('[data-form=uniform]').uniform()
+
+    // gallery setup
+    $('.gallery-selector').change(function(){
+        checked = $(this).attr('checked');
+        checked = (checked == undefined) ? false : true ;
+        
+        $('input.selecter, .gallery-selector').attr('checked', checked);
+        $.uniform.update('.gallery-selector');
+        
+        // toggle class for thumbnail
+        thumbnail = $('input.selecter').attr('checked', checked).next();
+        if(checked == true){
+            thumbnail.addClass('active');
+        }
+        else{
+            thumbnail.removeClass('active')
+        }
+    });
+    
+    $('.thumbnail-control .controls').click(function(e){
+        selecter = $(this).parent().parent().prev();
+        checked  = selecter.attr('checked');
+        if(checked == undefined){
+            checked = true;
+        }
+        else{
+            checked = false;
+            $('.gallery-selector').attr('checked', checked);
+            $.uniform.update('.gallery-selector');
+        }
+        
+        $(selecter).attr('checked', checked);
+        thumbnail = $(selecter).next();
+        if(e.target.nodeName == 'DIV'){
+            thumbnail.toggleClass('active');
+        }
+    });
+                    
+    // prettyPhoto
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+    $('#form-validate').validate();
+    $('#form-gallery').validate();
+  });

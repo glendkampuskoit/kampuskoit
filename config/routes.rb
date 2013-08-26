@@ -50,6 +50,8 @@ Campus::Application.routes.draw do
     resources :jenjang_prodis
     resources :jenis_pts
     resources :univs, only: [:new, :create, :edit, :update, :destroy] do
+      resources :univfasilitases, except: [:new]
+      resources :univkerjasamas, except: [:new]
       resources :prodis, only: [:new, :create, :edit, :update, :destroy] do
         resources :prodi_fasils, except: [:new]
         resources :prodi_prestasis, except: [:new]
@@ -61,6 +63,7 @@ Campus::Application.routes.draw do
     resources :subscribers, only: [:edit, :update, :show, :destroy]
     resources :admin_profiles, only: [:edit, :update]
     resources :univgalleries, only: [:create, :destroy]
+    resources :univ_fasilitas_galleries, only: [:create, :destroy]
     resources :prodi_galleries, only: [:create, :destroy]
     resources :prodi_fasilitas_galleries, only: [:create, :destroy]
     resources :prodi_bidangs
