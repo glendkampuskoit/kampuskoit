@@ -83,6 +83,12 @@ FactoryGirl.define do
 		association :prodi, :factory => :prodi
 	end
 
+	factory :prodi_biaya do
+		biaya "SPP"
+		nilai "600000"
+		association :prodi, :factory => :prodi
+	end
+
 	factory :univgallery do
 		image File.open("spec/fixtures/files/cangkrukan.jpg")
 		caption "example gallery"

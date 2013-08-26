@@ -53,6 +53,7 @@ Campus::Application.routes.draw do
       resources :prodis, only: [:new, :create, :edit, :update, :destroy] do
         resources :prodi_fasils, except: [:new]
         resources :prodi_prestasis, except: [:new]
+        resources :prodi_biayas
       end
     end
     resources :feedbacks, only: [:index, :show, :destroy]
