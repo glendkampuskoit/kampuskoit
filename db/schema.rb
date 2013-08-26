@@ -332,6 +332,60 @@ ActiveRecord::Schema.define(:version => 20130822015806) do
 
   add_index "survey_alumnis", ["subscriber_id"], :name => "index_survey_alumnis_on_subscriber_id"
 
+  create_table "survey_gajis", :force => true do |t|
+    t.integer "univ_id",                       :null => false
+    t.integer "range1",         :default => 0
+    t.integer "range2",         :default => 0
+    t.integer "range3",         :default => 0
+    t.integer "range4",         :default => 0
+    t.integer "totalresponden", :default => 0
+    t.date    "updated_at"
+  end
+
+  create_table "survey_respondens", :force => true do |t|
+    t.integer "subscriber_id",                :null => false
+    t.integer "univ_id",                      :null => false
+    t.integer "gaji",          :default => 0
+    t.integer "sektorusaha",   :default => 0
+    t.integer "waktutunggu",   :default => 0
+    t.date    "updated_at"
+  end
+
+  create_table "survey_sektorusahas", :force => true do |t|
+    t.integer "univ_id",                               :null => false
+    t.integer "pertanian",              :default => 0
+    t.integer "pertambangan",           :default => 0
+    t.integer "industripengolahan",     :default => 0
+    t.integer "listrikgas",             :default => 0
+    t.integer "airlimbah",              :default => 0
+    t.integer "konstruksi",             :default => 0
+    t.integer "perdagangan",            :default => 0
+    t.integer "informasikomunikasi",    :default => 0
+    t.integer "keuanganasuransi",       :default => 0
+    t.integer "realestat",              :default => 0
+    t.integer "jasaprofesi",            :default => 0
+    t.integer "administrasipemerintah", :default => 0
+    t.integer "pendidikan",             :default => 0
+    t.integer "transportasi",           :default => 0
+    t.integer "akomodasi",              :default => 0
+    t.integer "kesehatansosial",        :default => 0
+    t.integer "kesenianhiburan",        :default => 0
+    t.integer "jasalainnya",            :default => 0
+    t.integer "totalresponden",         :default => 0
+    t.date    "updated_at"
+  end
+
+  create_table "survey_waktutunggus", :force => true do |t|
+    t.integer "univ_id",                       :null => false
+    t.integer "range1",         :default => 0
+    t.integer "range2",         :default => 0
+    t.integer "range3",         :default => 0
+    t.integer "range4",         :default => 0
+    t.integer "range5",         :default => 0
+    t.integer "totalresponden", :default => 0
+    t.date    "updated_at"
+  end
+
   create_table "univ_fasilitas_galleries", :force => true do |t|
     t.string   "caption"
     t.text     "description"
@@ -419,12 +473,12 @@ ActiveRecord::Schema.define(:version => 20130822015806) do
   create_table "univrankings", :force => true do |t|
     t.integer  "univ_id"
     t.string   "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.float    "government"
-    t.float    "college"
-    t.float    "society"
-    t.float    "score"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.float    "government", :default => 0.0
+    t.float    "college",    :default => 0.0
+    t.float    "society",    :default => 0.0
+    t.float    "score",      :default => 0.0
   end
 
   create_table "univs", :force => true do |t|
@@ -462,20 +516,20 @@ ActiveRecord::Schema.define(:version => 20130822015806) do
 
   create_table "univsubrankings", :force => true do |t|
     t.integer  "univ_id"
-    t.float    "sub_akreditasi"
-    t.float    "sub_jenis"
-    t.float    "sub_degree"
-    t.float    "sub_skala"
-    t.float    "sub_jumlah_mahasiswa"
-    t.float    "sub_prestasi"
-    t.float    "sub_kerjasama"
-    t.float    "sub_alumni"
-    t.float    "sub_ekspertise"
-    t.float    "sub_rating_user"
-    t.float    "sub_popularity"
-    t.string   "status"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.float    "sub_akreditasi",       :default => 0.0
+    t.float    "sub_jenis",            :default => 0.0
+    t.float    "sub_degree",           :default => 0.0
+    t.float    "sub_skala",            :default => 0.0
+    t.float    "sub_jumlah_mahasiswa", :default => 0.0
+    t.float    "sub_prestasi",         :default => 0.0
+    t.float    "sub_kerjasama",        :default => 0.0
+    t.float    "sub_alumni",           :default => 0.0
+    t.float    "sub_ekspertise",       :default => 0.0
+    t.float    "sub_rating_user",      :default => 0.0
+    t.float    "sub_popularity",       :default => 0.0
+    t.string   "status",               :default => "0"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   add_index "univsubrankings", ["univ_id"], :name => "index_univsubrankings_on_univ_id"
