@@ -45,6 +45,3 @@ describe "Jenis Perguruan Tinggi Page" do
 	  end
   end
 end
-
-
-

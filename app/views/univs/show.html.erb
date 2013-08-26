@@ -38,7 +38,7 @@
             src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
           <% if @univranking.present? %>
-           <div class="note"><span>Government: <%= @univranking.government %></span> | <span>College: <%= @univranking.college %></span> | <span>Society: <%= @univranking.society %></span></div>
+           <div class="note"><span>Government: <%= @univranking.government.present? ? @univranking.government : " - " %></span> | <span>College: <%= @univranking.college.present? ? @univranking.college : " - " %></span> | <span>Society: <%= @univranking.society.present? ? @univranking.society : " - " %></span></div>
            <% end %>
         </div>
       </div>

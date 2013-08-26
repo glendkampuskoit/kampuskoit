@@ -49,7 +49,7 @@ describe Univ do
 		it { should_not be_valid }
 	end
 
-	describe "tahun berdiri blank isnt valid" do
+	pending "tahun berdiri blank isnt valid" do
 		before { @univ.tahun_berdiri = '' }
 		it { should_not be_valid }
 	end

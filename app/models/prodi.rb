@@ -16,7 +16,7 @@ class Prodi < ActiveRecord::Base
 
 	validates :nama_prodi, presence: true, length: { maximum: 255 }, uniqueness: { scope: [:jenjang_prodi_id, :univ_id], case_sensitive: false }, reduce: true
 	validates :fakultas, presence: true
-	validates :tahun_berdiri, presence: true, length: { is: 4 }, reduce: true
+	#validates :tahun_berdiri, presence: true, length: { is: 4 }, reduce: true
 	validates :alamat, presence: true
 	validates :telepon, presence: true
 	validates :website, presence: true
