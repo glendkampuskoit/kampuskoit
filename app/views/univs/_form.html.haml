@@ -112,6 +112,11 @@
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:type => "button"} Cancel
 
+          - if params[:action] == "edit" || params[:action] == "update"
+            .form-actions
+              = link_to "Fasilitas PT", univ_univfasilitases_path(@univ), class: "btn btn-inverse"
+
+
 - if params[:action] == "edit" || params[:action] == "update"
   .row-fluid
     .span12
