@@ -101,6 +101,11 @@ FactoryGirl.define do
 		association :univ, :factory => :univ
 	end
 
+	factory :univkerjasama do
+		sequence(:kerjasama) { |n| "Kerjasama PT#{n}" }
+		association :univ, :factory => :univ
+	end
+
 	factory :prodi_gallery do
 		image File.open("spec/fixtures/files/cangkrukan.jpg")
 		caption "example gallery"
