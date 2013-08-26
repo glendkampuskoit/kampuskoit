@@ -50,7 +50,7 @@ describe Prodi do
 		it { should_not be_valid }
  	end
   
-  describe "nama prodi blank is not valid" do
+  pending "tahun berdiri blank is not valid" do
  		before { @prodi.tahun_berdiri = '' }
 		it { should_not be_valid }
   end
