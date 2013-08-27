@@ -99,21 +99,25 @@
           .control-group
             %label.control-label{:for => "required"} Facebook
             .controls
-              http://facebook.com/ #{f.text_field :facebook, :id => "facebook", :class => "grd-white"}
+              %strong http://facebook.com/ #{f.text_field :facebook, :id => "facebook", :class => "grd-white"}
           .control-group
             %label.control-label{:for => "required"} Twitter
             .controls
-              http://twitter.com/#{f.text_field :twitter, :id => "twitter", :class => "grd-white"}
+              %strong http://twitter.com/#{f.text_field :twitter, :id => "twitter", :class => "grd-white"}
           .control-group
             %label.control-label{:for => "required"} Youtube
             .controls
-              http://youtube.com/user/#{f.text_field :youtube, :id => "youtube", :class => "grd-white"}
+              %strong http://youtube.com/user/#{f.text_field :youtube, :id => "youtube", :class => "grd-white"}
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:type => "button"} Cancel
-      / /box-body
-    / /box
-  / /span
+
+          - if params[:action] == "edit" || params[:action] == "update"
+            .form-actions
+              = link_to "Fasilitas PT", univ_univfasilitases_path(@univ), class: "btn btn-inverse"
+              = link_to "Kerjasama PT", univ_univkerjasamas_path(@univ), class: "btn btn-inverse"
+
+
 - if params[:action] == "edit" || params[:action] == "update"
   .row-fluid
     .span12

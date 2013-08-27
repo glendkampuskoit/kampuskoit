@@ -57,7 +57,7 @@
           .control-group
             %label.control-label{for: "required"} Tahun Berdiri
             .controls
-              = f.text_field :tahun_berdiri, id: "tahun_berdiri", class: "grd-white input-xlarge", placeholder: "ex. 1888", data: {validate: "{required: true, maxlength: 4, minlength:4, number:true, messages: {required: 'Tahun Berdiri harus diisi', maxlength: 'Tahun berdiri terdiri dari 4 karakter numeric', minlength: 'Tahun berdiri terdiri dari 4 karakter numerik', number: 'Tahun berdiri terdiri dari 4 karakter numerik'}}" }
+              = f.text_field :tahun_berdiri, id: "tahun_berdiri", class: "grd-white input-xlarge", placeholder: "ex. 1888", data: {validate: "{required: false, maxlength: 4, minlength:4, number:true, messages: {required: 'Tahun Berdiri harus diisi', maxlength: 'Tahun berdiri terdiri dari 4 karakter numeric', minlength: 'Tahun berdiri terdiri dari 4 karakter numerik', number: 'Tahun berdiri terdiri dari 4 karakter numerik'}}" }
 
           .control-group
             %label.control-label{for: "required"} Email
@@ -87,7 +87,7 @@
           .control-group
             %label.control-label{for: "required"} Fax
             .controls
-              = f.text_field :fax, id: "fax", class: "grd-white", placeholder: "Isikan nomor Fax", data: {validate: "{required: true, messages: {required: 'Fax harus diisi'}}"}
+              = f.text_field :fax, id: "fax", class: "grd-white", placeholder: "Isikan nomor Fax", data: {validate: "{required: false, messages: {required: 'Fax harus diisi'}}"}
           
           .control-group
             %label.control-label{for: "inputUpload"} Upload Logo Jurusan
@@ -167,11 +167,17 @@
           .control-group
             %label.control-label{for: "required"} Youtube
             .controls
-              %strong http://youtube.com/#{f.text_field :youtube, id: "youtube", class: "grd-white"}
+              %strong http://youtube.com/user/#{f.text_field :youtube, id: "youtube", class: "grd-white"}
           
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:type => "button"} Cancel
+
+          - if params[:action] == "edit" || params[:action] == "update"
+            .form-actions
+              = link_to "Fasilitas Prodi", univ_prodi_prodi_fasils_path(@prodi.univ, @prodi), class: "btn btn-inverse"
+              = link_to "Prestasi Prodi", univ_prodi_prodi_prestasis_path(@prodi.univ, @prodi), class: "btn btn-inverse" 
+              = link_to "Biaya Prodi", univ_prodi_prodi_biayas_path(@prodi.univ, @prodi), class: "btn btn-inverse" 
 
 - if params[:action] == "edit" || params[:action] == "update"
   .row-fluid

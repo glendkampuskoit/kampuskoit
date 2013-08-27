@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Homes", :js => true do
 
+
   subject { page }
 
   before { visit home_path }
@@ -11,58 +12,63 @@ describe "Homes", :js => true do
   describe "Home Page Index" do
     
     it "should have content Kampus" do
-      page.should have_content('Kampus')
+      should have_content('Kampus')
     end
 
     it "Index page should have right title : Kampus.co.id | Trusted Indonesian Campus Review" do
-      page.should have_selector('title', :content => "Kampus.co.id | Trusted Indonesian Campus Review")
+      should have_selector('title', :text => "Kampus.co.id | Trusted Indonesian Campus Review") 
     end
 
     describe "visitor do search" do
       before do
         fill_in "keyword", with: "airlangga"
-        page.driver.execute_script(keypress)
+        click_button "search_btn"
       end
 
-      it "should visit search result path" do
-        page.should have_selector('title', :content => "Hasil Pencarian")
+      it "Should go to all search result page" do
+        should have_selector('title', text: "Kampus.co.id - Hasil Pencarian")
       end
     end
 
     describe "visitor do search with params Perguruan Tinggi" do
       before do
+        visit home_path
         fill_in "keyword", with: "airlangga"
-        page.driver.execute_script(keypress)
+        all("a", :text => "Perguruan Tinggi")[1].click
+        click_button "search_btn"
       end
 
-      it "if user choose perguruan tinggi, should visit PT path" do
-        page.should have_selector('title', :content => "Perguruan Tinggi")
+      it "Should go to PT search result page" do
+        should have_selector('title', text: "Kampus.co.id - Pencarian Perguruan Tinggi")
       end
     end
 
-    describe "visitor do search with params Jurusan" do
+    describe "visitor do search with params Program Studi" do
       before do
+        visit home_path
         fill_in "keyword", with: "kedokteran"
-        page.driver.execute_script(keypress)
+        all("a", :text => "Program Studi")[1].click
+        click_button "search_btn"
       end
 
-      it "if user choose jurusan, should visit jurusan path" do
-        page.should have_selector('title', :content => "Program Studi")
+      it "Should go to Prodi search result page" do
+        should have_selector('title', text: "Kampus.co.id - Pencarian Program Studi")
       end
     end
-
+    
     describe "Visitor go to Ranking Page" do
       before do 
+        visit home_path
         click_link "Ranking"
       end
-      it { should have_selector('title', content: "Ranking Perguruan Tinggi") } 
+      it { should have_selector('title', text: "Ranking Perguruan Tinggi") } 
     end
 
     pending "Visitor go to Signup page" do
       before do 
         click_link "Signup"
       end
-      it { should have_selector('title', content: "Signup") } 
+      it { should have_selector('title', text: "Signup") } 
     end
   end
 
@@ -75,6 +81,6 @@ describe "Homes", :js => true do
     it "should add feedback" do
       expect { click_button "Send" }.to change(Feedback, :count)
     end
-
   end
+
 end

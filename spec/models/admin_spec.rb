@@ -50,6 +50,4 @@ describe Admin do
     before { @admin.email = "entung@yahoo" } 
     it { should_not be_valid }
   end
-
-
-end
+end 

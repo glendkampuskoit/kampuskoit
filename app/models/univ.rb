@@ -13,7 +13,7 @@ class Univ < ActiveRecord::Base
 	has_many :univprestasis, dependent: :delete_all
 
 	validates :nama_pt, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }, reduce: true
-	validates :tahun_berdiri, presence: true, length: { is: 4 }, reduce: true
+	#validates :tahun_berdiri, presence: true, length: { is: 4 }, reduce: true
 	validates :alamat, presence: true
 	validates :telepon, presence: true
 	validates :status_negeri, presence: true

@@ -49,7 +49,8 @@ class ProdisController < ApplicationController
     @prodi = Prodi.new(params[:prodi])
 
     if @prodi.save
-      redirect_to prodis_list_path, notice: 'Program Studi berhasil ditambah.'
+      #redirect_to prodis_list_path, notice: 'Program Studi berhasil ditambah.'
+      redirect_to edit_univ_prodi_path(@prodi.univ, @prodi), notice: 'Program Studi berhasil ditambah.' 
     else
       render action: "new", layout: "admin"
     end
@@ -60,7 +61,6 @@ class ProdisController < ApplicationController
     @prodigallery = ProdiGallery.new
     @prodigalleries = ProdiGallery.where(prodi_id: @prodi)
     render layout: "admin"
-
   end
 
   def update

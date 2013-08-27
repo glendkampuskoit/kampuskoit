@@ -24,7 +24,7 @@ FactoryGirl.define do
 	end	
 	
 	factory :jenis_pt do
-		sequence(:jenis){|n| "Jenis#{n}" }
+		sequence(:jenis){|n| "JenisPT#{n}" }
 	end	
 
 	factory :univ do
@@ -72,10 +72,37 @@ FactoryGirl.define do
 		materi "Analitik"
 	end
 
+	factory :prodi_fasil do
+		sequence(:fasilitas) { |n| "Fasilitas Prodi#{n}" }
+		association :prodi, :factory => :prodi
+	end
+
+	factory :prodi_prestasi do
+		tahun 2005
+		sequence(:prestasi) { |n| "Prestasi Prodi#{n}" }
+		association :prodi, :factory => :prodi
+	end
+
+	factory :prodi_biaya do
+		biaya "SPP"
+		nilai "600000"
+		association :prodi, :factory => :prodi
+	end
+
 	factory :univgallery do
 		image File.open("spec/fixtures/files/cangkrukan.jpg")
 		caption "example gallery"
 		description "description gallery"
+		association :univ, :factory => :univ
+	end
+
+	factory :univfasilitas do
+		sequence(:fasilitas) { |n| "Fasilitas PT#{n}" }
+		association :univ, :factory => :univ
+	end
+
+	factory :univkerjasama do
+		sequence(:kerjasama) { |n| "Kerjasama PT#{n}" }
 		association :univ, :factory => :univ
 	end
 
