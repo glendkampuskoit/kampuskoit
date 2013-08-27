@@ -1,0 +1,29 @@
+- provide(:title, "Data Prestasi Perguruan Tinggi")
+
+
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Prestasi Program Studi #{ @univ.nama_pt.titleize }
+      .box-body
+        %table#datatables.table.table-hover.responsive
+          %thead
+            %tr
+              %th Tahun
+              %th Prestasi
+              %th &nbsp;
+          %tbody
+            - @univprestasis.each do |prestasi|
+              %tr
+                %td= prestasi.tahun
+                %td= prestasi.prestasi
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit", edit_univ_univprestasi_path(prestasi.univ, prestasi)
+                  %span.label.label-important
+                    = link_to "Delete", univ_univprestasi_path(prestasi.univ, prestasi), method: :delete, :class => "delete"
