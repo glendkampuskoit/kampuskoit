@@ -1,0 +1,124 @@
+- provide(:title, "Komparasi Program Studi")
+
+.row.compare-panel
+  .small-12.small-centered.columns
+    %table
+      %thead
+        %tr
+          %th{:width => "400"} &nbsp;
+          %th{:width => "350"} &nbsp;
+          %th{:width => "350"} &nbsp;
+      %tbody
+        %tr
+          %td.table-section-title.table-section-title-first Profile
+          %td
+          %td
+        %tr
+          %td.align-left.properties Ranking Jurusan
+          %td
+            %img{:src => "/assets/front/compare/star-single.png"}
+              \/
+              %span 1
+          %td
+            %img{:src => "/assets/front/compare/star-single.png"}
+              \/
+              %span 23
+        %tr
+          %td.align-left.properties Akreditasi
+          %td= @akreditasi_1
+          %td= @akreditasi_2
+        %tr
+          %td.align-left.properties Status
+          %td= @prodi_1.univ.status_negeri.present? ? @prodi_1.univ.status_negeri : " - "
+          %td= @prodi_2.univ.status_negeri.present? ? @prodi_2.univ.status_negeri : " - "
+        %tr
+          %td.align-left.properties Seleksi Masuk
+          %td= @prodi_1.seleksi_masuk.present? ? @prodi_1.seleksi_masuk : " - "
+          %td= @prodi_2.seleksi_masuk.present? ? @prodi_2.seleksi_masuk : " - "
+        %tr
+          %td.align-left.properties Passing Grade
+          %td= @grade_1
+          %td= @grade_2
+        %tr
+          %td.align-left.properties.bottom-border Fasilitas
+          %td.bottom-border
+            %ul.indent-left
+              - @prodi_1.prodi_fasils.each do |fasilitas|
+                %li.small-black-disc= fasilitas.fasilitas
+          %td.bottom-border
+            %ul.indent-left
+              - @prodi_2.prodi_fasils.each do |fasilitas|
+                %li.small-black-disc= fasilitas.fasilitas
+        %tr
+          %td.table-section-title Kompetensi
+          %td
+          %td
+        %tr
+          %td.align-left.properties Bidang Studi
+          %td= @prodi_1.bidang_studi.present? ? @prodi_1.bidang_studi : " - "
+          %td= @prodi_2.bidang_studi.present? ? @prodi_2.bidang_studi : " - "
+        %tr
+          %td.align-left.properties Prospektus Jurusan
+          %td= @prodi_1.prodi_bidang.present? ? @prodi_1.prodi_bidang.lapangan_kerja : " - "
+          %td= @prodi_2.prodi_bidang.present? ? @prodi_2.prodi_bidang.lapangan_kerja : " - "
+        %tr
+          %td.align-left.properties Prestasi
+          %td
+            - if @prodi_1.prodi_prestasis.any?
+              %ul.indent-left
+                - @prodi_1.prodi_prestasis.each do |prestasi| 
+                  %li.small-black-disc= prestasi.prestasi
+            - else
+              = " - "
+          %td
+            - if @prodi_2.prodi_prestasis.any?
+              %ul.indent-left
+                - @prodi_2.prodi_prestasis.each do |prestasi| 
+                  %li.small-black-disc= prestasi.prestasi
+            - else
+              = " - "
+        %tr
+          %td.align-left.properties.bottom-border.space-bottom Silabus Pendidikan
+          %td.bottom-border= @prodi_1.silabus.present? ? link_to("Download", @prodi_1.silabus.to_s) : " - "
+          %td.bottom-border= @prodi_2.silabus.present? ? link_to("Download", @prodi_2.silabus.to_s) : " - "
+
+        %tr
+          %td.table-section-title Biaya
+          %td
+          %td
+        %tr
+          %td.align-left.properties Pendaftaran
+          %td -
+          %td -
+        %tr
+          %td.align-left.properties SPP
+          %td -
+          %td -
+        %tr
+          %td.align-left.properties SP3
+          %td -
+          %td -
+        %tr
+          %td.align-left.properties.bottom-border.space-bottom Biaya Hidup
+          %td.bottom-border -
+          %td.bottom-border -
+        %tr
+          %td.table-section-title Alumni
+          %td
+          %td
+        %tr
+          %td.align-left.properties.alternative-strip Statistik IPK
+          %td.alternative-strip -
+          %td.alternative-strip -
+        %tr
+          %td.align-left.properties Statistik Waktu Tunggu
+          %td -
+          %td -
+        %tr
+          %td.align-left.properties.alternative-strip Statistik Bidang Kerja
+          %td.alternative-strip -
+          %td.alternative-strip -
+        %tr
+          %td.align-left.properties.space-bottom Statistik Bidang Kerja
+          %td -
+          %td -
