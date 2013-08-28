@@ -34,5 +34,5 @@ class UnivbiayasController < ApplicationController
     	else
       		render action: "edit"
       	end
-    end	
+    end
 end
