@@ -337,6 +337,36 @@ div[role="main"]{
 .margin-fix-5{
 	left: 417px !important;	
 }
+.panel-jurusan-wrapper{
+	ul{
+		list-style-image: url("/assets/front/common/small-disc-bullet.png");
+	}
+	li{
+		margin-left: 20px;
+	}
+	a{
+		@include src-light;
+		font-size: 14px;
+		color: $panel_jurusan_text;
+		&:hover{
+			color: $panel_jurusan_text_hover;
+		}
+	}
+}
+.entry-link span{	
+	display: inline-block;
+}
+.entry-link-separator{
+	color: lighten($entry_link,25%);
+}
+.entry-link a{
+	@include src-italic;
+	font-size: 0.688em;
+	color: $entry_link;
+	&:hover{
+		color: darken($entry_link,10%);	
+	}
+}
 .information{
 	background: $information_panel;
 	padding-top: 25px;
@@ -509,4 +539,5 @@ div[role="main"]{
 footer{
 	background: $website_kampus03_footer;
 }
+@import "sidebar";
 @import "footer";
