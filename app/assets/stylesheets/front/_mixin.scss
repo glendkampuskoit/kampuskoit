@@ -34,5 +34,10 @@
 @mixin src-semibold{
 	font-family: "source_sans_prosemibold", sans-serif, tahoma !important;
 	font-weight: normal;
-    font-style: normal;    
+    font-style: normal;
+}
+@mixin src-light{
+	font-family: "source_sans_prolight", sans-serif, tahoma !important;
+	font-weight: normal;
+    font-style: normal;
 }

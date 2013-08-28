@@ -25,8 +25,8 @@
                       %span= link_to univ.website, univ.website, :target => "_blank"
                       %span.entry-link-separator &#x20;|
                       %span= mail_to univ.email, univ.email
-                    - elsif univ.email.present?
-                      %span= mail_to univ.email, univ.email
+                    - elsif univ.website.present?
+                      %span= link_to univ.website, univ.website, target: "_blank"
                     - elsif univ.email.present? 
                       %span= mail_to univ.email, univ.email
 
