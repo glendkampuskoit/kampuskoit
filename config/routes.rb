@@ -33,6 +33,9 @@ Campus::Application.routes.draw do
   match '/search', to: 'search#result'
   match '/ranking', to: 'ranking#index'
 
+  match '/univs_stream', to: 'univs#stream'
+  match '/prodis_stream', to: 'prodis#stream'
+
   # for admin panel pages
   #namespace :admin do
   scope '/admin' do

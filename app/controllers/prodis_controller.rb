@@ -97,4 +97,24 @@ class ProdisController < ApplicationController
   def destroy
     
   end
+
+  def stream
+
+    withs = {}
+    withs[:univ_id] = params[:univ_id] if params[:univ_id].present?
+
+    prodis = Prodi.search params[:query], with: withs :order => 'nama_prodi ASC', :per_page => 10
+
+    @prodi_data = Array.new
+
+    @prodi_data = prodis.map do |prodi|
+      { value: prodi.nama_prodi.titleize, data: prodi.id }
+    end
+
+    stream = { query: "Unit", suggestions: @prodi_data }
+
+    respond_to do |format|
+      format.json { render json: stream.to_json }
+    end
+  end
 end

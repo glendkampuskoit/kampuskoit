@@ -121,23 +121,27 @@
                       .row
                         .large-11.columns
                           %label Nama Kampus
-                          = text_field_tag "", "", placeholder: "Input Nama Perguruan Tinggi", id: "autocomplete"
+                          = text_field_tag "", "", placeholder: "Input Nama Perguruan Tinggi", id: "autocomplete_pt_1"
+                          = text_field_tag "pt_1", ""
 
                       .row
                         .large-11.columns
                           %label.space-top Program Studi
-                          = text_field_tag "", "", placeholder: "Input Program Studi"
+                          = text_field_tag "", "", placeholder: "Input Program Studi", id: "autocomplete_prodi_1"
+                          = text_field_tag "prodi_1", ""
 
                     .large-6.columns.pair-right
                       .row
                         .large-11.columns.right
                           %label Nama Kampus
-                          = text_field_tag "", "", placeholder: "Input Nama Perguruan Tinggi"
+                          = text_field_tag "", "", placeholder: "Input Nama Perguruan Tinggi", id: "autocomplete_pt_2"
+                          = text_field_tag "pt_2", ""
 
                       .row
                         .large-11.columns.right
                           %label.space-top Program Studi
-                          = text_field_tag "", "", placeholder: "Input Program Studi"
+                          = text_field_tag "", "", placeholder: "Input Program Studi", id: "autocomplete_prodi_2"
+                          = text_field_tag "prodi_2", ""
 
                   .row.compare-submit
                     .small-4.large-3.small-centered.columns
@@ -156,6 +160,7 @@
     :javascript
       $(document).foundation();
       $(document).ready(function() {
+        var pr;
         $(".button-group a").click(function(){
           $(".button-group a").removeClass("active-button");
           $(this).addClass("active-button");
@@ -185,10 +190,41 @@
           $('#search').attr('action', '#{search_path}');
         });
 
-        $('#autocomplete').autocomplete({
-          serviceUrl: '/univs.json',
+        $('#autocomplete_pt_1').autocomplete({
+          serviceUrl: '/univs_stream.json',
           onSelect: function (suggestion) {
-            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+            $("#pt_1").val(suggestion.data);
+            $("#autocomplete_pt_1").val(suggestion.value);
+          }
+        });
+
+        $('#autocomplete_pt_2').autocomplete({
+          serviceUrl: '/univs_stream.json',
+          onSelect: function (suggestion) {
+            $("#pt_2").val(suggestion.data);
+            $("#autocomplete_pt_2").val(suggestion.value);
+          }
+        });
+
+        $('#autocomplete_prodi_1').autocomplete({
+          serviceUrl: '/prodis_stream.json',
+          params: { 
+              univ_id : $("#pt_1").val()
+          },
+          onSelect: function (suggestion) {
+            $("#prodi_1").val(suggestion.data);
+            $("#autocomplete_prodi_1").val(suggestion.value);
+          }
+        });
+
+        $('#autocomplete_prodi_2').autocomplete({
+          serviceUrl: '/prodis_stream.json',
+          params: { 
+              univ_id : $("#pt_2").val()
+          },
+          onSelect: function (suggestion) {
+            $("#prodi_1").val(suggestion.data);
+            $("#autocomplete_prodi_2").val(suggestion.value);
           }
         });
       });
