@@ -121,13 +121,12 @@
                       .row
                         .large-11.columns
                           %label Nama Kampus
-                          = text_field_tag "", "", placeholder: "Input Nama Perguruan Tinggi"
+                          = text_field_tag "", "", placeholder: "Input Nama Perguruan Tinggi", id: "autocomplete"
 
                       .row
                         .large-11.columns
                           %label.space-top Program Studi
                           = text_field_tag "", "", placeholder: "Input Program Studi"
-                          = hidden_field_tag "prodi_1"
 
                     .large-6.columns.pair-right
                       .row
@@ -139,7 +138,6 @@
                         .large-11.columns.right
                           %label.space-top Program Studi
                           = text_field_tag "", "", placeholder: "Input Program Studi"
-                          = hidden_field_tag "prodi_2"
 
                   .row.compare-submit
                     .small-4.large-3.small-centered.columns
@@ -151,7 +149,9 @@
     :javascript
       document.write('<script src=' + ('__proto__' in {} ? '/assets/front/vendor/zepto' : '/assets/front/vendor/jquery') + '.js><\/script>');
     
+    %script{ src: "/assets/jquery-1.10.0.min.js" }
     %script{ src: "/assets/front/foundation.min.js" }
+    %script{ src: "/assets/jquery.autocomplete.min.js" }
     
     :javascript
       $(document).foundation();
@@ -183,6 +183,13 @@
 
         $('#provinsi').click(function(){
           $('#search').attr('action', '#{search_path}');
+        });
+
+        $('#autocomplete').autocomplete({
+          serviceUrl: '/univs.json',
+          onSelect: function (suggestion) {
+            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+          }
         });
       });
 
