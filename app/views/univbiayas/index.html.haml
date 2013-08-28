@@ -1,4 +1,4 @@
-- provide(:title, "Data Prestasi Perguruan Tinggi")
+- provide(:title, "Data Biaya Perguruan Tinggi")
 
 
 .row-fluid
@@ -9,21 +9,21 @@
           %a{"data-box" => "collapse"}
             %i.icofont-caret-up
           %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span Data Prestasi Perguruan Tinggi #{ @univ.nama_pt.titleize }
+        %span Data Biaya Perguruan Tinggi #{ @univ.nama_pt.titleize }
       .box-body
         %table#datatables.table.table-hover.responsive
           %thead
             %tr
-              %th Tahun
-              %th Prestasi
+              %th Biaya
+              %th Nilai
               %th &nbsp;
           %tbody
-            - @univprestasis.each do |prestasi|
+            - @univbiayas.each do |biaya|
               %tr
-                %td= prestasi.tahun
-                %td= prestasi.prestasi
+                %td= biaya.biaya
+                %td= biaya.nilai
                 %td.center
                   %span.label.label-info
-                    = link_to "Edit", edit_univ_univprestasi_path(prestasi.univ, prestasi)
+                    = link_to "Edit", edit_univ_univbiaya_path(biaya.univ, biaya)
                   %span.label.label-important
-                    = link_to "Delete", univ_univprestasi_path(prestasi.univ, prestasi), method: :delete, :class => "delete"
+                    = link_to "Delete", univ_univbiaya_path(biaya.univ, biaya), method: :delete, :class => "delete"

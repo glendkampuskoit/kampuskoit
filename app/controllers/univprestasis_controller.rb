@@ -25,7 +25,6 @@ class UnivprestasisController < ApplicationController
 		@univprestasi = Univprestasi.find(params[:id])
 		@url = univ_univprestasi_path(@univprestasi.univ, @univprestasi)
 		@univ = Univ.find(params[:univ_id])
-
 	end
 
 	def update
@@ -34,7 +33,7 @@ class UnivprestasisController < ApplicationController
       		redirect_to univ_univprestasis_path(@univprestasi.univ), notice: 'Prestasi Perguruan tinggi berhasil diubah.' 
     	else
       		render action: "edit"
-    end
+    	end
 	end
 end
 
