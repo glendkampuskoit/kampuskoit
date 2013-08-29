@@ -20,12 +20,12 @@
 
     - if flash[:newsletter_error] != nil 
       %div{ data: { alert: true }, class: "alert-box alert", align: "center" }
-        - flash[:newsletter_error]
+        = flash[:newsletter_error]
         %a{ href: "#", class: "close"} &times;
 
     - if flash[:newsletter_success] != nil
       %div{ data: { alert: true }, class: "alert-box", align: "center" }
-        - flash[:newsletter_success]
+        = flash[:newsletter_success]
         %a{ href: "#", class: "close"} &times;
 
     %div{ role: "main" }
