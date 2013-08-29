@@ -1,4 +1,4 @@
-!!!
+
 /[if IE 8] <html class="no-js lt-ie9" lang="en" >
 / [if gt IE 8]><!
 %html.no-js{:lang => "en"}
@@ -20,24 +20,26 @@
     %div{:role => "main"}
       .row
         .large-12.columns
-          %form.error-searchbox
+          %form.error-searchbox{ action: search_path }
             .row
               .small-9.small-centered.large-7.columns
                 .row.collapse
                   .small-8.large-10.columns
-                    %input.custom-input{:placeholder => "Masukkan kata kunci...", :type => "text"}
+                    %input.custom-input{:placeholder => "Cari kampus dan jurusan...", name: "keyword", :type => "text"}
                   .small-4.large-2.columns
-                    %a.button.postfix{:href => "#"} Search
+                    %a.button.postfix{:href => "#", type: "submit"} Search
       .row
         .large-6.columns
           %a{:href => "#"}
-            %img{:src => "/assets/error/error-logo.png"}/
+            = link_to image_tag('/assets/error/error-logo.png'), home_path
         .large-6.columns
-          %p.error-description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          %p.error-description Kampus.co.id adalah situs yang melakukan pemeringkatan, penilaian dan ulasan (ranking, rating and review) perguruan-perguruan tinggi di indonesia. Peringkat perguruan tinggi telah menjadi indikator dalam penilaian kualitas yang sangat penting bagi daya saing perguruan tinggi di dalam dan luar negeri. Klik #{link_to_function "disini", "history.back()"} untuk kembali ke halaman sebelumnya.
+
+
     %footer
       .row
         .large-6.push-6.columns.right-footer
-          %form.newsletter-form
+          = form_for Visitor.new, :html => {:class => "newsletter-form"} do |f|
             .row
               .small-10.large-7.columns.right.newsletter-search
                 .row
@@ -45,9 +47,9 @@
                     %label.right.newsletter-label Newsletter
                 .row.collapse
                   .small-9.columns
-                    %input.fix-textbox{:placeholder => "Email", :type => "text"}
+                    = f.text_field :email, :placeholder => "Email", :class => "fix-textbox", :required => true
                   .small-3.columns
-                    %a.button.prefix{:href => "#"} Submit
+                    %button.button.prefix{type: "submit"} Submit
                 .row
                   .large-12.columns
                     %p.right.newsletter-text Berlangganan kampus.co.id melalui email
