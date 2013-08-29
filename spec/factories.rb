@@ -123,7 +123,7 @@ FactoryGirl.define do
 		instansi "Sampoerna Foundation"
 		periode	"2012-2013"
 		nilai "50000000"
-		association :univ,:factory => :univ
+		association :univ, :factory => :univ
 	end
 
 	factory :prodi_gallery do 

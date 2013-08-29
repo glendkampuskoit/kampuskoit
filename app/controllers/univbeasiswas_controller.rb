@@ -14,11 +14,13 @@ class UnivbeasiswasController < ApplicationController
 
 	def create
 		@univbeasiswa = Univbeasiswa.new(params[:univbeasiswa])
+		@univ = Univ.find(params[:univ_id])
 		if @univbeasiswa.save
-      		redirect_to univ_univbeasiswas_path(@univbeasiswa.univ), notice: 'Beasiswa Perguruan Tinggi Berhasil ditambah.' 
-    	else
-    		render action: "new"
-    	end	
+    	redirect_to univ_univbeasiswas_path(@univbeasiswa.univ), notice: 'Beasiswa Perguruan Tinggi Berhasil ditambah.' 
+  	else
+  		@url = univ_univbeasiswas_path(@univ)
+  		render action: "new"
+  	end	
 	end
 
 	def edit
@@ -29,10 +31,12 @@ class UnivbeasiswasController < ApplicationController
 
 	def update
 		@univbeasiswa = Univbeasiswa.find(params[:id])
-    	if @univbeasiswa.update_attributes(params[:univbeasiswa])
-      		redirect_to univ_univbeasiswas_path(@univbeasiswa.univ), notice: 'Biaya Perguruan tinggi berhasil diubah.' 
-    	else
-      		render action: "edit"
-      	end		
+		@univ = @univbeasiswa.univ
+		if @univbeasiswa.update_attributes(params[:univbeasiswa])
+			redirect_to univ_univbeasiswas_path(@univbeasiswa.univ), notice: 'Biaya Perguruan tinggi berhasil diubah.' 
+		else
+			@url = univ_univbeasiswa_path(@univ, @univbeasiswa)
+			render action: "edit"
+		end
 	end
 end

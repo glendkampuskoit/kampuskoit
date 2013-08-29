@@ -14,11 +14,13 @@ class UnivprestasisController < ApplicationController
 
 	def create
 		@univprestasi = Univprestasi.new(params[:univprestasi])
+		@univ = Univ.find(params[:univ_id])
 		if @univprestasi.save
-      		redirect_to univ_univprestasis_path(@univprestasi.univ), notice: 'Prestasi Perguruan Tinggi Berhasil ditambah.' 
-    	else
-    		render action: "new"
-    	end	
+			redirect_to univ_univprestasis_path(@univprestasi.univ), notice: 'Prestasi Perguruan Tinggi Berhasil ditambah.' 
+		else
+			@url = univ_univprestasis_path(@univ)
+			render action: "new"
+		end	
 	end
 
 	def edit
@@ -29,11 +31,13 @@ class UnivprestasisController < ApplicationController
 
 	def update
 		@univprestasi = Univprestasi.find(params[:id])
-    	if @univprestasi.update_attributes(params[:univprestasi])
-      		redirect_to univ_univprestasis_path(@univprestasi.univ), notice: 'Prestasi Perguruan tinggi berhasil diubah.' 
-    	else
-      		render action: "edit"
-    	end
+		@univ = @univprestasi.univ
+		if @univprestasi.update_attributes(params[:univprestasi])
+			redirect_to univ_univprestasis_path(@univprestasi.univ), notice: 'Prestasi Perguruan tinggi berhasil diubah.' 
+		else
+			@url = univ_univprestasi_path(@univ, @univprestasi)
+			render action: "edit"
+		end
 	end
 end
 
