@@ -39,13 +39,20 @@
         .rg-image-wrapper
           .rg-image
           .rg-loading
+    - elsif params[:controller] == "compare"
+      = stylesheet_link_tag "compare", :media => "all"
 
   %body
-    = render :partial => "layouts/header"
+    - if params[:controller] == "compare"
+      = render partial: "compare/header"
+    - else
+      = render :partial => "layouts/header"
     - if params[:controller] == "univs" || (params[:controller] == "search" && params[:att] == "univ")
       = render :partial => "univs/header_extension"
     - elsif params[:controller] == "prodis" || (params[:controller] == "search" && params[:att] == "prodi")
       = render :partial => "prodis/header_extension"
+    - elsif params[:controller] == "compare"
+      = render :partial => "compare/meta_compare"
 
     %div{ role: "main" }
       = yield 

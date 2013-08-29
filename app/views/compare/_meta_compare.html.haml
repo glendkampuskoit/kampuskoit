@@ -1,0 +1,12 @@
+.meta-compare
+  .row
+    .small-4.columns
+      %img{ src: "/assets/front/compare/comparation-header-logo.png" }
+
+    .small-4.columns
+      %p.meta-title= link_to @prodi_1.nama_prodi, univ_prodi_path(@prodi_1.univ, @prodi_1)
+      %p.meta-subtitle= link_to @prodi_1.univ.nama_pt, univ_path(@prodi_1.univ)
+
+    .small-4.columns
+      %p.meta-title= link_to @prodi_2.nama_prodi, univ_prodi_path(@prodi_2.univ, @prodi_2)
+      %p.meta-subtitle= link_to @prodi_2.univ.nama_pt, univ_path(@prodi_2.univ)
