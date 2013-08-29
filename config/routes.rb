@@ -17,6 +17,7 @@ Campus::Application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :update_subscriber_profiles, only: [:edit, :update]
   resources :survey_alumnis, only: [:index, :new, :create, :destroy]
+  resources :compare, only: [:index]
   
   match '/visit', to: 'visitors#new'
 
@@ -31,6 +32,9 @@ Campus::Application.routes.draw do
   match '/confirm', controller: 'subscribers', action: 'confirm'
   match '/search', to: 'search#result'
   match '/ranking', to: 'ranking#index'
+
+  match '/univs_stream', to: 'univs#stream'
+  match '/prodis_stream', to: 'prodis#stream'
 
   # for admin panel pages
   #namespace :admin do
