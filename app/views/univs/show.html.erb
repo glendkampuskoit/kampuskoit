@@ -194,7 +194,8 @@
                   <% end %>
                 <% end %>          
               </div>
-              <p class="entry-link right">
+            </div>
+            <p class="entry-link right">
                 <% if @univ.website.present? && @univ.email.present?  %>
                 <span><%= link_to @univ.website, @univ.website, target: "_blank" %></span>
                 <span class="entry-link-separator">|</span>
@@ -205,7 +206,6 @@
                 <span><%= mail_to @univ.email, @univ.email %></span>
                 <% end %>
               </p>
-            </div>
           </section>
           <section>
             <p class="title margin-fix-1" data-section-title><a href="#panel3">Alumnus</a></p>

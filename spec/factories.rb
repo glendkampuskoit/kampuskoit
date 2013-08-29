@@ -106,7 +106,27 @@ FactoryGirl.define do
 		association :univ, :factory => :univ
 	end
 
-	factory :prodi_gallery do
+	factory :univprestasi do
+		tahun 2013
+		sequence(:prestasi) { |n| "Prestasi#{n} PT" } 
+		association :univ, :factory => :univ
+	end
+
+	factory :univbiaya do
+		biaya "Uang gedung"
+		nilai "1000000"
+		association :univ,:factory => :univ
+	end
+
+	factory :univbeasiswa do
+		nama_beasiswa "Beasiswa Sempurna"
+		instansi "Sampoerna Foundation"
+		periode	"2012-2013"
+		nilai "50000000"
+		association :univ,:factory => :univ
+	end
+
+	factory :prodi_gallery do 
 		image File.open("spec/fixtures/files/cangkrukan.jpg")
 		caption "example gallery"
 		description "description gallery"

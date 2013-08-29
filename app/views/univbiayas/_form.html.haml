@@ -1,0 +1,34 @@
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span= yield(:title)
+      .box-body
+        = form_for @univbiaya, url: @url, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
+          - if @univbiaya.errors.any?
+            .alert.alert-error
+              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+              %div
+                - @univbiaya.errors.full_messages.each do |msg|
+                  = msg
+                  %br
+
+          .control-group
+            %label.control-label{for: "required"} Tahun
+            .controls
+              = f.text_field :biaya, id: "biaya", class: "grd-white input-xxlarge", placeholder: "ex. 2015", data: { validate: "{required: true, messages:{required:'Nama biaya univ harus diisi'}}"}
+
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Nilai
+            .controls
+              = f.text_area :nilai, :id => "nilai", :class => "span7", :rows => "5", :data => {:form => "nilai"}, :placeholder => "Isikan nilai ..."
+
+          .form-actions
+            = f.hidden_field :univ_id, id: "univ_id", value: @univ.id
+            %button.btn.btn-primary{:type => "submit"} Save
+            %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
+ 

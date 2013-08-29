@@ -1,0 +1,45 @@
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span= yield(:title)
+      .box-body
+        = form_for @univbeasiswa, url: @url, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
+          - if @univbeasiswa.errors.any?
+            .alert.alert-error
+              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+              %div
+                - @univbeasiswa.errors.full_messages.each do |msg|
+                  = msg
+                  %br
+
+          .control-group
+            %label.control-label{for: "required"} Nama Beasiswa
+            .controls
+              = f.text_field :nama_beasiswa, id: "nama_beasiswa", class: "grd-white input-xxlarge", placeholder: "ex. 2015", data: { validate: "{required: true, messages:{required:'Nama beasiswa univ harus diisi'}}"}
+
+          .control-group
+            %label.control-label{for: "required"} Instansi
+            .controls
+              = f.text_field :instansi, id: "instansi", class: "grd-white input-xxlarge", placeholder: "ex. 2015", data: { validate: "{required: true, messages:{required:'Nama instansi univ harus diisi'}}"}
+
+          .control-group
+            %label.control-label{for: "required"} Periode
+            .controls
+              = f.text_field :periode, id: "periode", class: "grd-white input-xxlarge", placeholder: "ex. 2015", data: { validate: "{required: true, messages:{required:'Tahun periode beasiswa univ harus diisi'}}"}
+
+
+          .control-group
+            %label.control-label{:for => "inputEditorSimple"} Nilai
+            .controls
+              = f.text_area :nilai, :id => "nilai", :class => "span7", :rows => "5", :data => {:form => "nilai"}, :placeholder => "Isikan nilai ..."
+
+          .form-actions
+            = f.hidden_field :univ_id, id: "univ_id", value: @univ.id
+            %button.btn.btn-primary{:type => "submit"} Save
+            %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
+ 

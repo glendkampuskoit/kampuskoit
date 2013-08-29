@@ -1,0 +1,29 @@
+- provide(:title, "Data Biaya Perguruan Tinggi")
+
+
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Biaya Perguruan Tinggi #{ @univ.nama_pt.titleize }
+      .box-body
+        %table#datatables.table.table-hover.responsive
+          %thead
+            %tr
+              %th Biaya
+              %th Nilai
+              %th &nbsp;
+          %tbody
+            - @univbiayas.each do |biaya|
+              %tr
+                %td= biaya.biaya
+                %td= biaya.nilai
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit", edit_univ_univbiaya_path(biaya.univ, biaya)
+                  %span.label.label-important
+                    = link_to "Delete", univ_univbiaya_path(biaya.univ, biaya), method: :delete, :class => "delete"

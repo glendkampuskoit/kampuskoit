@@ -1,0 +1,123 @@
+@import "../front/variables";
+@import "../front/fonts";
+@import "../front/mixin";
+@import "../front/base";
+
+/***Header***/
+html{
+	background: $website_kampus01_footer;
+}
+header{	
+	background: $website_kampus06_header;	
+	p{
+		margin-bottom: 0;
+		text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	}
+	.header-error-number{
+		@include hlv-bold-cn;
+		font-size: 125px;
+		color: white;
+		line-height: 200px;
+		text-align: right;		
+	}
+	.header-error-text{
+		@include hlv-bold-cn;
+		font-size: 28px;
+		color: white;		
+		line-height: 30px;
+		text-align: left;
+		padding-top: 75px;
+	}
+}
+
+/***Content***/
+div[role="main"]{
+	background: -webkit-linear-gradient(left,#025094,#002c58);
+	background: -moz-linear-gradient(left,#025094,#002c58);
+	background: -o-linear-gradient(left,#025094,#002c58);
+	background: -ms-linear-gradient(left,#025094,#002c58);
+	background: linear-gradient(left,#025094,#002c58);
+	padding: 30px 0;
+	>.row:last-child{
+		margin-top: 35px;
+	}
+}
+.error-searchbox{
+	padding-top: 31px;
+	.postfix{
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		border-top: 2px solid $header_button_border;
+		border-bottom: none;
+		font-size: 1.1em;
+		@include src-italic;
+		background: -webkit-linear-gradient(top,#0b89d0,#0166a5);
+		background: -moz-linear-gradient(top,#0b89d0,#0166a5);
+		background: -o-linear-gradient(top,#0b89d0,#0166a5);
+		background: -ms-linear-gradient(top,#0b89d0,#0166a5);
+		background: linear-gradient(top,#0b89d0,#0166a5);
+		&:hover{
+			background: -webkit-linear-gradient(bottom,#0b89d0,#0166a5);
+			background: -moz-linear-gradient(bottom,#0b89d0,#0166a5);
+			background: -o-linear-gradient(bottom,#0b89d0,#0166a5);
+			background: -ms-linear-gradient(bottom,#0b89d0,#0166a5);
+			background: linear-gradient(bottom,#0b89d0,#0166a5);
+		}
+	}
+	.custom-input{
+		background: #ffffff url("/assets/front/header/search-icon.png") no-repeat 3% center;
+		font-size: 1.1em;
+		padding-left: 40px !important;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+		@include src-regular;
+	}
+	.custom-input:hover, .custom-input:focus{
+		background-image: url("/assets/front/header/search-icon.png");
+		background-repeat: no-repeat;
+		background-position: 3% center;
+	}
+}
+.error-description{
+	color: $nav_link;
+	@include src-regular;
+	font-size: 0.875em;
+}
+
+/***Footer***/
+footer{
+	background: $website_kampus01_footer;
+}
+@import "../front/footer";
+.newsletter-form .prefix, .newsletter-form .postfix{
+	background: $compare_button;
+	&:hover{
+		background: darken($compare_button,10%);
+	}
+}
+
+@media screen and (max-width: 768px){
+	header{
+		.header-error-number{		
+			font-size: 90px;		
+			line-height: 110px;
+			text-align: center;
+		}
+		.header-error-text{		
+			font-size: 24px;
+			line-height: 30px;		
+			padding-top: 10px;
+			padding-bottom: 20px;
+			text-align: center;		
+		}
+	}
+	div[role="main"]{		
+		img{
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 40px;
+		}
+	}
+}

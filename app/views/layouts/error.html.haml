@@ -1,0 +1,70 @@
+
+/[if IE 8] <html class="no-js lt-ie9" lang="en" >
+/ [if gt IE 8]><!
+%html.no-js{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width", :name => "viewport"}
+    %title Kampus.co.id - #{ yield(:title) }
+
+    = stylesheet_link_tag "error", :media => "all"
+
+  %body
+    %header
+      .row
+        .large-6.columns
+          %p.header-error-number #{ yield(:code) }
+        .large-6.columns
+          %p.header-error-text #{ yield(:message) }
+    %div{:role => "main"}
+      .row
+        .large-12.columns
+          %form.error-searchbox{ action: search_path }
+            .row
+              .small-9.small-centered.large-7.columns
+                .row.collapse
+                  .small-8.large-10.columns
+                    %input.custom-input{:placeholder => "Cari kampus dan jurusan...", name: "keyword", :type => "text"}
+                  .small-4.large-2.columns
+                    %a.button.postfix{:href => "#", type: "submit"} Search
+      .row
+        .large-6.columns
+          %a{:href => "#"}
+            = link_to image_tag('/assets/error/error-logo.png'), home_path
+        .large-6.columns
+          %p.error-description Kampus.co.id adalah situs yang melakukan pemeringkatan, penilaian dan ulasan (ranking, rating and review) perguruan-perguruan tinggi di indonesia. Peringkat perguruan tinggi telah menjadi indikator dalam penilaian kualitas yang sangat penting bagi daya saing perguruan tinggi di dalam dan luar negeri. Klik #{link_to_function "disini", "history.back()"} untuk kembali ke halaman sebelumnya.
+
+
+    %footer
+      .row
+        .large-6.push-6.columns.right-footer
+          = form_for Visitor.new, :html => {:class => "newsletter-form"} do |f|
+            .row
+              .small-10.large-7.columns.right.newsletter-search
+                .row
+                  .large-12.columns
+                    %label.right.newsletter-label Newsletter
+                .row.collapse
+                  .small-9.columns
+                    = f.text_field :email, :placeholder => "Email", :class => "fix-textbox", :required => true
+                  .small-3.columns
+                    %button.button.prefix{type: "submit"} Submit
+                .row
+                  .large-12.columns
+                    %p.right.newsletter-text Berlangganan kampus.co.id melalui email
+        .large-6.pull-6.columns.left-footer
+          .row
+            .small-12.columns
+              %p.copyright ©2013 kampus.co.id | All Right Reserved
+
+
+    :javascript
+      document.write('<script src=' +
+      ('__proto__' in {} ? '/assets/front/vendor/zepto' : '/assets/front/vendor/jquery') +
+      '.js><\/script>');
+
+    = javascript_include_tag "application"
+
+    :javascript
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

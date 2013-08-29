@@ -10,4 +10,5 @@ ThinkingSphinx::Index.define 'prodi', :with => :active_record do
   has kota_id, :as => :kota_id
   has jenjang_prodi_id, :as => :jenjang_prodi_id
   has kota.provinsi_id, :as => :provinsi_id
+  has univ_id, :as => :univ_id
 end

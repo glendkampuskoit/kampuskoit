@@ -10,7 +10,7 @@ Campus::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local       = false
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
@@ -39,18 +39,18 @@ Campus::Application.configure do
   config.app_name = 'Kampus.co.id'
 
   #require 'tlsmail' #key but not always described
-    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.delivery_method = :test
-    config.action_mailer.perform_deliveries = true
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address        => 'smtp.gmail.com',
-      :port           => 587,
-      :domain         => 'kampus.co.id',
-      :authentication => :plain,
-      :user_name      => 'pengentauaja@kampus.co.id',
-      :password       => 'mautauataumautaubanget'
-    }
+ #   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+ #   config.action_mailer.delivery_method = :smtp
+ #   config.action_mailer.delivery_method = :test
+ #   config.action_mailer.perform_deliveries = true
+ #   config.action_mailer.raise_delivery_errors = true
+ #   config.action_mailer.smtp_settings = {
+ #     :enable_starttls_auto => true,
+ #     :address        => 'smtp.gmail.com',
+ #     :port           => 587,
+ #     :domain         => 'kampus.co.id',
+ #     :authentication => :plain,
+ #     :user_name      => 'pengentauaja@kampus.co.id',
+ #     :password       => 'mautauataumautaubanget'
+ #   }
 end

@@ -56,6 +56,9 @@ Campus::Application.routes.draw do
     resources :univs, only: [:new, :create, :edit, :update, :destroy] do
       resources :univfasilitases, except: [:new]
       resources :univkerjasamas, except: [:new]
+      resources :univprestasis
+      resources :univbiayas
+      resources :univbeasiswas
       resources :prodis, only: [:new, :create, :edit, :update, :destroy] do
         resources :prodi_fasils, except: [:new]
         resources :prodi_prestasis, except: [:new]
@@ -79,6 +82,9 @@ Campus::Application.routes.draw do
     match '/subscribers_list', to: 'subscribers#index'
     match '/ranking_list', to: 'ranking#list'
   end
+
+  # errors path
+  match ':status', to: 'errors#show', constraints: { status: /\d{3}/ } 
   
   #match '*path', :controller => "visitors", :action => "new"
 
