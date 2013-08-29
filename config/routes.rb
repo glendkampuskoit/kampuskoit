@@ -82,6 +82,9 @@ Campus::Application.routes.draw do
     match '/subscribers_list', to: 'subscribers#index'
     match '/ranking_list', to: 'ranking#list'
   end
+
+  # errors path
+  match ':status', to: 'errors#show', constraints: { status: /\d{3}/ } 
   
   #match '*path', :controller => "visitors", :action => "new"
 
