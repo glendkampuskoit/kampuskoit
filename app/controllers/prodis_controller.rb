@@ -103,7 +103,7 @@ class ProdisController < ApplicationController
     withs = {}
     withs[:univ_id] = params[:univ_id] if params[:univ_id].present?
 
-    prodis = Prodi.search params[:query], with: withs :order => 'nama_prodi ASC', :per_page => 10
+    prodis = Prodi.search params[:query], with: withs, :order => 'nama_prodi ASC', :per_page => 10
 
     @prodi_data = Array.new
 
