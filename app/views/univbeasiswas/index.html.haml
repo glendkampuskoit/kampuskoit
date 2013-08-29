@@ -1,0 +1,33 @@
+- provide(:title, "Data Beasiswa Perguruan Tinggi")
+
+
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Beasiswa Perguruan Tinggi #{ @univ.nama_pt.titleize }
+      .box-body
+        %table#datatables.table.table-hover.responsive
+          %thead
+            %tr
+              %th Nama Beasiswa
+              %th Instansi
+              %th Periode
+              %th Nilai
+              %th &nbsp;
+          %tbody
+            - @univbeasiswas.each do |beasiswa|
+              %tr
+                %td= beasiswa.nama_beasiswa
+                %td= beasiswa.instansi
+                %td= beasiswa.periode
+                %td= beasiswa.nilai
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit", edit_univ_univbeasiswa_path(beasiswa.univ, beasiswa)
+                  %span.label.label-important
+                    = link_to "Delete", univ_univbeasiswa_path(beasiswa.univ, beasiswa), method: :delete, :class => "delete"
