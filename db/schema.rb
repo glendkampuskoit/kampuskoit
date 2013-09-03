@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826135218) do
+ActiveRecord::Schema.define(:version => 20130903100903) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -199,6 +199,76 @@ ActiveRecord::Schema.define(:version => 20130826135218) do
     t.string   "provinsi"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_bidang_kerjas", :force => true do |t|
+    t.string   "bidang"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_gaji_pertamas", :force => true do |t|
+    t.string   "gaji_pertama"
+    t.integer  "bobot"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "range_gajis", :force => true do |t|
+    t.string   "range"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_ipks", :force => true do |t|
+    t.string   "ipk"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_lama_kuliahs", :force => true do |t|
+    t.string   "lama"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_level_karirs", :force => true do |t|
+    t.string   "level_karir"
+    t.integer  "bobot"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "range_pekerjaan_pertamas", :force => true do |t|
+    t.string   "pekerjaan_pertama"
+    t.integer  "bobot"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "range_pendidikan_terakhirs", :force => true do |t|
+    t.string   "pendidikan"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_profesis", :force => true do |t|
+    t.string   "profesi"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_waktu_tunggus", :force => true do |t|
+    t.string   "waktu_tunggu"
+    t.integer  "bobot"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "subscriber_beasiswas", :force => true do |t|

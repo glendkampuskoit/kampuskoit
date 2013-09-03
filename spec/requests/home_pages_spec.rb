@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Homes", :js => true do
+describe "Home Page", :js => true do
 
 
   subject { page }
