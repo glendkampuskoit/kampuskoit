@@ -26,7 +26,7 @@
                       %span= link_to prodi.website, prodi.website, :target => "_blank"
                       %span.entry-link-separator &#x20;|
                       %span= mail_to prodi.email, prodi.email
-                    - elsif prodi.email.present?
+                    - elsif prodi.website.present?
                       %span= link_to prodi.website, prodi.website, target: "_blank"
                     - elsif prodi.email.present?
                       %span= mail_to prodi.email, prodi.email

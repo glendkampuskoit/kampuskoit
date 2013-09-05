@@ -42,4 +42,20 @@ class KotasController < ApplicationController
   # index is for visitors searching, list is for admin panel
   def list
   end
+
+  def stream
+    kotas = Kota.where('kota LIKE ?', "%#{params[:query]}%") 
+
+    @kota_data = Array.new
+
+    @kota_data = kotas.map do |kota|
+      { value: kota.kota, data: kota.id }
+    end
+
+    stream = { query: "Unit", suggestions: @kota_data }
+
+    respond_to do |format|
+      format.json { render json: stream.to_json }
+    end
+  end
 end
