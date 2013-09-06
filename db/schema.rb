@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903100903) do
+ActiveRecord::Schema.define(:version => 20130904042649) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -401,6 +401,23 @@ ActiveRecord::Schema.define(:version => 20130903100903) do
   end
 
   add_index "survey_alumnis", ["subscriber_id"], :name => "index_survey_alumnis_on_subscriber_id"
+
+  create_table "survey_respondens", :force => true do |t|
+    t.string   "univ_id"
+    t.string   "subscriber_id"
+    t.string   "range_gaji_id"
+    t.string   "range_bidang_kerja_id"
+    t.string   "range_waktu_tunggu_id"
+    t.string   "range_lama_kuliah_id"
+    t.string   "range_ipk_id"
+    t.string   "range_pekerjaan_pertama_id"
+    t.string   "range_profesi_id"
+    t.string   "range_pendidikan_terakhir_id"
+    t.string   "range_gaji_pertama_id"
+    t.string   "range_level_karir_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
 
   create_table "univ_fasilitas_galleries", :force => true do |t|
     t.string   "caption"

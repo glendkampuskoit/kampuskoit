@@ -1,0 +1,2 @@
+class RangeWaktuTunggusController < ApplicationController
+end

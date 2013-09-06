@@ -20,8 +20,8 @@ describe "Univ biaya page" do
 			fill_in "nilai", with: "1.000.000"
 		end		
 		it "should add new record" do
-    	expect { click_button "Save" }.to change(Univbiaya, :count)
-    end
+    		expect { click_button "Save" }.to change(Univbiaya, :count)
+    	end
 	end
 
 	describe "Add Univ Biaya with invalid information" do
