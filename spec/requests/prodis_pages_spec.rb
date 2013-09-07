@@ -32,15 +32,15 @@ describe "Prodi Page" do
   describe "fill with valid data" do
     before do
       fill_in "nama_prodi", with: "Sistem Informasi"
-      select(univ.nama_pt, :from => "univ")
+      find(:xpath, "//input[@id='univ_id']").set univ.id #select(univ.nama_pt, :from => "univ")      
       fill_in "fakultas", with: "Teknologi Informasi"
       select(jenjang_prodi.jenjang, :from => "jenjang_prodi")
       fill_in "tahun_berdiri", with: "1980"
       fill_in "email", with: "si@its.ac.id"
       fill_in "website", with: "http://si.its.ac.id"
       fill_in "alamat", with: "Sukolilo Indah Kampus ITS"
-      select(kota.kota, :from => "kota")
-      select(prodi_bidang.nama_bidang, :from => "prodi_bidang")
+      find(:xpath, "//input[@id='kota_id']").set kota.id #select(kota.kota, :from => "kota")
+      find(:xpath, "//input[@id='prodi_bidang_id']").set prodi_bidang.id #select(prodi_bidang.nama_bidang, :from => "prodi_bidang")
       fill_in "telepon", with: "089977876"
       fill_in "fax", with: "089977876"
       fill_in "profil", with: "Jurusan terbaik"
@@ -66,15 +66,16 @@ describe "Prodi Page" do
 
       before do
         fill_in "nama_prodi", with: "Sistem Informasi"
-        select(univ.nama_pt, :from => "univ")
+        #select(univ.nama_pt, :from => "univ")
+        find(:xpath, "//input[@id='univ_id']").set univ.id
         fill_in "fakultas", with: "Teknologi Informasi"
         select(jenjang_prodi.jenjang, :from => "jenjang_prodi")
         fill_in "tahun_berdiri", with: "1980"
         fill_in "email", with: "si@its.ac.id"
         fill_in "website", with: "http://si.its.ac.id"
         fill_in "alamat", with: "Sukolilo Indah Kampus ITS"
-        select(kota.kota, :from => "kota")
-        select(prodi_bidang.nama_bidang, :from => "prodi_bidang")
+        find(:xpath, "//input[@id='kota_id']").set kota.id #select(kota.kota, :from => "kota")
+        find(:xpath, "//input[@id='prodi_bidang_id']").set prodi_bidang.id #select(prodi_bidang.nama_bidang, :from => "prodi_bidang")
         fill_in "telepon", with: "089977876"
         fill_in "fax", with: "089977876"
         fill_in "profil", with: "Jurusan terbaik"
