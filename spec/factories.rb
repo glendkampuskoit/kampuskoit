@@ -27,6 +27,15 @@ FactoryGirl.define do
 		sequence(:jenis){|n| "JenisPT#{n}" }
 	end	
 
+	factory :range_gaji do
+		sequence(:range){|n| "rangeGaji#{n}" }
+	end	
+
+	factory :range_bidang_kerja do
+		#sequence(:bidang){|n| "rangeBidangKerja#{n}" }
+		bidang "Pendidikan"
+	end	
+
 	factory :univ do
 		#nama_pt		"Institut Teknologi Surabaya"
 		sequence(:nama_pt){|n| "perguruan tinggi #{n}" }

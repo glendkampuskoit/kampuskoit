@@ -1,0 +1,49 @@
+- provide(:title, "Data Range Gaji")
+.row-fluid
+  .span12
+    = link_to "Tambah Range Gaji", new_range_waktu_tunggu_path, :role => "button", :class => "btn btn-mini btn-primary"
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Range Waktu Tunggu
+      .box-body
+        %table#datatables.table.table-hover.responsive
+          %thead
+            %tr
+              %th Waktu Tunggu
+              %th &nbsp;
+          %tbody
+            - @rangewaktutunggus.each do |rangewaktutunggu|
+              %tr
+                %td= rangewaktutunggu.waktu_tunggu
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit", edit_range_gaji(rangewaktutunggu)
+                  %span.label.label-important
+                    = link_to "Delete", range_gaji_path(rangewaktutunggu), method: :delete, :class => "delete"
+
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+      
+      // datatables
+      $('#datatables').dataTable( {
+          "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+          "sPaginationType": "bootstrap",
+          "oLanguage": {
+                  "sLengthMenu": "_MENU_ records per page"
+          }
+      });
+
+      $('.delete').on('click', function () {
+          return confirm('Anda yakin akan menghapus data ini?');
+      });
+  });
