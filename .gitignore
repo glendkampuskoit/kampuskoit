@@ -16,6 +16,7 @@
 
 # ignore database.yml
 /config/database.yml
+/config/deploy.rb
 
 # ignore schema
 /db/schema.rb

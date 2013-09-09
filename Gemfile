@@ -19,6 +19,8 @@ group :development, :test do
 	gem "recaptcha", :require => "recaptcha/rails"
 	gem 'therubyracer', :require => "v8"
 	gem 'devise'
+	# Deploy with Capistrano
+	gem 'capistrano'
 end
 
 # group for tests only
@@ -68,9 +70,6 @@ gem 'haml'
 
 # Use unicorn as the web server
 # gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
