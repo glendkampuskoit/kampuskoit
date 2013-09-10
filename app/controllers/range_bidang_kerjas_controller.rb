@@ -3,16 +3,16 @@ class RangeBidangKerjasController < ApplicationController
 	layout "admin"
 
 	def index
-		@rangebidangkerjas = RangeBidangKerja.all
+		@range_bidang_kerjas = RangeBidangKerja.all
 	end
 
 	def new
-		@rangebidangkerja= RangeBidangKerja.new
+		@range_bidang_kerja = RangeBidangKerja.new
 	end
 
 	def create
-		@rangebidangkerja= RangeBidangKerja.new(params[:rangebidangkerja] )
-		if @rangebidangkerja.save
+		@range_bidang_kerja = RangeBidangKerja.new(params[:range_bidang_kerja])
+		if @range_bidang_kerja.save
 			redirect_to range_bidang_kerjas_path, notice: 'Range bidang kerja berhasil ditambah'
 		else
 			render action: "new"
@@ -20,12 +20,12 @@ class RangeBidangKerjasController < ApplicationController
 	end
 
 	def edit
-		@rangebidangkerja= RangeBidangKerja.find(params[:id])
+		@range_bidang_kerja = RangeBidangKerja.find(params[:id])
 	end
 
 	def update
-		@rangebidangkerja = RangeBidangKerja.find(params[:id])
-    	if @rangebidangkerja.update_attributes(params[:rangebidangkerja])
+		@range_bidang_kerja = RangeBidangKerja.find(params[:id])
+    	if @range_bidang_kerja.update_attributes(params[:range_bidang_kerja])
 	      redirect_to range_bidang_kerjas_path, notice: 'Range bidang kerja berhasil dirubah.' 
     	else
       		render action: "edit"

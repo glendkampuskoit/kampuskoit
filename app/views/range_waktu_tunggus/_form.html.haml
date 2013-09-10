@@ -8,30 +8,29 @@
           %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
         %span= yield(:title)
       .box-body
-        = form_for @range_bidang_kerja, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
-          - if @range_bidang_kerja.errors.any?
+        = form_for @range_waktu_tunggu, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
+          - if @range_waktu_tunggu.errors.any?
             .alert.alert-error
               %button.close{"data-dismiss" => "alert", :type => "button"} &times;
               %div
-                - @range_bidang_kerja.errors.full_messages.each do |msg|
+                - @range_waktu_tunggu.errors.full_messages.each do |msg|
                   = msg
                   %br
           .control-group
-            %label.control-label{:for => "required"} Bidang 
+            %label.control-label{:for => "required"} Range 
             .controls
-              = f.text_field :bidang , :id => "bidang", :class => "grd-white", :placeholder => "ex. bidang perikanan", :data => {:validate => "{required: true, messages: {required: 'Range Bidang harus diisi'}}" }
+
+              = f.text_field :waktu_tunggu , :id => "waktu_tunggu", :class => "grd-white", :placeholder => "ex. Lebih dari 3 bulan", :data => {:validate => "{required: true, messages: {required: 'Range Waktu Tunggu harus diisi'}}" }
 
           .control-group
             %label.control-label{:for => "required"} Bobot
             .controls
               = f.text_field :bobot , :id => "bobot", :class => "grd-white", :data => {:validate => "{required: true, messages: {required: 'Bobot harus diisi'}}" }
-              
+
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
-      / /box-body
-    / /box
-  / /span
+
 :javascript
   $(document).ready(function() {
       // try your js

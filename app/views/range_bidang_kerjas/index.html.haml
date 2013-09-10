@@ -18,14 +18,14 @@
               %th Bidang
               %th &nbsp;
           %tbody
-            - @rangebidangkerjas.each do |bidangkerja|
+            - @range_bidang_kerjas.each do |range_bidang_kerja|
               %tr
-                %td= bidangkerja.bidang
+                %td= range_bidang_kerja.bidang
                 %td.center
                   %span.label.label-info
-                    = link_to "Edit", edit_range_bidang_kerja_path(bidangkerja)
+                    = link_to "Edit", edit_range_bidang_kerja_path(range_bidang_kerja)
                   %span.label.label-important
-                    = link_to "Delete", range_bidang_kerja_path(bidangkerja), method: :delete, :class => "delete"
+                    = link_to "Delete", range_bidang_kerja_path(range_bidang_kerja), method: :delete, :class => "delete"
 
 :javascript
   $(document).ready(function() {
