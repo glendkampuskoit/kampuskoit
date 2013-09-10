@@ -16,9 +16,9 @@
         - @prodis.each do |prodi|
           %article
             .row
-              .small-5.large-5.columns= image_tag(prodi.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';")
+              .large-5.columns= image_tag(prodi.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';")
 
-              .small-7.large-7.columns
+              .large-7.columns
                 %h6.entry-header= link_to prodi.nama_prodi.titleize, univ_prodi_path(prodi.univ, prodi)
                 %h6.entry-sub-header= link_to prodi.univ.nama_pt.titleize, univ_path(prodi.univ)
 

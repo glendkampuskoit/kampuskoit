@@ -159,6 +159,13 @@ div[role="main"]{
 		-ms-transition: all 0.5s;
 		transition: all 0.5s;
 	}
+	img{
+		display: block;
+		margin: 0 auto;
+		@media screen and (max-width: 768px){
+			margin-bottom: 20px;
+		}
+	}
 }
 .no-border{
 	border: none !important;
@@ -187,15 +194,17 @@ div[role="main"]{
 	@include src-bold;
 	color: darken($entry_text,5%);
 }
-.rating{
-	background: url("/assets/front/common/rating.png") no-repeat center;
-	width: 109px;
+.rating{	
 	height: auto;
 	padding-bottom: 27px;
+	img{
+		display: block;
+		float: left;
+	}
 }
 .entry-text{
 	@include src-regular;
-	font-size: 0.688em;
+	font-size: 0.750em;
 	color: $entry-text;
 }
 .read-more-button{
@@ -244,24 +253,6 @@ div[role="main"]{
 	&:hover{
 		background: darken($arrow_button,10%) url("/assets/front/ranking/arrow-bottom.png") no-repeat center;	
 	}
-}
-.widget-title{
-	color: $widget_title;
-	font-size: 1.125em;
-	@include src-bold;
-	margin-bottom: 5px;
-	margin-top: 18px;
-	&:first-child{
-		margin-top: 7px;	
-	}
-}
-.widget-text{
-	color: $widget-text;
-	font-size: 0.688em;
-	@include src-regular;
-}
-.widget-image{
-	margin-bottom: 17px;
 }
 .secondary{	
 	padding-top: 15px;

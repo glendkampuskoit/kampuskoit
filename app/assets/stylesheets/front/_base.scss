@@ -18,7 +18,10 @@ button, .button{
 	h1,h2,h3,h4,h5,h6{
 		@include src-bold;
 	}
-	p,a{
+	p,a,ol{
 		@include src-regular;
-	}	
+	}
+	ol{
+		padding-left: 20px;
+	}
 }
