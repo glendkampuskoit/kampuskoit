@@ -19,11 +19,11 @@ describe "Range Bidang Kerja page " do
 			before do
 				fill_in "bidang", with: "Perkebunan" 
 			end
-		end 
 
-		it "Should create a range bidang kerja" do
-			expect {click_button submit}.to change(RangeBidangKerja, :count)
-		end
+			it "Should create a range bidang kerja" do
+				expect {click_button submit}.to change(RangeBidangKerja, :count)
+			end
+		end 	
 	end
 
 	describe "go to index page" do
