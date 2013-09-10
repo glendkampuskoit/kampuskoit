@@ -47,7 +47,7 @@ describe "Range_gaji page" do
         fill_in "range", with: "3 juta sampai 5 juta"
       end
 
-      it "should update provinsi not added" do
+      it "should update range not added" do
         expect { click_button save }.not_to change(RangeGaji, :count)
       end
     end

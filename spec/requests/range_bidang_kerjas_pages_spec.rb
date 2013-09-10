@@ -18,11 +18,11 @@ describe "Range Bidang Kerja page " do
 		describe "fill with valid data" do
 			before do
 				fill_in "bidang", with: "Perkebunan" 
-			end
-		end 
+			end 
 
-		it "Should create a range bidang kerja" do
-			expect {click_button submit}.to change(RangeBidangKerja, :count)
+			it "Should create a range bidang kerja" do
+				expect {click_button submit}.to change(RangeBidangKerja, :count)
+			end
 		end
 	end
 

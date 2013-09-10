@@ -1,2 +1,4 @@
 class RangePekerjaanPertama < ActiveRecord::Base
-end
+	has_many :survey_responden, :dependent => :delete_all
+
+	validates :pekerjaan_pertama, presence: true, uniqueness: { case_sensitive: false }

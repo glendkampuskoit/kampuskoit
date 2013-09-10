@@ -26,7 +26,7 @@ class RangeGajisController < ApplicationController
 	def update
 		@range_gaji = RangeGaji.find(params[:id])
     	if @range_gaji.update_attributes(params[:range_gaji])
-	      redirect_to provinsis_path, notice: 'Range gaji berhasil dirubah.' 
+	      redirect_to range_gajis_path, notice: 'Range gaji berhasil dirubah.' 
     	else
       		render action: "edit"
     	end

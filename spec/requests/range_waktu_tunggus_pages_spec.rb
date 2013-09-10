@@ -17,10 +17,9 @@ describe "range waktu_tunggu page" do
 			before do
 				fill_in "waktu_tunggu", with: "Kurang dari 3 bulan" 	
 			end
-		end
-
-		it "should create a Range Waktu Tunggu" do
-			expect { click_button submit }.to change(RangeWaktuTunggu, :count )
+			it "should create a Range Waktu Tunggu" do
+				expect { click_button submit }.to change(RangeWaktuTunggu, :count )
+			end
 		end
 	end
 
@@ -30,5 +29,25 @@ describe "range waktu_tunggu page" do
 		it "should go to right page with title Range Waktu Tunggu" do
 			should have_selector('title', :text => "Data Range Waktu Tunggu" )
 		end
-	end	
+	end
+
+	describe "go to upgrade page" do
+		let(:save){ "Save" }
+		let(:rangewaktutunggu) {FactoryGirl.create(:range_waktu_tunggu)}
+		
+		before {visit edit_range_waktu_tunggu_path(rangewaktutunggu) }
+
+		it { should have_selector('title', text: "Update Range Waktu Tunggu") }
+
+		describe "edit and save record" do
+			before do
+				fill_in "waktu_tunggu", with: "Lebih dari 3 bulan"
+			end
+
+			it "should update range not added" do
+        		expect { click_button save }.not_to change(RangeWaktuTunggu, :count)
+      		end
+		end
+	end
 end
+
