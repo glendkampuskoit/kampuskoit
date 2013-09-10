@@ -37,7 +37,9 @@
             <a href="javascript:gugelplus_url();"><img
             src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
-          <div class="note"><span>Terakreditasi A</span></div>
+          <div class="note">
+            <span>Passing Grade: <%= @prodi.prodi_passing_grades.where({ prodi_id: @prodi, status: 1}).present? ? @prodi.prodi_passing_grades.where({ prodi_id: @prodi, status: 1}).first.grades : "-" %></span> | 
+            <span>Terakreditasi: <%= @prodi.prodi_akreditasis.where({ prodi_id: @prodi, status: 1}).present? ? @prodi.prodi_akreditasis.where({ prodi_id: @prodi, status: 1}).first.peringkat : "-" %></span>
         </div>
       </div>
     </div>

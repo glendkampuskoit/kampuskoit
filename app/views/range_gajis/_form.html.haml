@@ -8,7 +8,7 @@
           %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
         %span= yield(:title)
       .box-body
-        = form_for @rangegaji, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
+        = form_for @range_gaji, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
           - if @range_gaji.errors.any?
             .alert.alert-error
               %button.close{"data-dismiss" => "alert", :type => "button"} &times;
@@ -19,13 +19,18 @@
           .control-group
             %label.control-label{:for => "required"} Range 
             .controls
-              = f.text_field :range , :id => "range", :class => "grd-white", :placeholder => "ex. range xx sampai yy", :data => {:validate => "{required: true, messages: {required: 'Range gaji harus diisi'}}" }
+
+              = f.text_field :range , :id => "range", :class => "grd-white", :placeholder => "ex. 1000 <= range <= 10000", :data => {:validate => "{required: true, messages: {required: 'Range Gaji harus diisi'}}" }
+
+          .control-group
+            %label.control-label{:for => "required"} Bobot
+            .controls
+              = f.text_field :bobot , :id => "bobot", :class => "grd-white", :data => {:validate => "{required: true, messages: {required: 'Bobot harus diisi'}}" }
+
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
-      / /box-body
-    / /box
-  / /span
+
 :javascript
   $(document).ready(function() {
       // try your js

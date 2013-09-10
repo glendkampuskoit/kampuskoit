@@ -35,6 +35,9 @@ Campus::Application.routes.draw do
 
   match '/univs_stream', to: 'univs#stream'
   match '/prodis_stream', to: 'prodis#stream'
+  match '/prodi_bidangs_stream', to: 'prodi_bidangs#stream'
+  match '/kotas_stream', to: 'kotas#stream'
+  match '/univs_stream', to: 'univs#stream'
 
   # for admin panel pages
   #namespace :admin do

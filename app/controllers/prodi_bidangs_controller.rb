@@ -36,4 +36,20 @@ class ProdiBidangsController < ApplicationController
     @prodi_bidang.destroy
     redirect_to prodi_bidangs_path
 	end
+
+	def stream
+    prodi_bidangs = ProdiBidang.where('nama_bidang LIKE ?', "%#{params[:query]}%") 
+
+    @prodi_bidang_data = Array.new
+
+    @prodi_bidang_data = prodi_bidangs.map do |prodi_bidang|
+      { value: prodi_bidang.nama_bidang, data: prodi_bidang.id }
+    end
+
+    stream = { query: "Unit", suggestions: @prodi_bidang_data }
+
+    respond_to do |format|
+      format.json { render json: stream.to_json }
+    end
+  end
 end

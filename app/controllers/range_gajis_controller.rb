@@ -3,11 +3,11 @@ class RangeGajisController < ApplicationController
 	layout "admin"
 
 	def index
-		@rangegajis = RangeGaji.all
+		@range_gajis = RangeGaji.all
 	end
 
 	def new
-		@rangegaji = RangeGaji.new
+		@range_gaji = RangeGaji.new
 	end
 	
 	def create
@@ -20,12 +20,12 @@ class RangeGajisController < ApplicationController
 	end
 
 	def edit
-		@rangegaji = RangeGaji.find(params[:id])
+		@range_gaji = RangeGaji.find(params[:id])
 	end
 
 	def update
-		@rangegaji = RangeGaji.find(params[:id])
-    	if @rangegaji.update_attributes(params[:rangegaji])
+		@range_gaji = RangeGaji.find(params[:id])
+    	if @range_gaji.update_attributes(params[:range_gaji])
 	      redirect_to provinsis_path, notice: 'Range gaji berhasil dirubah.' 
     	else
       		render action: "edit"

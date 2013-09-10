@@ -18,14 +18,14 @@
               %th Range
               %th &nbsp;
           %tbody
-            - @rangegajis.each do |rangegaji|
+            - @range_gajis.each do |range_gaji|
               %tr
-                %td= rangegaji.range
+                %td= range_gaji.range
                 %td.center
                   %span.label.label-info
-                    = link_to "Edit", edit_range_gaji(rangegaji)
+                    = link_to "Edit", edit_range_gaji_path(range_gaji)
                   %span.label.label-important
-                    = link_to "Delete", range_gaji_path(rangegaji), method: :delete, :class => "delete"
+                    = link_to "Delete", range_gaji_path(range_gaji), method: :delete, :class => "delete"
 
 :javascript
   $(document).ready(function() {

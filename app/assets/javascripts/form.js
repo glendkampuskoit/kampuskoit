@@ -28,3 +28,4 @@
 //= require admin/prettyPhoto/jquery.prettyPhoto
 //= require admin/holder.js
 //= require admin/stilearn-base.js
+//= require jquery.autocomplete.min.js
