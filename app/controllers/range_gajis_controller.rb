@@ -12,7 +12,7 @@ class RangeGajisController < ApplicationController
 	
 	def create
 		@range_gaji = RangeGaji.new(params[:range_gaji])
-		if @rangegaji.save
+		if @range_gaji.save
       		redirect_to range_gajis_path, notice: 'Range gaji berhasil ditambah' 
     	else
     		render action: "new"
