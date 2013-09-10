@@ -32,8 +32,7 @@ FactoryGirl.define do
 	end	
 
 	factory :range_bidang_kerja do
-		#sequence(:bidang){|n| "rangeBidangKerja#{n}" }
-		bidang "Pendidikan"
+		sequence(:bidang){|n| "rangeBidangKerja#{n}" }
 	end	
 
 	factory :univ do

@@ -21,7 +21,7 @@ describe "Range Bidang Kerja page " do
 			end
 		end 
 
-		it "Should create range bidang kerja" do
+		it "Should create a range bidang kerja" do
 			expect {click_button submit}.to change(RangeBidangKerja, :count)
 		end
 	end

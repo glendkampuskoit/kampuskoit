@@ -6,7 +6,7 @@ describe "range waktu_tunggu page" do
 	describe "add new record" do
 		let (:submit) { "Save" }
 		before do
-			visit new_range_waktu_tunggu
+			visit new_range_waktu_tunggu_path
 		end
 
 		it "Index page should have right title Tambah Range Waktu Tunggu" do

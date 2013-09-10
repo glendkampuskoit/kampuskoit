@@ -1,4 +1,4 @@
-- provide(:title, "Data Range Gaji")
+- provide(:title, "Data Range Waktu Tunggu")
 .row-fluid
   .span12
     = link_to "Tambah Range Gaji", new_range_waktu_tunggu_path, :role => "button", :class => "btn btn-mini btn-primary"
@@ -18,14 +18,14 @@
               %th Waktu Tunggu
               %th &nbsp;
           %tbody
-            - @rangewaktutunggus.each do |rangewaktutunggu|
+            - @range_waktu_tunggus.each do |range_waktu_tunggu|
               %tr
-                %td= rangewaktutunggu.waktu_tunggu
+                %td= range_waktu_tunggu.waktu_tunggu
                 %td.center
                   %span.label.label-info
-                    = link_to "Edit", edit_range_gaji(rangewaktutunggu)
+                    = link_to "Edit", edit_range_gaji(range_waktu_tunggu)
                   %span.label.label-important
-                    = link_to "Delete", range_gaji_path(rangewaktutunggu), method: :delete, :class => "delete"
+                    = link_to "Delete", range_gaji_path(range_waktu_tunggu), method: :delete, :class => "delete"
 
 :javascript
   $(document).ready(function() {
