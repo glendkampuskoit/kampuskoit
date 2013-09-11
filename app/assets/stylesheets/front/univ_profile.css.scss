@@ -253,7 +253,7 @@ div[role="main"]{
 .tab-shadow{	
 	width: 450px;
 	height: 14px;
-	background: url("/assets/images/profile/profile-panel-shadow.png") no-repeat -5px center;
+	background: url("/assets/front/profile/profile-panel-shadow.png") no-repeat -5px center;
 	position: absolute;
 	top: 40px;
 	z-index: 10;
@@ -285,36 +285,36 @@ div[role="main"]{
 	color: $profile_panel;
 }
 .socmed-fb{
-	background: $profile_panel url("/assets/images/profile/profile-panel-fb.png") no-repeat center !important;	
+	background: $profile_panel url("/assets/front/profile/profile-panel-fb.png") no-repeat center !important;	
 	@media screen and (max-width: 768px) {
 		background-position: 20px center !important;
 	}
 	&:hover{
-		background: $active_profile_panel url("/assets/images/profile/profile-panel-fb-hover.png") no-repeat center !important;
+		background: $active_profile_panel url("/assets/front/profile/profile-panel-fb-hover.png") no-repeat center !important;
 		@media screen and (max-width: 768px) {
 			background-position: 20px center !important;
 		}	
 	}	
 }
 .socmed-twitter{
-	background: $profile_panel url("/assets/images/profile/profile-panel-twitter.png") no-repeat center !important;
+	background: $profile_panel url("/assets/front/profile/profile-panel-twitter.png") no-repeat center !important;
 	@media screen and (max-width: 768px) {
 		background-position: 18px center !important;
 	}
 	&:hover{
-		background: $active_profile_panel url("/assets/images/profile/profile-panel-twitter-hover.png") no-repeat center !important;
+		background: $active_profile_panel url("/assets/front/profile/profile-panel-twitter-hover.png") no-repeat center !important;
 		@media screen and (max-width: 768px) {
 			background-position: 18px center !important;
 		}	
 	}
 }
 .socmed-youtube{
-	background: $profile_panel url("/assets/images/profile/profile-panel-youtube.png") no-repeat center !important;
+	background: $profile_panel url("/assets/front/profile/profile-panel-youtube.png") no-repeat center !important;
 	@media screen and (max-width: 768px) {
 		background-position: 19px center !important;
 	}
 	&:hover{
-		background: $active_profile_panel url("/assets/images/profile/profile-panel-youtube-hover.png") no-repeat center !important;
+		background: $active_profile_panel url("/assets/front/profile/profile-panel-youtube-hover.png") no-repeat center !important;
 		@media screen and (max-width: 768px) {
 			background-position: 19px center !important;
 		}	
@@ -324,19 +324,19 @@ div[role="main"]{
 	padding: 10px 10px !important;
 }
 .margin-fix-1{
-	left: 200px !important;
+	left: 179px !important;
 }
 .margin-fix-2{
-	left: 313px !important;
+	left: 280px !important;
 }
 .margin-fix-3{
-	left: 410px !important;
+	left: 378px !important;
 }
 .margin-fix-4{
-	left: 432px !important;	
+	left: 400px !important;	
 }
 .margin-fix-5{
-	left: 454px !important;	
+	left: 422px !important;	
 }
 .information{
 	background: $information_panel;
