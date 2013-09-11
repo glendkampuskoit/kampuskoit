@@ -38,6 +38,7 @@
             <a href="javascript:gugelplus_url();"><img
               src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
+          <div style="clear:both"></div>
           <% if @univranking.present? %>
           <div class="note"><span>Government: <%= @univranking.government.present? ? @univranking.government : " - " %></span> | <span>College: <%= @univranking.college.present? ? @univranking.college : " - " %></span> | <span>Society: <%= @univranking.society.present? ? @univranking.society : " - " %></span></div>
           <% end %>

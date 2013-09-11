@@ -205,18 +205,16 @@ div[role="main"]{
 }
 .facebook-share-page-button{
 	background: url("/assets/front/profile/icon-share-facebook.png") no-repeat center;
-	padding: 8px 8px;
-	padding-top: 5px;
+	padding: 5px 8px 8px 8px;
 }
 #custom-tweet-button{
 	background: url("/assets/front/profile/icon-share-twitter.png") no-repeat center;
-	padding: 8px 9px;
-	padding-top: 5px;
+	padding: 5px 9px 8px 9px;	
 	display: inline;
 	cursor: pointer;
 }
 .note{	
-	padding-top: 30px;
+	padding-top: 20px;
 	@include src-regular;
 	font-size: 0.688em;
 	color: $note;
@@ -327,19 +325,19 @@ div[role="main"]{
 	padding: 10px 10px !important;
 }
 .margin-fix-1{
-	left: 195px !important;
+	left: 200px !important;
 }
 .margin-fix-2{
-	left: 306px !important;
+	left: 313px !important;
 }
 .margin-fix-3{
-	left: 404px !important;
+	left: 410px !important;
 }
 .margin-fix-4{
-	left: 426px !important;	
+	left: 432px !important;	
 }
 .margin-fix-5{
-	left: 448px !important;	
+	left: 454px !important;	
 }
 .information{	
 	padding-top: 25px;

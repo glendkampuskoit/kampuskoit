@@ -192,8 +192,8 @@ div[role="main"]{
 }
 .rating{
 	height: auto;
-	padding-bottom: 27px;
-	padding-top: 9px;
+	padding-bottom: 20px;
+	padding-top: 8px;
 	img{
 		display: block;
 		float: left;
@@ -202,23 +202,21 @@ div[role="main"]{
 .share-page{
 	@include arc-regular;
 	font-size: 0.8375em;
-	padding-top: 6px;
+	padding-top: 5px;
 	float: left;
 }
 .facebook-share-page-button{
 	background: url("/assets/front/profile/icon-share-facebook.png") no-repeat center;
-	padding: 8px 8px;
-	padding-top: 5px;
+	padding: 5px 8px 8px 8px;
 }
 #custom-tweet-button{
 	background: url("/assets/front/profile/icon-share-twitter.png") no-repeat center;
-	padding: 8px 9px;
-	padding-top: 5px;
+	padding: 5px 9px 8px 9px;	
 	display: inline;
 	cursor: pointer;
 }
-.note{
-	padding-top: 30px;
+.note{	
+	padding-top: 20px;
 	@include src-regular;
 	font-size: 0.688em;
 	color: $note;
@@ -255,7 +253,7 @@ div[role="main"]{
 .tab-shadow{	
 	width: 450px;
 	height: 14px;
-	background: url("/assets/front/profile/profile-panel-shadow.png") no-repeat -5px center;
+	background: url("/assets/images/profile/profile-panel-shadow.png") no-repeat -5px center;
 	position: absolute;
 	top: 40px;
 	z-index: 10;
@@ -287,36 +285,36 @@ div[role="main"]{
 	color: $profile_panel;
 }
 .socmed-fb{
-	background: $profile_panel url("/assets/front/profile/profile-panel-fb.png") no-repeat center !important;	
+	background: $profile_panel url("/assets/images/profile/profile-panel-fb.png") no-repeat center !important;	
 	@media screen and (max-width: 768px) {
 		background-position: 20px center !important;
 	}
 	&:hover{
-		background: $active_profile_panel url("/assets/front/profile/profile-panel-fb-hover.png") no-repeat center !important;
+		background: $active_profile_panel url("/assets/images/profile/profile-panel-fb-hover.png") no-repeat center !important;
 		@media screen and (max-width: 768px) {
 			background-position: 20px center !important;
 		}	
 	}	
 }
 .socmed-twitter{
-	background: $profile_panel url("/assets/front/profile/profile-panel-twitter.png") no-repeat center !important;
+	background: $profile_panel url("/assets/images/profile/profile-panel-twitter.png") no-repeat center !important;
 	@media screen and (max-width: 768px) {
 		background-position: 18px center !important;
 	}
 	&:hover{
-		background: $active_profile_panel url("/assets/front/profile/profile-panel-twitter-hover.png") no-repeat center !important;
+		background: $active_profile_panel url("/assets/images/profile/profile-panel-twitter-hover.png") no-repeat center !important;
 		@media screen and (max-width: 768px) {
 			background-position: 18px center !important;
 		}	
 	}
 }
 .socmed-youtube{
-	background: $profile_panel url("/assets/front/profile/profile-panel-youtube.png") no-repeat center !important;
+	background: $profile_panel url("/assets/images/profile/profile-panel-youtube.png") no-repeat center !important;
 	@media screen and (max-width: 768px) {
 		background-position: 19px center !important;
 	}
 	&:hover{
-		background: $active_profile_panel url("/assets/front/profile/profile-panel-youtube-hover.png") no-repeat center !important;
+		background: $active_profile_panel url("/assets/images/profile/profile-panel-youtube-hover.png") no-repeat center !important;
 		@media screen and (max-width: 768px) {
 			background-position: 19px center !important;
 		}	
@@ -326,19 +324,19 @@ div[role="main"]{
 	padding: 10px 10px !important;
 }
 .margin-fix-1{
-	left: 179px !important;
+	left: 200px !important;
 }
 .margin-fix-2{
-	left: 280px !important;
+	left: 313px !important;
 }
 .margin-fix-3{
-	left: 378px !important;
+	left: 410px !important;
 }
 .margin-fix-4{
-	left: 400px !important;	
+	left: 432px !important;	
 }
 .margin-fix-5{
-	left: 422px !important;	
+	left: 454px !important;	
 }
 .information{
 	background: $information_panel;
