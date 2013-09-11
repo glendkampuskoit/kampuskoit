@@ -402,7 +402,6 @@ ActiveRecord::Schema.define(:version => 20130904042649) do
 
   add_index "survey_alumnis", ["subscriber_id"], :name => "index_survey_alumnis_on_subscriber_id"
 
-<<<<<<< HEAD
   create_table "survey_gajis", :force => true do |t|
     t.integer "univ_id",                       :null => false
     t.integer "range1",         :default => 0
@@ -414,12 +413,20 @@ ActiveRecord::Schema.define(:version => 20130904042649) do
   end
 
   create_table "survey_respondens", :force => true do |t|
-    t.integer "subscriber_id",                :null => false
-    t.integer "univ_id",                      :null => false
-    t.integer "gaji",          :default => 0
-    t.integer "sektorusaha",   :default => 0
-    t.integer "waktutunggu",   :default => 0
-    t.date    "updated_at"
+    t.string   "univ_id"
+    t.string   "subscriber_id"
+    t.string   "range_gaji_id"
+    t.string   "range_bidang_kerja_id"
+    t.string   "range_waktu_tunggu_id"
+    t.string   "range_lama_kuliah_id"
+    t.string   "range_ipk_id"
+    t.string   "range_pekerjaan_pertama_id"
+    t.string   "range_profesi_id"
+    t.string   "range_pendidikan_terakhir_id"
+    t.string   "range_gaji_pertama_id"
+    t.string   "range_level_karir_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "survey_sektorusahas", :force => true do |t|
@@ -455,23 +462,6 @@ ActiveRecord::Schema.define(:version => 20130904042649) do
     t.integer "range5",         :default => 0
     t.integer "totalresponden", :default => 0
     t.date    "updated_at"
-=======
-  create_table "survey_respondens", :force => true do |t|
-    t.string   "univ_id"
-    t.string   "subscriber_id"
-    t.string   "range_gaji_id"
-    t.string   "range_bidang_kerja_id"
-    t.string   "range_waktu_tunggu_id"
-    t.string   "range_lama_kuliah_id"
-    t.string   "range_ipk_id"
-    t.string   "range_pekerjaan_pertama_id"
-    t.string   "range_profesi_id"
-    t.string   "range_pendidikan_terakhir_id"
-    t.string   "range_gaji_pertama_id"
-    t.string   "range_level_karir_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
->>>>>>> origin/master
   end
 
   create_table "univ_fasilitas_galleries", :force => true do |t|
