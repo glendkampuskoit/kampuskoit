@@ -35,6 +35,9 @@ Campus::Application.routes.draw do
 
   match '/univs_stream', to: 'univs#stream'
   match '/prodis_stream', to: 'prodis#stream'
+  match '/prodi_bidangs_stream', to: 'prodi_bidangs#stream'
+  match '/kotas_stream', to: 'kotas#stream'
+  match '/univs_stream', to: 'univs#stream'
 
   # for admin panel pages
   #namespace :admin do
@@ -53,6 +56,9 @@ Campus::Application.routes.draw do
     resources :provinsis
     resources :jenjang_prodis
     resources :jenis_pts
+    resources :range_gajis
+    resources :range_bidang_kerjas
+    resources :range_waktu_tunggus  
     resources :univs, only: [:new, :create, :edit, :update, :destroy] do
       resources :univfasilitases, except: [:new]
       resources :univkerjasamas, except: [:new]

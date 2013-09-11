@@ -21,8 +21,20 @@ describe "Univ prestasi page" do
 		end
 
 		it "should add new record" do
-	    	expect { click_button "Save" }.to change(Univprestasi, :count)
-	    end
+			expect { click_button "Save" }.to change(Univprestasi, :count)
+		end
+	end
+
+	describe "Tambah univ prestasi with invalid information" do
+		before do
+			visit univprestasi_new_path
+			fill_in "tahun", with: "2012"
+			fill_in "prestasi", with: ""
+		end
+
+		it "should not add new record" do
+			expect { click_button "Save" }.not_to change(Univprestasi, :count)
+		end
 	end
 
 	describe "Ubah univ prestasi" do
@@ -33,9 +45,20 @@ describe "Univ prestasi page" do
 		end
 
 		it "should update record" do
-	    	expect { click_button "Save" }.not_to change(Univprestasi, :count)
-	    end
+			expect { click_button "Save" }.not_to change(Univprestasi, :count)
+		end
+	end
+
+	describe "Ubah univ prestasi with invalid information" do
+		before do
+			visit univprestasi_edit_path
+			fill_in "tahun", with: ""
+			fill_in "prestasi", with: ""
+		end
+
+		it "should not update record" do
+			expect { click_button "Save" }.not_to change(Univprestasi, :count)
+		end
 	end
 
 end
-

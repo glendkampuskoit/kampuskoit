@@ -205,18 +205,16 @@ div[role="main"]{
 }
 .facebook-share-page-button{
 	background: url("/assets/front/profile/icon-share-facebook.png") no-repeat center;
-	padding: 8px 8px;
-	padding-top: 5px;
+	padding: 5px 8px 8px 8px;
 }
 #custom-tweet-button{
 	background: url("/assets/front/profile/icon-share-twitter.png") no-repeat center;
-	padding: 8px 9px;
-	padding-top: 5px;
+	padding: 5px 9px 8px 9px;	
 	display: inline;
 	cursor: pointer;
 }
 .note{	
-	padding-top: 45px;
+	padding-top: 20px;
 	@include src-regular;
 	font-size: 0.688em;
 	color: $note;
@@ -327,19 +325,19 @@ div[role="main"]{
 	padding: 10px 10px !important;
 }
 .margin-fix-1{
-	left: 195px !important;
+	left: 200px !important;
 }
 .margin-fix-2{
-	left: 306px !important;
+	left: 313px !important;
 }
 .margin-fix-3{
-	left: 404px !important;
+	left: 410px !important;
 }
 .margin-fix-4{
-	left: 426px !important;	
+	left: 432px !important;	
 }
 .margin-fix-5{
-	left: 448px !important;	
+	left: 454px !important;	
 }
 .information{	
 	padding-top: 25px;
@@ -353,7 +351,7 @@ div[role="main"]{
 	}
 	label{
 		@include src-regular;
-		font-size: 0.688em;
+		font-size: 0.750em;
 		color: $information_label;
 		margin-bottom: 0;
 		padding-bottom: 0;
@@ -383,8 +381,47 @@ div[role="main"]{
 }
 .description-text{
 	@include src-regular;
-	font-size: 0.688em;
+	font-size: 0.750em;
 	color: $description_text;
+}
+.panel-jurusan-wrapper{
+	ul{
+		list-style-image: url("/assets/front/common/small-disc-bullet.png");
+	}
+	li{
+		margin-left: 20px;
+	}
+	a{
+		@include src-light;
+		font-size: 14px;
+		color: $panel_jurusan_text;
+		&:hover{
+			color: $panel_jurusan_text_hover;
+		}
+	}
+}
+.entry-link span{	
+	display: inline-block;
+}
+.entry-link-separator{
+	color: lighten($entry_link,25%);
+}
+.entry-link a{
+	@include src-italic;
+	font-size: 0.688em;
+	color: $entry_link;
+	&:hover{
+		color: darken($entry_link,10%);	
+	}
+}
+.underline{
+	text-decoration: underline;
+}
+.prospectus-list{
+	padding-left: 15px;
+	li{
+		@extend .description-text;
+	}
 }
 .secondary{	
 	padding-top: 15px;
@@ -395,24 +432,6 @@ div[role="main"]{
 	background: $website_kampus03_secondary radial-gradient(at 50% 0, rgba(0,0,0,0.3), transparent 65%);
 	background-size: 100% 10px;
 	background-repeat: no-repeat;
-}
-.widget-title{
-	color: $widget_title;
-	font-size: 1.125em;
-	@include src-bold;
-	margin-bottom: 5px;
-	margin-top: 18px;
-	&:first-child{
-		margin-top: 7px;	
-	}
-}
-.widget-text{
-	color: $widget-text;
-	font-size: 0.688em;
-	@include src-regular;
-}
-.widget-image{
-	margin-bottom: 17px;
 }
 .description-panel{
 	margin-top: 35px;

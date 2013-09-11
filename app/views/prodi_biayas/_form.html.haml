@@ -20,7 +20,7 @@
           .control-group
             %label.control-label{ for: "required" } Biaya
             .controls
-              = f.text_area :biaya, rows: "3", id: "biaya", placeholder: "Isikan biaya"
+              = f.text_area :biaya, rows: "3", id: "biaya", placeholder: "Isikan biaya", data: { validate: "{required: true, messages: {required: 'Nama biaya harus diisi'}}"}
 
           .control-group
             %label.control-label{ for: "required" } Nilai

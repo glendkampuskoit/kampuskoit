@@ -22,8 +22,21 @@ describe "Univ Beasiswa Page" do
 			fill_in "nilai", with: "2000000"
 		end
 		it "should add new record" do
-	    	expect { click_button "Save" }.to change(Univbeasiswa, :count)
-	    end
+			expect { click_button "Save" }.to change(Univbeasiswa, :count)
+		end
+	end
+
+	describe "Add Univ beasiswa with invalid information" do
+		before do
+			visit univbeasiswa_new_path
+			fill_in "nama_beasiswa", with: "Supersemar"
+			fill_in "instansi", with: ""
+			fill_in "periode", with: ""
+			fill_in "nilai", with: "2000000"
+		end
+		it "should not add new record" do
+			expect { click_button "Save" }.not_to change(Univbeasiswa, :count)
+		end
 	end
 
 	describe "Ubah Univ Beasiswa" do
@@ -35,8 +48,20 @@ describe "Univ Beasiswa Page" do
 			fill_in "nilai", with: "1000000"
 		end
 		it "should update record" do
-	    	expect { click_button "Save" }.not_to change(Univbeasiswa, :count)
-	    end
+    	expect { click_button "Save" }.not_to change(Univbeasiswa, :count)
+    end
 	end
 
+	describe "Ubah Univ Beasiswa with invalid information" do
+		before do
+			visit univbeasiswa_edit_path
+			fill_in "nama_beasiswa", with: "Bank Indonesia"
+			fill_in "instansi", with: ""
+			fill_in "periode", with: ""
+			fill_in "nilai", with: "1000000"
+		end
+		it "should not update record" do
+    	expect { click_button "Save" }.not_to change(Univbeasiswa, :count)
+    end
+	end
 end

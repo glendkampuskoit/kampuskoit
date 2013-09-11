@@ -16,7 +16,7 @@
           %li= link_to "Ranking", ranking_path
           %li= link_to "Perguruan Tinggi", univs_path
           %li= link_to "Program Studi", prodis_path
-          %li= link_to "Login", login_path
+          %li= link_to "Login", "#"
 
     - if flash[:newsletter_error] != nil 
       %div{ data: { alert: true }, class: "alert-box alert", align: "center" }
@@ -221,7 +221,7 @@
                   univ_id : $("#pt_2").val()
               },
               onSelect: function (suggestion) {
-                $("#prodi_1").val(suggestion.data);
+                $("#prodi_2").val(suggestion.data);
                 $("#autocomplete_prodi_2").val(suggestion.value);
               }
             });

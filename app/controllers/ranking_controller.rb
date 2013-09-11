@@ -10,10 +10,10 @@ class RankingController < ApplicationController
 
 		if params[:provinsi]
 			@univs = Univ.joins(:kota).where("kotas.provinsi_id" => params[:provinsi])
-			@univrankings = Univranking.where(["univ_id IN (?)", @univs])
+			@univrankings = Univranking.where(["univ_id IN (?)", @univs]).order("score DESC")
 			@title = "Peringkat Perguruan Tinggi - Provinsi #{Provinsi.find(params[:provinsi]).provinsi.titleize}"
 		elsif params[:kategori]
-			@univrankings = Univranking.joins(:univ).where("univs.jenis_pt_id" => params[:kategori] ) 
+			@univrankings = Univranking.joins(:univ).where("univs.jenis_pt_id" => params[:kategori] ).order("score DESC")
 			@title = "Peringkat Perguruan Tinggi - Kategori #{JenisPt.find(params[:kategori]).jenis.titleize}"
 		end
 	end

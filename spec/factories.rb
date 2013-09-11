@@ -27,6 +27,18 @@ FactoryGirl.define do
 		sequence(:jenis){|n| "JenisPT#{n}" }
 	end	
 
+	factory :range_gaji do
+		sequence(:range){|n| "rangeGaji#{n}" }
+	end	
+
+	factory :range_bidang_kerja do
+		sequence(:bidang){|n| "rangeBidangKerja#{n}" }
+	end	
+
+	factory :range_waktu_tunggu do
+		sequence(:waktu_tunggu){|n| "rangeWaktuTunggu#{n}" }
+	end	
+
 	factory :univ do
 		#nama_pt		"Institut Teknologi Surabaya"
 		sequence(:nama_pt){|n| "perguruan tinggi #{n}" }
@@ -123,7 +135,7 @@ FactoryGirl.define do
 		instansi "Sampoerna Foundation"
 		periode	"2012-2013"
 		nilai "50000000"
-		association :univ,:factory => :univ
+		association :univ, :factory => :univ
 	end
 
 	factory :prodi_gallery do 

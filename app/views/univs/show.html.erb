@@ -1,6 +1,6 @@
 <% provide(:title, @univ.nama_pt.titleize) %>
 <div class="row">
-  <div class="large-9 columns">        
+  <div class="large-9 columns">
     <div class="row highlight">
       <div class="large-12 columns">
         <div class="left-highlight">
@@ -8,24 +8,25 @@
         </div>
         <div class="right-highlight">
           <h3 class="post-header">
-              <%= @univ.nama_pt.titleize %>
+            <%= @univ.nama_pt.titleize %>
           </h3>
           <p class="post-author">
             Last Updated - <span><%= @univ.updated_at.to_formatted_s(:long_ordinal) %></span>
           </p>
           <div class="rating">
-                        
+            <img src="/assets/front/common/star.png">
+            <img src="/assets/front/common/star-empty.png">                        
           </div>
-          <div class="share-page">            
+          <div class="share-page">
             <!--Facebook share button -->
             <a class="facebook-share-page-button" href="#" 
               onclick="
-                window.open(
-                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-                  'facebook-share-dialog', 
-                  'width=626,height=436'); 
-                return false;">
-              &nbsp;
+              window.open(
+              'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+              'facebook-share-dialog', 
+              'width=626,height=436'); 
+              return false;">
+            &nbsp;
             </a>
             <!--Twitter share button -->
             <div id="custom-tweet-button">
@@ -35,11 +36,12 @@
             <a class="linkedin-share-page-button" href="javascript:linkedin_url();" rel="nofollow"> <img src="/assets/front/profile/icon-share-linkedin.png" title="Share on LinkedIn" alt="Share on LinkedIn" width="20" height="20" border="0" /> </a>
             <!--Google+ share button -->
             <a href="javascript:gugelplus_url();"><img
-            src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
+              src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
+          <div style="clear:both"></div>
           <% if @univranking.present? %>
-           <div class="note"><span>Government: <%= @univranking.government.present? ? @univranking.government : " - " %></span> | <span>College: <%= @univranking.college.present? ? @univranking.college : " - " %></span> | <span>Society: <%= @univranking.society.present? ? @univranking.society : " - " %></span></div>
-           <% end %>
+          <div class="note"><span>Government: <%= @univranking.government.present? ? @univranking.government : " - " %></span> | <span>College: <%= @univranking.college.present? ? @univranking.college : " - " %></span> | <span>Society: <%= @univranking.society.present? ? @univranking.society : " - " %></span></div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -50,24 +52,25 @@
           <div class="rg-thumbs">
             <!-- Elastislide Carousel Thumbnail Viewer -->
             <div class="es-carousel-wrapper">
-               <div class="es-nav">
-                 <span class="es-nav-prev">Previous</span>
-                 <span class="es-nav-next">Next</span>
-               </div>
-               
-               <div class="es-carousel">
-                 <ul>
+              <div class="es-nav">
+                <span class="es-nav-prev">Previous</span>
+                <span class="es-nav-next">Next</span>
+              </div>
+              <div class="es-carousel">
+                <ul>
                   <% @univ.univgalleries.each do |gallery| %>
-                   <li>
-                     <%= link_to image_tag(gallery.image_url(:thumb), alt: "Gambar belum tersedia", data: { large: gallery.image_url(:slide), description: gallery.caption }), "#" %>
-                   </li>
-                   <% end %>
-                 </ul>
-               </div>
-             </div>
+                  <li>
+                    <%= link_to image_tag(gallery.image_url(:thumb), alt: "Gambar belum tersedia", data: { large: gallery.image_url(:slide), description: gallery.caption }), "#" %>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
             <!-- End Elastislide Carousel Thumbnail Viewer -->
-          </div><!-- rg-thumbs -->
-        </div><!-- rg-gallery -->
+          </div>
+          <!-- rg-thumbs -->
+        </div>
+        <!-- rg-gallery -->
         <% end %>
       </div>
     </div>
@@ -163,8 +166,7 @@
                   <%= image_tag @univ.featured_image_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/default.jpg';" %>
                   <h5 class="description-title">Deskripsi</h5>
                   <p class="description-text"><%= @univ.deskripsi.present? ? @univ.deskripsi : "- belum ada deskripsi -" %></p>
-                  
-                </div>                    
+                </div>
               </div>
             </div>
           </section>
@@ -175,37 +177,37 @@
                 <% 
                   i = 0 
                   count = @univ.prodis.count/3 + 1
-                %>
-                <% @univ.prodis.each do |prodi| %>
-                  <% 
-                    i = 0 if i >= count
-                    i += 1
-                    if i == 1 
                   %>
-                    <div class="large-4 columns">
-                      <ul>
-                        <li><%= link_to prodi.jenjang_prodi.jenjang.empty? ? "#{ prodi.nama_prodi }" : "#{ prodi.jenjang_prodi.jenjang } - #{ prodi.nama_prodi.titleize }", univ_prodi_path(prodi.univ, prodi), target: "_blank" %></li>
-                  <% else %>
+                <% @univ.prodis.each do |prodi| %>
+                <% 
+                  i = 0 if i >= count
+                  i += 1
+                  if i == 1 
+                  %>
+                <div class="large-4 columns">
+                  <ul>
                     <li><%= link_to prodi.jenjang_prodi.jenjang.empty? ? "#{ prodi.nama_prodi }" : "#{ prodi.jenjang_prodi.jenjang } - #{ prodi.nama_prodi.titleize }", univ_prodi_path(prodi.univ, prodi), target: "_blank" %></li>
-                  <% end %>
-                  <% if i >= count %>   
-                      </ul>
-                    </div>
-                  <% end %>
+                    <% else %>
+                    <li><%= link_to prodi.jenjang_prodi.jenjang.empty? ? "#{ prodi.nama_prodi }" : "#{ prodi.jenjang_prodi.jenjang } - #{ prodi.nama_prodi.titleize }", univ_prodi_path(prodi.univ, prodi), target: "_blank" %></li>
+                    <% end %>
+                    <% if i >= count %>   
+                  </ul>
+                </div>
+                <% end %>
                 <% end %>          
               </div>
             </div>
             <p class="entry-link right">
-                <% if @univ.website.present? && @univ.email.present?  %>
-                <span><%= link_to @univ.website, @univ.website, target: "_blank" %></span>
-                <span class="entry-link-separator">|</span>
-                <span><%= mail_to @univ.email, @univ.email %></span>
-                <% elsif @univ.website.present? %>
-                <span><%= link_to @univ.website, @univ.website, target: "_blank" %></span>
-                <% elsif @univ.website.email? %>
-                <span><%= mail_to @univ.email, @univ.email %></span>
-                <% end %>
-              </p>
+              <% if @univ.website.present? && @univ.email.present?  %>
+              <span><%= link_to @univ.website, @univ.website, target: "_blank" %></span>
+              <span class="entry-link-separator">|</span>
+              <span><%= mail_to @univ.email, @univ.email %></span>
+              <% elsif @univ.website.present? %>
+              <span><%= link_to @univ.website, @univ.website, target: "_blank" %></span>
+              <% elsif @univ.website.email? %>
+              <span><%= mail_to @univ.email, @univ.email %></span>
+              <% end %>
+            </p>
           </section>
           <section>
             <p class="title margin-fix-1" data-section-title><a href="#panel3">Alumnus</a></p>
@@ -230,12 +232,11 @@
           </section>
           <div class="tab-shadow"></div>
         </div>
-      </div>            
+      </div>
     </div>
   </div>
   <%= render partial: "layouts/sidebar" %>
 </div>
-
 <script>
   function twitter_url(){
     var url;
@@ -243,7 +244,7 @@
     window.open(url, 'width=626,height=436'); 
     return false;
   }
-
+  
   function gugelplus_url(){
     var url = "https://plus.google.com/share?url={"+encodeURIComponent(location.href)+"}";
     window.open(
@@ -251,11 +252,11 @@
       '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
     return false;
   }
-
+  
   function linkedin_url(){
     var url = "https://plus.google.com/share?url={"+encodeURIComponent(location.href)+"}";
     var url = "http://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href)+"&title=<%= @univ.nama_pt.titleize %>&summary=<%= @univ.nama_pt.titleize %>&source=TheNameOfYourSiteGoesHere";
-
+  
     window.open(url,'template_window','550','400','yes','center');
     return false;
   }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826135218) do
+ActiveRecord::Schema.define(:version => 20130904042649) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -201,6 +201,76 @@ ActiveRecord::Schema.define(:version => 20130826135218) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "range_bidang_kerjas", :force => true do |t|
+    t.string   "bidang"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_gaji_pertamas", :force => true do |t|
+    t.string   "gaji_pertama"
+    t.integer  "bobot"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "range_gajis", :force => true do |t|
+    t.string   "range"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_ipks", :force => true do |t|
+    t.string   "ipk"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_lama_kuliahs", :force => true do |t|
+    t.string   "lama"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_level_karirs", :force => true do |t|
+    t.string   "level_karir"
+    t.integer  "bobot"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "range_pekerjaan_pertamas", :force => true do |t|
+    t.string   "pekerjaan_pertama"
+    t.integer  "bobot"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "range_pendidikan_terakhirs", :force => true do |t|
+    t.string   "pendidikan"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_profesis", :force => true do |t|
+    t.string   "profesi"
+    t.integer  "bobot"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "range_waktu_tunggus", :force => true do |t|
+    t.string   "waktu_tunggu"
+    t.integer  "bobot"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "subscriber_beasiswas", :force => true do |t|
     t.string   "nama_beasiswa"
     t.string   "instansi"
@@ -332,6 +402,7 @@ ActiveRecord::Schema.define(:version => 20130826135218) do
 
   add_index "survey_alumnis", ["subscriber_id"], :name => "index_survey_alumnis_on_subscriber_id"
 
+<<<<<<< HEAD
   create_table "survey_gajis", :force => true do |t|
     t.integer "univ_id",                       :null => false
     t.integer "range1",         :default => 0
@@ -384,6 +455,23 @@ ActiveRecord::Schema.define(:version => 20130826135218) do
     t.integer "range5",         :default => 0
     t.integer "totalresponden", :default => 0
     t.date    "updated_at"
+=======
+  create_table "survey_respondens", :force => true do |t|
+    t.string   "univ_id"
+    t.string   "subscriber_id"
+    t.string   "range_gaji_id"
+    t.string   "range_bidang_kerja_id"
+    t.string   "range_waktu_tunggu_id"
+    t.string   "range_lama_kuliah_id"
+    t.string   "range_ipk_id"
+    t.string   "range_pekerjaan_pertama_id"
+    t.string   "range_profesi_id"
+    t.string   "range_pendidikan_terakhir_id"
+    t.string   "range_gaji_pertama_id"
+    t.string   "range_level_karir_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+>>>>>>> origin/master
   end
 
   create_table "univ_fasilitas_galleries", :force => true do |t|

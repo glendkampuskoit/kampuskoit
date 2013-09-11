@@ -103,4 +103,21 @@ class UnivsController < ApplicationController
       format.json { render json: stream.to_json }
     end
   end
+
+  def stream
+
+   univs = Univ.search params[:query], :order => 'nama_pt ASC', :per_page => 10
+
+    @univ_data = Array.new
+
+    @univ_data = univs.map do |univ|
+      { value: univ.nama_pt.titleize, data: univ.id }
+    end
+
+    stream = { query: "Unit", suggestions: @univ_data }
+
+    respond_to do |format|
+      format.json { render json: stream.to_json }
+    end
+  end
 end

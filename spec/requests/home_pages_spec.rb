@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Homes", :js => true do
+describe "Home Page", :js => true do
 
 
   subject { page }
@@ -9,7 +9,7 @@ describe "Homes", :js => true do
 
   keypress = "var e = $.Event('keydown', { keyCode: 13 }); $('body').trigger(e);"
   
-  describe "Home Page Index" do
+  pending "Home Page Index" do
     
     it "should have content Kampus" do
       should have_content('Kampus')

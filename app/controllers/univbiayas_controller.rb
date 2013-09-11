@@ -15,10 +15,12 @@ class UnivbiayasController < ApplicationController
 	def create
 		@univbiaya = Univbiaya.new(params[:univbiaya])
 		if @univbiaya.save
-      		redirect_to univ_univbiayas_path(@univbiaya.univ), notice: 'Biaya Perguruan Tinggi Berhasil ditambah.' 
-    	else
-    		render action: "new"
-    	end	
+			redirect_to univ_univbiayas_path(@univbiaya.univ), notice: 'Biaya Perguruan Tinggi Berhasil ditambah.' 
+		else
+			@univ = @univbiaya.univ
+			@url = 	univ_univbiayas_path(@univbiaya.univ)
+			render action: "new"
+		end	
 	end
 
 	def edit
@@ -29,10 +31,12 @@ class UnivbiayasController < ApplicationController
 
 	def update
 		@univbiaya = Univbiaya.find(params[:id])
-    	if @univbiaya.update_attributes(params[:univbiaya])
-      		redirect_to univ_univbiayas_path(@univbiaya.univ), notice: 'Biaya Perguruan tinggi berhasil diubah.' 
-    	else
-      		render action: "edit"
-      	end
+		@univ = @univbiaya.univ
+    if @univbiaya.update_attributes(params[:univbiaya])
+    	redirect_to univ_univbiayas_path(@univbiaya.univ), notice: 'Biaya Perguruan tinggi berhasil diubah.' 
+    else
+    	@url = univ_univbiaya_path(@univ, @univbiaya)
+    	render action: "edit"
     end
+   end
 end

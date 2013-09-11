@@ -37,7 +37,8 @@
           .control-group
             %label.control-label{for: "inputSelect"} Perguruan Tinggi
             .controls
-              = collection_select(:prodi, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt, {}, { style: "width:500px", id: "univ", data: { form: "univ", placeholder: "Pilih Perguruan Tinggi"}})
+              = text_field_tag :nama_pt, @prodi.univ.present? ? @prodi.univ.nama_pt : "", id: "nama_pt", placeholder: "Pilih Universitas", class: "grd-white input-xxlarge", data: {validate: "{required: true, messages: {required: 'Universitas harus diisi'}}" }
+              = f.hidden_field :univ_id, id: "univ_id"
 
           .control-group
             %label.control-label{for: "required"} Fakultas
@@ -52,7 +53,8 @@
           .control-group
             %label.control-label{for: "inputSelect"} Bidang Program Studi
             .controls
-              = collection_select(:prodi, :prodi_bidang_id, ProdiBidang.order("nama_bidang ASC"), :id, :nama_bidang, {}, {style: "width:450px", id: "prodi_bidang", data: {form: "prodi_bidang", placeholder: "Pilih Bidang Program Studi"}})
+              = text_field_tag :prodi_bidang, @prodi.prodi_bidang.present? ? @prodi.prodi_bidang.nama_bidang : "", id: "prodi_bidang", placeholder: "Pilih Bidang Program Studi", class: "grd-white input-xxlarge", data: {validate: "{required: true, messages: {required: 'Bidang Program Studi harus diisi'}}" }
+              = f.hidden_field :prodi_bidang_id, id: "prodi_bidang_id"
 
           .control-group
             %label.control-label{for: "required"} Tahun Berdiri
@@ -77,7 +79,8 @@
           .control-group
             %label.control-label{for: "inputSelect"} Kota
             .controls
-              = collection_select(:prodi, :kota_id, Kota.order("kota ASC"), :id, :kota, {}, {style: "width:200px", id: "kota", data: {form: "kota", placeholder: "Pilih Kota"}})
+              = text_field_tag :kota, @prodi.kota.present? ? @prodi.kota.kota : "", id: "kota", placeholder: "Pilih Kota", class: "grd-white input-large", data: {validate: "{required: true, messages: {required: 'Kota Program Studi harus diisi'}}" }
+              = f.hidden_field :kota_id, id: "kota_id"
 
           .control-group
             %label.control-label{for: "required"} Telepon
@@ -143,6 +146,11 @@
             %label.control-label{for: "required"} Jumlah Dosen Professor
             .controls
               = f.text_field :total_dosen_prof, id: "total_dosen_prof", class: "grd-white", placeholder: "total dosen professor"
+
+          .control-group
+            %label.control-label{for: "required"} Jumlah Dosen Doktor
+            .controls
+              = f.text_field :total_dosen_doktor, id: "total_dosen_doktor", class: "grd-white", placeholder: "total dosen doktor"
           
           .control-group
             %label.control-label{for: "required"} Jumlah Dosen Master
@@ -298,4 +306,26 @@
     $("a[rel^='prettyPhoto']").prettyPhoto();
     $('#form-validate').validate();
     $('#form-gallery').validate();
+
+    $('#prodi_bidang').autocomplete({
+      serviceUrl: '/prodi_bidangs_stream.json',
+      onSelect: function (suggestion) {
+        $("#prodi_bidang_id").val(suggestion.data);
+      }
+    });
+
+    $('#kota').autocomplete({
+      serviceUrl: '/kotas_stream.json',
+      onSelect: function (suggestion) {
+        $("#kota_id").val(suggestion.data);
+      }
+    });
+
+    $('#nama_pt').autocomplete({
+      serviceUrl: '/univs_stream.json',
+      onSelect: function (suggestion) {
+        $("#univ_id").val(suggestion.data);
+      }
+    });
+    
   });
