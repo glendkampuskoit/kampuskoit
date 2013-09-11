@@ -92,7 +92,7 @@ div[role="main"]{
 footer{
 	background: $website_kampus01_footer;
 }
-@import "footer";
+@import "../front/footer";
 .newsletter-form .prefix, .newsletter-form .postfix{
 	background: $compare_button;
 	&:hover{
