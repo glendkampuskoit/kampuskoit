@@ -23,9 +23,9 @@
                 %td= range_waktu_tunggu.waktu_tunggu
                 %td.center
                   %span.label.label-info
-                    = link_to "Edit", edit_range_gaji(range_waktu_tunggu)
+                    = link_to "Edit", edit_range_waktu_tunggu_path(range_waktu_tunggu)
                   %span.label.label-important
-                    = link_to "Delete", range_gaji_path(range_waktu_tunggu), method: :delete, :class => "delete"
+                    = link_to "Delete", range_waktu_tunggu_path(range_waktu_tunggu), method: :delete, :class => "delete"
 
 :javascript
   $(document).ready(function() {
