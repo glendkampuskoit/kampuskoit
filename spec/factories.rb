@@ -55,6 +55,10 @@ FactoryGirl.define do
 		sequence(:level_karir){|n| "rangeLevelKarir#{n}" }
 	end	
 
+	factory :range_pekerjaan_pertama do
+		sequence(:pekerjaan_pertama){|n| "rangePekerjaanPertama#{n}" }
+	end	
+
 	factory :univ do
 		#nama_pt		"Institut Teknologi Surabaya"
 		sequence(:nama_pt){|n| "perguruan tinggi #{n}" }
