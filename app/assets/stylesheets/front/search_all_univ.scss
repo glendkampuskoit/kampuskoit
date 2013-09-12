@@ -225,6 +225,13 @@ div[role="main"]{
 		&:last-child{
 			border: none;	
 		}
+		img{
+			display: block;
+			margin: 0 auto;
+			@media screen and (max-width: 768px){
+				margin-bottom: 20px;
+			}
+		}
 	}	
 }
 .pagination-centered{
@@ -262,7 +269,7 @@ ul.pagination{
 }
 .entry-text{
 	@include src-regular;
-	font-size: 0.688em;
+	font-size: 0.750em;
 	color: $entry-text;
 }
 .read-more-button{
@@ -318,24 +325,6 @@ ul.pagination{
 }
 .sidebar{
 	padding-top: 30px;
-}
-.widget-title{
-	color: $widget_title;
-	font-size: 1.125em;
-	@include src-bold;
-	margin-bottom: 5px;
-	margin-top: 18px;
-}
-.widget-title:first-child{
-	margin-top: 7px;
-}
-.widget-text{
-	color: $widget-text;
-	font-size: 0.688em;
-	@include src-regular;
-}
-.widget-image{
-	margin-bottom: 17px;
 }
 .description-panel{
 	margin-top: 35px;

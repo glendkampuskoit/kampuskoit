@@ -16,9 +16,9 @@
         - @univs.each do |univ| 
           %article
             .row
-              .small-5.large-5.columns
+              .large-5.columns
                 = image_tag(univ.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';") 
-              .small-7.large-7.columns
+              .large-7.columns
                 %h6.entry-header= link_to univ.nama_pt.titleize, univ_path(univ)
                 %p.entry-place
                   - if univ.kota.present? 

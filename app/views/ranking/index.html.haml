@@ -24,9 +24,9 @@
             - @univrankings.each do |univranking|
               %article.article-post
                 .row
-                  .small-5.large-5.columns
+                  .large-5.columns
                     = image_tag(univranking.univ.featured_image_url(:thumb), :alt => "Gambar belum tersedia", :onerror => "this.src='/assets/default.jpg';")
-                  .small-7.large-7.columns
+                  .large-7.columns
                     %p.rank= i += 1
                     %h6.entry-header= link_to univranking.univ.nama_pt.titleize, univ_path(univranking.univ)
 
@@ -40,8 +40,8 @@
                           %span= link_to univranking.univ.website.downcase, univranking.univ.website, :target => "_blank"
                           %span.entry-link-separator &#x20;|
                           %span= mail_to univranking.univ.email, univranking.univ.email.downcase
-                        - elsif univranking.univ.email.present?
-                          %span= mail_to univranking.univ.email, univranking.univ.email.downcase
+                        - elsif univranking.univ.website.present?
+                          %span= mail_to univranking.univ.website, univranking.univ.website.downcase
                         - elsif univranking.univ.email.present? 
                           %span= mail_to univranking.univ.email, univranking.univ.email.downcase
 

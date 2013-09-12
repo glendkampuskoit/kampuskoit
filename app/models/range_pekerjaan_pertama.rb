@@ -3,3 +3,4 @@ class RangePekerjaanPertama < ActiveRecord::Base
 
 	validates :pekerjaan_pertama, presence: true, uniqueness: { case_sensitive: false }
 end
+

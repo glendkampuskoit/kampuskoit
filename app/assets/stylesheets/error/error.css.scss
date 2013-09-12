@@ -14,19 +14,21 @@ header{
 		text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	}
 	.header-error-number{
-		@include hlv-bold-cn;
-		font-size: 125px;
+		@include multicolore;
+		font-size: 7.813em;
 		color: white;
 		line-height: 200px;
 		text-align: right;		
 	}
 	.header-error-text{
-		@include hlv-bold-cn;
-		font-size: 28px;
+		@include multicolore;
+		font-size: 1.250em;
 		color: white;		
 		line-height: 30px;
 		text-align: left;
-		padding-top: 75px;
+		padding-top: 80px;
+		text-transform: lowercase;		
+		letter-spacing: -0.5px;
 	}
 }
 

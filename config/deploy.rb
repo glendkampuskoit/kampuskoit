@@ -1,17 +1,17 @@
 set :application, "kampus"
-set :repository,  "https://github.com/glendkampuskoit/kampuskoit.git"
+set :repository,  ""
 
 set :scm, :git
 
 set :deploy_to, "/web-rails/#{application}"
 
-set :user, "joni"
+set :user, ""
 set :scm_username, "glendkampuskoit"
 set :use_sudo, false
 
-role :web, "113.20.29.43"
-role :app, "113.20.29.43"
-role :db,  "113.20.29.43", :primary => true
+role :web, ""
+role :app, ""
+role :db,  "", :primary => true
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"

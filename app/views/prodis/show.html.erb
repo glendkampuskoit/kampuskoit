@@ -1,208 +1,282 @@
 <% provide(:title, @prodi.nama_prodi.titleize) %>
 <div class="row">
-  <div class="large-9 columns">        
-    <div class="row highlight">
-      <div class="large-12 columns">
-        <div class="left-highlight">
-          <%= image_tag @prodi.logo_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/logo.jpg';"%>
-        </div>
-        <div class="right-highlight">
-          <h4 class="post-header">
-              <%= @prodi.nama_prodi.titleize %>
-          </h4>
-          <h5 class="post-sub-header">
-              <%= @prodi.univ.nama_pt.titleize %>
-          </h5>
-          <p class="post-author">
-            Last Updated - <span><%= @prodi.updated_at.to_formatted_s(:long_ordinal) %></span>
-          </p>
-          <div class="share-page">
-            <!--Facebook share button -->
-            <a class="facebook-share-page-button" href="#" 
-              onclick="
-                window.open(
-                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-                  'facebook-share-dialog', 
-                  'width=626,height=436'); 
-                return false;">
-              &nbsp;
-            </a>
-            <!--Twitter share button -->
-            <div id="custom-tweet-button">
-              <a href="javascript:twitter_url();">&nbsp;</a>
-            </div>
-            <!--Linkedin share button -->
-            <a class="linkedin-share-page-button" href="javascript:linkedin_url();" rel="nofollow"> <img src="/assets/front/profile/icon-share-linkedin.png" title="Share on LinkedIn" alt="Share on LinkedIn" width="20" height="20" border="0" /> </a>
-            <!--Google+ share button -->
-            <a href="javascript:gugelplus_url();"><img
-            src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
+<div class="large-9 columns">
+  <div class="row highlight">
+    <div class="large-12 columns">
+      <div class="left-highlight">
+        <%= image_tag @prodi.logo_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/logo.jpg';"%>
+      </div>
+      <div class="right-highlight">
+        <h4 class="post-header">
+          <%= @prodi.nama_prodi.titleize %>
+        </h4>
+        <h5 class="post-sub-header">
+          <%= @prodi.univ.nama_pt.titleize %>
+        </h5>
+        <p class="post-author">
+          Last Updated - <span><%= @prodi.updated_at.to_formatted_s(:long_ordinal) %></span>
+        </p>
+        <div class="share-page">
+          <!--Facebook share button -->
+          <a class="facebook-share-page-button" href="#" 
+            onclick="
+            window.open(
+            'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+            'facebook-share-dialog', 
+            'width=626,height=436'); 
+            return false;">
+          &nbsp;
+          </a>
+          <!--Twitter share button -->
+          <div id="custom-tweet-button">
+            <a href="javascript:twitter_url();">&nbsp;</a>
           </div>
-          <div class="note">
-            <span>Passing Grade: <%= @prodi.prodi_passing_grades.where({ prodi_id: @prodi, status: 1}).present? ? @prodi.prodi_passing_grades.where({ prodi_id: @prodi, status: 1}).first.grades : "-" %></span> | 
-            <span>Terakreditasi: <%= @prodi.prodi_akreditasis.where({ prodi_id: @prodi, status: 1}).present? ? @prodi.prodi_akreditasis.where({ prodi_id: @prodi, status: 1}).first.peringkat : "-" %></span>
+          <!--Linkedin share button -->
+          <a class="linkedin-share-page-button" href="javascript:linkedin_url();" rel="nofollow"> <img src="/assets/front/profile/icon-share-linkedin.png" title="Share on LinkedIn" alt="Share on LinkedIn" width="20" height="20" border="0" /> </a>
+          <!--Google+ share button -->
+          <a href="javascript:gugelplus_url();"><img
+            src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
+        </div>
+        <div style="clear:both"></div>
+        <div class="note">
+          <span>Passing Grade: <%= @prodi.prodi_passing_grades.where({ prodi_id: @prodi, status: 1}).present? ? @prodi.prodi_passing_grades.where({ prodi_id: @prodi, status: 1}).first.grades : "-" %></span> | 
+          <span>Terakreditasi: <%= @prodi.prodi_akreditasis.where({ prodi_id: @prodi, status: 1}).present? ? @prodi.prodi_akreditasis.where({ prodi_id: @prodi, status: 1}).first.peringkat : "-" %></span>
         </div>
       </div>
     </div>
-    <div class="row gallery">
-      <div class="large-12 columns">
-        <% if @prodigalleries.present? %>
-        <div id="rg-gallery" class="rg-gallery">
-          
-           <div class="rg-thumbs">
-             <!-- Elastislide Carousel Thumbnail Viewer -->
-             <div class="es-carousel-wrapper">
-               <div class="es-nav">
-                 <span class="es-nav-prev">Previous</span>
-                 <span class="es-nav-next">Next</span>
-               </div>
-               <div class="es-carousel">
-                 <ul>
-                  <% foreach @prodigalleries do |gallery| %>
-                   <li>
-                     <%= link_to image_tag(gallery.image_url(:thumb), alt: "Gambar belum tersedia", data: {large: gallery.image_url(:slide), description: gallery.caption }), "#" %>
-                   </li>
-                   <% end %>
-                 </ul>
-               </div>
-             </div>
-             <!-- End Elastislide Carousel Thumbnail Viewer -->
-           </div><!-- rg-thumbs -->
-        </div><!-- rg-gallery -->
-        <% end %>
+  </div>
+  <div class="row gallery">
+    <div class="large-12 columns">
+      <% if @prodi.prodi_galleries.present? %>
+      <div id="rg-gallery" class="rg-gallery">
+        <div class="rg-thumbs">
+          <!-- Elastislide Carousel Thumbnail Viewer -->
+          <div class="es-carousel-wrapper">
+            <div class="es-nav">
+              <span class="es-nav-prev">Previous</span>
+              <span class="es-nav-next">Next</span>
+            </div>
+            <div class="es-carousel">
+              <ul>
+                <% foreach @prodi.prodi_galleries do |gallery| %>
+                <li>
+                  <%= link_to image_tag(gallery.image_url(:thumb), alt: "Gambar belum tersedia", data: {large: gallery.image_url(:slide), description: gallery.caption }), "#" %>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <!-- End Elastislide Carousel Thumbnail Viewer -->
+        </div>
+        <!-- rg-thumbs -->
       </div>
+      <!-- rg-gallery -->
+      <% end %>
     </div>
-    <div class="row profile">
-      <div class="large-12 columns">
-        <div class="section-container auto" data-section>
-          <section>
-            <p class="title" data-section-title><a href="#panel1">Profil</a></p>
-            <div class="content" data-section-content>
-              <div class="row information">
-                <div class="large-12 columns">
-                  <h5 class="information-title">Keterangan</h5>
-                  <form>
-                    <fieldset>
-                      <div class="row">
-                        <div class="small-9 large-7">
-                          <div class="row">
-                            <div class="small-3 columns">
-                              <label class="left inline">Jenjang</label>
-                            </div>
-                            <div class="small-9 columns">
-                              <label class="left inline">: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<%= @prodi.jenjang_prodi.jenjang %> <%= @prodi.jenjang_prodi.keterangan.present? ? "- #{@prodi.jenjang_prodi.keterangan}" : "" %></label>
-                            </div>
+  </div>
+  <div class="row profile">
+    <div class="large-12 columns">
+      <div class="section-container auto" data-section>
+        <section>
+          <p class="title" data-section-title><a href="#panel1">Profil</a></p>
+          <div class="content" data-section-content>
+            <div class="row information">
+              <div class="large-12 columns">
+                <h5 class="information-title">Keterangan</h5>
+                <form>
+                  <fieldset>
+                    <div class="row">
+                      <div class="small-9 large-7">
+                        <div class="row">
+                          <div class="small-3 columns">
+                            <label class="left inline">Jenjang</label>
+                          </div>
+                          <div class="small-9 columns">
+                            <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.jenjang_prodi.jenjang %> <%= @prodi.jenjang_prodi.keterangan.present? ? "- #{@prodi.jenjang_prodi.keterangan}" : "" %></label>
                           </div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="small-9 large-7">
-                          <div class="row">
-                            <div class="small-3 columns">
-                              <label class="left inline">Tahun Berdiri</label>
-                            </div>
-                            <div class="small-9 columns">
-                              <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.tahun_berdiri.present? ? @prodi.tahun_berdiri : "-" %></label>
-                            </div>
+                    </div>
+                    <div class="row">
+                      <div class="small-9 large-7">
+                        <div class="row">
+                          <div class="small-3 columns">
+                            <label class="left inline">Tahun Berdiri</label>
+                          </div>
+                          <div class="small-9 columns">
+                            <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.tahun_berdiri.present? ? @prodi.tahun_berdiri : "-" %></label>
                           </div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="small-9 large-7">
-                          <div class="row">
-                            <div class="small-3 columns">
-                              <label class="left inline">Alamat</label>
-                            </div>
-                            <div class="small-9 columns">
-                              <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.alamat.present? ? @prodi.alamat : "-" %></label>
-                            </div>
+                    </div>
+                    <div class="row">
+                      <div class="small-9 large-7">
+                        <div class="row">
+                          <div class="small-3 columns">
+                            <label class="left inline">Alamat</label>
+                          </div>
+                          <div class="small-9 columns">
+                            <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.alamat.present? ? @prodi.alamat : "-" %></label>
                           </div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="small-9 large-7">
-                          <div class="row">
-                            <div class="small-3 columns">
-                              <label class="left inline">Email</label>
-                            </div>
-                            <div class="small-9 columns">
-                              <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= mail_to @prodi.email, @prodi.email.present? ? @prodi.email : "-" %></label>
-                            </div>
+                    </div>
+                    <div class="row">
+                      <div class="small-9 large-7">
+                        <div class="row">
+                          <div class="small-3 columns">
+                            <label class="left inline">Email</label>
+                          </div>
+                          <div class="small-9 columns">
+                            <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= mail_to @prodi.email, @prodi.email.present? ? @prodi.email : "-" %></label>
                           </div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="small-9 large-7">
-                          <div class="row">
-                            <div class="small-3 columns">
-                              <label class="left inline">Website</label>
-                            </div>
-                            <div class="small-9 columns">
-                              <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= link_to @prodi.website, @prodi.website.present? ? @prodi.website : "-", target: "_blank" %></label>
-                            </div>
+                    </div>
+                    <div class="row">
+                      <div class="small-9 large-7">
+                        <div class="row">
+                          <div class="small-3 columns">
+                            <label class="left inline">Website</label>
+                          </div>
+                          <div class="small-9 columns">
+                            <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= link_to @prodi.website, @prodi.website.present? ? @prodi.website : "-", target: "_blank" %></label>
                           </div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="small-9 large-7">
-                          <div class="row">
-                            <div class="small-3 columns">
-                              <label class="left inline">Telephone</label>
-                            </div>
-                            <div class="small-9 columns">
-                              <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.telepon.present? ? @prodi.telepon : "-" %></label>
-                            </div>
+                    </div>
+                    <div class="row">
+                      <div class="small-9 large-7">
+                        <div class="row">
+                          <div class="small-3 columns">
+                            <label class="left inline">Telephone</label>
+                          </div>
+                          <div class="small-9 columns">
+                            <label class="left inline">: &nbsp;&nbsp;&nbsp; <%= @prodi.telepon.present? ? @prodi.telepon : "-" %></label>
                           </div>
                         </div>
                       </div>
-                    </fieldset>
-                  </form>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+            <div class="row description">
+              <div class="large-12 columns">
+                <%= image_tag @prodi.logo_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/default.jpg';"%>
+                <h5 class="description-title">Deskripsi</h5>
+                <p class="description-text"><%= @prodi.profile.present? ? @prodi.profile : "- belum ada deskripsi -" %></p>
+                <p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <p class="title" data-section-title><a href="#panel2">Kompetensi</a></p>
+          <div class="content" data-section-content>
+            <p>Content of Gallery.</p>
+          </div>
+        </section>
+        <section>
+          <p class="title margin-fix-1" data-section-title><a href="#panel3">Prospektus</a></p>
+          <div class="content" data-section-content>
+            <div class="row prospectus">
+              <div class="large-12 columns">
+                <h5 class="description-title">Bidang Program Studi</h5>
+                <p class="description-text"><%= @prodi.prodi_bidang ? (@prodi.prodi_bidang.nama_bidang.present? ? @prodi.prodi_bidang.nama_bidang.titleize : " - tidak ada data - ") : " - tidak ada data - " %></p>
+                <h5 class="description-title">Deskripsi</h5>
+                <p class="description-text"><%= @prodi.prodi_bidang ? (@prodi.prodi_bidang.deskripsi.present? ? @prodi.prodi_bidang.deskripsi : " - tidak ada deskripsi - ") : " - tidak ada deskripsi - " %></p>
+                <h5 class="description-title">Materi</h5>
+                <% if @prodi.prodi_bidang  %>
+                <% if @prodi.prodi_bidang.materi.present? %>
+                <div class="row">
+                  <% 
+                    i = 0
+                    materis = @prodi.prodi_bidang.materi.split(",")
+                    count = materis.count/2 + 1
+                    %>
+                  <% materis.each do |materi| %>
+                  <% 
+                    i = 0 if i >= count
+                    i += 1
+                    if i == 1 
+                    %>
+                  <div class="large-6 columns">
+                    <ul class="prospectus-list">
+                      <li><%= materi.titleize %></li>
+                      <% else %>
+                      <li><%= materi.titleize %></li>
+                      <% end %>
+                      <% if i >= count %>   
+                    </ul>
+                  </div>
+                  <% end %>                   
+                  <% end %>
                 </div>
               </div>
-              <div class="row description">
-                <div class="large-12 columns">
-                  <%= image_tag @prodi.logo_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/default.jpg';"%>
-                  <h5 class="description-title">Deskripsi</h5>
-                  <p class="description-text"><%= @prodi.profile.present? ? @prodi.profile : "- belum ada deskripsi -" %></p>
-                  <p>
-                </div>                    
+              <% else %>
+              <p class="description-text">- tidak ada data materi -</p>
+              <% end %>
+              <% else %>
+              <p class="description-text">- tidak ada data materi -</p>
+              <% end %>
+              <h5 class="description-title">Lapangan Pekerjaan</h5>
+              <% if @prodi.prodi_bidang  %>
+              <% if @prodi.prodi_bidang.lapangan_kerja.present? %>
+              <div class="row">
+                <% 
+                  i = 0
+                  lapangan_kerjas = @prodi.prodi_bidang.lapangan_kerja.split(",")
+                  count = lapangan_kerjas.count/2 + 1
+                  %>
+                <% lapangan_kerjas.each do |lapangan_kerja| %>
+                <% 
+                  i = 0 if i >= count
+                  i += 1
+                  if i == 1 
+                  %>
+                <div class="large-6 columns">
+                  <ul class="prospectus-list">
+                    <li><%= lapangan_kerja.titleize %></li>
+                    <% else %>
+                    <li><%= lapangan_kerja.titleize %></li>
+                    <% end %>
+                    <% if i >= count %>   
+                  </ul>
+                </div>
+                <% end %>                   
+                <% end %>
               </div>
             </div>
-          </section>
-          <section>
-            <p class="title" data-section-title><a href="#panel2">Kompetensi</a></p>
-            <div class="content" data-section-content>
-              <p>Content of Gallery.</p>
-            </div>
-          </section>
-          <section>
-            <p class="title margin-fix-1" data-section-title><a href="#panel3">Prospektus</a></p>
-            <div class="content" data-section-content>
-              <p>Content of Prospectus :)</p>
-            </div>
-          </section>
-          <section>
-            <p class="title margin-fix-2" data-section-title><a href="#panel4">Lain-lain</a></p>
-            <div class="content" data-section-content>
-              <p>Content of Lain-lain.</p>
-            </div>
-          </section>
-          <section>
-            <p class="title socmed-fb margin-fix-3" data-section-title><a class="socmed-link" href="<%= @prodi.facebook.present? ? "http://facebook.com/#{@prodi.facebook}" : "#" %>" target="_blank">&nbsp;</a></p>
-          </section>
-          <section>
-            <p class="title socmed-twitter margin-fix-4" data-section-title><a class="socmed-link" href="<%= @prodi.twitter.present? ? "http://twitter.com/#{@prodi.twitter}" : "#" %>" target="_blank">&nbsp;</a></p>
-          </section>
-          <section>
-            <p class="title socmed-youtube margin-fix-5" data-section-title><a class="socmed-link" href="<%= @prodi.youtube.present? ? "http://youtube.com/user/#{@prodi.youtube}" : "#" %>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
-          </section>
-          <div class="tab-shadow"></div>
+            <% else %>
+            <p class="description-text">- tidak ada data lapangan kerja -</p>
+            <% end %>
+            <% else %>
+            <p class="description-text">- tidak ada data lapangan kerja -</p>
+            <% end %>
+        </section>
+        <section>
+        <p class="title margin-fix-2" data-section-title><a href="#panel4">Lain-lain</a></p>
+        <div class="content" data-section-content>
+        <p>Content of Lain-lain.</p>
         </div>
-      </div>            
+        </section>
+        <section>
+        <p class="title socmed-fb margin-fix-3" data-section-title><a class="socmed-link" href="<%= @prodi.facebook.present? ? "http://facebook.com/#{@prodi.facebook}" : "#" %>" target="_blank">&nbsp;</a></p>
+        </section>
+        <section>
+        <p class="title socmed-twitter margin-fix-4" data-section-title><a class="socmed-link" href="<%= @prodi.twitter.present? ? "http://twitter.com/#{@prodi.twitter}" : "#" %>" target="_blank">&nbsp;</a></p>
+        </section>
+        <section>
+        <p class="title socmed-youtube margin-fix-5" data-section-title><a class="socmed-link" href="<%= @prodi.youtube.present? ? "http://youtube.com/user/#{@prodi.youtube}" : "#" %>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+        </section>
+        <div class="tab-shadow"></div>
+        </div>
+      </div>
     </div>
   </div>
   <%= render partial: "layouts/sidebar" %>
 </div>
-
 <script>
   function twitter_url(){
     var url;
@@ -210,7 +284,7 @@
     window.open(url, 'width=626,height=436'); 
     return false;
   }
-
+  
   function gugelplus_url(){
     var url = "https://plus.google.com/share?url={"+encodeURIComponent(location.href)+"}";
     window.open(
@@ -218,11 +292,11 @@
       '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
     return false;
   }
-
+  
   function linkedin_url(){
     var url = "https://plus.google.com/share?url={"+encodeURIComponent(location.href)+"}";
     var url = "http://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href)+"&title=<%= @prodi.nama_prodi.titleize %>&summary=<%= @prodi.nama_prodi.titleize %>&source=TheNameOfYourSiteGoesHere";
-
+  
     window.open(url,'template_window','550','400','yes','center');
     return false;
   }
