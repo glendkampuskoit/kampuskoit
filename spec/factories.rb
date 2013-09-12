@@ -43,6 +43,18 @@ FactoryGirl.define do
 		sequence(:gaji_pertama){|n| "rangeGajiPertama#{n}" }
 	end	
 
+	factory :range_ipk do
+		sequence(:ipk){|n| "rangeIpk#{n}" }
+	end	
+
+	factory :range_lama_kuliah do
+		sequence(:lama){|n| "rangeLamaKuliah#{n}" }
+	end	
+
+	factory :range_level_karir do
+		sequence(:level_karir){|n| "rangeLevelKarir#{n}" }
+	end	
+
 	factory :univ do
 		#nama_pt		"Institut Teknologi Surabaya"
 		sequence(:nama_pt){|n| "perguruan tinggi #{n}" }

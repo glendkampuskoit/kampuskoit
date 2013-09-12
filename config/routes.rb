@@ -60,6 +60,9 @@ Campus::Application.routes.draw do
     resources :range_bidang_kerjas
     resources :range_waktu_tunggus
     resources :range_gaji_pertamas
+    resources :range_ipks
+    resources :range_lama_kuliahs
+    resources :range_level_karirs
     resources :univs, only: [:new, :create, :edit, :update, :destroy] do
       resources :univfasilitases, except: [:new]
       resources :univkerjasamas, except: [:new]

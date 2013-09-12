@@ -1,0 +1,49 @@
+- provide(:title, "Data Range Level Karir")
+.row-fluid
+  .span12
+    = link_to "Tambah Range Level Karir", new_range_level_karir_path, :role => "button", :class => "btn btn-mini btn-primary"
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Range Level Karir
+      .box-body
+        %table#datatables.table.table-hover.responsive
+          %thead
+            %tr
+              %th Level Karir
+              %th &nbsp;
+          %tbody
+            - @range_level_karirs.each do |level_karir|
+              %tr
+                %td= level_karir.level_karir
+                %td.center
+                  %span.label.label-info
+                    = link_to "Edit", edit_range_level_karir_path(level_karir)
+                  %span.label.label-important
+                    = link_to "Delete", range_level_karir_path(level_karir), method: :delete, :class => "delete"
+
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+      
+      // datatables
+      $('#datatables').dataTable( {
+          "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+          "sPaginationType": "bootstrap",
+          "oLanguage": {
+                  "sLengthMenu": "_MENU_ records per page"
+          }
+      });
+
+      $('.delete').on('click', function () {
+          return confirm('Anda yakin akan menghapus data ini?');
+      });
+  });
