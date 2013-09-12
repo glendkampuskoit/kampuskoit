@@ -39,6 +39,10 @@ FactoryGirl.define do
 		sequence(:waktu_tunggu){|n| "rangeWaktuTunggu#{n}" }
 	end	
 
+	factory :range_gaji_pertama do
+		sequence(:gaji_pertama){|n| "rangeGajiPertama#{n}" }
+	end	
+
 	factory :univ do
 		#nama_pt		"Institut Teknologi Surabaya"
 		sequence(:nama_pt){|n| "perguruan tinggi #{n}" }

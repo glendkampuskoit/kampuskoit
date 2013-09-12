@@ -5,8 +5,6 @@ describe "Range Bidang Kerja page " do
 	subject { page }
 
 	describe "add new record" do 
-		
-
 		before do 
 			visit new_range_bidang_kerja_path
 		end
