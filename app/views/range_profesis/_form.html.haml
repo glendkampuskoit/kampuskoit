@@ -1,0 +1,46 @@
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span= yield(:title)
+      .box-body
+        = form_for @range_profesi, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
+          - if @range_profesi.errors.any?
+            .alert.alert-error
+              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+              %div
+                - @range_profesi.errors.full_messages.each do |msg|
+                  = msg
+                  %br
+          .control-group
+            %label.control-label{:for => "required"} Profesi
+            .controls
+
+              = f.text_field :profesi , :id => "profesi", :class => "grd-white", :placeholder => "ex. Konsultan IT ", :data => {:validate => "{required: true, messages: {required: 'Range Profesi harus diisi'}}" }
+
+          .control-group
+            %label.control-label{:for => "required"} Bobot
+            .controls
+              = f.text_field :bobot , :id => "bobot", :class => "grd-white", :data => {:validate => "{required: true, messages: {required: 'Bobot harus diisi'}}" }
+
+          .form-actions
+            %button.btn.btn-primary{:type => "submit"} Save
+            %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
+
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+
+      // uniform
+      $('[data-form=uniform]').uniform();
+
+      // validate form
+      $('#form-validate').validate();
+  });
