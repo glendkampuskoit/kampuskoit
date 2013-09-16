@@ -29,42 +29,52 @@ FactoryGirl.define do
 
 	factory :range_gaji do
 		sequence(:range){|n| "rangeGaji#{n}" }
+		bobot 1
 	end	
 
 	factory :range_bidang_kerja do
 		sequence(:bidang){|n| "rangeBidangKerja#{n}" }
+		bobot 1
 	end	
 
 	factory :range_waktu_tunggu do
 		sequence(:waktu_tunggu){|n| "rangeWaktuTunggu#{n}" }
+		bobot 1
 	end	
 
 	factory :range_gaji_pertama do
 		sequence(:gaji_pertama){|n| "rangeGajiPertama#{n}" }
+		bobot 1
 	end	
 
 	factory :range_ipk do
 		sequence(:ipk){|n| "rangeIpk#{n}" }
+		bobot 1
 	end	
 
 	factory :range_lama_kuliah do
 		sequence(:lama){|n| "rangeLamaKuliah#{n}" }
+		bobot 1
 	end	
 
 	factory :range_level_karir do
 		sequence(:level_karir){|n| "rangeLevelKarir#{n}" }
+		bobot 1
 	end	
 
 	factory :range_pekerjaan_pertama do
 		sequence(:pekerjaan_pertama){|n| "rangePekerjaanPertama#{n}" }
+		bobot 1
 	end	
 
 	factory :range_pendidikan_terakhir do
 		sequence(:pendidikan){|n| "rangePendidikanTerakhir#{n}" }
+		bobot 1
 	end	
 
 	factory :range_profesi do
 		sequence(:profesi){|n| "rangeprofesi#{n}" }
+		bobot 1
 	end	
 
 	factory :univ do
