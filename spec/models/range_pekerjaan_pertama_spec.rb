@@ -1,25 +1,31 @@
 require 'spec_helper'
 
 describe RangePekerjaanPertama do
-  before { @rangepekerjaanpertama = RangePekerjaanPertama.new(pekerjaan_pertama: "Staf IT", bobot: "1") }
+  before { @range_pekerjaan_pertama = RangePekerjaanPertama.new(pekerjaan_pertama: "Staf IT", bobot: "1") }
 
-  subject{ @rangepekerjaanpertama }
+  subject{ @range_pekerjaan_pertama }
 
   it { should respond_to(:pekerjaan_pertama) }
+  it { should respond_to(:bobot) }
 
   describe "should valid" do
   	it { should be_valid }
   end
 
-  describe "When range is blank" do
-    before { @rangepekerjaanpertama.pekerjaan_pertama = "" }
+  describe "When pekerjaan pertama is blank" do
+    before { @range_pekerjaan_pertama.pekerjaan_pertama = "" }
     it { should_not be_valid }
   end
 
-  describe "range must be unique" do
+  describe "When bobot is blank" do
+    before { @range_pekerjaan_pertama.bobot = "" }
+    it { should_not be_valid }
+  end
+
+  describe "pekerjaan pertama must be unique" do
     before do
-      @rangepekerjaanpertama_dup = @rangepekerjaanpertama.dup
-      @rangepekerjaanpertama_dup.save
+      @range_pekerjaan_pertama_dup = @range_pekerjaan_pertama.dup
+      @range_pekerjaan_pertama_dup.save
     end
     it { should_not be_valid }
   end

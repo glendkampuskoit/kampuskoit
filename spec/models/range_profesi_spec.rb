@@ -1,25 +1,31 @@
 require 'spec_helper'
 
 describe RangeProfesi do
-  before { @rangeprofesi = RangeProfesi.new(profesi: "S2 Informatika", bobot: "1") }
+  before { @range_profesi = RangeProfesi.new(profesi: "S2 Informatika", bobot: "1") }
 
-  subject{ @rangeprofesi }
+  subject{ @range_profesi }
 
   it { should respond_to(:profesi) }
+  it { should respond_to(:bobot) }
 
   describe "should valid" do
   	it { should be_valid }
   end
 
-  describe "When range is blank" do
-    before { @rangeprofesi.profesi = "" }
+  describe "When profesi is blank" do
+    before { @range_profesi.profesi = "" }
     it { should_not be_valid }
   end
 
-  describe "range must be unique" do
+  describe "When bobot is blank" do
+    before { @range_profesi.bobot = "" }
+    it { should_not be_valid }
+  end
+
+  describe "profesi must be unique" do
     before do
-      @rangeprofesi_dup = @rangeprofesi.dup
-      @rangeprofesi_dup.save
+      @range_profesi_dup = @range_profesi.dup
+      @range_profesi_dup.save
     end
     it { should_not be_valid }
   end

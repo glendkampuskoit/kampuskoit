@@ -1,25 +1,31 @@
 require 'spec_helper'
 
 describe RangePendidikanTerakhir do
-    before { @rangependidikanterakhir = RangePendidikanTerakhir.new(pendidikan: "S2 Informatika", bobot: "1") }
+    before { @range_pendidikan_terakhir = RangePendidikanTerakhir.new(pendidikan: "S2 Informatika", bobot: "1") }
 
-  subject{ @rangependidikanterakhir }
+  subject{ @range_pendidikan_terakhir }
 
   it { should respond_to(:pendidikan) }
+  it { should respond_to(:bobot) }
 
   describe "should valid" do
   	it { should be_valid }
   end
 
-  describe "When range is blank" do
-    before { @rangependidikanterakhir.pendidikan = "" }
+  describe "When pendidikan is blank" do
+    before { @range_pendidikan_terakhir.pendidikan = "" }
     it { should_not be_valid }
   end
 
-  describe "range must be unique" do
+  describe "When bobot is blank" do
+    before { @range_pendidikan_terakhir.bobot = "" }
+    it { should_not be_valid }
+  end
+
+  describe "pendidikan must be unique" do
     before do
-      @rangependidikanterakhir_dup = @rangependidikanterakhir.dup
-      @rangependidikanterakhir_dup.save
+      @range_pendidikan_terakhir_dup = @range_pendidikan_terakhir.dup
+      @range_pendidikan_terakhir_dup.save
     end
     it { should_not be_valid }
   end

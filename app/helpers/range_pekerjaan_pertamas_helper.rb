@@ -1,2 +1,0 @@
-module RangePekerjaanPertamasHelper
-end
