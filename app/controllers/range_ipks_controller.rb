@@ -13,10 +13,10 @@ class RangeIpksController < ApplicationController
 	def create
 		@range_ipk = RangeIpk.new(params[:range_ipk])
 		if @range_ipk.save
-      		redirect_to range_ipks_path, notice: 'Range Waktu Tunggu berhasil ditambah' 
-    	else
-    		render action: "new"
-    	end
+			redirect_to range_ipks_path, notice: 'Range Waktu Tunggu berhasil ditambah' 
+  	else
+  		render action: "new"
+  	end
 	end
 
 	def edit

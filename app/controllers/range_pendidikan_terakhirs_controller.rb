@@ -13,10 +13,10 @@ class RangePendidikanTerakhirsController < ApplicationController
 	def create
 		@range_pendidikan_terakhir = RangePendidikanTerakhir.new(params[:range_pendidikan_terakhir])
 		if @range_pendidikan_terakhir.save
-      		redirect_to range_pendidikan_terakhirs_path, notice: 'Range Pendidikan Terakhir berhasil ditambah' 
-    	else
-    		render action: "new"
-    	end
+    	redirect_to range_pendidikan_terakhirs_path, notice: 'Range Pendidikan Terakhir berhasil ditambah' 
+  	else
+  		render action: "new"
+  	end
 	end
 
 	def edit

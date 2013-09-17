@@ -13,10 +13,10 @@ class RangeWaktuTunggusController < ApplicationController
 	def create
 		@range_waktu_tunggu = RangeWaktuTunggu.new(params[:range_waktu_tunggu])
 		if @range_waktu_tunggu.save
-      		redirect_to range_waktu_tunggus_path, notice: 'Range Waktu Tunggu berhasil ditambah' 
-    	else
-    		render action: "new"
-    	end
+    	redirect_to range_waktu_tunggus_path, notice: 'Range Waktu Tunggu berhasil ditambah' 
+  	else
+  		render action: "new"
+  	end
 	end
 
 	def edit

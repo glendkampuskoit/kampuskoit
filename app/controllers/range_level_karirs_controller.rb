@@ -13,10 +13,10 @@ class RangeLevelKarirsController < ApplicationController
 	def create
 		@range_level_karir = RangeLevelKarir.new(params[:range_level_karir])
 		if @range_level_karir.save
-      		redirect_to range_level_karirs_path, notice: 'Range level Karir berhasil ditambah' 
-    	else
-    		render action: "new"
-    	end
+			redirect_to range_level_karirs_path, notice: 'Range level Karir berhasil ditambah' 
+  	else
+  		render action: "new"
+  	end
 	end
 
 	def edit

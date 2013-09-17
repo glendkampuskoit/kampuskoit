@@ -13,10 +13,10 @@ class RangePekerjaanPertamasController < ApplicationController
 	def create
 		@range_pekerjaan_pertama = RangePekerjaanPertama.new(params[:range_pekerjaan_pertama])
 		if @range_pekerjaan_pertama.save
-      		redirect_to range_pekerjaan_pertamas_path, notice: 'Range level Karir berhasil ditambah' 
-    	else
-    		render action: "new"
-    	end
+    	redirect_to range_pekerjaan_pertamas_path, notice: 'Range level Karir berhasil ditambah' 
+  	else
+  		render action: "new"
+  	end
 	end
 
 	def edit

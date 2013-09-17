@@ -25,11 +25,10 @@ class RangeBidangKerjasController < ApplicationController
 
 	def update
 		@range_bidang_kerja = RangeBidangKerja.find(params[:id])
-    	if @range_bidang_kerja.update_attributes(params[:range_bidang_kerja])
-	      redirect_to range_bidang_kerjas_path, notice: 'Range bidang kerja berhasil dirubah.' 
-    	else
-      		render action: "edit"
-    	end
+  	if @range_bidang_kerja.update_attributes(params[:range_bidang_kerja])
+      redirect_to range_bidang_kerjas_path, notice: 'Range bidang kerja berhasil dirubah.' 
+  	else
+  		render action: "edit"
+  	end
 	end
-
 end

@@ -13,10 +13,10 @@ class RangeLamaKuliahsController < ApplicationController
 	def create
 		@range_lama_kuliah = RangeLamaKuliah.new(params[:range_lama_kuliah])
 		if @range_lama_kuliah.save
-      		redirect_to range_lama_kuliahs_path, notice: 'Range lama kuliah berhasil ditambah' 
-    	else
-    		render action: "new"
-    	end
+			redirect_to range_lama_kuliahs_path, notice: 'Range lama kuliah berhasil ditambah' 
+  	else
+  		render action: "new"
+  	end
 	end
 
 	def edit

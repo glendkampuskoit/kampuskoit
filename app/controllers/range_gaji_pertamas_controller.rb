@@ -25,10 +25,10 @@ class RangeGajiPertamasController < ApplicationController
 
 	def update
 		@range_gaji_pertama = RangeGajiPertama.find(params[:id])
-    	if @range_gaji_pertama.update_attributes(params[:range_gaji_pertama])
-	      redirect_to range_gaji_pertamas_path, notice: 'Range gaji pertama berhasil dirubah.' 
-    	else
-      		render action: "edit"
-    	end
+  	if @range_gaji_pertama.update_attributes(params[:range_gaji_pertama])
+      redirect_to range_gaji_pertamas_path, notice: 'Range gaji pertama berhasil dirubah.' 
+  	else
+  		render action: "edit"
+  	end
 	end
 end
