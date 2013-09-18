@@ -17,7 +17,12 @@ class CreateUnivs < ActiveRecord::Migration
       t.text :deskripsi
       t.text :logo_path
 
+      # foreign key
+      t.integer :univs, :kota_id, :integer
+      t.index :kota_id
+
       t.timestamps
+      
     end
   end
 end

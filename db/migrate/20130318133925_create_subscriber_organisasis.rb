@@ -7,6 +7,9 @@ class CreateSubscriberOrganisasis < ActiveRecord::Migration
       t.string :periode
       t.text :path_sertifikat
 
+      t.integer, :subscriber_id
+      t.index, :subscriber_id
+
       t.timestamps
     end
   end

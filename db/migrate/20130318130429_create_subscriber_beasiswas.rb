@@ -6,7 +6,10 @@ class CreateSubscriberBeasiswas < ActiveRecord::Migration
       t.string :periode
       t.string :nilai
 
-      t.timestamps
+      t.integer :subscriber_id
+  		t.index :subscriber_id
+
+  		t.timestamps
     end
   end
 end

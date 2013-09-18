@@ -8,6 +8,9 @@ class CreateSubscriberPelatihans < ActiveRecord::Migration
       t.integer :tahun
       t.text :sertifikat_path
 
+      t.integer :subscriber_id
+      t.index :subscriber_id
+
       t.timestamps
     end
   end

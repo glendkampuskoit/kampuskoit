@@ -5,6 +5,9 @@ class CreateUnivgalleries < ActiveRecord::Migration
       t.text :description
       t.text :path
 
+      t.integer :univ_id
+  		t.index :univ_id
+
       t.timestamps
     end
   end

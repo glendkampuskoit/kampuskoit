@@ -7,6 +7,9 @@ class CreateSubscriberPrestasis < ActiveRecord::Migration
       t.integer :tahun
       t.text :path_sertifikat
 
+      t.integer :subscriber_id
+      t.index :subscriber_id
+
       t.timestamps
     end
   end

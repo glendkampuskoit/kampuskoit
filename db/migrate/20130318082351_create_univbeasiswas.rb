@@ -6,6 +6,9 @@ class CreateUnivbeasiswas < ActiveRecord::Migration
       t.string :periode
       t.string :nilai
 
+      t.integer :univ_id
+  		t.index :univ_id
+
       t.timestamps
     end
   end

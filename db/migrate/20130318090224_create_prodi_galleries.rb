@@ -5,6 +5,9 @@ class CreateProdiGalleries < ActiveRecord::Migration
       t.text :description
       t.text :path
 
+      t.integer :prodi_id
+  		t.index :prodi_id
+
       t.timestamps
     end
   end

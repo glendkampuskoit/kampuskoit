@@ -7,6 +7,9 @@ class CreateProdiSilabuses < ActiveRecord::Migration
       t.text :referensi
       t.text :mata_kuliah
       
+      t.integer :prodi_id,
+      t.index :prodi_id
+
       t.timestamps
     end
   end

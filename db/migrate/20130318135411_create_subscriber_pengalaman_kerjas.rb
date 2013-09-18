@@ -8,6 +8,9 @@ class CreateSubscriberPengalamanKerjas < ActiveRecord::Migration
       t.integer :tahun_keluar
       t.text :sk_kerja_path
 
+      t.integer :subscriber_id
+      t.index :subscriber_id
+
       t.timestamps
     end
   end

@@ -4,6 +4,9 @@ class CreateProdiPrestasis < ActiveRecord::Migration
       t.integer :tahun
       t.text :prestasi
 
+      t.integer, :prodi_id
+  		t.index :prodi_id
+
       t.timestamps
     end
   end

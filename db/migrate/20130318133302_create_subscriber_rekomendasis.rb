@@ -6,6 +6,9 @@ class CreateSubscriberRekomendasis < ActiveRecord::Migration
       t.string :email
       t.string :telepon
 
+      t.integer :subscriber_id
+  		t.index :subscriber_id
+
       t.timestamps
     end
   end
