@@ -13,14 +13,14 @@ class Subscriber < ActiveRecord::Base
 
 	attr_accessible :name, :email, :password, :password_confirmation, :from_facebook, :email_activation, :tempat_lahir, :tanggal_lahir, :agama, :alamat, :kodepos, :provinsi_id, :kota_id, :jenis_kelamin, :status_pernikahan, :telepon, :no_hp
 
-	has_secure_password
+	#has_secure_password
 
 	before_save { |subscriber| subscriber.email = email.downcase }
 	before_save :create_remember_token
 
 	validates :name, presence: true, length: { maximum: 50 }
-	validates :password, presence: true, length: { minimum: 6 }, :unless => :from_facebook, :on => :create
-	validates :password_confirmation, presence: true, :unless => :from_facebook, :on => :create
+	#validates :password, presence: true, length: { minimum: 6 }, :unless => :from_facebook, :on => :create
+	#alidates :password_confirmation, presence: true, :unless => :from_facebook, :on => :create
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
@@ -56,15 +56,16 @@ class Subscriber < ActiveRecord::Base
 				subscriber.email = auth.info.email
 				subscriber.oath_token = auth.credentials.token
 				subscriber.oath_expires = Time.at(auth.credentials.expires_at) unless auth.credentials.expires_at.nil?
-				subscriber.password = subscriber.password_confirmation = 'defaultpasswordmustbechanged12345465476573453534'
-				subscriber.from_facebook = true
-				subscriber.email_activation = true
+				#subscriber.password = subscriber.password_confirmation = 'defaultpasswordmustbechanged12345465476573453534'
+				#subscriber.from_facebook = true
+				#subscriber.email_activation = true
+				subscriber.image = auth.info.image
 				subscriber.save!
 			end
 		else
-			subscriberExisting.from_facebook = true
-			subscriberExisting.email_activation = true
-			subscriberExisting.save
+			#subscriberExisting.from_facebook = true
+			#subscriberExisting.email_activation = true
+			#subscriberExisting.save
 			return subscriberExisting
 		end
 	end

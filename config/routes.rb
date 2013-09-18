@@ -10,7 +10,6 @@ Campus::Application.routes.draw do
   resources :univs, only: [:index, :show] do
     resources :prodis, only: [:show]
   end
-  resources :subscribers, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:create]
   resources :feedbacks, only: [:create]
@@ -22,14 +21,12 @@ Campus::Application.routes.draw do
   match '/visit', to: 'visitors#new'
 
   match '/home', to: 'home#index'
-  match '/signup', to: 'subscribers#new'
   match '/login', to: 'sessions#new'
   match '/logout', to: 'sessions#destroy'
 
-  match 'auth/:provider/callback', to: 'sessions#login_facebook'
+  match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
 
-  match '/confirm', controller: 'subscribers', action: 'confirm'
   match '/search', to: 'search#result'
   match '/ranking', to: 'ranking#index'
 
@@ -80,7 +77,7 @@ Campus::Application.routes.draw do
     end
     resources :feedbacks, only: [:index, :show, :destroy]
     resources :visitors, only: [:destroy]
-    resources :subscribers, only: [:edit, :update, :show, :destroy]
+    resources :subscribers, only: [:index, :show, :destroy]
     resources :admin_profiles, only: [:edit, :update]
     resources :univgalleries, only: [:create, :destroy]
     resources :univ_fasilitas_galleries, only: [:create, :destroy]
