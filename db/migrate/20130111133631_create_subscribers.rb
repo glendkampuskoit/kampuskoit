@@ -6,26 +6,30 @@ class CreateSubscribers < ActiveRecord::Migration
       t.string :email
 
       #oath gmail & facebook
-      add_column :subscribers, :provider, :string
-	    add_column :subscribers, :uid, :string
-	    add_column :subscribers, :oath_token, :string
-	    add_column :subscribers, :oath_expires, :datetime
-	    add_column :subscribers, :image, :string
+      t.string :subscribers, :provider
+	    t.string :subscribers, :uid
+	    t.string :subscribers, :oath_token
+	    t.datetime :subscribers, :oath_expires
+	    t.string :subscribers, :image
 
 	    #additional data
-	    add_column :subscribers, :tempat_lahir, :string
-			add_column :subscribers, :tanggal_lahir, :date
-			add_column :subscribers, :agama, :string
-			add_column :subscribers, :jenis_kelamin, :string
-			add_column :subscribers, :status_pernikahan, :string
-			add_column :subscribers, :alamat, :text
-			add_column :subscribers, :kodepos, :string
-			add_column :subscribers, :telepon, :string
-			add_column :subscribers, :no_hp, :string
+	    t.string :subscribers, :tempat_lahir
+			t.date :subscribers, :tanggal_lahir
+			t.string :subscribers, :agama
+			t.string :subscribers, :jenis_kelamin
+			t.string :subscribers, :status_pernikahan
+			t.text :subscribers, :alamat
+			t.string :subscribers, :kodepos
+			t.string :subscribers, :telepon
+			t.string :subscribers, :no_hp
 
       t.timestamps
 
-      add_index :subscribers, :email, unique: true
+      #foreign key
+      t.integer :subscribers, :provinsi_id
+  		t.integer :subscribers, :kota_id
+
+      t.index :subscribers, :email, unique: true
     end
   end
 end

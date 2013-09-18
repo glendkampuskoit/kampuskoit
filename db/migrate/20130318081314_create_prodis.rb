@@ -24,8 +24,9 @@ class CreateProdis < ActiveRecord::Migration
       t.integer :total_dosen_sarjana
 
       #  prodi foreign key
-      t.integer :prodis, :univ_id
-      t.integer :prodis, :kota_id
+      t.integer :univ_id
+      t.integer :kota_id
+      t.integer :jenjang_prodi_id
       t.index :univ_id
       t.index :kota_id
 
