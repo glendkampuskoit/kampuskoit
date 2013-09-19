@@ -8,7 +8,7 @@ class CreateUnivfasilitas < ActiveRecord::Migration
       t.string :updated_by 
       
       t.timestamps
-      t.index :univ_id
     end
+    add_index :univfasilitases, :univ_id
   end
 end

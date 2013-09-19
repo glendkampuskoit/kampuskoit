@@ -6,7 +6,7 @@ class CreateProdiBiayas < ActiveRecord::Migration
       t.integer :prodi_id
   		
       t.timestamps
-      t.index :prodi_id
     end
+    add_index :prodi_biayas, :prodi_id
   end
 end

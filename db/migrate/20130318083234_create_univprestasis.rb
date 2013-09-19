@@ -9,7 +9,7 @@ class CreateUnivprestasis < ActiveRecord::Migration
       t.string :updated_by 
       
       t.timestamps
-      t.index :univ_id
     end
+    add_index :univprestasis, :univ_id
   end
 end

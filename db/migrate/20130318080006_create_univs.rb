@@ -35,10 +35,9 @@ class CreateUnivs < ActiveRecord::Migration
 
       t.timestamps
       t.string :created_by
-      t.string :updated_by 
-
-      t.index :slug, :unique => true
-      t.index :kota_id      
+      t.string :updated_by   
     end
+    add_index :univs, :slug, :unique => true
+    add_index :univs, :kota_id    
   end
 end

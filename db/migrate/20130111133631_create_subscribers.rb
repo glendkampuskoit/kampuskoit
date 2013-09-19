@@ -4,6 +4,7 @@ class CreateSubscribers < ActiveRecord::Migration
     	# basic info
       t.string :name
       t.string :email
+      t.string :remember_token
 
       #oath gmail & facebook
       t.string :provider
@@ -28,8 +29,8 @@ class CreateSubscribers < ActiveRecord::Migration
       #foreign key
       t.integer :provinsi_id
   		t.integer :kota_id
-
-      t.index :email, unique: true
+      
     end
+    add_index :subscribers, :email, unique: true
   end
 end

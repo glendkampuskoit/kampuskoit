@@ -8,7 +8,7 @@ class CreateProdiFasils < ActiveRecord::Migration
       t.string :updated_by 
 
       t.timestamps
-      t.index :prodi_id
     end
+    add_index :prodi_fasils, :prodi_id
   end
 end

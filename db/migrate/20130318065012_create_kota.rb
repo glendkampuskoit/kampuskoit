@@ -8,9 +8,8 @@ class CreateKota < ActiveRecord::Migration
       t.string :created_by
       t.string :updated_by
       t.timestamps
-
-      # index
-      t.index :provinsi_id
     end
+    # index
+    add_index :kotas, :provinsi_id
   end
 end

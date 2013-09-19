@@ -12,7 +12,7 @@ class CreateUnivbeasiswas < ActiveRecord::Migration
       t.string :updated_by 
 
       t.timestamps
-      t.index :univ_id
     end
+    add_index :univbeasiswas, :univ_id
   end
 end

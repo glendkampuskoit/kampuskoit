@@ -12,7 +12,7 @@ class CreateUnivFasilitasGalleries < ActiveRecord::Migration
       t.string :updated_by 
 
       t.timestamps
-      t.index :univfasilitas_id
     end
+    add_index :univ_fasilitas_galleries, :univfasilitas_id
   end
 end

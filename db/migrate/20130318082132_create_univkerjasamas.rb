@@ -7,8 +7,7 @@ class CreateUnivkerjasamas < ActiveRecord::Migration
   		t.string :created_by
       t.string :updated_by 
       t.timestamps
-
-      t.index :univ_id
     end
+    add_index :univkerjasamas, :univ_id
   end
 end

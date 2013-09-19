@@ -12,7 +12,7 @@ class CreateProdiGalleries < ActiveRecord::Migration
       t.string :image
 
       t.timestamps
-      t.index :prodi_id
     end
+    add_index :prodi_galleries, :prodi_id
   end
 end

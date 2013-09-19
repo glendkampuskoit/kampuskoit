@@ -46,10 +46,7 @@ class CreateProdis < ActiveRecord::Migration
       t.string :updated_by 
 
       t.timestamps
-
-      t.index :slug #, :unique => true
-      t.index :univ_id
-      t.index :kota_id
     end
+    add_index :prodis, [:slug, :univ_id, :kota_id]
   end
 end

@@ -14,7 +14,7 @@ class CreateProdiAkreditasis < ActiveRecord::Migration
       t.string :updated_by
 
       t.timestamps
-      t.index :prodi_id
     end
+    add_index :prodi_akreditasis, :prodi_id
   end
 end

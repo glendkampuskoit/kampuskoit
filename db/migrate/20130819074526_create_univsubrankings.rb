@@ -16,7 +16,7 @@ class CreateUnivsubrankings < ActiveRecord::Migration
       t.string :status
 
       t.timestamps
-      t.index :univ_id
     end    
+    add_index :univsubrankings, :univ_id
   end
 end

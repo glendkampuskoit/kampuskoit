@@ -11,7 +11,8 @@ class Subscriber < ActiveRecord::Base
 	belongs_to :provinsi, :foreign_key => :provinsi_id
 	belongs_to :kota, :foreign_key => :kota_id
 
-	attr_accessible :name, :email, :password, :password_confirmation, :from_facebook, :email_activation, :tempat_lahir, :tanggal_lahir, :agama, :alamat, :kodepos, :provinsi_id, :kota_id, :jenis_kelamin, :status_pernikahan, :telepon, :no_hp
+	#attr_accessible :name, :email, :password, :password_confirmation, :from_facebook, :email_activation, :tempat_lahir, :tanggal_lahir, :agama, :alamat, :kodepos, :provinsi_id, :kota_id, :jenis_kelamin, :status_pernikahan, :telepon, :no_hp
+	attr_accessible :name, :email, :tempat_lahir, :tanggal_lahir, :agama, :alamat, :kodepos, :provinsi_id, :kota_id, :jenis_kelamin, :status_pernikahan, :telepon, :no_hp
 
 	#has_secure_password
 
@@ -33,13 +34,13 @@ class Subscriber < ActiveRecord::Base
 	#jenis kelamin
 	#KELAMINS = %w[laki-laki wanita]
 
-	def send_password_reset
-		self.password_reset_token = SecureRandom.urlsafe_base64
-		self.password_reset_sent_at = Time.zone.now
-		save!
+	#def send_password_reset
+	#	self.password_reset_token = SecureRandom.urlsafe_base64
+	#	self.password_reset_sent_at = Time.zone.now
+	#	save!
 
-		SubscriberMailer.password_reset(self).deliver
-	end
+	#	SubscriberMailer.password_reset(self).deliver
+	#end
 
 	private
 	def create_remember_token

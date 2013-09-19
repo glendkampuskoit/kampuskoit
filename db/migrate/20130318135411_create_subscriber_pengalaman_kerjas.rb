@@ -13,7 +13,7 @@ class CreateSubscriberPengalamanKerjas < ActiveRecord::Migration
       t.string :updated_by
 
       t.timestamps
-      t.index :subscriber_id
     end
+    add_index :subscriber_pengalaman_kerjas, :subscriber_id
   end
 end

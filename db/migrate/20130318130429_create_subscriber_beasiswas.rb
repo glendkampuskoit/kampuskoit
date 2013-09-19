@@ -12,7 +12,7 @@ class CreateSubscriberBeasiswas < ActiveRecord::Migration
       t.string :updated_by 
 
   		t.timestamps
-      t.index :subscriber_id
     end
+    add_index :subscriber_beasiswas, :subscriber_id
   end
 end
