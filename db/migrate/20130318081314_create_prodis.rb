@@ -16,6 +16,7 @@ class CreateProdis < ActiveRecord::Migration
       t.text :kompetensi
       t.text :seleksi_masuk
       t.text :logo_path
+      t.string :silabus
 
       # staff pengajar
       t.integer :total_dosen_prof
@@ -27,10 +28,28 @@ class CreateProdis < ActiveRecord::Migration
       t.integer :univ_id
       t.integer :kota_id
       t.integer :jenjang_prodi_id
-      t.index :univ_id
-      t.index :kota_id
+      t.integer :prodi_bidang_id
+      
+      # slug
+      t.string :slug
+
+      # image logo
+      t.string :logo
+      t.string :featured_image
+
+      # socmed
+      t.string :facebook
+      t.string :twitter
+      t.string :youtube
+
+      t.string :created_by
+      t.string :updated_by 
 
       t.timestamps
+
+      t.index :slug #, :unique => true
+      t.index :univ_id
+      t.index :kota_id
     end
   end
 end

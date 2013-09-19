@@ -3,11 +3,14 @@ class CreateKota < ActiveRecord::Migration
     create_table :kotas do |t|
       t.string :kota
       # foreign key
-      add_column :kotas, :provinsi_id, :integer
-      # index
-  		add_index :kotas, :provinsi_id
-
+      t.integer :provinsi_id
+      
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
+
+      # index
+      t.index :provinsi_id
     end
   end
 end

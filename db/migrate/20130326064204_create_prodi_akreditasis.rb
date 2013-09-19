@@ -8,9 +8,13 @@ class CreateProdiAkreditasis < ActiveRecord::Migration
 
       # foreign key
       t.integer :prodi_id
-      t.index :prodi_id
+
+      t.string :status
+      t.string :created_by
+      t.string :updated_by
 
       t.timestamps
+      t.index :prodi_id
     end
   end
 end

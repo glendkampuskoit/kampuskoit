@@ -21,10 +21,24 @@ class CreateUnivs < ActiveRecord::Migration
       t.integer :kota_id
       t.integer :jenis_pt_id
 
-      t.index :kota_id
+      # slug
+      t.string :slug
+
+      #image
+      t.string :logo
+      t.string :featured_image
+
+      #socmed
+      t.string :facebook
+      t.string :twitter
+      t.string :youtube
 
       t.timestamps
-      
+      t.string :created_by
+      t.string :updated_by 
+
+      t.index :slug, :unique => true
+      t.index :kota_id      
     end
   end
 end

@@ -6,30 +6,30 @@ class CreateSubscribers < ActiveRecord::Migration
       t.string :email
 
       #oath gmail & facebook
-      t.string :subscribers, :provider
-	    t.string :subscribers, :uid
-	    t.string :subscribers, :oath_token
-	    t.datetime :subscribers, :oath_expires
-	    t.string :subscribers, :image
+      t.string :provider
+	    t.string :uid
+	    t.string :oath_token
+	    t.datetime :oath_expires
+	    t.string :image
 
 	    #additional data
-	    t.string :subscribers, :tempat_lahir
-			t.date :subscribers, :tanggal_lahir
-			t.string :subscribers, :agama
-			t.string :subscribers, :jenis_kelamin
-			t.string :subscribers, :status_pernikahan
-			t.text :subscribers, :alamat
-			t.string :subscribers, :kodepos
-			t.string :subscribers, :telepon
-			t.string :subscribers, :no_hp
+	    t.string :tempat_lahir
+			t.date :tanggal_lahir
+			t.string :agama
+			t.string :jenis_kelamin
+			t.string :status_pernikahan
+			t.text :alamat
+			t.string :kodepos
+			t.string :telepon
+			t.string :no_hp
 
       t.timestamps
 
       #foreign key
-      t.integer :subscribers, :provinsi_id
-  		t.integer :subscribers, :kota_id
+      t.integer :provinsi_id
+  		t.integer :kota_id
 
-      t.index :subscribers, :email, unique: true
+      t.index :email, unique: true
     end
   end
 end

@@ -5,12 +5,14 @@ class CreateProdiSilabuses < ActiveRecord::Migration
       t.text :kompetensi
       t.text :pokok_bahasan
       t.text :referensi
-      t.text :mata_kuliah
+      t.text :mata_kuliah      
+      t.integer :prodi_id
       
-      t.integer :prodi_id,
-      t.index :prodi_id
+      t.string :created_by
+      t.string :updated_by 
 
       t.timestamps
+      t.index :prodi_id
     end
   end
 end

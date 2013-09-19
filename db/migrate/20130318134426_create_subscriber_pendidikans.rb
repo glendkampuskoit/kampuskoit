@@ -8,6 +8,11 @@ class CreateSubscriberPendidikans < ActiveRecord::Migration
       t.string :nilai_akhir
       t.text :path_ijazah
 
+      t.integer :subscriber_id
+
+      t.string :created_by
+      t.string :updated_by
+
       t.timestamps
     end
   end
