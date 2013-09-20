@@ -6,16 +6,16 @@ describe SurveyResponden do
 		@surveyresponden = SurveyResponden.new(
 				univ: FactoryGirl.create(:univ),
 				subscriber: FactoryGirl.create(:subscriber),
-				gaji: '1',
-				bidang_kerja: '2',
-				waktu_tunggu: '3',
-				lama_kuliah: '1',
-				ipk: '1',
-				pekerjaan_pertama: '1',
-				profesi: '1',
-				pendidikan_terakhir: '1',
-				gaji_pertama: '1',
-				level_karir: '1',
+				range_gaji_id: '1',
+				range_bidang_kerja_id: '2',
+				range_waktu_tunggu_id: '3',
+				range_lama_kuliah_id: '1',
+				range_ipk_id: '1',
+				range_pekerjaan_pertama_id: '1',
+				range_profesi_id: '1',
+				range_pendidikan_terakhir_id: '1',
+				range_gaji_pertama_id: '1',
+				range_level_karir_id: '1'
 			)
 
 	}
@@ -25,78 +25,78 @@ describe SurveyResponden do
 	it { should respond_to(:univ)}
 	it { should respond_to(:subscriber)}
 
-    it { should respond_to(:gaji)}
-    it { should respond_to(:bidang_kerja)}
-    it { should respond_to(:waktu_tunggu)}
-	it { should respond_to(:lama_kuliah)}
-	it { should respond_to(:ipk)}
-	it { should respond_to(:pekerjaan_pertama)}
-	it { should respond_to(:profesi)}
-	it { should respond_to(:pendidikan_terakhir)}
-	it { should respond_to(:gaji_pertama)}
-	it { should respond_to(:level_karir)}
+    it { should respond_to(:range_gaji_id)}
+    it { should respond_to(:range_bidang_kerja_id)}
+    it { should respond_to(:range_waktu_tunggu_id)}
+	it { should respond_to(:range_lama_kuliah_id)}
+	it { should respond_to(:range_ipk_id)}
+	it { should respond_to(:range_pekerjaan_pertama_id)}
+	it { should respond_to(:range_profesi_id)}
+	it { should respond_to(:range_pendidikan_terakhir_id)}
+	it { should respond_to(:range_gaji_pertama_id)}
+	it { should respond_to(:range_level_karir_id)}
 
-	describe "should valid" do
+	describe 'should valid' do
 	  	it { should be_valid }
 	end
 
-	describe "When univ blank is not valid" do
- 		before { @surveyresponden.univ = '' }
+#	describe 'When univ blank is not valid' do
+# 		before { @surveyresponden.univ = '' }
+#		it { should_not be_valid }
+# 	end
+
+#	describe 'When subscriber blank is not valid' do
+# 		before { @surveyresponden.subscriber = '' }
+#		it { should_not be_valid }
+# 	end
+
+	describe 'When gaji blank is not valid' do
+ 		before { @surveyresponden.range_gaji_id = '' }
 		it { should_not be_valid }
  	end
 
-	describe "When subscriber blank is not valid" do
- 		before { @surveyresponden.subscriber = '' }
+	describe 'When bidang_kerja blank is not valid' do
+ 		before { @surveyresponden.range_bidang_kerja_id = '' }
 		it { should_not be_valid }
  	end
 
-	describe "When gaji blank is not valid" do
- 		before { @surveyresponden.gaji = '' }
+ 	describe 'When waktu_tunggu blank is not valid' do
+ 		before { @surveyresponden.range_waktu_tunggu_id = '' }
 		it { should_not be_valid }
  	end
 
-	describe "When bidang_kerja blank is not valid" do
- 		before { @surveyresponden.bidang_kerja = '' }
+ 	describe 'When lama_kuliah blank is not valid' do
+ 		before { @surveyresponden.range_bidang_kerja_id = '' }
 		it { should_not be_valid }
  	end
 
- 	describe "When waktu_tunggu blank is not valid" do
- 		before { @surveyresponden.waktu_tunggu = '' }
+ 	describe 'When ipk blank is not valid' do
+ 		before { @surveyresponden.range_ipk_id = '' }
 		it { should_not be_valid }
  	end
 
- 	describe "When lama_kuliah blank is not valid" do
- 		before { @surveyresponden.bidang_kerja = '' }
+ 	describe 'When pekerjaan_pertama blank is not valid' do
+ 		before { @surveyresponden.range_pekerjaan_pertama_id = '' }
 		it { should_not be_valid }
  	end
 
- 	describe "When ipk blank is not valid" do
- 		before { @surveyresponden.ipk = '' }
+ 	describe 'When profesi blank is not valid' do
+ 		before { @surveyresponden.range_profesi_id = '' }
 		it { should_not be_valid }
  	end
 
- 	describe "When pekerjaan_pertama blank is not valid" do
- 		before { @surveyresponden.pekerjaan_pertama = '' }
+ 	describe 'When pendidikan_terakhir blank is not valid' do
+ 		before { @surveyresponden.range_pendidikan_terakhir_id = '' }
 		it { should_not be_valid }
  	end
 
- 	describe "When profesi blank is not valid" do
- 		before { @surveyresponden.profesi = '' }
+ 	describe 'When gaji_pertama blank is not valid' do
+ 		before { @surveyresponden.range_gaji_pertama_id = '' }
 		it { should_not be_valid }
  	end
 
- 	describe "When pendidikan_terakhir blank is not valid" do
- 		before { @surveyresponden.pendidikan_terakhir = '' }
-		it { should_not be_valid }
- 	end
-
- 	describe "When gaji_pertama blank is not valid" do
- 		before { @surveyresponden.gaji_pertama = '' }
-		it { should_not be_valid }
- 	end
-
- 	describe "When level_karir blank is not valid" do
- 		before { @surveyresponden.level_karir = '' }
+ 	describe 'When level_karir blank is not valid' do
+ 		before { @surveyresponden.range_level_karir_id = '' }
 		it { should_not be_valid }
  	end
 
