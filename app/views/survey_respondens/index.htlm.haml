@@ -1,0 +1,61 @@
+- provide(:title, "Kuisioner Survey Alumni")
+.row-fluid
+  .span12
+    .box.corner-all
+      .box-header.grd-white.corner-top
+        .header-control
+          %a{"data-box" => "collapse"}
+            %i.icofont-caret-up
+          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
+        %span Data Survey Responden
+      .box-body
+        %table#datatables.table.table-hover.responsive
+          %thead
+            %tr
+              %th Perguruan tinggi
+              %th Subscriber
+              %th gaji
+              %th bidang kerja
+              %th waktu tunggu
+              %th lama kuliah
+              %th ipk
+              %th pekerjaan pertama
+              %th Profesi
+              %th Pendidikan Terakhir
+              %th Gaji Pertama
+              %th Level Karir
+          %tbody
+            - @survey_respondens.each do |survey_responden|
+              %tr
+                %td= survey_responden.univ
+                %td= survey_responden.subscriber
+                %td= survey_responden.range_gaji_id
+                %td= survey_responden.range_bidang_kerja_id
+                %td= survey_responden.range_waktu_tunggu_id
+                %td= survey_responden.range_lama_kuliah_id
+                %td= survey_responden.range_ipk
+                %td= survey_responden.range_pekerjaan_pertama_id
+                %td= survey_responden.range_profesi_id
+                %td= survey_responden.range_pendidikan_terakhir_id
+                %td= survey_responden.range_gaji_pertama_id
+                %td= survey_responden.range_level_karir_id
+:javascript
+  $(document).ready(function() {
+      // try your js
+      
+      // peity chart
+      $("span[data-chart=peity-bar]").peity("bar");
+      
+      // datatables
+      $('#datatables').dataTable( {
+          "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+          "sPaginationType": "bootstrap",
+          "oLanguage": {
+                  "sLengthMenu": "_MENU_ records per page"
+          }
+      });
+
+      $('.delete').on('click', function () {
+          return confirm('Anda yakin akan menghapus data ini?');
+      });
+  });
