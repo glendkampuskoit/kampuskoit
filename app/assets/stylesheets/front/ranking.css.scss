@@ -167,6 +167,19 @@ div[role="main"]{
 		}
 	}
 }
+
+.pagination-centered{
+	margin-top: 20px;
+}
+ul.pagination{
+	a{
+		@include arc-regular;
+	}	
+	li{
+		margin-left: 0;
+	}
+}
+
 .no-border{
 	border: none !important;
 }

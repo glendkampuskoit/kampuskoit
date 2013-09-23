@@ -45,9 +45,7 @@
                         - elsif univranking.univ.email.present? 
                           %span= mail_to univranking.univ.email, univranking.univ.email.downcase
 
-            .row
-              .small-3.small-centered.columns
-                = link_to "", "#", class: "button small nav-bottom"
+            = will_paginate @univrankings, :renderer => PaginationListLinkRenderer, :class => "pagination-centered"
   = render :partial => "layouts/sidebar"
 
 <!--Dropdown Content-->
