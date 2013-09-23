@@ -20,7 +20,7 @@
               %span= @univrankings.where("updated_at != ?", '0000-00-00 00:00:00').first.present? ? @univrankings.where("updated_at != ?", '0000-00-00 00:00:00').first.updated_at.to_formatted_s(:long_ordinal) : "17 Agustus 2013"
         .row
           .large-12.columns
-            - i = 0
+            - i = @univrankings.offset
             - @univrankings.each do |univranking|
               %article.article-post
                 .row
