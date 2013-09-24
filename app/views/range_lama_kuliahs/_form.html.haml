@@ -20,7 +20,7 @@
             %label.control-label{:for => "required"} Lama Kuliah 
             .controls
 
-              = f.text_field :lama , :id => "lama", :class => "grd-white", :placeholder => "ex. 2.0 sampai 3.0 ", :data => {:validate => "{required: true, messages: {required: 'Range lama Kuliah harus diisi'}}" }
+              = f.text_field :lama , :id => "lama", :class => "grd-white", :placeholder => "ex. Kurang dari 4 tahun ", :data => {:validate => "{required: true, messages: {required: 'Range lama Kuliah harus diisi'}}" }
 
           .control-group
             %label.control-label{:for => "required"} Bobot
