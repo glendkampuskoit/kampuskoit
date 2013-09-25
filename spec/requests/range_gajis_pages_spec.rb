@@ -18,7 +18,7 @@ describe "Range_gaji page" do
     describe "fill with valid data" do
       before do
         visit new_range_gaji_path 
-        fill_in "range", with: "1 juta sampai 3 juta"
+        fill_in "gaji", with: "1 juta sampai 3 juta"
         fill_in "bobot", with: "1"
       end
 
@@ -30,7 +30,7 @@ describe "Range_gaji page" do
     describe "fill with invalid data" do
       before do
         visit new_range_gaji_path 
-        fill_in "range", with: ""
+        fill_in "gaji", with: ""
         fill_in "bobot", with: "1"
       end
 
@@ -48,7 +48,7 @@ describe "Range_gaji page" do
     describe "edit and save record" do
       before do
         visit edit_range_gaji_path(range_gaji)
-        fill_in "range", with: "3 juta sampai 5 juta"
+        fill_in "gaji", with: "3 juta sampai 5 juta"
         fill_in "bobot", with: "4"
       end
 

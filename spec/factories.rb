@@ -28,7 +28,7 @@ FactoryGirl.define do
 	end	
 
 	factory :range_gaji do
-		sequence(:range){|n| "rangeGaji#{n}" }
+		sequence(:gaji){|n| "rangeGaji#{n}" }
 		bobot 1
 	end	
 

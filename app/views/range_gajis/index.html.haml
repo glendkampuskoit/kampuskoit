@@ -20,7 +20,7 @@
           %tbody
             - @range_gajis.each do |range_gaji|
               %tr
-                %td= range_gaji.range
+                %td= range_gaji.gaji
                 %td.center
                   %span.label.label-info
                     = link_to "Edit", edit_range_gaji_path(range_gaji)
