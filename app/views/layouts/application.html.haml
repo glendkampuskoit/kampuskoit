@@ -41,7 +41,7 @@
           .rg-loading
     - elsif params[:controller] == "compare"
       = stylesheet_link_tag "compare", :media => "all"
-
+    
   %body
     - if params[:controller] == "compare"
       = render partial: "compare/header"

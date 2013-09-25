@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925062721) do
+ActiveRecord::Schema.define(:version => 20130925092132) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -217,7 +217,7 @@ ActiveRecord::Schema.define(:version => 20130925062721) do
   end
 
   create_table "range_gajis", :force => true do |t|
-    t.string   "range"
+    t.string   "gaji"
     t.integer  "bobot"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

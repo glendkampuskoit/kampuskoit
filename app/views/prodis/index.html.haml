@@ -47,16 +47,15 @@
         %h6.entry-sub-header
           %a{:href => "#"}= link_to prodi.univ.nama_pt.titleize
         .note
-          %span Passing Grade:
-          = prodi.prodi_passing_grades.where({ prodi_id: prodi, status: 1}).present? ? prodi.prodi_passing_grades.where({ prodi_id: prodi, status: 1}).first.grades : "-" 
+          %span Passing Grade: #{prodi.prodi_passing_grades.where({ prodi_id: prodi, status: 1}).present? ? prodi.prodi_passing_grades.where({ prodi_id: prodi, status: 1}).first.grades : "-" }
           |
-          %span Terakreditasi:
-          = prodi.prodi_akreditasis.where({ prodi_id: prodi, status: 1}).present? ? prodi.prodi_akreditasis.where({ prodi_id: prodi, status: 1}).first.peringkat : "-"
+          %span Terakreditasi: #{prodi.prodi_akreditasis.where({ prodi_id: prodi, status: 1}).present? ? prodi.prodi_akreditasis.where({ prodi_id: prodi, status: 1}).first.peringkat : "-"}
+
     .row.margin-top-small
       .large-12.columns
         .entry-text-meta
-          %p.entry-text Email: #{prodi.email.present? ? prodi.email : "-"}
-          %p.entry-text Website: #{prodi.website.present? ? prodi.website : "-"}
+          %p.entry-text Email: #{prodi.email.present? ? mail_to(prodi.email,prodi.email) : "-"}
+          %p.entry-text Website: #{prodi.website.present? ? link_to(prodi.website, prodi.website) : "-"}
           %p.entry-text Telp: #{prodi.telepon.present? ? prodi.telepon : "-"}
     .row.margin-top-small.entry-text-meta-extension
       .large-12.columns

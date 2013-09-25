@@ -1,4 +1,5 @@
 <% provide(:title, @univ.nama_pt.titleize) %>
+<%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
 <div class="row">
   <div class="large-9 columns">
     <div class="row highlight">
@@ -212,7 +213,39 @@
           <section>
             <p class="title margin-fix-1" data-section-title><a href="#panel3">Alumnus</a></p>
             <div class="content" data-section-content>
-              <p> - belum ada data - </p>
+              <p>
+
+                <h5 class="description-title">Statistik Bidang Kerja</h5>
+                <%= bar_chart SurveyResponden.joins(:range_bidang_kerja).where(univ_id: @univ.id).group("bidang").count(:range_bidang_kerja_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+                <h5 class="description-title">Statistik Gaji</h5>
+                <%= bar_chart SurveyResponden.joins(:range_gaji).where(univ_id: @univ.id).group("gaji").count(:range_gaji_id), :library => {:backgroundColor => "#FFFFFF"}  %>               
+
+                <h5 class="description-title">Statistik Gaji Pertama</h5>
+                <%= bar_chart SurveyResponden.joins(:range_gaji_pertama).where(univ_id: @univ.id).group("gaji_pertama").count(:range_gaji_pertama_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+                <h5 class="description-title">Statistik IPK</h5>
+                <%= bar_chart SurveyResponden.joins(:range_ipk).where(univ_id: @univ.id).group("ipk").count(:range_ipk_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+                <h5 class="description-title">Statistik Lama Kuliah</h5>
+                <%= bar_chart SurveyResponden.joins(:range_lama_kuliah).where(univ_id: @univ.id).group("lama").count(:range_lama_kuliah_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+                <h5 class="description-title">Statistik Level Karir</h5>
+                <%= bar_chart SurveyResponden.joins(:range_level_karir).where(univ_id: @univ.id).group("level_karir").count(:range_level_karir_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+                <h5 class="description-title">Statistik Pekerjaan Pertama</h5>
+                <%= bar_chart SurveyResponden.joins(:range_pekerjaan_pertama).where(univ_id: @univ.id).group("pekerjaan_pertama").count(:range_pekerjaan_pertama_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+                <h5 class="description-title">Statistik Pendidikan Terakhir</h5>
+                <%= line_chart SurveyResponden.joins(:range_pendidikan_terakhir).where(univ_id: @univ.id).group("pendidikan").count(:range_pendidikan_terakhir_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+                <h5 class="description-title">Statistik Profesi</h5>
+                <%= bar_chart SurveyResponden.joins(:range_profesi).where(univ_id: @univ.id).group("profesi").count(:range_profesi_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+                <h5 class="description-title">Statistik Waktu Tunggu</h5>
+                <%= bar_chart SurveyResponden.joins(:range_waktu_tunggu).where(univ_id: @univ.id).group("waktu_tunggu").count(:range_waktu_tunggu_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+
+              </p>
             </div>
           </section>
           <section>
