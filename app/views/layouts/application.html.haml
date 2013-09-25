@@ -69,7 +69,7 @@
 
     = javascript_include_tag "application"
 
-    - if params[:controller] == "univs" && params[:action] == "show"
+    - if params[:controller] == "univs" && params[:action] == "show" || params[:controller] == "prodis" && params[:action] == "show"
       = javascript_include_tag "front/univ_profile"
 
     :javascript
@@ -85,8 +85,18 @@
         $('.checkall').on('click', function () {
             //$(this).closest('form').find(':checkbox').prop('checked', this.checked);
             console.log('diklk');
-        });
+        });        
       });
 
     :javascript
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+    - if params[:controller] == "univs" && params[:action] == "show" || params[:controller] == "prodis" && params[:action] == "show"
+      :javascript
+        $('.popup-gallery-container').each(function() {
+          $(this).magnificPopup({
+              delegate: 'a', // the container for each your gallery items
+              type: 'image',
+              gallery:{enabled:true}
+          });
+        });

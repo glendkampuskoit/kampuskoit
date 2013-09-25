@@ -423,6 +423,26 @@ div[role="main"]{
 		@extend .description-text;
 	}
 }
+.department-other{
+	table{
+		.center-text{
+			text-align: center;
+		}
+		tr.center-text th{
+			text-align: center;
+		}
+		th, td{
+			border: 1px solid lighten(gray,10%);			
+		}
+		th{
+			@include src-bold;	
+		}
+		td{
+			@include src-regular;
+			color: $panel_jurusan_text;
+		}
+	}
+}
 .secondary{	
 	padding-top: 15px;
 	background: -webkit-$website_kampus03_secondary radial-gradient(at 50% 0, rgba(0,0,0,0.3), transparent 65%);

@@ -256,10 +256,85 @@
             <% end %>
         </section>
         <section>
-        <p class="title margin-fix-2" data-section-title><a href="#panel4">Lain-lain</a></p>
-        <div class="content" data-section-content>
-        <p>Content of Lain-lain.</p>
-        </div>
+          <p class="title margin-fix-2" data-section-title><a href="#panel4">Lain-lain</a></p>
+          <div class="content" data-section-content>
+            <div class="row department-other">
+              <div class="large-12 columns">
+                <h5 class="description-title">Biaya</h5>
+                <table>
+                  <thead>
+                    <tr class="center-text">
+                      <th width="30">No</th>
+                      <th width="420">Nama Biaya</th>
+                      <th width="250">Nilai</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% i = 0 %>
+                    <% @prodi.prodi_biayas.each do |biaya| %>
+                    <tr>
+                      <td class="center-text"><%= i += 1 %></td>
+                      <td><%= biaya.nama_biaya %></td>
+                      <td><%= biaya.nilai %></td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+                <h5 class="description-title">Prestasi</h5>
+                <table>
+                  <thead>
+                    <tr class="center-text">
+                      <th width="30">No</th>
+                      <th width="420">Tahun</th>
+                      <th width="250">Prestasi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% i = 0 %>
+                    <% @prodi.prodi_prestasis.each do |prestasi| %>
+                    <tr>
+                      <td class="center-text"><%= i += 1 %></td>
+                      <td><%= biaya.tahun %></td>
+                      <td><%= biaya.prestasi %></td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+                <h5 class="description-title">Fasilitas</h5>
+                <table>
+                  <thead>
+                    <tr class="center-text">
+                      <th width="30">No</th>
+                      <th width="420">Fasilitas</th>
+                      <th width="250"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% j = 0 %>
+                    <% @prodi.prodi_fasils.each do |fasilitas| %>
+                    <tr>
+                      <td class="center-text"><%= j += 1 %></td>
+                      <td><%= fasilitas.fasilitas %></td>
+                      <td>
+                        <div class="popup-gallery-container">
+                          <% i = 1 %>
+                          <% fasilitas.univ_fasilitas_galleries.each do |gallery| %>
+                          <% if i == 1 %>
+                          <a href="<%= gallery.path %>">Lihat galeri</a>
+                          <% else %>
+                          <a href="<%= gallery.path %>"></a>
+                          <% end %>
+                          <% i += 1 %>
+                          <% end %>
+                        </div>
+                      </td>
+                    </tr>
+                    <% end %>            
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </section>
         <section>
         <p class="title socmed-fb margin-fix-3" data-section-title><a class="socmed-link" href="<%= @prodi.facebook.present? ? "http://facebook.com/#{@prodi.facebook}" : "#" %>" target="_blank">&nbsp;</a></p>

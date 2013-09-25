@@ -20,13 +20,7 @@
           </div>
           <div class="share-page">
             <!--Facebook share button -->
-            <a class="facebook-share-page-button" href="#" 
-              onclick="
-              window.open(
-              'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-              'facebook-share-dialog', 
-              'width=626,height=436'); 
-              return false;">
+            <a class="facebook-share-page-button" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;">
             &nbsp;
             </a>
             <!--Twitter share button -->
@@ -36,8 +30,7 @@
             <!--Linkedin share button -->
             <a class="linkedin-share-page-button" href="javascript:linkedin_url();" rel="nofollow"> <img src="/assets/front/profile/icon-share-linkedin.png" title="Share on LinkedIn" alt="Share on LinkedIn" width="20" height="20" border="0" /> </a>
             <!--Google+ share button -->
-            <a href="javascript:gugelplus_url();"><img
-              src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
+            <a href="javascript:gugelplus_url();"><img src="/assets/front/profile/icon-share-gplus.png" alt="Share on Google+"/></a>
           </div>
           <div style="clear:both"></div>
           <% if @univranking.present? %>
@@ -214,44 +207,132 @@
             <p class="title margin-fix-1" data-section-title><a href="#panel3">Alumnus</a></p>
             <div class="content" data-section-content>
               <p>
-
-                <h5 class="description-title">Statistik Bidang Kerja</h5>
-                <%= bar_chart SurveyResponden.joins(:range_bidang_kerja).where(univ_id: @univ.id).group("bidang").count(:range_bidang_kerja_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
-                <h5 class="description-title">Statistik Gaji</h5>
-                <%= bar_chart SurveyResponden.joins(:range_gaji).where(univ_id: @univ.id).group("gaji").count(:range_gaji_id), :library => {:backgroundColor => "#FFFFFF"}  %>               
-
-                <h5 class="description-title">Statistik Gaji Pertama</h5>
-                <%= bar_chart SurveyResponden.joins(:range_gaji_pertama).where(univ_id: @univ.id).group("gaji_pertama").count(:range_gaji_pertama_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
-                <h5 class="description-title">Statistik IPK</h5>
-                <%= bar_chart SurveyResponden.joins(:range_ipk).where(univ_id: @univ.id).group("ipk").count(:range_ipk_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
-                <h5 class="description-title">Statistik Lama Kuliah</h5>
-                <%= bar_chart SurveyResponden.joins(:range_lama_kuliah).where(univ_id: @univ.id).group("lama").count(:range_lama_kuliah_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
-                <h5 class="description-title">Statistik Level Karir</h5>
-                <%= bar_chart SurveyResponden.joins(:range_level_karir).where(univ_id: @univ.id).group("level_karir").count(:range_level_karir_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
-                <h5 class="description-title">Statistik Pekerjaan Pertama</h5>
-                <%= bar_chart SurveyResponden.joins(:range_pekerjaan_pertama).where(univ_id: @univ.id).group("pekerjaan_pertama").count(:range_pekerjaan_pertama_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
-                <h5 class="description-title">Statistik Pendidikan Terakhir</h5>
-                <%= line_chart SurveyResponden.joins(:range_pendidikan_terakhir).where(univ_id: @univ.id).group("pendidikan").count(:range_pendidikan_terakhir_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
-                <h5 class="description-title">Statistik Profesi</h5>
-                <%= bar_chart SurveyResponden.joins(:range_profesi).where(univ_id: @univ.id).group("profesi").count(:range_profesi_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
-                <h5 class="description-title">Statistik Waktu Tunggu</h5>
-                <%= bar_chart SurveyResponden.joins(:range_waktu_tunggu).where(univ_id: @univ.id).group("waktu_tunggu").count(:range_waktu_tunggu_id), :library => {:backgroundColor => "#FFFFFF"}  %>
-
+              <h5 class="description-title">Statistik Bidang Kerja</h5>
+              <%= bar_chart SurveyResponden.joins(:range_bidang_kerja).where(univ_id: @univ.id).group("bidang").count(:range_bidang_kerja_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+              <h5 class="description-title">Statistik Gaji</h5>
+              <%= bar_chart SurveyResponden.joins(:range_gaji).where(univ_id: @univ.id).group("gaji").count(:range_gaji_id), :library => {:backgroundColor => "#FFFFFF"}  %>               
+              <h5 class="description-title">Statistik Gaji Pertama</h5>
+              <%= bar_chart SurveyResponden.joins(:range_gaji_pertama).where(univ_id: @univ.id).group("gaji_pertama").count(:range_gaji_pertama_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+              <h5 class="description-title">Statistik IPK</h5>
+              <%= bar_chart SurveyResponden.joins(:range_ipk).where(univ_id: @univ.id).group("ipk").count(:range_ipk_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+              <h5 class="description-title">Statistik Lama Kuliah</h5>
+              <%= bar_chart SurveyResponden.joins(:range_lama_kuliah).where(univ_id: @univ.id).group("lama").count(:range_lama_kuliah_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+              <h5 class="description-title">Statistik Level Karir</h5>
+              <%= bar_chart SurveyResponden.joins(:range_level_karir).where(univ_id: @univ.id).group("level_karir").count(:range_level_karir_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+              <h5 class="description-title">Statistik Pekerjaan Pertama</h5>
+              <%= bar_chart SurveyResponden.joins(:range_pekerjaan_pertama).where(univ_id: @univ.id).group("pekerjaan_pertama").count(:range_pekerjaan_pertama_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+              <h5 class="description-title">Statistik Pendidikan Terakhir</h5>
+              <%= line_chart SurveyResponden.joins(:range_pendidikan_terakhir).where(univ_id: @univ.id).group("pendidikan").count(:range_pendidikan_terakhir_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+              <h5 class="description-title">Statistik Profesi</h5>
+              <%= bar_chart SurveyResponden.joins(:range_profesi).where(univ_id: @univ.id).group("profesi").count(:range_profesi_id), :library => {:backgroundColor => "#FFFFFF"}  %>
+              <h5 class="description-title">Statistik Waktu Tunggu</h5>
+              <%= bar_chart SurveyResponden.joins(:range_waktu_tunggu).where(univ_id: @univ.id).group("waktu_tunggu").count(:range_waktu_tunggu_id), :library => {:backgroundColor => "#FFFFFF"}  %>
               </p>
             </div>
           </section>
           <section>
             <p class="title margin-fix-2" data-section-title><a href="#panel4">Lain-lain</a></p>
             <div class="content" data-section-content>
-              <p> - belum ada data - </p>
+              <div class="row university-other">
+                <div class="large-12 columns">
+                  <h5 class="description-title">Beasiswa</h5>
+                  <table>
+                    <thead>
+                      <tr class="center-text">
+                        <th width="30">No</th>
+                        <th width="400">Nama Beasiswa</th>
+                        <th width="350">Instansi Pemberi Beasiswa</th>
+                        <th width="150">Periode</th>
+                        <th width="200">Nilai</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% i = 0 %>
+                      <% @univ.univbeasiswas.each do |beasiswa| %>
+                      <tr>
+                        <td class="center-text"><%= i += 1 %></td>
+                        <td><%= beasiswa.nama_beasiswa %></td>
+                        <td><%= beasiswa.instansi %></td>
+                        <td class="center-text"><%= beasiswa.periode %></td>
+                        <td><%= beasiswa.nilai %></td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  <h5 class="description-title">Biaya</h5>
+                  <table>
+                    <thead>
+                      <tr class="center-text">
+                        <th width="30">No</th>
+                        <th width="420">Nama Biaya</th>
+                        <th width="250">Nilai</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% i = 0 %>
+                      <% @univ.univbiayas.each do |biaya| %>
+                      <tr>
+                        <td class="center-text"><%= i += 1 %></td>
+                        <td><%= biaya.nama_biaya %></td>
+                        <td><%= biaya.nilai %></td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  <h5 class="description-title">Prestasi</h5>
+                  <table>
+                    <thead>
+                      <tr class="center-text">
+                        <th width="30">No</th>
+                        <th width="420">Tahun</th>
+                        <th width="250">Prestasi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% i = 0 %>
+                      <% @univ.univprestasis.each do |prestasi| %>
+                      <tr>
+                        <td class="center-text"><%= i += 1 %></td>
+                        <td><%= biaya.tahun %></td>
+                        <td><%= biaya.prestasi %></td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  <h5 class="description-title">Fasilitas</h5>
+                  <table>
+                    <thead>
+                      <tr class="center-text">
+                        <th width="30">No</th>
+                        <th width="420">Fasilitas</th>
+                        <th width="250"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% j = 0 %>
+                      <% @univ.univfasilitases.each do |fasilitas| %>
+                      <tr>
+                        <td class="center-text"><%= j += 1 %></td>
+                        <td><%= fasilitas.fasilitas %></td>
+                        <td>
+                          <div class="popup-gallery-container">
+                          <% i = 1 %>
+                          <% fasilitas.univ_fasilitas_galleries.each do |gallery| %>
+                            <% if i == 1 %>
+                              <a href="<%= gallery.path %>">Lihat galeri</a>
+                            <% else %>
+                              <a href="<%= gallery.path %>"></a>
+                            <% end %>
+                            <% i += 1 %>
+                          <% end %>
+                          </div>
+                        </td>
+                      </tr>
+                      <% end %>            
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </section>
           <section>
@@ -292,5 +373,5 @@
   
     window.open(url,'template_window','550','400','yes','center');
     return false;
-  }
+  }  
 </script>

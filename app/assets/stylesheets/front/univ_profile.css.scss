@@ -333,10 +333,10 @@ div[role="main"]{
 	left: 378px !important;
 }
 .margin-fix-4{
-	left: 400px !important;	
+	left: 400px !important;
 }
 .margin-fix-5{
-	left: 422px !important;	
+	left: 422px !important;
 }
 .information{
 	background: $information_panel;
@@ -421,6 +421,58 @@ div[role="main"]{
 	padding-left: 15px;
 	li{
 		@extend .description-text;
+	}
+}
+.university-other{
+	table{
+		.center-text{
+			text-align: center;
+		}
+		tr.center-text th{
+			text-align: center;
+		}
+		th, td{
+			border: 1px solid lighten(gray,10%);			
+		}
+		th{
+			@include src-bold;	
+		}
+		td{
+			@include src-regular;
+			color: $panel_jurusan_text;
+		}
+	}
+}
+.statistic-table{
+	.center-text{
+		text-align: center;
+	}
+	.right-text{
+		text-align: right;	
+	}
+	tr.center-text th{
+		text-align: center;
+	}
+	th, td{
+		border: 1px solid lighten(gray,10%);
+		font-size: 0.875em;
+	}
+	th{
+		@include src-bold;	
+	}
+	td{
+		@include src-regular;
+		color: $panel_jurusan_text;		
+	}
+	.bar-label{
+		padding-left: 8px;
+		display: inline-block;
+	}
+}
+.pie-table{
+	img{
+		max-width: 60% !important;
+		max-height: auto !important;
 	}
 }
 .secondary{	
