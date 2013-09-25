@@ -20,7 +20,8 @@
                     #{ prodi.kota.kota.titleize }, #{ prodi.kota.provinsi.provinsi.titleize }
                 %p.entry-text= prodi.profile
                 .entry-more
-                  = link_to "Read More", univ_prodi_path(prodi.univ, prodi), :class => "tiny button read-more-button left"
+                  %a{ class: "tiny button read-more-button left", href: "#", data: {reveal: {id: "myModal4"}} } Read More
+
                   %p.entry-link.right
                     - if prodi.website.present? && prodi.email.present?
                       %span= link_to prodi.website, prodi.website, :target => "_blank"
@@ -30,6 +31,39 @@
                       %span= link_to prodi.website, prodi.website, target: "_blank"
                     - elsif prodi.email.present?
                       %span= mail_to prodi.email, prodi.email
+            
 
         = will_paginate @prodis, :renderer => PaginationListLinkRenderer, :class => "pagination-centered" 
   = render :partial => "layouts/sidebar"
+
+- @prodis.each do |prodi|
+  #myModal4.reveal-modal.medium.department-list-modal
+    .row
+      .large-5.columns
+        %img{:alt => "logo", :src => "/assets/default.jpg"}/
+      .large-7.columns
+        %h6.entry-header
+          %a{:href => "#"}= prodi.jenjang_prodi.jenjang.empty? ? "#{ prodi.nama_prodi }" : "#{ prodi.jenjang_prodi.jenjang } - #{ prodi.nama_prodi.titleize }"
+        %h6.entry-sub-header
+          %a{:href => "#"}= link_to prodi.univ.nama_pt.titleize
+        .note
+          %span Passing Grade:
+          = prodi.prodi_passing_grades.where({ prodi_id: prodi, status: 1}).present? ? prodi.prodi_passing_grades.where({ prodi_id: prodi, status: 1}).first.grades : "-" 
+          |
+          %span Terakreditasi:
+          = prodi.prodi_akreditasis.where({ prodi_id: prodi, status: 1}).present? ? prodi.prodi_akreditasis.where({ prodi_id: prodi, status: 1}).first.peringkat : "-"
+    .row.margin-top-small
+      .large-12.columns
+        .entry-text-meta
+          %p.entry-text Email: #{prodi.email.present? ? prodi.email : "-"}
+          %p.entry-text Website: #{prodi.website.present? ? prodi.website : "-"}
+          %p.entry-text Telp: #{prodi.telepon.present? ? prodi.telepon : "-"}
+    .row.margin-top-small.entry-text-meta-extension
+      .large-12.columns
+        %h6 Bidang Studi
+        %p.entry-text #{prodi.prodi_bidang.present? ? prodi.prodi_bidang.deskripsi : "-"}
+        %h6 Kompetensi
+        %p.entry-text #{prodi.prodi_bidang.present? ? prodi.prodi_bidang.kompetensi : "-"}
+        %h6 Prospektus
+        %p.entry-text #{prodi.prodi_bidang.present? ? prodi.prodi_bidang.lapangan_kerja : "-"}
+    %a.close-reveal-modal ×

@@ -291,6 +291,31 @@ ul.pagination{
 		color: darken($entry_link,10%);	
 	}
 }
+.department-list-modal{	
+	.entry-header:hover, .entry-sub-header:hover{
+		a{
+			color: $entry_header;
+		}
+	}
+	.entry-text-meta-extension{
+		h6{
+			margin-bottom: 0;
+			text-decoration: underline;
+		}
+	}
+	.entry-text-meta{
+		p{
+			margin: 0;
+		}
+	}
+	@media screen and (max-width: 768px){		
+		img{
+			margin: 0 auto;
+			display: block;
+			margin-bottom: 20px;
+		}		
+	}
+}
 .secondary{	
 	padding-top: 15px;
 	background: -webkit-$website_kampus04_secondary radial-gradient(at 50% 0, rgba(0,0,0,0.3), transparent 65%);

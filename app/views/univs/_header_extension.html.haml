@@ -1,7 +1,7 @@
 .header-extension
   .row
     .large-12.columns
-      = form_for univs_path, :method => "get", :html => { :class => "custom" } do
+      = form_tag(univs_path, :method => "get", :class => 'custom') do
         .row.collapse
           .small-4.columns
             = text_field_tag(:keyword, @params_value[:keyword], :class => "custom-input", :placeholder => "Masukkan kata kunci ...")
