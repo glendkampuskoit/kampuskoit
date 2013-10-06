@@ -7,10 +7,10 @@ Campus::Application.routes.draw do
   root to: 'home#index'
 
   resources :prodis, only: [:index]
-  #resources :univs, only: [:index, :show] do
-  resources :univs, only: [:show] do
-    resources :prodis, only: [:show]
-  end
+  resources :univs, only: [:index, :show] #do
+  #resources :univs, only: [:show] do
+  #  resources :prodis, only: [:show]
+  #end
   resources :subscribers, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:create]
