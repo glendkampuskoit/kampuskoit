@@ -3,9 +3,16 @@ class CreateUnivgalleries < ActiveRecord::Migration
     create_table :univgalleries do |t|
       t.text :caption
       t.text :description
-      t.text :path
+      t.integer :univ_id
+  		
+      # image
+      t.string :image
+
+      t.string :created_by
+      t.string :updated_by 
 
       t.timestamps
     end
+    add_index :univgalleries, :univ_id
   end
 end

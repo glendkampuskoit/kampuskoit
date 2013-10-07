@@ -6,7 +6,7 @@ describe "Query String Routing" do
 	#	let(:query_string) { "http://localhost:3000/confirm?token=asert423r23f324f43w&memberid=2323" }
 	#end
 
-	describe "routing test" do
+	pending "routing test" do
 		it "should to route to subscribers#confirm}" do
 		get("/confirm").should route_to(
 				:controller => "subscribers",

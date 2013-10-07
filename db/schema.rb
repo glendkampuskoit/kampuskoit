@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
     t.string   "role"
     t.integer  "univ_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "feedbacks", :force => true do |t|
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
 
   create_table "jenis_pts", :force => true do |t|
     t.string   "jenis"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -40,15 +42,19 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
   create_table "jenjang_prodis", :force => true do |t|
     t.string   "jenjang"
     t.string   "keterangan"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "kotas", :force => true do |t|
     t.string   "kota"
+    t.integer  "provinsi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "provinsi_id"
   end
 
   add_index "kotas", ["provinsi_id"], :name => "index_kotas_on_provinsi_id"
@@ -65,23 +71,80 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.integer  "tahun_sk"
     t.string   "peringkat"
     t.date     "tanggal_kadaluarsa"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
     t.integer  "prodi_id"
     t.string   "status"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
+<<<<<<< HEAD
+=======
+  add_index "prodi_akreditasis", ["prodi_id"], :name => "index_prodi_akreditasis_on_prodi_id"
+
+  create_table "prodi_biayas", :force => true do |t|
+    t.text     "biaya"
+    t.string   "nilai"
+    t.integer  "prodi_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "prodi_biayas", ["prodi_id"], :name => "index_prodi_biayas_on_prodi_id"
+
+>>>>>>> improving_migration
   create_table "prodi_bidangs", :force => true do |t|
     t.string   "nama_bidang"
     t.integer  "level"
     t.text     "deskripsi"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
     t.text     "lapangan_kerja"
     t.text     "materi"
+<<<<<<< HEAD
     t.string   "kompetensi"
   end
 
+=======
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "prodi_fasilitas_galleries", :force => true do |t|
+    t.text     "caption"
+    t.text     "description"
+    t.text     "image"
+    t.integer  "prodi_fasil_id"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "prodi_fasils", :force => true do |t|
+    t.text     "fasilitas"
+    t.integer  "prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "prodi_fasils", ["prodi_id"], :name => "index_prodi_fasils_on_prodi_id"
+
+  create_table "prodi_galleries", :force => true do |t|
+    t.string   "caption"
+    t.text     "description"
+    t.integer  "prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.string   "image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "prodi_galleries", ["prodi_id"], :name => "index_prodi_galleries_on_prodi_id"
+
+>>>>>>> improving_migration
   create_table "prodi_passing_grades", :force => true do |t|
     t.integer  "tahun"
     t.float    "grades"
@@ -91,8 +154,39 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "prodi_prestasis", :force => true do |t|
+    t.integer  "tahun"
+    t.text     "prestasi"
+    t.integer  "prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "prodi_prestasis", ["prodi_id"], :name => "index_prodi_prestasis_on_prodi_id"
+
+  create_table "prodi_silabuses", :force => true do |t|
+    t.text     "tujuan"
+    t.text     "kompetensi"
+    t.text     "pokok_bahasan"
+    t.text     "referensi"
+    t.text     "mata_kuliah"
+    t.integer  "prodi_id"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "prodi_silabuses", ["prodi_id"], :name => "index_prodi_silabuses_on_prodi_id"
+
+>>>>>>> improving_migration
   create_table "prodis", :force => true do |t|
     t.string   "nama_prodi"
+    t.string   "jenjang"
     t.integer  "tahun_berdiri"
     t.string   "fakultas"
     t.text     "alamat"
@@ -106,33 +200,33 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.text     "kompetensi"
     t.text     "seleksi_masuk"
     t.text     "logo_path"
+    t.string   "silabus"
     t.integer  "total_dosen_prof"
     t.integer  "total_dosen_doktor"
     t.integer  "total_dosen_master"
     t.integer  "total_dosen_sarjana"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
     t.integer  "univ_id"
     t.integer  "kota_id"
     t.integer  "jenjang_prodi_id"
-    t.string   "created_by"
-    t.string   "updated_by"
+    t.integer  "prodi_bidang_id"
     t.string   "slug"
     t.string   "logo"
     t.string   "featured_image"
     t.string   "facebook"
     t.string   "twitter"
     t.string   "youtube"
-    t.integer  "prodi_bidang_id"
-    t.string   "silabus"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
-  add_index "prodis", ["kota_id"], :name => "index_prodis_on_kota_id"
-  add_index "prodis", ["slug"], :name => "index_prodis_on_slug"
-  add_index "prodis", ["univ_id"], :name => "index_prodis_on_univ_id"
+  add_index "prodis", ["slug", "univ_id", "kota_id"], :name => "index_prodis_on_slug_and_univ_id_and_kota_id"
 
   create_table "provinsis", :force => true do |t|
     t.string   "provinsi"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -212,9 +306,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.string   "instansi"
     t.string   "periode"
     t.string   "nilai"
+    t.integer  "subscriber_id"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "subscriber_id"
   end
 
   add_index "subscriber_beasiswas", ["subscriber_id"], :name => "index_subscriber_beasiswas_on_subscriber_id"
@@ -225,9 +321,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.string   "tingkat"
     t.string   "periode"
     t.text     "path_sertifikat"
+    t.integer  "subscriber_id"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "subscriber_id"
   end
 
   add_index "subscriber_organisasis", ["subscriber_id"], :name => "index_subscriber_organisasis_on_subscriber_id"
@@ -239,9 +337,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.string   "skala"
     t.integer  "tahun"
     t.text     "sertifikat_path"
+    t.integer  "subscriber_id"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "subscriber_id"
   end
 
   add_index "subscriber_pelatihans", ["subscriber_id"], :name => "index_subscriber_pelatihans_on_subscriber_id"
@@ -253,9 +353,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.integer  "tahun_keluar"
     t.string   "nilai_akhir"
     t.text     "path_ijazah"
+    t.integer  "subscriber_id"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "subscriber_id"
   end
 
   create_table "subscriber_pengalaman_kerjas", :force => true do |t|
@@ -265,9 +367,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.integer  "tahun_masuk"
     t.integer  "tahun_keluar"
     t.text     "sk_kerja_path"
+    t.integer  "subscriber_id"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "subscriber_id"
   end
 
   add_index "subscriber_pengalaman_kerjas", ["subscriber_id"], :name => "index_subscriber_pengalaman_kerjas_on_subscriber_id"
@@ -278,9 +382,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.text     "tempat"
     t.integer  "tahun"
     t.text     "path_sertifikat"
+    t.integer  "subscriber_id"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "subscriber_id"
   end
 
   add_index "subscriber_prestasis", ["subscriber_id"], :name => "index_subscriber_prestasis_on_subscriber_id"
@@ -290,9 +396,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.string   "jabatan"
     t.string   "email"
     t.string   "telepon"
+    t.integer  "subscriber_id"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.integer  "subscriber_id"
   end
 
   add_index "subscriber_rekomendasis", ["subscriber_id"], :name => "index_subscriber_rekomendasis_on_subscriber_id"
@@ -300,16 +408,12 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
   create_table "subscribers", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.string   "password_digest"
     t.string   "remember_token"
     t.string   "provider"
     t.string   "uid"
     t.string   "oath_token"
     t.datetime "oath_expires"
-    t.boolean  "from_facebook",          :default => false
-    t.boolean  "email_activation",       :default => false
+    t.string   "image"
     t.string   "tempat_lahir"
     t.date     "tanggal_lahir"
     t.string   "agama"
@@ -319,8 +423,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.string   "kodepos"
     t.string   "telepon"
     t.string   "no_hp"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "provinsi_id"
     t.integer  "kota_id"
+<<<<<<< HEAD
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "image"
@@ -338,6 +445,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
   end
 
   add_index "survey_alumnis", ["subscriber_id"], :name => "index_survey_alumnis_on_subscriber_id"
+=======
+  end
+
+  add_index "subscribers", ["email"], :name => "index_subscribers_on_email", :unique => true
+>>>>>>> improving_migration
 
   create_table "survey_respondens", :force => true do |t|
     t.string   "univ_id"
@@ -359,13 +471,12 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
   create_table "univ_fasilitas_galleries", :force => true do |t|
     t.string   "caption"
     t.text     "description"
-    t.text     "path"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
     t.integer  "univfasilitas_id"
+    t.string   "image"
     t.string   "created_by"
     t.string   "updated_by"
-    t.string   "image"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "univ_fasilitas_galleries", ["univfasilitas_id"], :name => "index_univ_fasilitas_galleries_on_univfasilitas_id"
@@ -375,11 +486,11 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.string   "instansi"
     t.string   "periode"
     t.string   "nilai"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
     t.integer  "univ_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "univbeasiswas", ["univ_id"], :name => "index_univbeasiswas_on_univ_id"
@@ -387,20 +498,20 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
   create_table "univbiayas", :force => true do |t|
     t.text     "biaya"
     t.string   "nilai"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "univ_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "univfasilitases", :force => true do |t|
     t.text     "fasilitas"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "univ_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "univfasilitases", ["univ_id"], :name => "index_univfasilitases_on_univ_id"
@@ -408,23 +519,24 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
   create_table "univgalleries", :force => true do |t|
     t.text     "caption"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
     t.integer  "univ_id"
+    t.string   "image"
     t.string   "created_by"
     t.string   "updated_by"
-    t.string   "image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "univgalleries", ["univ_id"], :name => "index_univgalleries_on_univ_id"
 
   create_table "univkerjasamas", :force => true do |t|
     t.text     "kerjasama"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "univ_id"
+    t.integer  "integer"
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "univkerjasamas", ["univ_id"], :name => "index_univkerjasamas_on_univ_id"
@@ -432,24 +544,30 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
   create_table "univprestasis", :force => true do |t|
     t.integer  "tahun"
     t.text     "prestasi"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "univ_id"
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "univprestasis", ["univ_id"], :name => "index_univprestasis_on_univ_id"
 
   create_table "univrankings", :force => true do |t|
     t.integer  "univ_id"
+    t.float    "government"
+    t.float    "college"
+    t.float    "society"
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+<<<<<<< HEAD
     t.float    "government"
     t.float    "college"
     t.float    "society"
     t.float    "score"
+=======
+>>>>>>> improving_migration
   end
 
   create_table "univs", :force => true do |t|
@@ -468,18 +586,18 @@ ActiveRecord::Schema.define(:version => 20131006181850) do
     t.text     "staff_pendukung"
     t.text     "deskripsi"
     t.text     "logo_path"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
     t.integer  "kota_id"
     t.integer  "jenis_pt_id"
-    t.string   "created_by"
-    t.string   "updated_by"
     t.string   "slug"
     t.string   "logo"
     t.string   "featured_image"
     t.string   "facebook"
     t.string   "twitter"
     t.string   "youtube"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "created_by"
+    t.string   "updated_by"
   end
 
   add_index "univs", ["kota_id"], :name => "index_univs_on_kota_id"

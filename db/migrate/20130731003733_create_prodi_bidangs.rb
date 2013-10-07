@@ -4,6 +4,8 @@ class CreateProdiBidangs < ActiveRecord::Migration
       t.string :nama_bidang
       t.integer :level
       t.text :deskripsi
+      t.text :lapangan_kerja
+      t.text :materi
 
       t.timestamps
     end
