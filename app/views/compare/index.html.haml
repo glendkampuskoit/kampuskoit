@@ -52,22 +52,6 @@
           %td= @prodi_1.prodi_bidang.present? ? @prodi_1.prodi_bidang.lapangan_kerja : " - "
           %td= @prodi_2.prodi_bidang.present? ? @prodi_2.prodi_bidang.lapangan_kerja : " - "
         %tr
-          %td.align-left.properties Prestasi
-          %td
-            - if @prodi_1.prodi_prestasis.any?
-              %ul.indent-left
-                - @prodi_1.prodi_prestasis.each do |prestasi| 
-                  %li.small-black-disc= prestasi.prestasi
-            - else
-              = " - "
-          %td
-            - if @prodi_2.prodi_prestasis.any?
-              %ul.indent-left
-                - @prodi_2.prodi_prestasis.each do |prestasi| 
-                  %li.small-black-disc= prestasi.prestasi
-            - else
-              = " - "
-        %tr
           %td.align-left.properties.bottom-border.space-bottom Silabus Pendidikan
           %td.bottom-border= @prodi_1.silabus.present? ? link_to("Download", @prodi_1.silabus.to_s) : " - "
           %td.bottom-border= @prodi_2.silabus.present? ? link_to("Download", @prodi_2.silabus.to_s) : " - "

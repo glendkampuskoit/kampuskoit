@@ -49,7 +49,6 @@ class ProdisController < ApplicationController
     @prodi = Prodi.new(params[:prodi])
 
     if @prodi.save
-      #redirect_to prodis_list_path, notice: 'Program Studi berhasil ditambah.'
       redirect_to edit_univ_prodi_path(@prodi.univ, @prodi), notice: 'Program Studi berhasil ditambah.' 
     else
       render action: "new", layout: "admin"
@@ -58,19 +57,14 @@ class ProdisController < ApplicationController
 
   def edit
     @prodi = Prodi.find(params[:id])
-    @prodigallery = ProdiGallery.new
-    @prodigalleries = ProdiGallery.where(prodi_id: @prodi)
     render layout: "admin"
   end
 
   def update
     @prodi = Prodi.find(params[:id])
     if @prodi.update_attributes(params[:prodi])
-      #redirect_to prodis_list_path, notice: 'Program Studi berhasil diupdate.' 
       redirect_to edit_univ_prodi_path(@prodi.univ, @prodi), notice: 'Program Studi berhasil diupdate.' 
     else
-      @prodigallery = ProdiGallery.new
-      @prodigalleries = ProdiGallery.where(prodi_id: @prodi)
       render action: "edit", layout: "admin"
     end   
   end
@@ -83,10 +77,7 @@ class ProdisController < ApplicationController
   end
 
   def list
-    #@prodis = Prodi.paginate(:page => params[:page], :per_page => 30)    
-    #@prodis = Prodi.search params[:keyword], :page => params[:page], :per_page => 10
     if params[:keyword].present?
-      #@prodis = Prodi.where("nama_prodi LIKE :prodi", {prodi: params[:keyword]}).paginate(page: params[:page], per_page: 10)
       @prodis = Prodi.search params[:keyword], :page => params[:page], :per_page => 10
     else
       @prodis = Prodi.paginate(page: params[:page], per_page: 10)
