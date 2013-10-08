@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007045325) do
+ActiveRecord::Schema.define(:version => 20131008061422) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -72,15 +72,13 @@ ActiveRecord::Schema.define(:version => 20131007045325) do
   end
 
   create_table "prodi_bidangs", :force => true do |t|
-    t.string   "nama_bidang"
-    t.integer  "level"
-    t.text     "deskripsi"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.text     "lapangan_kerja"
-    t.text     "materi"
-    t.string   "kompetensi"
-    t.string   "spesialisasi"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.text     "nama_bidang"
+    t.text     "spesialisasi"
+    t.text     "gambaran"
+    t.text     "pilihan_karir"
+    t.text     "keterampilan_kunci"
   end
 
   create_table "prodi_passing_grades", :force => true do |t|
