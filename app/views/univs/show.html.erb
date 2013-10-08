@@ -354,7 +354,8 @@
         <% end %>
       </div>
     </div>
-  </div>    
+  </div> 
+  <% if prodi.prodi_bidang.present? %>
   <div class="row margin-top-small entry-text-meta-extension">
     <div class="large-12 columns">
       <h6>Bidang Studi</h6>
@@ -371,6 +372,7 @@
       </p>
     </div>
   </div>
+  <% end %>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 <% end %>

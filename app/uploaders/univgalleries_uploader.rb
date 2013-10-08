@@ -35,15 +35,24 @@ class UnivgalleriesUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  def watermark
+    manipulate! do |img|
+      logo = Magick::Image.read("#{Rails.root}/app/assets/images/watermark.png").first
+      img = img.composite(logo, Magick::NorthEastGravity, 10, 10, Magick::OverCompositeOp)
+    end
+  end
+
   # Create different versions of your uploaded files:
   version :thumb do
     #process :resize_to_limit => [65, 65]
     process :resize_to_fill => [65, 65]
+    process :watermark
   end
 
   version :slide do
     #process :resize_to_limit => [640, 426]
     process :resize_to_fill => [640, 426]
+    process :watermark
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
