@@ -322,6 +322,7 @@ ActiveRecord::Schema.define(:version => 20131008061422) do
     t.integer  "kota_id"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "image"
   end
 
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true

@@ -15,10 +15,10 @@ describe "Prodi Bidang Page" do
     describe "add with valid data" do
       before do
         fill_in "nama_bidang", with: "Sistem Informasi"
-        fill_in "level", with: 5
-        fill_in "deskripsi", with: "Belajar IT"
-        fill_in "lapangan_kerja", with: "Dosen dan pogrammer"
-        fill_in "materi", with: "Analitik"
+        fill_in "spesialisasi", with: "Kungfu"
+        fill_in "gambaran", with: "Belajar IT"
+        fill_in "pilihan_karir", with: "Dosen dan pogrammer"
+        fill_in "keterampilan_kunci", with: "Analitik"
       end
 
       it "should add new record" do
@@ -35,10 +35,10 @@ describe "Prodi Bidang Page" do
     describe "update record" do
       before do
         fill_in "nama_bidang", with: "Sistem Informasi"
-        fill_in "level", with: 5
-        fill_in "deskripsi", with: "Belajar IT"
-        fill_in "lapangan_kerja", with: "Dosen dan Pengajar"
-        fill_in "materi", with: "Analitik"
+        fill_in "spesialisasi", with: "Kungfu"
+        fill_in "gambaran", with: "Belajar IT"
+        fill_in "pilihan_karir", with: "Dosen dan pogrammer"
+        fill_in "keterampilan_kunci", with: "Analitik"
       end
       
       it "should not create a record - just updated" do
