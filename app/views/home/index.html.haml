@@ -34,25 +34,15 @@
 
       .row
         .small-7.small-centered.columns
-          %form{ action: search_path, id: "search"}
+          %form{ action: univs_path, id: "search"}
             %fieldset
               .row
                 .large-12.columns
                   .row.collapse.custom-input
                     .small-9.large-10.columns
-                      = text_field_tag :keyword, ""
+                      = text_field_tag :keyword, "", placeholder: "Cari perguruan tinggi ..."
                     .small-3.large-2.columns
                       = submit_tag "", class: "button prefix", id: "search_btn"
-
-              .row
-                .large-12.columns
-                  %ul.button-group
-                    %li.width-20.start-round 
-                      %a.active-button.small.button.custom-border.start-round#all Semua                    
-                    %li.width-40
-                      %a.small.button.custom-border#pt Perguruan Tinggi
-                    %li.width-40.end-round
-                      %a.small.button.custom-border.end-round#prodi Program Studi
 
     .secondary
       .row.compare-panel
@@ -170,24 +160,6 @@
         });
         $(".description-panel section").mouseleave(function(){
           $(this).removeClass("active-section");
-        });
-
-
-        // change form action dynamically
-        $('#all').click(function(){
-          $('#search').attr('action', '#{search_path}');
-        });
-
-        $('#pt').click(function(){
-          $('#search').attr('action', '#{univs_path}');
-        });
-
-        $('#prodi').click(function(){
-          $('#search').attr('action', '#{prodis_path}');
-        });
-
-        $('#provinsi').click(function(){
-          $('#search').attr('action', '#{search_path}');
         });
 
         $('#autocomplete_pt_1').autocomplete({
