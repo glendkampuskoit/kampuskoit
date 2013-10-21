@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131008061422) do
+ActiveRecord::Schema.define(:version => 20131021025506) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20131008061422) do
   end
 
   add_index "kotas", ["provinsi_id"], :name => "index_kotas_on_provinsi_id"
+
+  create_table "prodi2", :id => false, :force => true do |t|
+    t.integer "univ_id",                   :null => false
+    t.integer "prodi_id",                  :null => false
+    t.string  "nama_prodi", :limit => 100, :null => false
+    t.string  "jenjang",    :limit => 10,  :null => false
+  end
 
   create_table "prodi_akreditasis", :force => true do |t|
     t.string   "no_sk"
@@ -189,6 +196,7 @@ ActiveRecord::Schema.define(:version => 20131008061422) do
     t.string   "youtube"
     t.integer  "prodi_bidang_id"
     t.string   "silabus"
+    t.integer  "id_dikti"
   end
 
   add_index "prodis", ["kota_id"], :name => "index_prodis_on_kota_id"
