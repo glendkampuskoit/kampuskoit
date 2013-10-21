@@ -53,13 +53,6 @@ ActiveRecord::Schema.define(:version => 20131021025506) do
 
   add_index "kotas", ["provinsi_id"], :name => "index_kotas_on_provinsi_id"
 
-  create_table "prodi2", :id => false, :force => true do |t|
-    t.integer "univ_id",                   :null => false
-    t.integer "prodi_id",                  :null => false
-    t.string  "nama_prodi", :limit => 100, :null => false
-    t.string  "jenjang",    :limit => 10,  :null => false
-  end
-
   create_table "prodi_akreditasis", :force => true do |t|
     t.string   "no_sk"
     t.integer  "tahun_sk"
@@ -71,16 +64,6 @@ ActiveRecord::Schema.define(:version => 20131021025506) do
     t.string   "status"
   end
 
-  create_table "prodi_biayas", :force => true do |t|
-    t.text     "biaya"
-    t.string   "nilai"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "prodi_id"
-  end
-
-  add_index "prodi_biayas", ["prodi_id"], :name => "index_prodi_biayas_on_prodi_id"
-
   create_table "prodi_bidangs", :force => true do |t|
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
@@ -91,41 +74,6 @@ ActiveRecord::Schema.define(:version => 20131021025506) do
     t.text     "keterampilan_kunci"
   end
 
-  create_table "prodi_fasilitas_galleries", :force => true do |t|
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.integer  "prodi_fasil_id"
-    t.string   "created_by"
-    t.string   "updated_by"
-    t.text     "caption"
-    t.text     "description"
-    t.string   "image"
-  end
-
-  create_table "prodi_fasils", :force => true do |t|
-    t.text     "fasilitas"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "prodi_id"
-    t.string   "created_by"
-    t.string   "updated_by"
-  end
-
-  add_index "prodi_fasils", ["prodi_id"], :name => "index_prodi_fasils_on_prodi_id"
-
-  create_table "prodi_galleries", :force => true do |t|
-    t.string   "caption"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "prodi_id"
-    t.string   "created_by"
-    t.string   "updated_by"
-    t.string   "image"
-  end
-
-  add_index "prodi_galleries", ["prodi_id"], :name => "index_prodi_galleries_on_prodi_id"
-
   create_table "prodi_passing_grades", :force => true do |t|
     t.integer  "tahun"
     t.float    "grades"
@@ -134,33 +82,6 @@ ActiveRecord::Schema.define(:version => 20131021025506) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "prodi_prestasis", :force => true do |t|
-    t.integer  "tahun"
-    t.text     "prestasi"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "prodi_id"
-    t.string   "created_by"
-    t.string   "updated_by"
-  end
-
-  add_index "prodi_prestasis", ["prodi_id"], :name => "index_prodi_prestasis_on_prodi_id"
-
-  create_table "prodi_silabuses", :force => true do |t|
-    t.text     "tujuan"
-    t.text     "kompetensi"
-    t.text     "pokok_bahasan"
-    t.text     "referensi"
-    t.text     "mata_kuliah"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "prodi_id"
-    t.string   "created_by"
-    t.string   "updated_by"
-  end
-
-  add_index "prodi_silabuses", ["prodi_id"], :name => "index_prodi_silabuses_on_prodi_id"
 
   create_table "prodis", :force => true do |t|
     t.string   "nama_prodi"
@@ -395,6 +316,7 @@ ActiveRecord::Schema.define(:version => 20131021025506) do
     t.integer  "kota_id"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "image"
   end
 
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true

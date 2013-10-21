@@ -423,6 +423,61 @@ div[role="main"]{
 		@extend .description-text;
 	}
 }
+.department-list-modal{
+	width: 50% !important;
+	margin-left: -25% !important;
+	.entry-header, .entry-sub-header{
+		margin-bottom: 0;
+		line-height: 1.2125em !important;
+		a{
+			@include src-regular;
+			font-size: 1.125em !important;
+			color: $entry_header;
+		}
+	}
+	.entry-sub-header{
+		margin-top: 0;		
+		a{
+			font-size: 0.875em !important;
+		}
+	}
+	.note{
+		padding-top: 20px;
+	}
+	.entry-header:hover, .entry-sub-header:hover{
+		a{
+			color: $entry_header;
+		}
+	}
+	.entry-text-meta-extension{
+		h6{
+			margin-bottom: 0;
+			color: $entry_header;
+			@include src-bold;
+		}
+		p{			
+			@include src-regular;
+			font-size: 0.750em;
+			color: $entry-text;
+		}
+	}
+	.entry-text-meta{
+		p{
+			margin: 0;
+			color: $entry_header;
+			font-size: 0.75em;			
+		}
+	}
+	@media screen and (max-width: 768px){
+		width: 80% !important;
+		margin-left: -40% !important;
+		img{
+			margin: 0 auto;
+			display: block;
+			margin-bottom: 20px;
+		}		
+	}
+}
 .university-other{
 	table{
 		.center-text{

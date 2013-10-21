@@ -352,6 +352,42 @@
   </div>
   <%= render partial: "layouts/sidebar" %>
 </div>
+
+<!--Example Modal Content For Department List-->
+<div id="myModal4" class="reveal-modal medium department-list-modal">
+  <div class="row">
+    <div class="large-5 columns">
+      <img src="assets/images/common/post-image.jpg" alt="post-image-1" />
+    </div>
+    <div class="large-7 columns">
+      <h6 class="entry-header">
+        <a href="#">
+          S1 - Teknik Informatika
+        </a>
+      </h6>
+      <h6 class="entry-sub-header"><a href="#"><%= prodi.univ.nama_pt.titleize %></a></h6>
+      <div class="note"><span>Passing Grade: -</span> | <span>Terakreditasi: -</span></div>
+      <div class="entry-text-meta margin-top-medium">
+        <p class="entry-text">Email: xxxxxxxxxxxx</p>
+        <p class="entry-text">Website: xxxxxxxxxxxx</p>
+        <p class="entry-text">Telp: xxxxxxxxxxxx</p>
+      </div>
+    </div>
+  </div>    
+  <div class="row margin-top-small entry-text-meta-extension">
+    <div class="large-12 columns">
+      <h6>Bidang Studi</h6>
+      <p class="entry-text">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      <h6>Kompetensi</h6>
+      <p class="entry-text">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      <h6>Prospektus</h6>
+      <p class="entry-text">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+    </div>
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+<!--End Example Modal Content For Department List-->
+
 <script>
   function twitter_url(){
     var url;

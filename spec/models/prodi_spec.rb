@@ -33,12 +33,7 @@ describe Prodi do
 	it { should belong_to(:kota) }
 	it { should belong_to(:jenjang_prodi) }
 	it { should belong_to(:prodi_bidang) }
-  it { should have_many(:prodi_prestasis).dependent(:delete_all) }
-  it { should have_many(:prodi_silabuses).dependent(:delete_all) }
-  it { should have_many(:prodi_fasils).dependent(:delete_all) }
-  it { should have_many(:prodi_galleries).dependent(:delete_all) }
   it { should have_many(:prodi_akreditasis).dependent(:delete_all) }
-  it { should have_many(:prodi_biayas).dependent(:delete_all) }
   it { should have_many(:prodi_passing_grades).dependent(:delete_all) }
 
   describe "should be valid" do

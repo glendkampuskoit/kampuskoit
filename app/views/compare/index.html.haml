@@ -36,19 +36,9 @@
           %td= @prodi_1.seleksi_masuk.present? ? @prodi_1.seleksi_masuk : " - "
           %td= @prodi_2.seleksi_masuk.present? ? @prodi_2.seleksi_masuk : " - "
         %tr
-          %td.align-left.properties Passing Grade
-          %td= @grade_1
-          %td= @grade_2
-        %tr
-          %td.align-left.properties.bottom-border Fasilitas
-          %td.bottom-border
-            %ul.indent-left
-              - @prodi_1.prodi_fasils.each do |fasilitas|
-                %li.small-black-disc= fasilitas.fasilitas
-          %td.bottom-border
-            %ul.indent-left
-              - @prodi_2.prodi_fasils.each do |fasilitas|
-                %li.small-black-disc= fasilitas.fasilitas
+          %td.align-left.properties.bottom-border.space-bottom Passing Grade
+          %td.bottom-border= @grade_1
+          %td.bottom-border= @grade_2
         %tr
           %td.table-section-title Kompetensi
           %td
@@ -61,22 +51,6 @@
           %td.align-left.properties Prospektus Jurusan
           %td= @prodi_1.prodi_bidang.present? ? @prodi_1.prodi_bidang.lapangan_kerja : " - "
           %td= @prodi_2.prodi_bidang.present? ? @prodi_2.prodi_bidang.lapangan_kerja : " - "
-        %tr
-          %td.align-left.properties Prestasi
-          %td
-            - if @prodi_1.prodi_prestasis.any?
-              %ul.indent-left
-                - @prodi_1.prodi_prestasis.each do |prestasi| 
-                  %li.small-black-disc= prestasi.prestasi
-            - else
-              = " - "
-          %td
-            - if @prodi_2.prodi_prestasis.any?
-              %ul.indent-left
-                - @prodi_2.prodi_prestasis.each do |prestasi| 
-                  %li.small-black-disc= prestasi.prestasi
-            - else
-              = " - "
         %tr
           %td.align-left.properties.bottom-border.space-bottom Silabus Pendidikan
           %td.bottom-border= @prodi_1.silabus.present? ? link_to("Download", @prodi_1.silabus.to_s) : " - "
@@ -99,26 +73,6 @@
           %td -
           %td -
         %tr
-          %td.align-left.properties.bottom-border.space-bottom Biaya Hidup
-          %td.bottom-border -
-          %td.bottom-border -
-        %tr
-          %td.table-section-title Alumni
-          %td
-          %td
-        %tr
-          %td.align-left.properties.alternative-strip Statistik IPK
-          %td.alternative-strip -
-          %td.alternative-strip -
-        %tr
-          %td.align-left.properties Statistik Waktu Tunggu
-          %td -
-          %td -
-        %tr
-          %td.align-left.properties.alternative-strip Statistik Bidang Kerja
-          %td.alternative-strip -
-          %td.alternative-strip -
-        %tr
-          %td.align-left.properties.space-bottom Statistik Bidang Kerja
+          %td.align-left.properties.space-bottom Biaya Hidup
           %td -
           %td -

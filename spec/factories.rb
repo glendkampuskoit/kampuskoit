@@ -116,27 +116,10 @@ FactoryGirl.define do
 
 	factory :prodi_bidang do
 		sequence(:nama_bidang) { |n| "Bidang Prodi#{n}" }
-		level 5
-		deskripsi "Belajar IT"
-		lapangan_kerja "Dosen dan Programmer"
-		materi "Analitik"
-	end
-
-	factory :prodi_fasil do
-		sequence(:fasilitas) { |n| "Fasilitas Prodi#{n}" }
-		association :prodi, :factory => :prodi
-	end
-
-	factory :prodi_prestasi do
-		tahun 2005
-		sequence(:prestasi) { |n| "Prestasi Prodi#{n}" }
-		association :prodi, :factory => :prodi
-	end
-
-	factory :prodi_biaya do
-		biaya "SPP"
-		nilai "600000"
-		association :prodi, :factory => :prodi
+		spesialisasi "Kungfu"
+		gambaran "Prodi bidang yang bagus"
+		pilihan_karir "dokter, insinyur"
+		keterampilan_kunci "memasak dan mencuci"
 	end
 
 	factory :univgallery do
@@ -174,12 +157,5 @@ FactoryGirl.define do
 		periode	"2012-2013"
 		nilai "50000000"
 		association :univ, :factory => :univ
-	end
-
-	factory :prodi_gallery do 
-		image File.open("spec/fixtures/files/cangkrukan.jpg")
-		caption "example gallery"
-		description "description gallery"
-		association :prodi, :factory => :prodi
 	end
 end

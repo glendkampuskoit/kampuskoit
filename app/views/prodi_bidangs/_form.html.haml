@@ -21,21 +21,21 @@
             .controls
               = f.text_field :nama_bidang, :id => "required", :id => "nama_bidang", :class => "grd-white", :placeholder => "ex. Akuntansi", :data => {:validate => "{required: true, messages:{required:'Nama Bidang Prodi harus diisi'}}"}
           .control-group
-            %label.control-label{:for => "inputSelect"} Level
+            %label.control-label{:for => "inputSelect"} Spesialisasi
             .controls
-              = f.text_field :level, :id => "required", :id => "level", :class => "grd-white", :placeholder => "ex. 5", :data => {:validate => "{required: true, messages:{required:'Level Bidang Prodi harus diisi'}}"}
+              = f.text_area :spesialisasi, :id => "spesialisasi", :class => "span10", :rows => "8", :data => {:form => "spesialisasi"}, :placeholder => "Isikan spesialisasi ..."
           .control-group
             %label.control-label{:for => "inputEditorSimple"} Deskripsi
             .controls
-              = f.text_area :deskripsi, :id => "deskripsi", :class => "span10", :rows => "8", :data => {:form => "deskripsi"}, :placeholder => "Isikan deskripsi ..."
+              = f.text_area :gambaran, :id => "gambaran", :class => "span10", :rows => "8", :data => {:form => "gambaran"}, :placeholder => "Isikan gambaran ..."
           .control-group
-            %label.control-label{:for => "inputEditorSimple"} Lapangan Kerja
+            %label.control-label{:for => "inputEditorSimple"} Pilihan Karier
             .controls
-              = f.text_area :lapangan_kerja, :id => "lapangan_kerja", :class => "span10", :rows => "8", :data => {:form => "lapangan_kerja"}, :placeholder => "Isikan lapangan_kerja ..."
+              = f.text_area :pilihan_karir, :id => "pilihan_karir", :class => "span10", :rows => "8", :data => {:form => "pilihan_karir"}, :placeholder => "Isikan pilihan karir ..."
           .control-group
-            %label.control-label{:for => "inputEditorSimple"} Materi
+            %label.control-label{:for => "inputEditorSimple"} Keterampilan Kunci
             .controls
-              = f.text_area :materi, :id => "materi", :class => "span10", :rows => "8", :data => {:form => "materi"}, :placeholder => "Isikan materi ..."
+              = f.text_area :keterampilan_kunci, :id => "keterampilan_kunci", :class => "span10", :rows => "8", :data => {:form => "keterampilan_kunci"}, :placeholder => "Isikan keterampilan kunci ..."
           .form-actions
             %button.btn.btn-primary{:type => "submit"} Save
             %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
@@ -50,9 +50,9 @@
     $('[data-form=uniform]').uniform();
 
     //wysisyg
-    $('[data-form=deskripsi]').wysihtml5();
-    $('[data-form=lapangan_kerja]').wysihtml5();
-    $('[data-form=materi]').wysihtml5();
+    //$('[data-form=deskripsi]').wysihtml5();
+    //$('[data-form=lapangan_kerja]').wysihtml5();
+    //$('[data-form=materi]').wysihtml5();
 
     // select2
     $('#form-validate').validate();

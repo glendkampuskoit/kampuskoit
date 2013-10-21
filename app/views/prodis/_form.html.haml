@@ -187,60 +187,6 @@
               = link_to "Prestasi Prodi", univ_prodi_prodi_prestasis_path(@prodi.univ, @prodi), class: "btn btn-inverse" 
               = link_to "Biaya Prodi", univ_prodi_prodi_biayas_path(@prodi.univ, @prodi), class: "btn btn-inverse" 
 
-- if params[:action] == "edit" || params[:action] == "update"
-  .row-fluid
-    .span12
-      .box.corner-all
-        .box-header.grd-white.corner-top
-          .header-control
-            %a{"data-box" => "collapse"}
-              %i.icofont-caret-up
-            %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-          %span Update Program Studi Galeri
-        .box-body
-          = form_for @prodigallery, :html => {id: "form-gallery", :novalidate => "novalidate", class: "form-horizontal"} do |f|
-            - if @prodigallery.errors.any?
-              .alert.alert-error
-                %button.close{"data-dismiss" => "alert", :type => "button"} &times;
-                %div
-                  - @prodigallery.errors.full_messages.each do |msg|
-                    = msg
-                    %br
-            .control-group
-              %label.control-label{for: "inputUpload"} Tambah Gallery
-              .controls
-                = f.file_field :image, id: "inputUpload", data: {form: "uniform"}
-            .control-group
-              %label.control-label{for: "required"} Caption
-              .controls
-                = f.text_field :caption, class: "grd-white", data: {validate: "{required: true, messages: {required: 'Caption harus diisi'}}"}
-            .control-group
-              %label.control-label{for: "required"} Deskripsi
-              .controls
-                = f.text_area :description, rows: "3", placeholder: "Isikan deskripsi", data: {validate: "{required: true, messages: {required: 'Deskripsi harus diisi'}}"}
-            .control-group
-              - if @prodigalleries.present?
-                .controls
-                  .gallery-content
-                    %ul#portfolio-list.thumbnails
-                      - @prodigalleries.each do |gallery|
-                        %li.design
-                          / use checkbox for helper event
-                          %input.selecter{:name => "item[]", :type => "checkbox", :value => "1.jpg"}/
-                          .thumbnail
-                            = image_tag(gallery.image_url(:thumb), :alt => gallery.description, :onerror => "this.src='/assets/default.jpg';", :width => "120", :height => "120")
-                            .thumbnail-control
-                              .controls
-                                %a{:href => gallery.image_url, :rel => "prettyPhoto[gallery]", :title => gallery.description}
-                                  %i.icofont-search
-                                = link_to prodi_gallery_path(gallery), method: :delete, class: "delete" do
-                                  %i.icofont-trash
-                                %p.description= gallery.caption
-            .form-actions
-              = f.hidden_field :prodi_id, :value => @prodi.id
-              %button.btn.btn-primary{type: "submit"} Save
-              %button.btn{type: "reset"} Reset
-
 :javascript
   $(document).ready(function() {      
     // peity chart
