@@ -5,8 +5,14 @@ class CreateUnivbeasiswas < ActiveRecord::Migration
       t.string :instansi
       t.string :periode
       t.string :nilai
+      t.integer :univ_id
+  		
+
+      t.string :created_by
+      t.string :updated_by 
 
       t.timestamps
     end
+    add_index :univbeasiswas, :univ_id
   end
 end

@@ -4,6 +4,9 @@ class CreateJenjangProdis < ActiveRecord::Migration
       t.string :jenjang
       t.string :keterangan
 
+      t.string :created_by
+      t.string :updated_by
+
       t.timestamps
     end
   end

@@ -75,4 +75,5 @@ gem 'haml'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 gem "chartkick"

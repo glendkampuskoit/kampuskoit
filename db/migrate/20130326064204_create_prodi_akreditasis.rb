@@ -6,7 +6,15 @@ class CreateProdiAkreditasis < ActiveRecord::Migration
       t.string :peringkat
       t.date :tanggal_kadaluarsa
 
+      # foreign key
+      t.integer :prodi_id
+
+      t.string :status
+      t.string :created_by
+      t.string :updated_by
+
       t.timestamps
     end
+    add_index :prodi_akreditasis, :prodi_id
   end
 end
