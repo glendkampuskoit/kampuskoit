@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131008061422) do
+ActiveRecord::Schema.define(:version => 20131021030637) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -369,6 +369,17 @@ ActiveRecord::Schema.define(:version => 20131008061422) do
 
   add_index "univ_fasilitas_galleries", ["univfasilitas_id"], :name => "index_univ_fasilitas_galleries_on_univfasilitas_id"
 
+  create_table "univ_reviews", :force => true do |t|
+    t.text     "review"
+    t.integer  "univ_id"
+    t.integer  "subsciber_id"
+    t.float    "fasilitas_point"
+    t.float    "beasiswa_point"
+    t.float    "relevansi_point"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "univbeasiswas", :force => true do |t|
     t.string   "nama_beasiswa"
     t.string   "instansi"
@@ -449,6 +460,17 @@ ActiveRecord::Schema.define(:version => 20131008061422) do
     t.float    "college"
     t.float    "society"
     t.float    "score"
+  end
+
+  create_table "univreviews", :force => true do |t|
+    t.string   "review"
+    t.integer  "univ_id"
+    t.integer  "subscriber_id"
+    t.float    "fasilitas_point"
+    t.float    "beasiswa_point"
+    t.float    "relevansi_point"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "univs", :force => true do |t|

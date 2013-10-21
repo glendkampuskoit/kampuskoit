@@ -1,0 +1,241 @@
+.row
+  %div{:clas => "large-12 columns"}
+    .survey-wrapper
+      .row
+        .large-12.columns
+          .panel.disclaimer
+            %h4
+              RISET KEPROFESIAN ALUMNI
+              %br
+                PERGURUAN TINGGI NEGERI DAN SWASTA DI INDONESIA
+                %br TAHUN 2007 – 2013
+            %p Kampus.co.id merupakan salah satu media informasi dan peringkat mengenai perguruan tinggi negeri dan swasta di Indonesia. Survey ini adalah survey untuk alumni perguruan tinggi negeri dan swasta lulusan tahun 2007 hingga 2013 guna untuk menyempurnakan informasi yang akan kami sajikan pada setiap perguruan tinggi terkait. Tujuan dari data alumni ini adalah untuk memberikan informasi kepada calon mahasiswa dan menjadi indikator dalan penentuan peringkat perguruan tinggi. Oleh karena itu, besar harapan kami agar saudara/i berkenan memberikan informasi pada kuesioner berikut dengan sebenar-benarnya. Segala informasi yang saudara/i berikan akan dijamin kerahasiaannya. Terima Kasih
+
+      = form_for @survey_responden, :html => { class: 'custom' } do |f| 
+        %fieldset
+          .row
+            .large-9.columns
+              .panel-a-1
+                %fieldset
+                  %h4 Identitas Responden (A)
+                  .row
+                    .small-11
+                      .row
+                        .small-4.columns
+                          %label.left.inline.extra-left-padding{:for => "right-label-1"} (1) Usia
+                        .small-1.columns
+                          %label.inline :
+                        .small-7.columns
+                          %input#right-label-1{:placeholder => "usia", :type => "text"}
+                      .row
+                        .small-4.columns
+                          %label.left.inline.extra-left-padding{:for => "right-label-2"} (2) Asal PT*
+                        .small-1.columns
+                          %label.inline :
+                        .small-7.columns
+                          %input#right-label-2{:placeholder => "asal pt", :type => "text"}
+                      .row
+                        .small-4.columns
+                          %label.left.inline.extra-left-padding{:for => "right-label-3"} (3) Jurusan/Prodi*
+                        .small-1.columns
+                          %label.inline :
+                        .small-7.columns
+                          %input#right-label-3{:placeholder => "jurusan/prodi", :type => "text"}
+                      .row
+                        .small-4.columns
+                          %label.left.inline.extra-left-padding{:for => "right-label-4"} (4) Tahun Lulus*
+                        .small-1.columns
+                          %label.inline :
+                        .small-7.columns
+                          %input#right-label-4{:placeholder => "tahun lulus", :type => "text"}
+                      .row
+                        .small-4.columns
+                          %label.left.inline.extra-left-padding{:for => "right-label-5"} (5) Jenis Kelamin
+                        .small-1.columns
+                          %label.inline :
+                        .small-7.columns
+                          %label{:for => "radio1"}
+                            %input#radio1{:name => "radio1", :style => "display:none;", :type => "radio"}
+                              %span.custom.radio
+                              Pria
+                          %label{:for => "radio1"}
+                            %input#radio1{:name => "radio1", :style => "display:none;", :type => "radio"}
+                              %span.custom.radio
+                              Wanita
+                      .row
+                        .small-4.columns
+                          %label.left.inline.extra-left-padding{:for => "right-label-4"} (6) Tempat Tinggal Saat Ini
+                        .small-1.columns
+                          %label.inline :
+                        .small-7.columns
+                          %textarea{:placeholder => "tempat tinggal saat ini"}
+                      .row
+                        .small-12.columns
+                          %label.left.inline.extra-left-padding.margin-bottom-none *Diisi sesuai dengan pendidikan awal Anda. Jika Anda merangkap, maka pilih salah satu yang paling mendominasi dalam karir Anda selama ini.
+            .large-3.columns
+              .panel-a-2
+                %form
+                  %fieldset
+                    %h5 No. Responden
+                    %label 1300
+          .row
+            .large-12.columns
+              .panel-b
+                %h4 Education (B)
+                .row
+                  .small-11
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-1"} (1) Berapa lama Anda menjalani perkuliahan?
+                      .small-11.columns
+                        - @range_lama_kuliahs.each do |range_lama_kuliah|
+                          %label{:for => "radio2"}
+                            = f.radio_button :range_lama_kuliah_id, range_lama_kuliah.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_lama_kuliah.lama
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"} (2) Berapakah IPK Anda ketika lulus?
+                      .small-11.columns
+                        - @range_ipks.each do |range_ipk|
+                          %label{:for => "radio3"}
+                            = f.radio_button :range_ipk_id, range_ipk.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_ipk.ipk
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-3"} (3) Apakah Anda memiliki sertifikat professional yang berkaitan dengan bidang Anda? Sebutkan!
+                      .row
+                        .small-6.large-3.columns
+                          %label.inline.super-extra-left-padding.no-margin{:for => "radio4"}
+                            %input#radio4{:name => "radio4", :style => "display:none;", :type => "radio" }
+                              %span.custom.radio
+                              Ya, saya punya.
+                        .small-6.large-4.columns
+                          %input.left.inline{:type => "text"}
+                        .large-5.columns
+                      .row
+                        .small-6.large-3.columns
+                          %label.inline.super-extra-left-padding.no-margin{:for => "radio4"}
+                            %input#radio4{:name => "radio4", :style => "display:none;", :type => "radio"}
+                              %span.custom.radio
+                              Tidak punya
+          .row
+            .large-12.columns
+              .panel-c
+                %h4 Career (C)
+                .row
+                  .small-11
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-1"}
+                          (1) Apakah pekerjaan
+                          %b PERTAMA
+                          Anda setelah
+                          %b lulus kuliah?
+                      .small-11.columns
+                        - @range_pekerjaan_pertamas.each do |range_pekerjaan_pertama|
+                          %label{:for => "radio4"}
+                            = f.radio_button :range_pekerjaan_pertama_id, range_pekerjaan_pertama.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_pekerjaan_pertama.pekerjaan_pertama
+                        .row
+                          .small-6.large-3.columns
+                            %label.inline.no-margin{:for => "radio4"}
+                              %input#radio4{:name => "radio4", :style => "display:none;", :type => "radio"}
+                                %span.custom.radio
+                                Lainnya, sebutkan
+                          .small-6.large-4.columns
+                            %input.left.inline{:type => "text"}
+                          .large-5.columns
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"}
+                          (2) Apakah profesi utama Anda
+                          %b saat ini?
+                      .small-11.columns
+                        - @range_profesis.each do |range_profesi|
+                          %label{:for => "radio5"}
+                            = f.radio_button :range_profesi_id, range_profesi.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_profesi.profesi
+                        .row
+                          .small-6.large-3.columns
+                            %label.inline.no-margin{:for => "radio4"}
+                              %input#radio4{:name => "radio4", :style => "display:none;", :type => "radio"}
+                                %span.custom.radio
+                                Lainnya, sebutkan
+                          .small-6.large-4.columns
+                            %input.left.inline{:type => "text"}
+                          .large-5.columns
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"}
+                          (3) Apakah pendidikan yang sedang /terakhir Anda hingga saat ini?
+                      .small-11.columns
+                        - @range_pendidikan_terakhirs.each do |range_pendidikan_terakhir|
+                          %label{:for => "radio6"}
+                            = f.radio_button :range_pendidikan_terakhir_id, range_pendidikan_terakhir.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_pendidikan_terakhir.pendidikan
+                    .row
+                      .small-12.columns
+                        %p.sub-label Pertanyaan C4 ditujukan untuk Anda yang pernah bekerja/melanjutkan studi
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"}
+                          (4) Berapa lama Anda mendapatkan pekerjaan
+                          = succeed "/melanjutkan" do
+                            %b PERTAMA
+                          studi setelah lulus kuliah?
+                      .small-11.columns
+                        - @range_waktu_tunggus.each do |range_waktu_tunggu|
+                          %label{:for => "radio7"}
+                            = f.radio_button :range_waktu_tunggu_id, range_waktu_tunggu.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_waktu_tunggu.waktu_tunggu
+                    .row
+                      .small-12.columns
+                        %p.sub-label Pertanyaan C5 – C8 ditujukan untuk Anda yang PERNAH BEKERJA
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"}
+                          (5) Berapakah gaji/income yang Anda terima pada
+                          %b saat pertama
+                          kali Anda bekerja/berwirausaha?
+                      .small-11.columns
+                        - @range_gaji_pertamas.each do |range_gaji_pertama|
+                          %label{:for => "radio8"}
+                            = f.radio_button :range_gaji_pertama_id, range_gaji_pertama.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_gaji_pertama.gaji_pertama
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"}
+                          (6) Berapakah gaji/income yang Anda terima pada pekerjaan/usaha Anda
+                          %b saat ini?
+                      .small-11.columns
+                        - @range_gajis.each do |range_gaji|
+                          %label{:for => "radio9"}
+                            = f.radio_button :range_gaji_id, range_gaji.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_gaji.gaji
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"} (7) Termasuk golongan manakah level karir terakhir (latest career level) Anda?
+                      .small-11.columns
+                        - @range_level_karirs.each do |range_level_karir|
+                          %label{:for => "radio10"}
+                            = f.radio_button :range_level_karir_id, range_level_karir.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_level_karir.level_karir
+                    .row
+                      .small-12.columns
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"}
+                          (8) Di bidang/sektor apakah pekerjaan/usaha Anda
+                          %b saat ini?
+                      .small-11.columns
+                        - @range_bidang_kerjas.each do |range_bidang_kerja|
+                          %label{:for => "radio11"}
+                            = f.radio_button :range_bidang_kerja_id, range_bidang_kerja.id, :style => "display:none;"
+                            %span.custom.radio
+                            = range_bidang_kerja.bidang
+          .row
+            .small-2.small-centered.columns
+              %input.small.button.survey-submit{:type => "submit", :value => "Submit"}

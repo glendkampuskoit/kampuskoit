@@ -41,9 +41,11 @@
           .rg-loading
     - elsif params[:controller] == "compare"
       = stylesheet_link_tag "compare", :media => "all"
+    - elsif params[:controller] == "survey_respondens"
+      = stylesheet_link_tag "survey", :media => "all"
     
   %body
-    - if params[:controller] == "compare"
+    - if params[:controller] == "compare" || params[:controller] == "survey_respondens"
       = render partial: "compare/header"
     - else
       = render :partial => "layouts/header"
@@ -53,6 +55,8 @@
       = render :partial => "prodis/header_extension"
     - elsif params[:controller] == "compare"
       = render :partial => "compare/meta_compare"
+    - elsif params[:controller] == "survey_respondens"
+      = render :partial => "survey_respondens/meta_header"
 
     %div{ role: "main" }
       = yield 

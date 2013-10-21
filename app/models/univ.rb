@@ -11,6 +11,7 @@ class Univ < ActiveRecord::Base
 	has_many :univgalleries, dependent: :delete_all
 	has_many :univkerjasamas, dependent: :delete_all
 	has_many :univprestasis, dependent: :delete_all
+	has_many :univreviews, dependent: :delete_all
 
 	validates :nama_pt, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }, reduce: true
 	#validates :tahun_berdiri, presence: true, length: { is: 4 }, reduce: true

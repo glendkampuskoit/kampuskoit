@@ -1,10 +1,11 @@
 class SurveyRespondensController < ApplicationController
 
-	def index
-		@survey_respondens = SurveyResponden.all
-	end
-
 	def new
+
+		if current_subscriber
+      redirect_to login_path
+    end		
+
 		@survey_responden = SurveyResponden.new
 		@range_gajis = RangeGaji.all
 		@range_bidang_kerjas = RangeBidangKerja.all

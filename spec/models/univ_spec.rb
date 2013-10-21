@@ -39,6 +39,7 @@ describe Univ do
 	it { should have_many(:univgalleries).dependent(:delete_all) }
 	it { should have_many(:univkerjasamas).dependent(:delete_all) }
 	it { should have_many(:univprestasis).dependent(:delete_all) }
+	it { should have_many(:univreviews).dependent(:delete_all) }
 
 	describe "should be valid" do
 		it { should be_valid }

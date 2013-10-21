@@ -7,6 +7,7 @@ class Subscriber < ActiveRecord::Base
 	has_many :subscriber_pelatihans, :dependent => :delete_all
 	has_many :subscriber_prestasis, :dependent => :delete_all
 	has_many :subscriber_rekomendasis, :dependent => :delete_all
+	has_many :univreviews, :dependent => :delete_all
 
 	belongs_to :provinsi, :foreign_key => :provinsi_id
 	belongs_to :kota, :foreign_key => :kota_id

@@ -1,27 +1,13 @@
 require 'spec_helper'
 
 describe 'Survey Responden' do 
-	subject { Page }
-
-	describe "go to Index page" do 
-		before { visit survey_respondens_path}
-
-    	it "should go to right page with title Kuisioner survey alumni" do
-      		should have_selector('title', :text => "Kuisioner Survey Alumni")
-    	end
-	end
+	subject { page }
 	
 	describe "add new record" do
-		before do 
-			visit new_survey_responden_path
-		end
-
-		it " Index page should have right title Lembar isian kusioner" do
-			should have_selector('title', :text => "Lembar isian kusioner" )
-		end
 
 		describe "fill with valid data" do
 			before do
+				visit new_survey_responden_path
 				fill_in "range_gaji_id", with: '1'
 				fill_in "range_bidang_kerja_id", with: '2' 
 				fill_in "range_waktu_tunggu_id", with: '3'

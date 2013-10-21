@@ -530,6 +530,90 @@ div[role="main"]{
 		max-height: auto !important;
 	}
 }
+.comment-wrapper{
+	>div>div{
+		h3,h5{
+			@include src-bold;
+		}
+		h3{
+			margin-bottom: 0;
+		}
+		.toLogin{
+			@include src-regular;
+			font-size: 0.850em;
+		}
+		h5{
+			margin-top: 20px;
+			padding-top: 8px;
+			border-top: 1px solid $highlight_separator;			
+		}
+	}
+}
+.comment-form{
+	border-bottom: 1px solid $highlight_separator;
+	margin-bottom: 30px;
+	fieldset{
+		border: none;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-top: 0;
+	}
+	label{
+		margin-bottom: 0;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		@include src-regular;
+		margin-right: 15px;
+	}
+	.rating{
+		padding-top: 4px;
+		padding-bottom: 4px;		
+		@media screen and (max-width: 480px) {
+			padding-left: 25px;
+		}
+	}
+}
+.comment-section{
+	border-bottom: 1px solid $highlight_separator;
+	section{
+		margin-bottom: 35px;
+	}
+	.comment-author, .comment-date, .comment-content{
+		@include src-regular;
+		margin-bottom: 0;
+	}
+	.comment-author{
+		color: $entry_header_hover;
+		@include src-semibold;
+		font-size: 1.250em;
+	}
+	.comment-date{
+		color: lighten($entry_text,15%);
+		font-size: 0.750em;
+	}
+	.comment-content{
+		margin-top: 10px;
+		font-size: 0.813em;
+		color: darken($entry_text,10%);
+	}
+}
+.pagination-centered{
+	margin-top: 20px;	
+}
+ul.pagination{
+	margin-bottom: 50px;
+	a{
+		@include arc-regular;
+	}	
+	li{
+		margin-left: 0;
+	}
+}
+.result-number{
+	@include src-bold;
+	font-size: 1.125em;
+	color: $result_number;
+}
 .secondary{	
 	padding-top: 15px;
 	background: -webkit-$website_kampus03_secondary radial-gradient(at 50% 0, rgba(0,0,0,0.3), transparent 65%);

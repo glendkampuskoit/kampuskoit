@@ -4,30 +4,28 @@ describe SurveyResponden do
 
 	before{
 		@surveyresponden = SurveyResponden.new(
-				univ: FactoryGirl.create(:univ),
-				subscriber: FactoryGirl.create(:subscriber),
-				range_gaji_id: '1',
-				range_bidang_kerja_id: '2',
-				range_waktu_tunggu_id: '3',
-				range_lama_kuliah_id: '1',
-				range_ipk_id: '1',
-				range_pekerjaan_pertama_id: '1',
-				range_profesi_id: '1',
-				range_pendidikan_terakhir_id: '1',
-				range_gaji_pertama_id: '1',
-				range_level_karir_id: '1'
+			univ: FactoryGirl.create(:univ),
+			subscriber: FactoryGirl.create(:subscriber),
+			range_gaji_id: FactoryGirl.create(:range_gaji),
+			range_bidang_kerja_id: FactoryGirl.create(:range_bidang_kerja),
+			range_waktu_tunggu_id:  FactoryGirl.create(:range_waktu_tunggu),
+			range_lama_kuliah_id:  FactoryGirl.create(:range_lama_kuliah),
+			range_ipk_id:  FactoryGirl.create(:range_ipk),
+			range_pekerjaan_pertama_id:  FactoryGirl.create(:range_pekerjaan_pertama),
+			range_profesi_id:  FactoryGirl.create(:range_profesi),
+			range_pendidikan_terakhir_id:  FactoryGirl.create(:range_pendidikan_terakhir),
+			range_gaji_pertama_id:  FactoryGirl.create(:range_gaji_pertama),
+			range_level_karir_id:  FactoryGirl.create(:range_level_karir)
 			)
-
 	}
 
 	subject{@surveyresponden}
 
 	it { should respond_to(:univ)}
 	it { should respond_to(:subscriber)}
-
-    it { should respond_to(:range_gaji_id)}
-    it { should respond_to(:range_bidang_kerja_id)}
-    it { should respond_to(:range_waktu_tunggu_id)}
+	it { should respond_to(:range_gaji_id)}
+	it { should respond_to(:range_bidang_kerja_id)}
+	it { should respond_to(:range_waktu_tunggu_id)}
 	it { should respond_to(:range_lama_kuliah_id)}
 	it { should respond_to(:range_ipk_id)}
 	it { should respond_to(:range_pekerjaan_pertama_id)}
