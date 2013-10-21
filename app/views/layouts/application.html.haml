@@ -43,9 +43,11 @@
       = stylesheet_link_tag "compare", :media => "all"
     - elsif params[:controller] == "survey_respondens"
       = stylesheet_link_tag "survey", :media => "all"
+    - elsif params[:controller] == "sessions"
+      = stylesheet_link_tag "session", :media => "all"
     
   %body
-    - if params[:controller] == "compare" || params[:controller] == "survey_respondens"
+    - if params[:controller] == "compare" || params[:controller] == "survey_respondens" || params[:controller] == "sessions"
       = render partial: "compare/header"
     - else
       = render :partial => "layouts/header"
@@ -57,6 +59,8 @@
       = render :partial => "compare/meta_compare"
     - elsif params[:controller] == "survey_respondens"
       = render :partial => "survey_respondens/meta_header"
+    - elsif params[:controller] == "sessions"
+      = render :partial => "sessions/meta_header"
 
     %div{ role: "main" }
       = yield 
