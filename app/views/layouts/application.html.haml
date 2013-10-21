@@ -10,11 +10,6 @@
     - elsif params[:controller] == "univs" && params[:action] == "index"
       = stylesheet_link_tag "univ_search", :media => "all"
     - elsif params[:controller] == "search" && params[:att] == "univ"
-      = stylesheet_link_tag "search_all_univ", :media => "all"
-    - elsif params[:controller] == "search" && params[:att] == "prodi"
-      = stylesheet_link_tag "search_all_prodi", :media => "all"
-    - elsif params[:controller] == "prodis" && params[:action] == "index"
-      = stylesheet_link_tag "prodi_search", :media => "all"
     - elsif (params[:controller] == "univs" && params[:action] == "show")
       = stylesheet_link_tag "univ_profile", :media => "all"
       %noscript
@@ -27,18 +22,6 @@
           .rg-image
           .rg-loading
 
-    - elsif (params[:controller] == "prodis" && params[:action] == "show")
-      = stylesheet_link_tag "prodi_profile", :media => "all"
-      %noscript
-        :css
-          .es-carousel ul{
-            display:block;
-          }
-
-      %script{ id: "img-wrapper-tmpl", type: "text/x-jquery-tmpl" }
-        .rg-image-wrapper
-          .rg-image
-          .rg-loading
     - elsif params[:controller] == "compare"
       = stylesheet_link_tag "compare", :media => "all"
     - elsif params[:controller] == "survey_respondens"
@@ -53,8 +36,6 @@
       = render :partial => "layouts/header"
     - if params[:controller] == "univs" || (params[:controller] == "search" && params[:att] == "univ")
       = render :partial => "univs/header_extension"
-    - elsif params[:controller] == "prodis" || (params[:controller] == "search" && params[:att] == "prodi")
-      = render :partial => "prodis/header_extension"
     - elsif params[:controller] == "compare"
       = render :partial => "compare/meta_compare"
     - elsif params[:controller] == "survey_respondens"
@@ -77,7 +58,7 @@
 
     = javascript_include_tag "application"
 
-    - if params[:controller] == "univs" && params[:action] == "show" || params[:controller] == "prodis" && params[:action] == "show"
+    - if params[:controller] == "univs" && params[:action] == "show"
       = javascript_include_tag "front/univ_profile"
 
     :javascript
@@ -99,7 +80,7 @@
     :javascript
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
-    - if params[:controller] == "univs" && params[:action] == "show" || params[:controller] == "prodis" && params[:action] == "show"
+    - if params[:controller] == "univs" && params[:action] == "show"
       :javascript
         $('.popup-gallery-container').each(function() {
           $(this).magnificPopup({

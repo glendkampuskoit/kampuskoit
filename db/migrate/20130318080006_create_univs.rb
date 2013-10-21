@@ -17,7 +17,27 @@ class CreateUnivs < ActiveRecord::Migration
       t.text :deskripsi
       t.text :logo_path
 
+      # foreign key
+      t.integer :kota_id
+      t.integer :jenis_pt_id
+
+      # slug
+      t.string :slug
+
+      #image
+      t.string :logo
+      t.string :featured_image
+
+      #socmed
+      t.string :facebook
+      t.string :twitter
+      t.string :youtube
+
       t.timestamps
+      t.string :created_by
+      t.string :updated_by   
     end
+    add_index :univs, :slug, :unique => true
+    add_index :univs, :kota_id    
   end
 end

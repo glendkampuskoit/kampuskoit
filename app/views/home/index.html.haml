@@ -18,14 +18,14 @@
           /%li= link_to "Program Studi", prodis_path
           /%li= link_to "Login", "#"
 
-    - if flash[:newsletter_error] != nil 
+    - if flash[:errror] != nil 
       %div{ data: { alert: true }, class: "alert-box alert", align: "center" }
-        = flash[:newsletter_error]
+        = flash[:errror]
         %a{ href: "#", class: "close"} &times;
 
-    - if flash[:newsletter_success] != nil
+    - if flash[:success] != nil
       %div{ data: { alert: true }, class: "alert-box", align: "center" }
-        = flash[:newsletter_success]
+        = flash[:success]
         %a{ href: "#", class: "close"} &times;
 
     %div{ role: "main" }

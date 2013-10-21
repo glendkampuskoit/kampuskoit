@@ -5,6 +5,8 @@ class CreateAdmins < ActiveRecord::Migration
       t.string :email
       t.string :password_digest, null: true
       t.string :remember_token
+      t.string :role
+      t.integer :univ_id
 
       t.timestamps
     end

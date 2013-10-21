@@ -6,8 +6,14 @@ class CreateSubscriberPrestasis < ActiveRecord::Migration
       t.text :tempat
       t.integer :tahun
       t.text :path_sertifikat
+      t.integer :subscriber_id
+      
 
-      t.timestamps
+      t.string :created_by
+      t.string :updated_by 
+
+      t.timestamps      
     end
+    add_index :subscriber_prestasis, :subscriber_id
   end
 end
