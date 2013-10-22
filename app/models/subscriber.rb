@@ -1,14 +1,6 @@
 class Subscriber < ActiveRecord::Base
-	
-	has_many :subscriber_beasiswas, :dependent => :delete_all
-	has_many :subscriber_organisasis, :dependent => :delete_all
-	has_many :subscriber_pendidikans, :dependent => :delete_all
-	has_many :subscriber_pengalaman_kerjas, :dependent => :delete_all
-	has_many :subscriber_pelatihans, :dependent => :delete_all
-	has_many :subscriber_prestasis, :dependent => :delete_all
-	has_many :subscriber_rekomendasis, :dependent => :delete_all
-	has_many :univreviews, :dependent => :delete_all
 
+	has_many :univreviews, :dependent => :delete_all
 	belongs_to :provinsi, :foreign_key => :provinsi_id
 	belongs_to :kota, :foreign_key => :kota_id
 
@@ -18,7 +10,6 @@ class Subscriber < ActiveRecord::Base
 	before_save :create_remember_token
 
 	validates :name, presence: true, length: { maximum: 50 }
-
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
