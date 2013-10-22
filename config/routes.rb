@@ -1,10 +1,9 @@
 Campus::Application.routes.draw do
 
-  get "prodi_fasil_galleries/create"
-
-  get "prodi_fasil_galleries/destroy"
-
   root to: 'home#index'
+
+  get "prodi_fasil_galleries/create"
+  get "prodi_fasil_galleries/destroy"
 
   resources :univs, only: [:index, :show]
   resources :subscribers, only: [:new, :create]
@@ -52,16 +51,6 @@ Campus::Application.routes.draw do
     resources :provinsis
     resources :jenjang_prodis
     resources :jenis_pts
-    resources :range_gajis
-    resources :range_bidang_kerjas
-    resources :range_waktu_tunggus
-    resources :range_gaji_pertamas
-    resources :range_ipks
-    resources :range_lama_kuliahs
-    resources :range_level_karirs
-    resources :range_pekerjaan_pertamas
-    resources :range_pendidikan_terakhirs
-    resources :range_profesis
     resources :univs, only: [:new, :create, :edit, :update, :destroy] do
       resources :univfasilitases, except: [:new]
       resources :univkerjasamas, except: [:new]

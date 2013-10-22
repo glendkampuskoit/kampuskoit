@@ -1,13 +1,11 @@
 class PasswordResetsController < ApplicationController
 
 	def new
-		@subscriber = current_subscriber
-		
+		@subscriber = current_subscriber		
 	end
 
 	def create
 		subscriber = Subscriber.find_by_email(params[:email])
-
 		if subscriber
 			subscriber.send_password_reset 
 			sign_out
