@@ -26,7 +26,7 @@
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          %input#right-label-1{:placeholder => "usia", :type => "text"}
+                          = f.text_field :usia, :placeholder => "Isikan usia anda sekarang"
                       .row
                         .small-4.columns
                           %label.left.inline.extra-left-padding{:for => "right-label-2"} (2) Asal PT*
@@ -48,6 +48,7 @@
                           %label.inline :
                         .small-7.columns
                           %input#right-label-4{:placeholder => "tahun lulus", :type => "text"}
+                          = f.text_field :tahun_lulus, :placeholder => "Isikan tahun lulus anda"
                       .row
                         .small-4.columns
                           %label.left.inline.extra-left-padding{:for => "right-label-5"} (5) Jenis Kelamin
@@ -55,7 +56,7 @@
                           %label.inline :
                         .small-7.columns
                           %label{:for => "radio1"}
-                            %input#radio1{:name => "radio1", :style => "display:none;", :type => "radio"}
+                            %input#radio1{:name => "radio1", :style => "display:none;", :type => "radio", :checked => true }
                               %span.custom.radio
                               Pria
                           %label{:for => "radio1"}
@@ -68,7 +69,7 @@
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          %textarea{:placeholder => "tempat tinggal saat ini"}
+                          = f.text_area :alamat, :placeholder => "tempat tinggal saat ini"
                       .row
                         .small-12.columns
                           %label.left.inline.extra-left-padding.margin-bottom-none *Diisi sesuai dengan pendidikan awal Anda. Jika Anda merangkap, maka pilih salah satu yang paling mendominasi dalam karir Anda selama ini.
@@ -139,15 +140,6 @@
                             = f.radio_button :range_pekerjaan_pertama_id, range_pekerjaan_pertama.id, :style => "display:none;"
                             %span.custom.radio
                             = range_pekerjaan_pertama.pekerjaan_pertama
-                        .row
-                          .small-6.large-3.columns
-                            %label.inline.no-margin{:for => "radio4"}
-                              %input#radio4{:name => "radio4", :style => "display:none;", :type => "radio"}
-                                %span.custom.radio
-                                Lainnya, sebutkan
-                          .small-6.large-4.columns
-                            %input.left.inline{:type => "text"}
-                          .large-5.columns
                     .row
                       .small-12.columns
                         %label.left.inline.extra-left-padding{:for => "right-label-2"}
@@ -159,15 +151,6 @@
                             = f.radio_button :range_profesi_id, range_profesi.id, :style => "display:none;"
                             %span.custom.radio
                             = range_profesi.profesi
-                        .row
-                          .small-6.large-3.columns
-                            %label.inline.no-margin{:for => "radio4"}
-                              %input#radio4{:name => "radio4", :style => "display:none;", :type => "radio"}
-                                %span.custom.radio
-                                Lainnya, sebutkan
-                          .small-6.large-4.columns
-                            %input.left.inline{:type => "text"}
-                          .large-5.columns
                     .row
                       .small-12.columns
                         %label.left.inline.extra-left-padding{:for => "right-label-2"}
@@ -238,4 +221,5 @@
                             = range_bidang_kerja.bidang
           .row
             .small-2.small-centered.columns
+              %input{ :type => "hidden", :value => current_subscriber.id }
               %input.small.button.survey-submit{:type => "submit", :value => "Submit"}

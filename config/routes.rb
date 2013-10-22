@@ -6,11 +6,7 @@ Campus::Application.routes.draw do
 
   root to: 'home#index'
 
-  #resources :prodis, only: [:index]
-  resources :univs, only: [:index, :show] #do
-  #resources :univs, only: [:show] do
-  #  resources :prodis, only: [:show]
-  #end
+  resources :univs, only: [:index, :show]
   resources :subscribers, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   resources :visitors, only: [:create]
@@ -84,8 +80,6 @@ Campus::Application.routes.draw do
     resources :admin_profiles, only: [:edit, :update]
     resources :univgalleries, only: [:create, :destroy]
     resources :univ_fasilitas_galleries, only: [:create, :destroy]
-    #resources :prodi_galleries, only: [:create, :destroy]
-    #resources :prodi_fasilitas_galleries, only: [:create, :destroy]
     resources :prodi_bidangs
 
     # special for univ & prodi list

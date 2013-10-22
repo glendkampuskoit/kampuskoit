@@ -8,6 +8,7 @@ class Prodi < ActiveRecord::Base
 	belongs_to :prodi_bidang, foreign_key: :prodi_bidang_id
 	has_many :prodi_akreditasis, dependent: :delete_all
 	has_many :prodi_passing_grades, dependent: :delete_all
+	has_many :survey_respondens, dependent: :delete_all
 
 	validates :nama_prodi, presence: true, length: { maximum: 255 }, uniqueness: { scope: [:jenjang_prodi_id, :univ_id], case_sensitive: false }, reduce: true
 	validates :fakultas, presence: true

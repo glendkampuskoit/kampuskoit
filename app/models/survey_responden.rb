@@ -1,5 +1,6 @@
 class SurveyResponden < ActiveRecord::Base
 		belongs_to :univ, foreign_key: :univ_id
+		belongs_to :prodi, foreign_key: :prodi_id
 		belongs_to :subscriber, foreign_key: :subscriber_id
 		belongs_to :range_gaji, foreign_key: :range_gaji_id
 		belongs_to :range_gaji_pertama, foreign_key: :range_gaji_pertama_id
@@ -22,4 +23,12 @@ class SurveyResponden < ActiveRecord::Base
 		validates :range_pendidikan_terakhir_id, presence: true
 		validates :range_gaji_pertama_id, presence: true
 		validates :range_level_karir_id, presence: true
+		validates :univ, presence: true
+		validates :prodi, presence: true
+		validates :sertifikasi_professional, presence: true
+		validates :usia, presence: true
+		validates :alamat, presence: true
+		validates :jenis_kelamin, presence: true
+		validates :tahun_lulus, presence: true, length: { maximum: 4 }
+
 end

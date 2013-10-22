@@ -2,7 +2,7 @@ class SurveyRespondensController < ApplicationController
 
 	def new
 
-		if current_subscriber
+		if !current_subscriber
       redirect_to login_path
     end		
 
