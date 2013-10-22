@@ -6,7 +6,6 @@ describe Feedback do
   subject{ @feedback }
 
   it { should be_valid }
-
   it { should respond_to(:from) }  
   it { should respond_to(:feed) }  
   

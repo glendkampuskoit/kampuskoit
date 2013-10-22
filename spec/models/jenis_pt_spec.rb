@@ -6,8 +6,7 @@ describe JenisPt do
 
   subject { @jenispt }
 
-  it { should respond_to(:jenis) }
-  
+  it { should respond_to(:jenis) }  
   it { should have_many(:univs).dependent(:delete_all) }
 
   describe "jenis PT must be unique" do
