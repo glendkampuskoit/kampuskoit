@@ -28,6 +28,8 @@
       = stylesheet_link_tag "survey", :media => "all"
     - elsif params[:controller] == "sessions"
       = stylesheet_link_tag "session", :media => "all"
+    - elsif params[:controller] == "univreviews"
+      = stylesheet_link_tag "univreview", :media => "all"
     
   %body
     - if params[:controller] == "compare" || params[:controller] == "survey_respondens" || params[:controller] == "sessions"
