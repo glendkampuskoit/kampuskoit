@@ -13,12 +13,7 @@ class AdminsController < ApplicationController
 
 	def create
 		@admin = Admin.new(params[:admin])
-  	#if verify_recaptcha(:model => @subscriber, :message => "Oh! It's error with reCAPTCHA!") && @subscriber.save
     if @admin.save
-  		# code here
-      #sign_in @subscriber
-      #SubscriberMailer.welcome_email(@subscriber).deliver
-      #flash[:success] = "Pendaftaran Sukses. Silakan cek email anda untuk melakukan verifikasi email."
   		redirect_to admins_path, notice: 'Admin was successfully added.' 
   	else
   		render 'new'

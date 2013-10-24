@@ -9,15 +9,15 @@ class AdminSessionsController < ApplicationController
 
   def create
   	admin = Admin.find_by_email(params[:admin_session][:email])
-  	  if admin && admin.authenticate(params[:admin_session][:password])
-  	  	# success
-  	    admin_sign_in admin
-  	    redirect_to dashboard_path
-  	  else
-  	  	# login failed
-  	  	flash[:login_error] = 'Email atau password salah'
-  	  	redirect_to new_admin_session_path
-  	  end
+    if admin && admin.authenticate(params[:admin_session][:password])
+      # success
+      admin_sign_in admin
+      redirect_to dashboard_path
+    else
+      # login failed
+      flash[:login_error] = 'Email atau password salah'
+      redirect_to new_admin_session_path
+    end
   end
 
   def destroy

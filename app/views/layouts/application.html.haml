@@ -32,7 +32,7 @@
       = stylesheet_link_tag "univreview", :media => "all"
     
   %body
-    - if params[:controller] == "compare" || params[:controller] == "survey_respondens" || params[:controller] == "sessions"
+    - if params[:controller] == "compare" || params[:controller] == "survey_respondens" || params[:controller] == "sessions" || params[:controller] == "univreviews"
       = render partial: "compare/header"
     - else
       = render :partial => "layouts/header"
@@ -44,6 +44,8 @@
       = render :partial => "survey_respondens/meta_header"
     - elsif params[:controller] == "sessions"
       = render :partial => "sessions/meta_header"
+    - elsif params[:controller] == "univreviews"
+      = render :partial => "univreviews/meta_header"
 
     %div{ role: "main" }
       = yield 

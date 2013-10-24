@@ -72,6 +72,7 @@ class UnivsController < ApplicationController
 
     @provinsis = Provinsi.order("provinsi ASC")
     @jenis_pts = JenisPt.order("jenis ASC")
+    @reviews = Univreview.where("univ_id" => @univ )
     @params_value = { :keyword => "", :provinsi_id => @univ.kota.provinsi.id, :jenis_pt_id => @univ.jenis_pt.id }
 
     #trick for friendly_id
