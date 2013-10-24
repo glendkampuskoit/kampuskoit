@@ -11,7 +11,15 @@
                 %br TAHUN 2007 – 2013
             %p Kampus.co.id merupakan salah satu media informasi dan peringkat mengenai perguruan tinggi negeri dan swasta di Indonesia. Survey ini adalah survey untuk alumni perguruan tinggi negeri dan swasta lulusan tahun 2007 hingga 2013 guna untuk menyempurnakan informasi yang akan kami sajikan pada setiap perguruan tinggi terkait. Tujuan dari data alumni ini adalah untuk memberikan informasi kepada calon mahasiswa dan menjadi indikator dalan penentuan peringkat perguruan tinggi. Oleh karena itu, besar harapan kami agar saudara/i berkenan memberikan informasi pada kuesioner berikut dengan sebenar-benarnya. Segala informasi yang saudara/i berikan akan dijamin kerahasiaannya. Terima Kasih
 
+      - if @survey_responden.errors.any?
+        %div{ data: { alert: true }, class: "alert-box alert", align: "center" }
+          - @survey_responden.errors.full_messages.each do |msg|
+            = msg
+            %br
+            %a{ href: "#", class: "close"} &times;
+
       = form_for @survey_responden, :html => { class: 'custom' } do |f| 
+
         %fieldset
           .row
             .large-9.columns
@@ -26,29 +34,31 @@
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          = f.text_field :usia, :placeholder => "Isikan usia anda sekarang"
+                          = f.text_field :usia, :placeholder => "Isikan usia anda sekarang", :maxlength => 3
                       .row
                         .small-4.columns
                           %label.left.inline.extra-left-padding{:for => "right-label-2"} (2) Asal PT*
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          %input#right-label-2{:placeholder => "asal pt", :type => "text"}
+                          %input#autocomplete_pt{:placeholder => "asal pt", :type => "text"}
+                          = f.hidden_field :univ_id, id: "univ_id"
+                          
                       .row
                         .small-4.columns
                           %label.left.inline.extra-left-padding{:for => "right-label-3"} (3) Jurusan/Prodi*
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          %input#right-label-3{:placeholder => "jurusan/prodi", :type => "text"}
+                          %input#autocomplete_prodi{:placeholder => "jurusan/prodi", :type => "text"}
+                          = f.hidden_field :prodi_id, id: "prodi_id"
                       .row
                         .small-4.columns
                           %label.left.inline.extra-left-padding{:for => "right-label-4"} (4) Tahun Lulus*
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          %input#right-label-4{:placeholder => "tahun lulus", :type => "text"}
-                          = f.text_field :tahun_lulus, :placeholder => "Isikan tahun lulus anda"
+                          = f.text_field :tahun_lulus, :placeholder => "Isikan tahun lulus anda", :maxlength => 4
                       .row
                         .small-4.columns
                           %label.left.inline.extra-left-padding{:for => "right-label-5"} (5) Jenis Kelamin
@@ -56,13 +66,13 @@
                           %label.inline :
                         .small-7.columns
                           %label{:for => "radio1"}
-                            %input#radio1{:name => "radio1", :style => "display:none;", :type => "radio", :checked => true }
-                              %span.custom.radio
-                              Pria
+                            = f.radio_button :jenis_kelamin, "1", :style => "display:none;"
+                            %span.custom.radio
+                            Laki-laki
                           %label{:for => "radio1"}
-                            %input#radio1{:name => "radio1", :style => "display:none;", :type => "radio"}
-                              %span.custom.radio
-                              Wanita
+                            = f.radio_button :jenis_kelamin, "2", :style => "display:none;"
+                            %span.custom.radio
+                            Wanita
                       .row
                         .small-4.columns
                           %label.left.inline.extra-left-padding{:for => "right-label-4"} (6) Tempat Tinggal Saat Ini
@@ -78,7 +88,7 @@
                 %form
                   %fieldset
                     %h5 No. Responden
-                    %label 1300
+                    %label #{current_subscriber.id}
           .row
             .large-12.columns
               .panel-b
@@ -105,22 +115,16 @@
                             = range_ipk.ipk
                     .row
                       .small-12.columns
-                        %label.left.inline.extra-left-padding{:for => "right-label-3"} (3) Apakah Anda memiliki sertifikat professional yang berkaitan dengan bidang Anda? Sebutkan!
-                      .row
-                        .small-6.large-3.columns
-                          %label.inline.super-extra-left-padding.no-margin{:for => "radio4"}
-                            %input#radio4{:name => "radio4", :style => "display:none;", :type => "radio" }
-                              %span.custom.radio
-                              Ya, saya punya.
-                        .small-6.large-4.columns
-                          %input.left.inline{:type => "text"}
-                        .large-5.columns
-                      .row
-                        .small-6.large-3.columns
-                          %label.inline.super-extra-left-padding.no-margin{:for => "radio4"}
-                            %input#radio4{:name => "radio4", :style => "display:none;", :type => "radio"}
-                              %span.custom.radio
-                              Tidak punya
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"} (2) Berapakah IPK Anda ketika lulus?
+                      .small-11.columns
+                        %label{:for => "radio3"}
+                          = f.radio_button :sertifikasi_professional, "1", :style => "display:none;"
+                          %span.custom.radio
+                          Ya, saya punya
+                        %label{:for => "radio3"}
+                          = f.radio_button :sertifikasi_professional, "0", :style => "display:none;"
+                          %span.custom.radio
+                          Tidak punya
           .row
             .large-12.columns
               .panel-c
@@ -221,5 +225,5 @@
                             = range_bidang_kerja.bidang
           .row
             .small-2.small-centered.columns
-              %input{ :type => "hidden", :value => current_subscriber.id }
+              = f.hidden_field :subscriber_id, :value => current_subscriber.id
               %input.small.button.survey-submit{:type => "submit", :value => "Submit"}

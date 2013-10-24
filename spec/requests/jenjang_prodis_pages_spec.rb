@@ -47,6 +47,3 @@ describe "Jenjang Prodi Page" do
 	  end
   end
 end
-
-
-

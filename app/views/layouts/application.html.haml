@@ -90,3 +90,28 @@
           });
         });
       = yield :js_initialization
+
+    - if params[:controller] == "survey_respondens"
+      %script{ src: "/assets/jquery.autocomplete.min.js" }    
+      :javascript
+        $(document).foundation();
+        $(document).ready(function() {
+          $('#autocomplete_pt').autocomplete({
+            serviceUrl: '/univs_stream.json',
+            onSelect: function (suggestion) {
+              $("#univ_id").val(suggestion.data);
+              $("#autocomplete_pt").val(suggestion.value);
+
+              $('#autocomplete_prodi').autocomplete({
+                serviceUrl: '/prodis_stream.json',
+                params: { 
+                    univ_id : $("#univ_id").val()
+                },
+                onSelect: function (suggestion) {
+                  $("#prodi_id").val(suggestion.data);
+                  $("#autocomplete_prodi").val(suggestion.value);
+                }
+              });
+            }
+          });
+        });

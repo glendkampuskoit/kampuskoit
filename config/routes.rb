@@ -12,7 +12,7 @@ Campus::Application.routes.draw do
   resources :feedbacks, only: [:create]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :update_subscriber_profiles, only: [:edit, :update]
-  resources :survey_alumnis, only: [:index, :new, :create, :destroy]
+  resources :univreviews, only: [:new, :create ]
   resources :survey_respondens, only: [:new, :create ]
   resources :compare, only: [:index]
   

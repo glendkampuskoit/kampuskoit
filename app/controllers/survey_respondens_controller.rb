@@ -2,9 +2,9 @@ class SurveyRespondensController < ApplicationController
 
 	def new
 
-		if !current_subscriber
-      redirect_to login_path
-    end		
+		#if !current_subscriber
+    #  redirect_to login_path
+    #end		
 
 		@survey_responden = SurveyResponden.new
 		@range_gajis = RangeGaji.all
@@ -32,8 +32,12 @@ class SurveyRespondensController < ApplicationController
 		@range_gaji_pertamas = RangeGajiPertama.all
 		@range_level_karirs = RangeLevelKarir.all
 
+		#if SurveyResponden.where("subscriber_id" => current_subscriber)
+		#	render action: "new"
+		#end
+
 		if @survey_responden.save
-			redirect_to posts_path, :notice => "Terimakasih telah mengisi survey"
+			redirect_to univreviews_controller, :notice => "Terima Kasih telah mengisi survey. Silakan mengisi review dibawah ini"
 		else
 			render action: "new"
 		end
