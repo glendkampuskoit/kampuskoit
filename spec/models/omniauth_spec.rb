@@ -35,16 +35,4 @@ describe OmniAuth do
       expect { @subscriber2 = Subscriber.from_omniauth(omniauth_other) }.to change(Subscriber, :count)
     end
   end
-
-  # describe "other subscriber sign up via web with same email" do
-  #   it "wont save subscriber data" do
-  #     #expect { @subscriber2 = Subscriber.new(name: "Glend Maatita", email: "the_entung@yahoo.com", password: "foobar", password_confirmation: "foobar") }.not_to change(Subscriber, :count)
-  #     expect { @subscriber2 = Subscriber.new(name: "Glend Maatita", email: "the_entung@yahoo.com", password: "foobar", password_confirmation: "foobar") }.not_to change(Subscriber, :count)
-  #   end
-  # end
-
-  # describe "login with facebook will make from_facebook and value is true" do
-  #   specify { @subscriber.from_facebook.should == true }
-  #   specify { @subscriber.email_activation.should == true }
-  # end
 end

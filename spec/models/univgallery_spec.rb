@@ -29,9 +29,4 @@ describe Univgallery do
     before { @univgallery.description = "" } 
     it { should_not be_valid }
   end
-
-  pending "When image is blank" do
-    before { @univgallery.image = "" } 
-    it { should_not be_valid }
-  end
 end
