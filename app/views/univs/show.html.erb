@@ -327,7 +327,7 @@
     <div class="comment-wrapper">
       <div class="row">
         <div class="large-12 columns">
-          <a href="<%= new_survey_responden_path %>" target="_blank" class="toLogin">Ingin memberikan review untuk almamater anda? Silakan mengisi survey dan memberi review melalui link ini</a>
+          <a href="<%= new_survey_responden_path(:univ_id => @univ.id) %>" target="_blank" class="toLogin">Ingin memberikan review untuk almamater anda? Silakan mengisi survey dan memberi review melalui link ini</a>
           <% if @reviews.present? %>
           <h5>Total Review Keseluruhan</h5>
           <form class="comment-form">
@@ -407,16 +407,16 @@
             </fieldset>
           </form>
           <div class="comment-section">
-            <%= @reviews.each do |review| %>
+            <% @reviews.each do |rev| %>
             <section>
               <div class="row">
                 <div class="small-3 large-2 columns">
-                  <img src="/assets/front/profile/dummy-author.jpg">
+                  <img src="<%= rev.subscriber.image %>">
                 </div>
                 <div class="small-9 large-10 columns">
-                  <p class="comment-author"><%= review.subscriber.name %></p>
-                  <p class="comment-date"><%= review.created_at %></p>
-                  <p class="comment-content"><%= review.review %></p>
+                  <p class="comment-author"><%= rev.subscriber.name %></p>
+                  <p class="comment-date"><%= rev.created_at %></p>
+                  <p class="comment-content"><%= rev.review %></p>
                 </div>
               </div>
             </section>

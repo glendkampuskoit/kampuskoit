@@ -225,4 +225,5 @@
           .row
             .small-2.small-centered.columns
               = f.hidden_field :subscriber_id, :value => current_subscriber.id
+              = f.hidden_field :univ_id, :value => @univ_id
               %input.small.button.survey-submit{:type => "submit", :value => "Submit"}
