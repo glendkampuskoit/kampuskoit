@@ -2,10 +2,6 @@ FactoryGirl.define do
 	factory :subscriber do
 		name	"Glend Maatita"
 		sequence(:email){|n| "glend_maatita#{n}@yahoo.com" }
-		#password  "password"
-		#password_confirmation "password"
-		#from_facebook false
-		#email_activation false
 		association :kota, :factory => :kota
 		association :provinsi, :factory => :provinsi
 	end
