@@ -3,6 +3,12 @@
     .writereview-wrapper
       = form_for @univreview, :html => { class: 'writereview-form custom' } do |f|
         %fieldset
+          - if @univreview.errors.any?
+            %div{ data: { alert: true }, class: "alert-box alert", align: "center" }
+              - @univreview.errors.full_messages.each do |msg|
+                = msg
+                %br
+                %a{ href: "#", class: "close"} &times;
           .row
             .large-6.columns
               .row
@@ -33,4 +39,6 @@
                   = f.text_area :review, :class => "right-label-2 left inline"
           .row
             .small-3.small-centered.columns
+              = f.hidden_field :univ_id, :value => @univ_id
+              = f.hidden_field :subscriber_id, :value => current_subscriber.id
               %input.small.button.review-submit{:type => "submit", :value => "Submit"}
