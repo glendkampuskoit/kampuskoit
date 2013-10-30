@@ -22,6 +22,75 @@
           .rg-image
           .rg-loading
 
+      = javascript_include_tag "jquery"
+      = javascript_include_tag "highcharts"
+      :javascript
+        $(function () {
+          $('#container-chart').highcharts({
+            chart: {
+              type: 'bar'
+            },
+            title: {
+              text: 'APPROVED SPEND TO DATE FOR FISCAL YEAR 2013: $17,360,612'
+            },
+            xAxis: {
+              categories: ['Intellectual Property', 'Antitrust/Competition'],
+              title: {
+                text: null
+              },
+              labels : {
+                enabled: false
+              }
+            },
+            yAxis: {
+              stackLabels: {
+                formatter: function() {
+                  return this.axis.chart.xAxis[0].categories[this.x] + ': $' + this.total;
+                },
+                enabled: true,           
+                verticalAlign: 'top',     
+                align: 'left',
+                y: -5
+              },
+              min: 0,
+              title: {
+                text: 'Approved spend',
+                align: 'high'
+              },
+              labels: {
+                overflow: 'justify'
+              }
+            },
+            tooltip: {
+              valueSuffix: ' dollars'
+            },
+            plotOptions: {
+              bar: {
+                stacking: 'normal'
+              }
+            },
+            legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'top',
+              x: -40,
+              y: 100,
+              floating: true,
+              borderWidth: 1,
+              backgroundColor: '#FFFFFF',
+              shadow: true
+            },
+            credits: {
+              enabled: false
+            },
+            series: [{
+              name: 'Year 2013',
+              data: [6000123, 3743653]
+            }]
+          });
+        }); 
+
+
     - elsif params[:controller] == "compare"
       = stylesheet_link_tag "compare", :media => "all"
     - elsif params[:controller] == "survey_respondens"

@@ -532,21 +532,24 @@ div[role="main"]{
 }
 .comment-wrapper{
 	>div>div{
-		h3,h5{
+		h3,h4,h5{
 			@include src-bold;
 		}
-		h3{
+		h3,h4{
 			margin-bottom: 0;
 		}
 		.toLogin{
 			@include src-regular;
-			font-size: 0.850em;
+			font-size: 0.750em;
 		}
 		h5{
 			margin-top: 20px;
 			padding-top: 8px;
 			border-top: 1px solid $highlight_separator;			
 		}
+	}
+	.panel{
+		margin-bottom: 40px;
 	}
 }
 .comment-form{

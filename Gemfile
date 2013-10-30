@@ -19,8 +19,6 @@ group :development, :test do
 	gem "recaptcha", :require => "recaptcha/rails"
 	gem 'therubyracer', :require => "v8"
 	gem 'devise'
-	# Deploy with Capistrano
-	gem 'capistrano'
 end
 
 # group for tests only
@@ -76,4 +74,3 @@ gem 'haml'
 
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
-gem "chartkick"
