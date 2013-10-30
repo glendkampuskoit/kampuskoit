@@ -282,6 +282,7 @@ DEPENDENCIES
   haml
   jquery-rails
   mysql2 (~> 0.3.12b5)
+  omniauth
   omniauth-facebook
   omniauth-google-oauth2
   rails (= 3.2.1)

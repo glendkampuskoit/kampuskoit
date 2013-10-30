@@ -72,5 +72,6 @@ gem 'haml'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"

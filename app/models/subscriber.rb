@@ -4,7 +4,7 @@ class Subscriber < ActiveRecord::Base
 	belongs_to :provinsi, :foreign_key => :provinsi_id
 	belongs_to :kota, :foreign_key => :kota_id
 
-	attr_accessible :name, :email, :tempat_lahir, :tanggal_lahir, :agama, :alamat, :kodepos, :provinsi_id, :kota_id, :jenis_kelamin, :status_pernikahan, :telepon, :no_hp
+	attr_accessible :name, :email, :tempat_lahir, :tanggal_lahir, :agama, :alamat, :kodepos, :provinsi_id, :kota_id, :jenis_kelamin, :status_pernikahan, :telepon, :no_hp, :image
 
 	before_save { |subscriber| subscriber.email = email.downcase }
 	before_save :create_remember_token

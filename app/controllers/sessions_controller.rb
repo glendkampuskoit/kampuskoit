@@ -12,7 +12,9 @@ class SessionsController < ApplicationController
 	end
 
 	def create
+		#raise request.env["omniauth.auth"].to_yaml
 		subscriber = Subscriber.from_omniauth(env['omniauth.auth'])
+
 		sign_in(subscriber, 1) #login via facebook automatically add remember me
 		flash[:success] = 'Login sukses! Selamat datang di Kampus.co.id'
 
