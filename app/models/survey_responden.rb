@@ -13,16 +13,16 @@ class SurveyResponden < ActiveRecord::Base
 		belongs_to :range_bidang_kerja, foreign_key: :range_bidang_kerja_id
 		belongs_to :range_level_karir, foreign_key: :range_level_karir_id
 
-    validates :range_gaji_id, presence: true
-    validates :range_bidang_kerja_id, presence: true
-    validates :range_waktu_tunggu_id, presence: true
-		validates :range_lama_kuliah_id, presence: true
-		validates :range_ipk_id, presence: true
-		validates :range_pekerjaan_pertama_id, presence: true
-		validates :range_profesi_id, presence: true
-		validates :range_pendidikan_terakhir_id, presence: true
-		validates :range_gaji_pertama_id, presence: true
-		validates :range_level_karir_id, presence: true
+    validates :range_gaji, presence: true
+    validates :range_bidang_kerja, presence: true
+    validates :range_waktu_tunggu, presence: true
+		validates :range_lama_kuliah, presence: true
+		validates :range_ipk, presence: true
+		validates :range_pekerjaan_pertama, presence: true
+		validates :range_profesi, presence: true
+		validates :range_pendidikan_terakhir, presence: true
+		validates :range_gaji_pertama, presence: true
+		validates :range_level_karir, presence: true
 		validates :univ, presence: true
 		validates :prodi, presence: true
 		validates :sertifikasi_professional, presence: true

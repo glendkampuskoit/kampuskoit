@@ -8,16 +8,16 @@ describe SurveyResponden do
 			prodi: prodi,
 			univ: prodi.univ,
 			subscriber: FactoryGirl.create(:subscriber),
-			range_gaji_id: FactoryGirl.create(:range_gaji),
-			range_bidang_kerja_id: FactoryGirl.create(:range_bidang_kerja),
-			range_waktu_tunggu_id:  FactoryGirl.create(:range_waktu_tunggu),
-			range_lama_kuliah_id:  FactoryGirl.create(:range_lama_kuliah),
-			range_ipk_id:  FactoryGirl.create(:range_ipk),
-			range_pekerjaan_pertama_id:  FactoryGirl.create(:range_pekerjaan_pertama),
-			range_profesi_id:  FactoryGirl.create(:range_profesi),
-			range_pendidikan_terakhir_id:  FactoryGirl.create(:range_pendidikan_terakhir),
-			range_gaji_pertama_id:  FactoryGirl.create(:range_gaji_pertama),
-			range_level_karir_id:  FactoryGirl.create(:range_level_karir),
+			range_gaji: FactoryGirl.create(:range_gaji),
+			range_bidang_kerja: FactoryGirl.create(:range_bidang_kerja),
+			range_waktu_tunggu:  FactoryGirl.create(:range_waktu_tunggu),
+			range_lama_kuliah:  FactoryGirl.create(:range_lama_kuliah),
+			range_ipk:  FactoryGirl.create(:range_ipk),
+			range_pekerjaan_pertama:  FactoryGirl.create(:range_pekerjaan_pertama),
+			range_profesi:  FactoryGirl.create(:range_profesi),
+			range_pendidikan_terakhir:  FactoryGirl.create(:range_pendidikan_terakhir),
+			range_gaji_pertama:  FactoryGirl.create(:range_gaji_pertama),
+			range_level_karir:  FactoryGirl.create(:range_level_karir),
 			usia: 35,
 			tahun_lulus: 2005,
 			jenis_kelamin: 1,
@@ -32,16 +32,16 @@ describe SurveyResponden do
 
 	it { should respond_to(:univ)}
 	it { should respond_to(:subscriber)}
-	it { should respond_to(:range_gaji_id)}
-	it { should respond_to(:range_bidang_kerja_id)}
-	it { should respond_to(:range_waktu_tunggu_id)}
-	it { should respond_to(:range_lama_kuliah_id)}
-	it { should respond_to(:range_ipk_id)}
-	it { should respond_to(:range_pekerjaan_pertama_id)}
-	it { should respond_to(:range_profesi_id)}
-	it { should respond_to(:range_pendidikan_terakhir_id)}
-	it { should respond_to(:range_gaji_pertama_id)}
-	it { should respond_to(:range_level_karir_id)}
+	it { should respond_to(:range_gaji)}
+	it { should respond_to(:range_bidang_kerja)}
+	it { should respond_to(:range_waktu_tunggu)}
+	it { should respond_to(:range_lama_kuliah)}
+	it { should respond_to(:range_ipk)}
+	it { should respond_to(:range_pekerjaan_pertama)}
+	it { should respond_to(:range_profesi)}
+	it { should respond_to(:range_pendidikan_terakhir)}
+	it { should respond_to(:range_gaji_pertama)}
+	it { should respond_to(:range_level_karir)}
 
 
 #	describe 'When univ blank is not valid' do
@@ -55,52 +55,52 @@ describe SurveyResponden do
 # 	end
 
 	describe 'When gaji blank' do
- 		before { @survey_responden.range_gaji_id = '' }
+ 		before { @survey_responden.range_gaji = nil }
 		it { should_not be_valid }
  	end
 
 	describe 'When bidang_kerja blank' do
- 		before { @survey_responden.range_bidang_kerja_id = '' }
+ 		before { @survey_responden.range_bidang_kerja = nil }
 		it { should_not be_valid }
  	end
 
  	describe 'When waktu_tunggu blank' do
- 		before { @survey_responden.range_waktu_tunggu_id = '' }
+ 		before { @survey_responden.range_waktu_tunggu = nil }
 		it { should_not be_valid }
  	end
 
  	describe 'When lama_kuliah blank' do
- 		before { @survey_responden.range_bidang_kerja_id = '' }
+ 		before { @survey_responden.range_bidang_kerja = nil }
 		it { should_not be_valid }
  	end
 
  	describe 'When ipk blank' do
- 		before { @survey_responden.range_ipk_id = '' }
+ 		before { @survey_responden.range_ipk = nil }
 		it { should_not be_valid }
  	end
 
  	describe 'When pekerjaan_pertama blank' do
- 		before { @survey_responden.range_pekerjaan_pertama_id = '' }
+ 		before { @survey_responden.range_pekerjaan_pertama = nil }
 		it { should_not be_valid }
  	end
 
  	describe 'When profesi blank' do
- 		before { @survey_responden.range_profesi_id = '' }
+ 		before { @survey_responden.range_profesi = nil }
 		it { should_not be_valid }
  	end
 
  	describe 'When pendidikan_terakhir blank' do
- 		before { @survey_responden.range_pendidikan_terakhir_id = '' }
+ 		before { @survey_responden.range_pendidikan_terakhir = nil }
 		it { should_not be_valid }
  	end
 
  	describe 'When gaji_pertama blank' do
- 		before { @survey_responden.range_gaji_pertama_id = '' }
+ 		before { @survey_responden.range_gaji_pertama = nil }
 		it { should_not be_valid }
  	end
 
  	describe 'When level_karir blank' do
- 		before { @survey_responden.range_level_karir_id = '' }
+ 		before { @survey_responden.range_level_karir = nil }
 		it { should_not be_valid }
  	end
 
@@ -109,13 +109,13 @@ describe SurveyResponden do
 		it { should_not be_valid }
  	end
 
- 	describe 'When univ_id blank' do
- 		before { @survey_responden.univ_id = '' }
+ 	describe 'When univ blank' do
+ 		before { @survey_responden.univ = nil }
 		it { should_not be_valid }
  	end
 
- 	describe 'When prodi_id blank' do
- 		before { @survey_responden.prodi_id = '' }
+ 	describe 'When prodi blank' do
+ 		before { @survey_responden.prodi = nil }
 		it { should_not be_valid }
  	end
 

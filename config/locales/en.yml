@@ -43,6 +43,24 @@ en:
         level: "Level"
         deskripsi: "Deskripsi"
         lapangan_kerja: "Lapangan Kerja"
+      survey_responden:
+        range_gaji: "Gaji"
+        range_bidang_kerja: "Bidang Kerja"
+        range_waktu_tunggu: "Waktu Tunggu"
+        range_lama_kuliah: "Lama Kuliah"
+        range_ipk: "IPK"
+        range_pekerjaan_pertama: "Pekerjaan Pertama"
+        range_profesi: "Profesi"
+        range_pendidikan_terakhir: "Pendidikan"
+        range_gaji_pertama: "Gaji Pertama"
+        range_level_karir: "Level Karir"
+        univ: "Perguruan Tinggi"
+        prodi: "Program Studi"
+        sertifikasi_professional: "Sertifikasi Professional"
+        usia: "Usia"
+        alamat: "Alamat"
+        jenis_kelamin: "Jenis Kelamin"
+        tahun_lulus: "Tahun Lulus"
     errors:
       models:
         univ:
@@ -140,4 +158,40 @@ en:
             deskripsi:
               blank: "harus diisi"
             lapangan_kerja:
+              blank: "harus diisi"
+        survey_responden:
+          attributes:
+            range_gaji:
+              blank: "harus dipilih"
+            range_bidang_kerja:
+              blank: "harus dipilih"
+            range_waktu_tunggu:
+              blank: "harus dipilih"
+            range_lama_kuliah:
+              blank: "harus dipilih"
+            range_ipk:
+              blank: "harus dipilih"
+            range_pekerjaan_pertama:
+              blank: "harus dipilih"
+            range_profesi:
+              blank: "harus dipilih"
+            range_pendidikan_terakhir:
+              blank: "harus dipilih"
+            range_gaji_pertama:
+              blank: "harus dipilih"
+            range_level_karir:
+              blank: "harus dipilih"
+            univ:
+              blank: "harus dipilih"
+            prodi:
+              blank: "harus dipilih"
+            sertifikasi_professional:
+              blank: "harus dipilih"
+            usia:
+              blank: "harus diisi"
+            alamat:
+              blank: "harus diisi"
+            jenis_kelamin:
+              blank: "harus dipilih"
+            tahun_lulus:
               blank: "harus diisi"

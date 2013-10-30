@@ -13,10 +13,8 @@
 
       - if @survey_responden.errors.any?
         %div{ data: { alert: true }, class: "alert-box alert", align: "center" }
-          - @survey_responden.errors.full_messages.each do |msg|
-            = msg
-            %br
-            %a{ href: "#", class: "close"} &times;
+          = @survey_responden.errors.full_messages.first
+          %a{ href: "#", class: "close"} &times;
 
       = form_for @survey_responden, :html => { class: 'custom' } do |f|
         %fieldset
@@ -40,7 +38,7 @@
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          %input#autocomplete_pt{:placeholder => "asal pt", :type => "text"}
+                          %input#autocomplete_pt{:placeholder => "autocomplete: isikan perguruan tinggi", :type => "text"}
                           = f.hidden_field :univ_id, id: "univ_id"
                           
                       .row
@@ -49,7 +47,7 @@
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          %input#autocomplete_prodi{:placeholder => "jurusan/prodi", :type => "text"}
+                          %input#autocomplete_prodi{:placeholder => "autocomplete: isikan program studi", :type => "text"}
                           = f.hidden_field :prodi_id, id: "prodi_id"
                       .row
                         .small-4.columns
