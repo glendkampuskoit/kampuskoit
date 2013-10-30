@@ -149,6 +149,9 @@ div[role="main"]{
 	border-radius: 3px;
 	@include src-regular;
 }
+.field_with_errors{
+	display: none;
+}
 .secondary{	
 	padding-top: 15px;
 	background: -webkit-$website_kampus03_secondary radial-gradient(at 50% 0, rgba(0,0,0,0.3), transparent 65%);
