@@ -91,14 +91,11 @@ div[role="main"]{
 	}
 	img{		
 		display: block;
-		margin-bottom: 70px;
+		margin-bottom: 20px;
 	}
-	img:first-child{
-		float: left;
+	>div>div a:last-child img{
+		margin-bottom: 50px;
 	}
-	img:last-child{
-		float: right;
-	}	
 }
 .secondary{	
 	padding-top: 15px;
