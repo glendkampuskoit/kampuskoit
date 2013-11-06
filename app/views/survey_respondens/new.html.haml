@@ -77,7 +77,8 @@
                         .small-1.columns
                           %label.inline :
                         .small-7.columns
-                          = f.text_area :alamat, :placeholder => "tempat tinggal saat ini"
+                          %input#autocomplete_kota{:placeholder => "autocomplete: isikan kota tempat tinggal", :type => "text"}
+                          = f.hidden_field :alamat, id: "alamat"
                       .row
                         .small-12.columns
                           %label.left.inline.extra-left-padding.margin-bottom-none *Diisi sesuai dengan pendidikan awal Anda. Jika Anda merangkap, maka pilih salah satu yang paling mendominasi dalam karir Anda selama ini.
@@ -113,7 +114,7 @@
                             = range_ipk.ipk
                     .row
                       .small-12.columns
-                        %label.left.inline.extra-left-padding{:for => "right-label-2"} (2) Berapakah IPK Anda ketika lulus?
+                        %label.left.inline.extra-left-padding{:for => "right-label-2"} (2) Apakah anda punya sertifikasi professional
                       .small-11.columns
                         %label{:for => "radio3"}
                           = f.radio_button :sertifikasi_professional, "1", :style => "display:none;"

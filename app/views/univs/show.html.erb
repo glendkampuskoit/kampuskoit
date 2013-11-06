@@ -307,9 +307,9 @@
       <div class="row">
         <div class="large-12 columns">
           <div class="panel">
-            <h4>Universitas Indonesia Review</h4>
+            <h4><%= @univ.nama_pt.titleize %> Review</h4>
             <br>
-            <a href="<%= new_survey_responden_path(:univ_id => @univ.id) %>" class="toLogin">Belum ada review. Ingin menulis review untuk almamater Anda? klik link ini dan isi surveynya.</a>
+            <a href="<%= new_survey_responden_path(:univ_id => @univ.id) %>" target="_blank" class="toLogin">Belum ada review. Ingin menulis review untuk almamater Anda? klik link ini dan isi surveynya.</a>
           </div>
           <% if @reviews.present? %>
           <a href="<%= new_survey_responden_path(:univ_id => @univ.id) %>" target="_blank" class="toLogin">Ingin memberikan review untuk almamater anda? Silakan mengisi survey dan memberi review melalui link ini</a>

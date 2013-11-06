@@ -187,4 +187,12 @@
               });
             }
           });
+
+          $('#autocomplete_kota').autocomplete({
+            serviceUrl: '/kotas_stream.json',
+            onSelect: function (suggestion) {
+              $("#alamat").val(suggestion.data);
+              $("#autocomplete_kota").val(suggestion.value);
+            }
+          });
         });
