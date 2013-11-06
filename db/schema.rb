@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022033437) do
+ActiveRecord::Schema.define(:version => 20131104051923) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -52,13 +52,6 @@ ActiveRecord::Schema.define(:version => 20131022033437) do
   end
 
   add_index "kotas", ["provinsi_id"], :name => "index_kotas_on_provinsi_id"
-
-  create_table "penggunas", :force => true do |t|
-    t.string   "nama"
-    t.string   "alamat"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "prodi_akreditasis", :force => true do |t|
     t.string   "no_sk"
@@ -200,6 +193,20 @@ ActiveRecord::Schema.define(:version => 20131022033437) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "range_tempat_kerjas", :force => true do |t|
+    t.string   "tempat_kerja"
+    t.integer  "bobot"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "range_tempat_tinggals", :force => true do |t|
+    t.string   "tempat_tinggal"
+    t.integer  "bobot"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "range_waktu_tunggus", :force => true do |t|
     t.string   "waktu_tunggu"
     t.integer  "bobot"
@@ -323,7 +330,6 @@ ActiveRecord::Schema.define(:version => 20131022033437) do
     t.integer  "kota_id"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.string   "image"
   end
 
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true
@@ -360,6 +366,8 @@ ActiveRecord::Schema.define(:version => 20131022033437) do
     t.integer  "jenis_kelamin"
     t.string   "alamat"
     t.integer  "sertifikasi_professional"
+    t.string   "range_tempat_tinggal_id"
+    t.string   "range_tempat_kerja_id"
   end
 
   create_table "univ_fasilitas_galleries", :force => true do |t|
@@ -375,17 +383,6 @@ ActiveRecord::Schema.define(:version => 20131022033437) do
   end
 
   add_index "univ_fasilitas_galleries", ["univfasilitas_id"], :name => "index_univ_fasilitas_galleries_on_univfasilitas_id"
-
-  create_table "univ_reviews", :force => true do |t|
-    t.text     "review"
-    t.integer  "univ_id"
-    t.integer  "subsciber_id"
-    t.float    "fasilitas_point"
-    t.float    "beasiswa_point"
-    t.float    "relevansi_point"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
 
   create_table "univbeasiswas", :force => true do |t|
     t.string   "nama_beasiswa"
