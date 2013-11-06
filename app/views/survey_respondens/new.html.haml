@@ -79,7 +79,6 @@
                         .small-7.columns
                           %input#autocomplete_kota{:placeholder => "autocomplete: isikan kota tempat tinggal", :type => "text"}
                           = f.hidden_field :alamat, id: "alamat"
-                      .row
                         .small-12.columns
                           %label.left.inline.extra-left-padding.margin-bottom-none *Diisi sesuai dengan pendidikan awal Anda. Jika Anda merangkap, maka pilih salah satu yang paling mendominasi dalam karir Anda selama ini.
             .large-3.columns
@@ -114,16 +113,22 @@
                             = range_ipk.ipk
                     .row
                       .small-12.columns
-                        %label.left.inline.extra-left-padding{:for => "right-label-2"} (3)  Apakah Anda memiliki sertifikat professional yang berkaitan dengan bidang Anda?
-                      .small-11.columns
-                        %label{:for => "radio3"}
-                          = f.radio_button :sertifikasi_professional, "1", :style => "display:none;"
-                          %span.custom.radio
-                          Ya, saya punya
-                        %label{:for => "radio3"}
-                          = f.radio_button :sertifikasi_professional, "0", :style => "display:none;"
-                          %span.custom.radio
-                          Tidak punya
+                        %label.left.inline.extra-left-padding{:for => "right-label-3"} (3) Apakah Anda memiliki sertifikat professional yang berkaitan dengan bidang Anda? Sebutkan!
+                      .row
+                        .small-6.large-3.columns
+                          %label.inline.super-extra-left-padding.no-margin{:for => "radio4"}
+                            = f.radio_button :sertifikasi_professional, "1", :style => "display:none;"
+                            %span.custom.radio
+                            Ya, saya punya.
+                        .small-6.large-4.columns
+                          = f.text_field :nama_sertifikat
+                        .large-5.columns
+                      .row
+                        .small-6.large-3.columns
+                          %label.inline.super-extra-left-padding.no-margin{:for => "radio4"}
+                            = f.radio_button :sertifikasi_professional, "0", :style => "display:none;"
+                            %span.custom.radio
+                            Tidak punya
           .row
             .large-12.columns
               .panel-c

@@ -17,6 +17,8 @@ class SurveyRespondensController < ApplicationController
 		@range_pendidikan_terakhirs = RangePendidikanTerakhir.all
 		@range_gaji_pertamas = RangeGajiPertama.all
 		@range_level_karirs = RangeLevelKarir.all
+		@range_tempat_kerja = RangeTempatKerja.all
+		@range_tempat_tinggal = RangeTempatTinggal.all
 	end
 
 	def create
@@ -31,6 +33,8 @@ class SurveyRespondensController < ApplicationController
 		@range_pendidikan_terakhirs = RangePendidikanTerakhir.all
 		@range_gaji_pertamas = RangeGajiPertama.all
 		@range_level_karirs = RangeLevelKarir.all
+		@range_tempat_kerja = RangeTempatKerja.all
+		@range_tempat_tinggal = RangeTempatTinggal.all
 
 		#if SurveyResponden.where("subscriber_id" => current_subscriber)
 			#render action: "new"
