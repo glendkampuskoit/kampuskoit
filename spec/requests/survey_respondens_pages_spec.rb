@@ -28,7 +28,7 @@ describe "Survey Responden" do
 		range_level_karir
 	end
 	
-	pending "fill form with valid data" do
+	describe "fill form with valid data" do
 		before do
 			visit new_survey_responden_path			
 			fill_in "usia", with: 25

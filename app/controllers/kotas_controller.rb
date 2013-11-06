@@ -1,5 +1,5 @@
 class KotasController < ApplicationController
-	load_and_authorize_resource if Rails.env.development? || Rails.env.production?
+	load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy, :list] if Rails.env.development? || Rails.env.production?
 	layout "admin"
 	
 	def index
@@ -43,7 +43,7 @@ class KotasController < ApplicationController
   end
 
   def stream
-    kotas = Kota.where('kota LIKE ?', "%#{params[:query]}%") 
+    kotas = Kota.where('kota LIKE ?', "%#{params[:query]}%")
 
     @kota_data = Array.new
 

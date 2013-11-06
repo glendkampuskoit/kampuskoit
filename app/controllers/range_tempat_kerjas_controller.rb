@@ -1,0 +1,2 @@
+class RangeTempatKerjasController < ApplicationController
+end
