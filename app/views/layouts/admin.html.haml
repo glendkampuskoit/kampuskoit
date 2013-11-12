@@ -1,148 +1,120 @@
-<!DOCTYPE html>
-%html{ lang: "en" }
+%html
   %head
-    %meta{ charset: "utf-8" }
-      %title= "Kampus.co.id - #{ yield(:title) }"
-      %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport"}
-        %meta{ content: "", name: "description"}
-          %meta{ content: "stilearning", name: "author"}
-
-            %link{ href: "http://fonts.googleapis.com/css?family=Aclonica:regular", rel: "stylesheet", type: "text/css"}
-            - if params[:controller] == "dashboard"
-              = stylesheet_link_tag "list", :media => "all"
-              = javascript_include_tag "dashboard"
-            - elsif params[:action] == "index" || params[:action] == "list"
-              = stylesheet_link_tag "list", :media => "all"
-              = javascript_include_tag "list"
-            - elsif params[:action] == "new" || params[:action] == "edit" || params[:action] == "update" || params[:action] == "create"
-              = stylesheet_link_tag "form", :media => "all"
-              = javascript_include_tag "form"
-            /[if lt IE 9]
-              %script{ src: "js/html5shiv.js" }
+    %title= "Kampus.co.id - #{ yield(:title) }"
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0", :name => "viewport"}
+      %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}
+      %meta{:content => "black", :name => "apple-mobile-web-app-status-bar-style"}
+      = stylesheet_link_tag "admin", :media => "all"
   %body
-    = render partial: "layouts/admin_header"
-
-    %section.section
-      .row-fluid
-        .span1
-          %aside.side-left
-            %ul.sidebar
-              %li.active.first
-                = link_to dashboard_path, title: "dashboard" do
-                  .helper-font-24
-                    %i.icofont-dashboard
-                  %span.sidebar-text Dashboard
-                - if Rails.env == 'production' || Rails.env == 'development'
-                  - if current_user.role == 'admin'
-                    %li
-                      = link_to admins_path do
-                        .helper-font-24
-                          %i.icofont-user
-                        %span.sidebar-text Admin
-                    %li
-                      = link_to visitors_list_path do
-                        .helper-font-24
-                          %i.icofont-user-md
-                        %span.sidebar-text Visitor
-                    %li
-                      = link_to subscribers_list_path do
-                        .helper-font-24
-                          %i.icofont-user
-                        %span.sidebar-text Subscriber
-
-                - if Rails.env == 'production' || Rails.env == 'development'
-                  - if current_user.role == 'admin' || current_user.role == 'editor'
-                    %li
-                      %a{ href: "#" }
-                        .helper-font-24
-                          %i.icofont-folder-open
-                        %span.sidebar-text Master
-                      %ul.sub-sidebar.corner-top.shadow-silver-dark
+    .container-fluid.left-menu
+      .navbar.main
+        .innerpx
+          %button.btn.btn-navbar.hidden-desktop.hidden-tablet{:type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          .positionWrapper
+            %span.line
+            .profile
+              %img.avatar{:alt => "Profile", :src => "/assets/glend.jpg"}
+              %span.info.hidden-phone
+                %strong Glend Maatita
+                %em Content Manager
+            %ul.notif
+              %li
+                %a.glyphicons.charts.btn{"data-original-title" => "8765 Perguruan Tinggi", "data-placement" => "bottom", :href => "", :rel => "tooltip"}
+                  %i
+                  %span 8765
+              %li
+                %a.glyphicons.charts.btn{"data-original-title" => "1437 Program Studi", "data-placement" => "bottom", :href => "", :rel => "tooltip"}
+                  %i
+                  %span 1437
+            %ul.topnav.hidden-phone
+              %li
+                %a.logout.glyphicons.lock{:href => "login.html?lang=en"}
+                  %i
+                  %span Logout
+      .row-fluid.rrow.main
+        .span12.main.col{:role => "main"}
+          .row-fluid.rrow
+            .span2.col.main-left.hide.hidden-phone.menu-large.menu-small
+              .rrow.scroll-y-left
+                .iScrollWrapper
+                  %ul
+                    %li.glyphicons.dashboard.currentScroll.active
+                      %a{:href => "#{ dashboard_path }"}
+                        %i
+                        %span Dashboard
+                    %li.glyphicons.crown
+                      %a{:href => "#{ admins_path }"}
+                        %i
+                        %span Admin
+                    %li.glyphicons.old_man
+                      %a{:href => "#{ visitors_list_path }"}
+                        %i
+                        %span Visitor
+                    %li.glyphicons.group
+                      %a{:href => "#{ subscribers_list_path }"}
+                        %i
+                        %span Subscriber
+                    %li.hasSubmenu2
+                      %a.glyphicons.folder_open{"data-toggle" => "collapse", :href => "#menu_master"}
+                        %i
+                        %span Master
+                      %ul#menu_master.collapse
                         %li
-                          = link_to provinsis_path, title: "provinsi" do
-                            .helper-font-24
-                              %i.icofont-th-large
-                            %span.sidebar-text Provinsi
+                          %a.glyphicons.show_big_thumbnails{:href => "#{ provinsis_path }"}
+                            %i
+                            %span Provinsi
                         %li
-                          = link_to kotas_path, title: "login" do
-                            .helper-font-24
-                              %i.icofont-th
-                            %span.sidebar-text Kota
+                          %a.glyphicons.show_thumbnails{:href => "#{ kotas_path }"}
+                            %i
+                            %span Kota
                         %li
-                          = link_to jenis_pts_path, title: "jenis perguruan tinggi" do
-                            .helper-font-24
-                              %i.icofont-tags
-                            %span.sidebar-text Jenis PT
+                          %a.glyphicons.tags{:href => "#{ jenis_pts_path }"}
+                            %i
+                            %span Jenis PT
                         %li
-                          = link_to jenjang_prodis_path, title: "jenjang program studi" do
-                            .helper-font-24
-                              %i.icofont-tag
-                            %span.sidebar-text Jenjang
+                          %a.glyphicons.tag{:href => "#{ jenjang_prodis_path }"}
+                            %i
+                            %span Jenjang
                         %li
-                          = link_to prodi_bidangs_path, title: "bidang program studi" do
-                            .helper-font-24
-                              %i.icofont-columns
-                            %span.sidebar-text Bidang
-                %li
-                  %a{ href: "#" }
-                    .helper-font-24
-                      %i.icofont-hdd
-                    %span.sidebar-text Data
-                  %ul.sub-sidebar.corner-top.shadow-silver-dark
+                          %a.glyphicons.more_windows{:href => "#{ prodi_bidangs_path }"}
+                            %i
+                            %span Bidang
+                    %li.hasSubmenu2
+                      %a.glyphicons.hdd{"data-toggle" => "collapse", :href => "#data"}
+                        %i
+                        %span Data
+                      %ul#data.collapse
+                        %li
+                          %a.glyphicons.building{:href => "#{ univs_list_path }"}
+                            %i
+                            %span PT
+                        %li
+                          %a.glyphicons.building{:href => "#{ prodis_list_path }"}
+                            %i
+                            %span Prodi
+                    %li.glyphicons.certificate
+                      %a{:href => "#{ ranking_list_path }"}
+                        %i
+                        %span Ranking
+                %span.navarrow.hide
+                  %span.glyphicons.circle_arrow_down
+                    %i
+            .span10.col.main-right
+              #mainYScroller.rrow.scroll-y
+                .inner.topRight
+                  %ul.breadcrumb
                     %li
-                      = link_to univs_list_path, title: "perguruan tinggi" do
-                        .helper-font-24
-                          %i.icofont-building
-                        %span.sidebar-text PT
-                    %li
-                      = link_to prodis_list_path, title: "prodi" do
-                        .helper-font-24
-                          %i.icofont-hospital
-                        %span.sidebar-text Prodi
-
-                %li
-                  = link_to ranking_list_path, title: "ranking pt" do
-                    .helper-font-24
-                      %i.icofont-star
-                    %span.sidebar-text Ranking
-                %li
-                  = link_to admin_logout_path, title: "logout" do
-                    .helper-font-24
-                      %i.icofont-off
-                    %span.sidebar-text Logout
-
-        .span9
-          .content
-            .content-header
-              %ul.content-header-action.pull-right
-                %li
-                  = link_to univs_list_path do
-                    %span{ data: { chart: "peity-bar", colours: "[\"#00A600\", \"#00A600\"]", height: "32" }} 5,3,9,6,5,9,7,3,5,2
-                    .action-text.color-green
-                      8765
-                      %span.helper-font-small.color-silver-dark Perguruan Tinggi
-                %li.divider
-                %li
-                  = link_to prodis_list_path do
-                    %span{ data: { chart: "peity-bar", colours: "[\"#00A0B1\", \"#00A0B1\"]", height: "32" }} 9,7,9,6,3,5,3,5,5,2
-                    .action-text.color-teal
-                      1437
-                      %span.helper-font-small.color-silver-dark Program Studi
-              %h2
-                %i.icofont-home
-
-            .content-breadcrumb
-              %ul.breadcrumb
-                %li
-                  = link_to dashboard_path do
-                    %i.icofont-home 
-                    Dashboard
-                  %span.divider &rsaquo;
-                %li.active Data elements
-            
-            .content-body= yield
-
-    %footer
-      %a{ href: "#top", rel: "to-top"}
-        %i.icofont-circle-arrow-up
+                      %a.glyphicons.home{:href => "index.html?lang=en"}
+                        %i
+                        BootAdmin
+                    %li.divider
+                    %li Dashboard
+                  .separator
+                  = yield
+                  %br
+    = javascript_include_tag "admin"
 = debug(params) if Rails.env.development? 

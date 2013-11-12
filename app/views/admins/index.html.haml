@@ -1,58 +1,25 @@
 - provide(:title, "Administrator List")
-.row-fluid
-  .span12
-    = link_to "Tambah Administrator", new_admin_path, :role => "button", :class => "btn btn-mini btn-primary"
-.row-fluid
-  .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span Admins & Operators
-      .box-body
-        %table#datatables.table.table-hover.responsive
-          %thead
-            %tr
-              %th Nama
-              %th Role
-              %th Perguruan Tinggi
-              %th &nbsp;
-          %tbody
-            - @admins.each do |admin|
-              %tr
-                %td= admin.nama
-                %td= admin.role.capitalize
-                %td= admin.univ.present? ? admin.univ.nama_pt : "Super Administrator"
-                %td.center
-                  %span.label.label-info
-                    = link_to "Edit", edit_admin_path(admin)
-                  %span.label.label-important
-                    = link_to admin_path(admin), method: :delete, :class => "delete" do
-                      Delete
-      / /box-body
-    / /box
-  / /span
-:javascript
-  $(document).ready(function() {
-      // try your js
-      
-      // peity chart
-      $("span[data-chart=peity-bar]").peity("bar");
-      
-      
-      // datatables
-      $('#datatables').dataTable( {
-          "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-          "sPaginationType": "bootstrap",
-          "oLanguage": {
-                  "sLengthMenu": "_MENU_ records per page"
-          }
-      });
-
-      $('.delete').on('click', function () {
-          return confirm('Anda yakin akan menghapus data ini?');
-      });
-
-  });
+%a.btn.btn-info.btn-small.small-margin-bottom{:href => "#{ new_admin_path }"} Tambah Administrator
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Admins & Operators
+    .widget-body
+      %table.dynamicTable.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th{:width => "150"} Nama
+            %th{:width => "50"} Role
+            %th{:width => "150"} Perguruan Tinggi
+            %th{:width => "50"} &nbsp;
+        %tbody
+          - @admins.each do |admin|
+            %tr.gradeX
+              %td= admin.nama
+              %td= admin.role.capitalize
+              %td= admin.univ.present? ? admin.univ.nama_pt : "Super Administrator"
+              %td.center.actions
+                %a.btn-action.glyphicons.pencil.btn-success{:href => "#{ edit_admin_path(admin) }"}
+                  %i
+                %a.btn-action.glyphicons.remove_2.btn-danger{:href => "#{ admin_path(admin) }", method: :delete }
+                  %i
