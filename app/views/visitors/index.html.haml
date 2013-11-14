@@ -1,0 +1,18 @@
+- provide(:title, "Data Visitor")
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Data Visitor
+    .widget-body
+      %table.dynamicTable.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th{:width => "400"} Email
+            %th{:width => "50"} &nbsp;
+        %tbody
+          - @visitors.each do |visitor|
+            %tr.gradeX
+              %td= visitor.email
+              %td.center.actions
+                = link_to visitor_path(visitor), method: :delete, :class => "btn-action glyphicons remove_2 btn-danger" do
+                  %i

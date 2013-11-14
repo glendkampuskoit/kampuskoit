@@ -1,64 +1,59 @@
 .row-fluid
   .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span= yield(:title)
-      .box-body
-        = form_for @admin, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
-          - if @admin.errors.any?
-            .alert.alert-error
-              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
-              %div
-                - @admin.errors.full_messages.each do |msg|
-                  = msg
-                  %br
-          .control-group
-            %label.control-label{:for => "required"} Nama
-            .controls
-              = f.text_field :nama, :id => "nama", :class => "grd-white", :placeholder => "ex. Universitas XYZ", :data => {:validate => "{required: true, messages:{required:'Nama harus diisi'}}"}
-          .control-group
-            %label.control-label{:for => "required"} Email
-            .controls
-              = f.text_field :email, :id => "email", :class => "grd-white", :placeholder => "ex. user@xyz.com", :data => {:validate => "{required: true, email:true, messages:{required:'Email harus diisi', email: 'Format email tidak valid'}}"}
-          .control-group
-            %label.control-label{:for => "inputSelect"} Role
-            .controls
-              = f.collection_select :role, Admin::ROLES, :to_s, :humanize , {:selected => @admin.role}, :id => "role", :style => "width:200px", :data => {:form => "select2", :placeholder => "Pilih Admin Role"}
-          .control-group
-            %label.control-label{:for => "inputSelect"} Universitas
-            .controls
-              = collection_select(:admin, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt, {}, {:style => "width:200px", :id => "univ", :data => {:form => "select2", :placeholder => "Pilih Admin Role"}})
-          - if params[:action] != "edit"
-            .control-group
-              %label.control-label{:for => "required"} Password
-              .controls
-                = f.password_field :password, :id => "password", :class => "grd-white", :data => {:validate =>"{required: true, minlength: 6, messages:{required:'Password harus diisi', minlength:'Password minimal 6 karakter'}}"}
-            .control-group
-              %label.control-label{:for => "required"} Konfirmasi Password
-              .controls
-                = f.password_field :password_confirmation, :id => "password_confirmation", :class => "grd-white", :data => {:validate => "{required: true, equalTo: '#password', messages:{required:'Password Konfirmasi harus diisi', equalTo: 'Password konfirmasi harus sesuai'}}"}
-          .form-actions
-            %button.btn.btn-primary{:type => "submit"} Save
-            %button.btn{:type => "reset"} Reset
-      / /box-body
-    / /box
-  / /span
-:javascript
-  $(document).ready(function() {
-      // try your js
-      
-      // peity chart
-      $("span[data-chart=peity-bar]").peity("bar");
-
-      // uniform
-      $('[data-form=uniform]').uniform();
-
-      // select2
-      $('[data-form=select2]').select2();
-
-      $('#form-validate').validate();
-  });
+    = form_for @admin, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
+      - if @admin.errors.any?
+        .alert.alert-error
+          %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+          %div
+            - @admin.errors.full_messages.each do |msg|
+              = msg
+              %br
+      .tab-content{:style => "padding: 0;"}
+        #account-details.tab-pane.active
+          .widget.widget-2
+            .widget-head
+              %h4.heading.glyphicons.pencil
+                %i>
+                Add New Administrator
+            .widget-body{:style => "padding-bottom: 0;"}
+              .row-fluid
+                .span6
+                  .control-group
+                    %label.control-label Nama
+                    .controls
+                      = f.text_field :nama, :id => "nama", :class => "span10", :placeholder => "ex. Universitas XYZ"
+                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "First name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
+                        %i
+                  .control-group
+                    %label.control-label Email
+                    .controls
+                      = f.text_field :email, :id => "email", :class => "span10", :placeholder => "ex. user@xyz.com"
+                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "Last name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
+                        %i
+                  .control-group
+                    %label.control-label Role
+                    .controls
+                      = f.collection_select :role, Admin::ROLES, :to_s, :humanize , {:selected => @admin.role}, :id => "role", :class => "span10", :data => {:placeholder => "Pilih Admin Role"}
+                  .control-group
+                    %label.control-label Universitas
+                    .controls
+                      = collection_select(:admin, :univ_id, Univ.order("nama_pt ASC"), :id, :nama_pt, {}, {:style => "width:200px", :id => "univ", :class => "span10", :data => { :placeholder => "Pilih Admin Role"}})
+                  .control-group
+                    %label.control-label Password
+                    .controls
+                      = f.password_field :password, :id => "password", :class => "span10"
+                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "First name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
+                        %i
+                  .control-group
+                    %label.control-label Konfirmasi Password
+                    .controls
+                      = f.password_field :password_confirmation, :id => "password_confirmation", :class => "span10"
+                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "First name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
+                        %i
+              .form-actions{:style => "margin: 0;"}
+                %button.btn.btn-icon.btn-primary.glyphicons.circle_ok{:type => "submit"}
+                  %i>
+                  Save
+                %button.btn.btn-icon.btn-default.glyphicons.circle_remove{:type => "button"}
+                  %i>
+                  Cancel
