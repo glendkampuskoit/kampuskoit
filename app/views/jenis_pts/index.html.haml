@@ -1,49 +1,21 @@
 - provide(:title, "Data Jenis Perguruan Tinggi")
-.row-fluid
-  .span12
-    = link_to "Tambah Jenis Perguruan Tinggi", new_jenis_pt_path, role: "button", class: "btn btn-mini btn-primary"
-.row-fluid
-  .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{ "data-box" => "collapse" }
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span Data Jenis Perguruan Tinggi
-      .box-body
-        %table#datatables.table.table-hover.responsive
-          %thead
-            %tr
-              %th Jenis PT
-              %th &nbsp;
-          %tbody
-            - @jenis_pts.each do |jenis_pt|
-              %tr
-                %td= jenis_pt.jenis
-                %td.center
-                  %span.label.label-info
-                    = link_to "Edit", edit_jenis_pt_path(jenis_pt)
-                  %span.label.label-important
-                    = link_to "Delete",jenis_pt_path(jenis_pt), method: :delete, class: "delete"
-
-:javascript
-  $(document).ready(function() {
-      // try your js
-      
-      // peity chart
-      $("span[data-chart=peity-bar]").peity("bar");
-                      
-      // datatables
-      $('#datatables').dataTable( {
-          "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-          "sPaginationType": "bootstrap",
-          "oLanguage": {
-                  "sLengthMenu": "_MENU_ records per page"
-          }
-      });
-
-      $('.delete').on('click', function () {
-          return confirm('Anda yakin akan menghapus data ini?');
-      });
-  });
+%a.btn.btn-info.btn-small.small-margin-bottom{:href => "#{ new_jenis_pt_path }"} Tambah Jenis Perguruan Tinggi
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Data Jenis Perguruan Tinggi
+    .widget-body
+      %table.dynamicTable.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th{:width => "350"} Jenis PT
+            %th{:width => "50"} &nbsp;
+        %tbody
+          - @jenis_pts.each do |jenis_pt|
+            %tr.gradeX
+              %td= jenis_pt.jenis
+              %td.center.actions
+                %a.btn-action.glyphicons.pencil.btn-success{:href => "#{ edit_jenis_pt_path(jenis_pt) }"}
+                  %i
+                %a.btn-action.glyphicons.remove_2.btn-danger{:href => "#{ jenis_pt_path(jenis_pt) }", :method => :delete}
+                  %i

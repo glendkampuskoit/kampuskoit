@@ -1,0 +1,19 @@
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Data Subscriber
+    .widget-body
+      %table.dynamicTable.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th{:width => "200"} Nama
+            %th{:width => "200"} Email
+            %th{:width => "50"} &nbsp;
+        %tbody
+          - @subscribers.each do |subscriber|
+            %tr.gradeX
+              %td= subscriber.name
+              %td= subscriber.email
+              %td.center.actions
+                = link_to subscriber_path(subscriber), method: :delete, :class => "btn-action glyphicons remove_2 btn-danger delete" do
+                  %i

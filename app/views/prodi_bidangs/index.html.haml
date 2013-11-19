@@ -1,47 +1,21 @@
 - provide(:title, "Data Bidang Program Studi")
-.row-fluid
-  .span12
-    = link_to "Tambah Bidang Prodi", new_prodi_bidang_path, :role => "button", :class => "btn btn-mini btn-primary"
-.row-fluid
-  .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span Data Bidang Program Studi
-      .box-body
-        %table#datatables.table.table-hover.responsive
-          %thead
-            %tr
-              %th Nama Bidang
-              %th &nbsp;
-          %tbody
-            - @prodi_bidangs.each do |bidang|
-              %tr
-                %td= bidang.nama_bidang
-                %td.center
-                  %span.label.label-info
-                    = link_to "Edit",edit_prodi_bidang_path(bidang)
-                  %span.label.label-important
-                    = link_to "Delete", prodi_bidang_path(bidang), method: :delete, :class => "delete"
-
-:javascript
-  $(document).ready(function() {
-    // peity chart
-    $("span[data-chart=peity-bar]").peity("bar");
-                    
-    // datatables
-    $('#datatables').dataTable( {
-      "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-      "sPaginationType": "bootstrap",
-      "oLanguage": {
-              "sLengthMenu": "_MENU_ records per page"
-      }
-    });
-
-    $('.delete').on('click', function () {
-      return confirm('Anda yakin akan menghapus data ini?');
-    });
-  });
+= link_to "Tambah Bidang Prodi", new_prodi_bidang_path, :role => "button", :class => "btn btn-info btn-small small-margin-bottom"
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Data Bidang Program Studi
+    .widget-body
+      %table.dynamicTable.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th{:width => "350"} Nama Bidang
+            %th{:width => "50"} &nbsp;
+        %tbody
+          - @prodi_bidangs.each do |bidang|
+            %tr.gradeX
+              %td= bidang.nama_bidang
+              %td.center.actions
+                = link_to edit_prodi_bidang_path(bidang), :class => "btn-action glyphicons pencil btn-success" do
+                  %i
+                = link_to prodi_bidang_path(bidang), method: :delete, :class => "btn-action glyphicons remove_2 btn-danger delete" do
+                  %i

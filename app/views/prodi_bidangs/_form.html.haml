@@ -1,59 +1,49 @@
 .row-fluid
   .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span= yield(:title)
-      .box-body
-        = form_for @prodi_bidang, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
-          - if @prodi_bidang.errors.any?
-            .alert.alert-error
-              %button.close{"data-dismiss" => "alert", :type => "button"} &times;
-              %div
-                - @prodi_bidang.errors.full_messages.each do |msg|
-                  = msg
-                  %br
-          .control-group
-            %label.control-label{:for => "required"} Nama Bidang
-            .controls
-              = f.text_field :nama_bidang, :id => "required", :id => "nama_bidang", :class => "grd-white", :placeholder => "ex. Akuntansi", :data => {:validate => "{required: true, messages:{required:'Nama Bidang Prodi harus diisi'}}"}
-          .control-group
-            %label.control-label{:for => "inputSelect"} Spesialisasi
-            .controls
-              = f.text_area :spesialisasi, :id => "spesialisasi", :class => "span10", :rows => "8", :data => {:form => "spesialisasi"}, :placeholder => "Isikan spesialisasi ..."
-          .control-group
-            %label.control-label{:for => "inputEditorSimple"} Deskripsi
-            .controls
-              = f.text_area :gambaran, :id => "gambaran", :class => "span10", :rows => "8", :data => {:form => "gambaran"}, :placeholder => "Isikan gambaran ..."
-          .control-group
-            %label.control-label{:for => "inputEditorSimple"} Pilihan Karier
-            .controls
-              = f.text_area :pilihan_karir, :id => "pilihan_karir", :class => "span10", :rows => "8", :data => {:form => "pilihan_karir"}, :placeholder => "Isikan pilihan karir ..."
-          .control-group
-            %label.control-label{:for => "inputEditorSimple"} Keterampilan Kunci
-            .controls
-              = f.text_area :keterampilan_kunci, :id => "keterampilan_kunci", :class => "span10", :rows => "8", :data => {:form => "keterampilan_kunci"}, :placeholder => "Isikan keterampilan kunci ..."
-          .form-actions
-            %button.btn.btn-primary{:type => "submit"} Save
-            %button.btn{:onclick => "history.go(-1);", :type => "button"} Cancel
-:javascript
-  $(document).ready(function() {
-    // try your js
-    
-    // peity chart
-    $("span[data-chart=peity-bar]").peity("bar");
-
-    // uniform
-    $('[data-form=uniform]').uniform();
-
-    //wysisyg
-    //$('[data-form=deskripsi]').wysihtml5();
-    //$('[data-form=lapangan_kerja]').wysihtml5();
-    //$('[data-form=materi]').wysihtml5();
-
-    // select2
-    $('#form-validate').validate();
-  });
+    = form_for @prodi_bidang, :html => {:class => "form-horizontal"} do |f|
+      - if @prodi_bidang.errors.any?
+        .alert.alert-error
+          %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+          %div
+            - @prodi_bidang.errors.full_messages.each do |msg|
+              = msg
+              %br
+      .tab-content{:style => "padding: 0;"}
+        #account-details.tab-pane.active
+          .widget.widget-2
+            .widget-head
+              %h4.heading.glyphicons.pencil
+                %i>
+                Tambah Bidang Program Studi
+            .widget-body{:style => "padding-bottom: 0;"}
+              .row-fluid
+                .span6
+                  .control-group
+                    %label.control-label Jenis
+                    .controls
+                      = f.text_field :nama_bidang, :id => "required", :id => "nama_bidang", :class => "span10", :placeholder => "ex. Akuntansi"
+                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "First name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
+                        %i
+                  .control-group
+                    %label.control-label Spesialisasi
+                    .controls
+                      = f.text_area :spesialisasi, :id => "spesialisasi", :class => "span12", :rows => "5", :placeholder => "Isikan spesialisasi ..."
+                  .control-group
+                    %label.control-label Deskripsi
+                    .controls
+                      = f.text_area :gambaran, :id => "gambaran", :class => "span12", :rows => "5", :placeholder => "Isikan gambaran ..."
+                  .control-group
+                    %label.control-label Pilihan Karier
+                    .controls
+                      = f.text_area :pilihan_karir, :id => "pilihan_karir", :class => "span12", :rows => "5", :placeholder => "Isikan pilihan karir ..."
+                  .control-group
+                    %label.control-label Keterampilan Kunci
+                    .controls
+                      = f.text_area :keterampilan_kunci, :id => "keterampilan_kunci", :class => "span12", :rows => "5", :placeholder => "Isikan keterampilan kunci ..."
+              .form-actions{:style => "margin: 0;"}
+                %button.btn.btn-icon.btn-primary.glyphicons.circle_ok{:type => "submit"}
+                  %i>
+                  Save
+                %button.btn.btn-icon.btn-default.glyphicons.circle_remove{:type => "button"}
+                  %i>
+                  Cancel

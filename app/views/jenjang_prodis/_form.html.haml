@@ -1,40 +1,37 @@
 .row-fluid
   .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span= yield(:title)
-      .box-body
-        = form_for @jenjang_prodi, html: { class: "form-horizontal", id: "form-validate", novalidate: "novalidate" } do |f|
-          - if @jenjang_prodi.errors.any?
-            .alert.alert-error
-              %button.close{ "data-dismiss" => "alert", type: "button" } &times;
-              %div
-                - @jenjang_prodi.errors.full_messages.each do |msg|
-                  = msg
-                  %br
-          .control-group
-            %label.control-label{ for: "required" } Jenjang
-            .controls
-              = f.text_field :jenjang, id: "jenjang", class: "grd-white", placeholder: "ex. JenjangXYZ", data: { validate: "{required: true, messages: {required: 'Jenis Perguruan Tinggi harus diisi'}}"}
-          .control-group
-            %label.control-label{ for: "required" } Keterangan
-            .controls
-              = f.text_field :keterangan, id: "keterangan", class: "grd-white"
-          .form-actions
-            %button.btn.btn-primary{ type: "submit" } Save
-            %button.btn{ onclick: "history.go(-1);", type: "button" } Cancel
-
-:javascript
-  $(document).ready(function() {
-      
-      // peity chart
-      $("span[data-chart=peity-bar]").peity("bar");
-
-      // uniform
-      $('[data-form=uniform]').uniform();
-      $('#form-validate').validate();
-  });
+    = form_for @jenjang_prodi, html: { class: "form-horizontal" } do |f|
+      - if @jenjang_prodi.errors.any?
+        .alert.alert-error
+          %button.close{ "data-dismiss" => "alert", type: "button" } &times;
+          %div
+            - @jenjang_prodi.errors.full_messages.each do |msg|
+              = msg
+              %br
+      .tab-content{:style => "padding: 0;"}
+        #account-details.tab-pane.active
+          .widget.widget-2
+            .widget-head
+              %h4.heading.glyphicons.pencil
+                %i>
+                Tambah Jenjang Program Studi
+            .widget-body{:style => "padding-bottom: 0;"}
+              .row-fluid
+                .span6
+                  .control-group
+                    %label.control-label Jenjang
+                    .controls
+                      = f.text_field :jenjang, id: "jenjang", class: "span10"
+                      %i
+                  .control-group
+                    %label.control-label Keterangan
+                    .controls
+                      = f.text_field :keterangan, id: "keterangan", class: "span10"
+                      %i
+              .form-actions{:style => "margin: 0;"}
+                %button.btn.btn-icon.btn-primary.glyphicons.circle_ok{:type => "submit"}
+                  %i>
+                  Save
+                %button.btn.btn-icon.btn-default.glyphicons.circle_remove{ onclick: "history.go(-1);", :type => "button" }
+                  %i>
+                  Cancel

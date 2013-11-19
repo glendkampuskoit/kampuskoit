@@ -1,34 +1,32 @@
 .row-fluid
   .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span= yield(:title)
-      .box-body
-        = form_for @jenis_pt, :html => {:class => "form-horizontal", :id => "form-validate", :novalidate => "novalidate" } do |f|
-          - if @jenis_pt.errors.any?
-            .alert.alert-error
-              %button.close{"data-dismiss" => "alert", type: "button"} &times;
-              %div
-                - @jenis_pt.errors.full_messages.each do |msg|
-                  = msg
-                  %br
-          .control-group
-            %label.control-label{for: "required"} Jenis
-            .controls
-              = f.text_field :jenis, id: "jenis_pt", class: "grd-white", placeholder: "ex. JenisXYZ", data: { validate: "{required: true, messages:{required:'Jenis Perguruan Tinggi harus diisi'}}"}
-          .form-actions
-            %button.btn.btn-primary{ type: "submit" } Save
-            %button.btn{ onclick: "history.go(-1);", type: "button"} Cancel
-:javascript
-  $(document).ready(function() {
-
-      $("span[data-chart=peity-bar]").peity("bar");
-      
-      $('[data-form=uniform]').uniform();
-
-      $('#form-validate').validate();
-  });
+    = form_for @jenis_pt, :html => {:class => "form-horizontal" } do |f|
+      - if @jenis_pt.errors.any?
+        .alert.alert-error
+          %button.close{"data-dismiss" => "alert", type: "button"} &times;
+          %div
+            - @jenis_pt.errors.full_messages.each do |msg|
+              = msg
+              %br
+      .tab-content{:style => "padding: 0;"}
+        #account-details.tab-pane.active
+          .widget.widget-2
+            .widget-head
+              %h4.heading.glyphicons.pencil
+                %i>
+                Tambah Jenis Perguruan Tinggi
+            .widget-body{:style => "padding-bottom: 0;"}
+              .row-fluid
+                .span6
+                  .control-group
+                    %label.control-label Jenis
+                    .controls
+                      = f.text_field :jenis, id: "jenis_pt", class: "span10", placeholder: "ex. JenisXYZ"
+                      %i
+              .form-actions{:style => "margin: 0;"}
+                %button.btn.btn-icon.btn-primary.glyphicons.circle_ok{:type => "submit"}
+                  %i>
+                  Save
+                %button.btn.btn-icon.btn-default.glyphicons.circle_remove{:type => "button"}
+                  %i>
+                  Cancel

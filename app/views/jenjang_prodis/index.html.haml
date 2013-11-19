@@ -1,50 +1,23 @@
 - provide(:title, "Data Jenjang Program Studi")
-.row-fluid
-  .span12
-    = link_to "Tambah Jenjang Program Studi", new_jenjang_prodi_path, role: "button", class: "btn btn-mini btn-primary"
-.row-fluid
-  .row-fluid
-    .span12
-      .box.corner-all
-        .box-header.grd-white.corner-top
-          .header-control
-            %a{ "data-box" => "collapse" }
-              %i.icofont-caret-up
-            %a{ "data-box" => "close", "data-hide" => "bounceOutRight" } &times;
-          %span Data Jenjang Prodi
-        .box-body
-          %table#datatables.table.table-hover.responsive
-            %thead
-              %tr
-                %th Jenjang Prodi
-                %th Keterangan
-                %th &nbsp;
-            %tbody
-              - @jenjang_prodis.each do |jenjang_prodi|
-                %tr
-                  %td= jenjang_prodi.jenjang
-                  %td= jenjang_prodi.keterangan
-                  %td.center
-                    %span.label.label-info
-                      = link_to "Edit", edit_jenjang_prodi_path(jenjang_prodi)
-                    %span.label.label-important
-                      = link_to "Delete", jenjang_prodi_path(jenjang_prodi), method: :delete, class: "delete"
-
-  :javascript
-    $(document).ready(function() {        
-        // peity chart
-        $("span[data-chart=peity-bar]").peity("bar");
-        
-        // datatables
-        $('#datatables').dataTable( {
-            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-            "sPaginationType": "bootstrap",
-            "oLanguage": {
-                    "sLengthMenu": "_MENU_ records per page"
-            }
-        });
-
-        $('.delete').on('click', function () {
-            return confirm('Anda yakin akan menghapus data ini?');
-        });
-    });
+%a.btn.btn-info.btn-small.small-margin-bottom{:href => "#{ new_jenjang_prodi_path }"} Tambah Jenjang Program Studi
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Data Jenjang Program Studi
+    .widget-body
+      %table.dynamicTable.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th{:width => "350"} Jenjang Prodi
+            %th{:width => "350"} Keterangan
+            %th{:width => "50"} &nbsp;
+        %tbody
+          - @jenjang_prodis.each do |jenjang_prodi|
+            %tr.gradeX
+              %td= jenjang_prodi.jenjang
+              %td= jenjang_prodi.keterangan
+              %td.center.actions
+                %a.btn-action.glyphicons.pencil.btn-success{:href => "#{ edit_jenjang_prodi_path(jenjang_prodi) }"}
+                  %i
+                %a.btn-action.glyphicons.remove_2.btn-danger{:href => "#{ jenjang_prodi_path(jenjang_prodi) }", :method => :delete}
+                  %i

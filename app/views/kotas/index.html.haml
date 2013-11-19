@@ -1,49 +1,23 @@
 - provide(:title, "Data Kota")
-.row-fluid
-  .span12
-    = link_to "Tambah Kota", new_kota_path, role: "button", class: "btn btn-mini btn-primary"
-.row-fluid
-  .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span Data Kota
-      .box-body
-        %table#datatables.table.table-hover.responsive
-          %thead
-            %tr
-              %th Nama Kota
-              %th Provinsi
-              %th &nbsp;
-          %tbody
-            - @kotas.each do |kota|
-              %tr
-                %td= kota.kota
-                %td= kota.provinsi.provinsi
-                %td.center
-                  %span.label.label-info
-                    = link_to "Edit", edit_kota_path(kota)
-                  %span.label.label-important
-                    = link_to "Delete", kota_path(kota), method: :delete, class: "delete"
-
-:javascript
-  $(document).ready(function() {      
-      // peity chart
-      $("span[data-chart=peity-bar]").peity("bar");
-                      
-      // datatables
-      $('#datatables').dataTable( {
-          "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-          "sPaginationType": "bootstrap",
-          "oLanguage": {
-                  "sLengthMenu": "_MENU_ records per page"
-          }
-      });
-
-      $('.delete').on('click', function () {
-          return confirm('Anda yakin akan menghapus data ini?');
-      });
-  });
+%a.btn.btn-info.btn-small.small-margin-bottom{:href => "#{ new_kota_path }"} Tambah Kota
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Data Kota
+    .widget-body
+      %table.dynamicTable.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th{:width => "350"} Nama Kota
+            %th{:width => "350"} Provinsi
+            %th{:width => "50"} &nbsp;
+        %tbody
+          - @kotas.each do |kota|
+            %tr.gradeX
+              %td= kota.kota
+              %td= kota.provinsi.provinsi
+              %td.center.actions
+                %a.btn-action.glyphicons.pencil.btn-success{:href => "#{ edit_kota_path(kota) }"}
+                  %i
+                %a.btn-action.glyphicons.remove_2.btn-danger{:href => "#{ kota_path(kota) } ", :method => :delete}
+                  %i
