@@ -14,7 +14,7 @@
             .widget-head
               %h4.heading.glyphicons.pencil
                 %i>
-                Tambah Jenis Perguruan Tinggi
+                #{ yield(:title) }
             .widget-body{:style => "padding-bottom: 0;"}
               .row-fluid
                 .span6
@@ -27,6 +27,6 @@
                 %button.btn.btn-icon.btn-primary.glyphicons.circle_ok{:type => "submit"}
                   %i>
                   Save
-                %button.btn.btn-icon.btn-default.glyphicons.circle_remove{:type => "button"}
+                %button.btn.btn-icon.btn-default.glyphicons.circle_remove{:onclick => "history.go(-1);", :type => "button"}
                   %i>
                   Cancel
