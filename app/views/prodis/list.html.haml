@@ -1,51 +1,35 @@
 - provide(:title, "Data Program Studi")
 .row-fluid
-  .span12
-    = link_to "Tambah Program Studi", new_univ_prodi_path(0), :role => "button", :class => "btn btn-mini btn-primary"
-    = form_tag(prodis_list_path, :method => "get", :class => 'form-inline pull-right') do
-      = text_field_tag(:keyword, "", :class => 'input-xlarge', :placeholder => 'Pencarian..')
-.row-fluid
-  .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span Data Program Studi
-      .box-body
-        %table.table.table-hover.responsive
-          %thead
+  %a.btn.btn-info.btn-small.small-margin-bottom{:href => "#{ new_univ_prodi_path(0) }"} Tambah Program Studi
+  = form_tag(prodis_list_path, :method => "get") do
+    = text_field_tag(:keyword, "", :class => 'span3', :placeholder => 'Pencarian..')
+%div{:style => "clear:both"}
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Data Program Studi
+    .widget-body.center
+      %table.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th.center{:width => "30"} Kode
+            %th{:width => "150"} Jenjang
+            %th{:width => "150"} Nama Prodi
+            %th{:width => "150"} Perguruan Tinggi
+            %th{:width => "150"} Provinsi
+            %th{:width => "50"}
+        %tbody
+          - @prodis.each do |prodi|
             %tr
-              %th Kode
-              %th Jenjang
-              %th Nama Prodi
-              %th Perguruan Tinggi
-              %th Provinsi
-              %th &nbsp;
-          %tbody
-            - @prodis.each do |prodi|
-              %tr
-                %td= prodi.id
-                %td= prodi.jenjang_prodi.jenjang
-                %td= prodi.nama_prodi
-                %td= prodi.univ.nama_pt
-                %td= prodi.kota.present? ? prodi.kota.provinsi.provinsi : "-Unknown Provinsi-"
-                %td.center
-                  %span.label.label-info
-                    = link_to "Edit",edit_univ_prodi_path(prodi.univ, prodi)
-                  %span.label.label-important
-                    = link_to "Delete", "/admin/univs/#{prodi.univ.id}/prodis/#{prodi.id}", method: :delete, :class => "delete"
-        = will_paginate @prodis, :renderer => BootstrapPagination::Rails
-
-:javascript
-  $(document).ready(function() {
-      // try your js
-      
-      // peity chart
-      $("span[data-chart=peity-bar]").peity("bar");
-
-      $('.delete').on('click', function () {
-          return confirm('Anda yakin akan menghapus data ini?');
-      });
-  });
+              %td.center= prodi.id
+              %td= prodi.jenjang_prodi.jenjang
+              %td= prodi.nama_prodi
+              %td= prodi.univ.nama_pt
+              %td= prodi.kota.present? ? prodi.kota.provinsi.provinsi : "-Unknown Provinsi-"
+              %td.center.actions
+                %a.btn-action.glyphicons.pencil.btn-success{:href => "#{ edit_univ_prodi_path(prodi.univ, prodi) }"}
+                  %i
+                %a.btn-action.glyphicons.remove_2.btn-danger{:href => "/admin/univs/#{prodi.univ.id}/prodis/#{prodi.id}", method: :delete}
+                  %i
+      = will_paginate @prodis, :renderer => BootstrapPagination::Rails
+    

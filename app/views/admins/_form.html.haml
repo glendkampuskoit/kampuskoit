@@ -22,13 +22,11 @@
                     %label.control-label Nama
                     .controls
                       = f.text_field :nama, :id => "nama", :class => "span10", :placeholder => "ex. Universitas XYZ"
-                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "First name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
                         %i
                   .control-group
                     %label.control-label Email
                     .controls
                       = f.text_field :email, :id => "email", :class => "span10", :placeholder => "ex. user@xyz.com"
-                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "Last name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
                         %i
                   .control-group
                     %label.control-label Role
@@ -42,13 +40,11 @@
                     %label.control-label Password
                     .controls
                       = f.password_field :password, :id => "password", :class => "span10"
-                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "First name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
                         %i
                   .control-group
                     %label.control-label Konfirmasi Password
                     .controls
                       = f.password_field :password_confirmation, :id => "password_confirmation", :class => "span10"
-                      %span.btn-action.single.glyphicons.circle_question_mark{"data-content" => "First name is mandatory", "data-original-title" => "Help", "data-placement" => "top", :rel => "popover", :style => "margin: 0;"}
                         %i
               .form-actions{:style => "margin: 0;"}
                 %button.btn.btn-icon.btn-primary.glyphicons.circle_ok{:type => "submit"}
