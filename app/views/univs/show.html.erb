@@ -158,7 +158,7 @@
                 <div class="large-12 columns">
                   <%= image_tag @univ.featured_image_url(:thumb), alt: "Gambar belum tersedia", onerror: "this.src='/assets/default.jpg';" %>
                   <h5 class="description-title">Deskripsi</h5>
-                  <p class="description-text"><%= @univ.deskripsi.present? ? @univ.deskripsi : "- belum ada deskripsi -" %></p>
+                  <p class="description-text"><%= @univ.deskripsi.present? ? simple_format(@univ.deskripsi) : "- belum ada deskripsi -" %></p>
                 </div>
               </div>
             </div>
@@ -448,20 +448,20 @@
         <%= prodi.prodi_bidang.nama_bidang %>
       </p>
       <h6>Deskripsi</h6>
-      <p class="entry-text">
-        <%= prodi.prodi_bidang.gambaran %>
+      <p class="entry-text">     
+        <%= simple_format(prodi.prodi_bidang.gambaran) %>
       </p>
       <h6>Spesialisasi</h6>
       <p class="entry-text">
-        <%= prodi.prodi_bidang.spesialisasi %>
+        <%= simple_format(prodi.prodi_bidang.spesialisasi) %>
       </p>
       <h6>Keterampilan</h6>
       <p class="entry-text">
-        <%= prodi.prodi_bidang.keterampilan_kunci %>
+        <%= simple_format(prodi.prodi_bidang.keterampilan_kunci) %>
       </p>
       <h6>Pilihan Karier</h6>
       <p class="entry-text">
-        <%= prodi.prodi_bidang.pilihan_karir %>
+        <%= simple_format(prodi.prodi_bidang.pilihan_karir)  %>
       </p>
     </div>
   </div>
