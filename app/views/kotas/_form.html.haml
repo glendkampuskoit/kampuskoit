@@ -21,17 +21,16 @@
                   .control-group
                     %label.control-label Kota
                     .controls
-                      = f.text_field :kota, id: "required", id: "kota", class: "span10"
-                        %i
+                      = f.text_field :kota, class: "span10"
+                      %i
                   .control-group
                     %label.control-label Provinsi
                     .controls
                       = collection_select(:kota, :provinsi_id, Provinsi.order("provinsi ASC"), :id, :provinsi, {}, { class: "span10", data: {form: "provinsi", placeholder: "Pilih Provinsi"}})
-          .form-actions
               .form-actions{:style => "margin: 0;"}
                 %button.btn.btn-icon.btn-primary.glyphicons.circle_ok{:type => "submit"}
                   %i>
                   Save
-                %button.btn.btn-icon.btn-default.glyphicons.circle_remove{ onclick: "history.go(-1);", :type => "button"}
+                %button.btn.btn-icon.btn-default.glyphicons.circle_remove{:onclick => "history.go(-1);", :type => "button"}
                   %i>
                   Cancel

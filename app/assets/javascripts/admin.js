@@ -22,3 +22,5 @@
 //= require admin/bootstrap/extend/bootstrap-wysihtml5/js/wysihtml5-0.3.0_rc2.min
 //= require admin/bootstrap/extend/bootstrap-wysihtml5/js/bootstrap-wysihtml5-0.0.2
 //= require admin/theme/scripts/load
+//= require admin/theme/scripts/jquery.masonry.min
+//= require admin/gallery

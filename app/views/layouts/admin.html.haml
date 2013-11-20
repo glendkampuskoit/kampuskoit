@@ -32,7 +32,7 @@
                   %span 1437
             %ul.topnav.hidden-phone
               %li
-                %a.logout.glyphicons.lock{:href => "login.html?lang=en"}
+                %a.logout.glyphicons.lock{:href => "#{ logout_path }"}
                   %i
                   %span Logout
       .row-fluid.rrow.main
@@ -117,4 +117,27 @@
                   = yield
                   %br
     = javascript_include_tag "admin"
+    - if params[:controller] == "prodis"
+      %script{ src: "/assets/jquery.autocomplete.min.js" }    
+      :javascript
+        $('#prodi_bidang').autocomplete({
+          serviceUrl: '/prodi_bidangs_stream.json',
+          onSelect: function (suggestion) {
+            $("#prodi_bidang_id").val(suggestion.data);
+          }
+        });
+
+        $('#kota').autocomplete({
+          serviceUrl: '/kotas_stream.json',
+          onSelect: function (suggestion) {
+            $("#kota_id").val(suggestion.data);
+          }
+        });
+
+        $('#nama_pt').autocomplete({
+          serviceUrl: '/univs_stream.json',
+          onSelect: function (suggestion) {
+            $("#univ_id").val(suggestion.data);
+          }
+        });
 = debug(params) if Rails.env.development? 

@@ -21,24 +21,24 @@
                   .control-group
                     %label.control-label Jenis
                     .controls
-                      = f.text_field :nama_bidang, :id => "required", :id => "nama_bidang", :class => "span10", :placeholder => "ex. Akuntansi"
-                        %i
+                      = f.text_field :nama_bidang, :class => "span10", :placeholder => "ex. Akuntansi"
+                      %i
                   .control-group
                     %label.control-label Spesialisasi
                     .controls
-                      = f.text_area :spesialisasi, :id => "spesialisasi", :class => "span12", :rows => "5", :placeholder => "Isikan spesialisasi ..."
+                      = f.text_area :spesialisasi, :class => "span12", :rows => "5", :placeholder => "Isikan spesialisasi ..."
                   .control-group
                     %label.control-label Deskripsi
                     .controls
-                      = f.text_area :gambaran, :id => "gambaran", :class => "span12", :rows => "5", :placeholder => "Isikan gambaran ..."
+                      = f.text_area :gambaran, :class => "span12", :rows => "5", :placeholder => "Isikan gambaran ..."
                   .control-group
                     %label.control-label Pilihan Karier
                     .controls
-                      = f.text_area :pilihan_karir, :id => "pilihan_karir", :class => "span12", :rows => "5", :placeholder => "Isikan pilihan karir ..."
+                      = f.text_area :pilihan_karir, :class => "span12", :rows => "5", :placeholder => "Isikan pilihan karir ..."
                   .control-group
                     %label.control-label Keterampilan Kunci
                     .controls
-                      = f.text_area :keterampilan_kunci, :id => "keterampilan_kunci", :class => "span12", :rows => "5", :placeholder => "Isikan keterampilan kunci ..."
+                      = f.text_area :keterampilan_kunci, :class => "span12", :rows => "5", :placeholder => "Isikan keterampilan kunci ..."
               .form-actions{:style => "margin: 0;"}
                 %button.btn.btn-icon.btn-primary.glyphicons.circle_ok{:type => "submit"}
                   %i>

@@ -23,7 +23,7 @@ describe "Jenis Perguruan Tinggi Page" do
   describe "Add New Jenis Perguruan Tinggi with invalid information" do
     before do
       visit new_jenis_pt_path
-      fill_in "jenis_pt", with: ""
+      fill_in "jenis_pt_jenis", with: ""
     end
 
     it "should not create Jenis Perguruan Tinggi" do
