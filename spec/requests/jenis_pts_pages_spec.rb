@@ -12,7 +12,7 @@ describe "Jenis Perguruan Tinggi Page" do
   describe "Add New Jenis Perguruan Tinggi with valid information" do
     before do
       visit new_jenis_pt_path
-      fill_in "jenis_pt", with: "Universitas"
+      fill_in "jenis_pt_jenis", with: "Universitas"
     end
 
     it "should create Jenis Perguruan Tinggi" do
@@ -42,7 +42,7 @@ describe "Jenis Perguruan Tinggi Page" do
 
   	describe "Update Jenis Perguruan Tinggi" do
   		before do
-	  		fill_in "jenis_pt", with: "Institut"
+	  		fill_in "jenis_pt_jenis", with: "Institut"
 	  	end
 
 	  	it "should create a jenis pt" do

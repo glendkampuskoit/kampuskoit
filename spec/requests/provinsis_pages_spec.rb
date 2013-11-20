@@ -17,7 +17,7 @@ describe "Provinsi Page" do
 
     describe "fill with valid data" do
       before do
-        fill_in "provinsi", with: "Jawa Timur"
+        fill_in "provinsi_provinsi", with: "Jawa Timur"
       end
 
       it "should create a provinsi" do
@@ -44,7 +44,7 @@ describe "Provinsi Page" do
     # and then update record
     describe "edit and save record" do
       before do
-        fill_in "provinsi", with: "Jawa Timur"
+        fill_in "provinsi_provinsi", with: "Jawa Timur"
       end
 
       it "should update provinsi not added" do

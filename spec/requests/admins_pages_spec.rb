@@ -26,12 +26,12 @@ describe "Admins Manager" do
 
     describe "with valid information" do
       before do
-        fill_in "nama", with: "Agung Laksono"
-        fill_in "email", with: "agung@yahoo.com"
-        select("Admin", :from => "role")
-        select(univ.nama_pt, :from => "univ")
-        fill_in "password", with: "foobar"
-        fill_in "password_confirmation", with: "foobar"
+        fill_in "admin_nama", with: "Agung Laksono"
+        fill_in "admin_email", with: "agung@yahoo.com"
+        select("Admin", :from => "admin_role")
+        select(univ.nama_pt, :from => "admin_univ_id")
+        fill_in "admin_password", with: "foobar"
+        fill_in "admin_password_confirmation", with: "foobar"
       end
 
       it "should create a admin" do
@@ -50,10 +50,10 @@ describe "Admins Manager" do
 
     describe "with valid information" do
       before do
-        fill_in "nama", with: admin.nama
-        fill_in "email", with: admin.email
-        select("Admin", :from => "role")
-        select(univ.nama_pt, :from => "univ")
+        fill_in "admin_nama", with: admin.nama
+        fill_in "admin_email", with: admin.email
+        select("Admin", :from => "admin_role")
+        select(univ.nama_pt, :from => "admin_univ_id")
       end
 
       it "should create a admin" do

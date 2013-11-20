@@ -31,26 +31,26 @@ describe "Prodi Page" do
 
   describe "fill with valid data" do
     before do
-      fill_in "nama_prodi", with: "Sistem Informasi"
-      find(:xpath, "//input[@id='univ_id']").set univ.id #select(univ.nama_pt, :from => "univ")      
-      fill_in "fakultas", with: "Teknologi Informasi"
-      select(jenjang_prodi.jenjang, :from => "jenjang_prodi")
-      fill_in "tahun_berdiri", with: "1980"
-      fill_in "email", with: "si@its.ac.id"
-      fill_in "website", with: "http://si.its.ac.id"
-      fill_in "alamat", with: "Sukolilo Indah Kampus ITS"
-      find(:xpath, "//input[@id='kota_id']").set kota.id #select(kota.kota, :from => "kota")
-      find(:xpath, "//input[@id='prodi_bidang_id']").set prodi_bidang.id #select(prodi_bidang.nama_bidang, :from => "prodi_bidang")
-      fill_in "telepon", with: "089977876"
-      fill_in "fax", with: "089977876"
-      fill_in "profil", with: "Jurusan terbaik"
-      fill_in "jumlah_mahasiswa", with: "5000"
-      fill_in "bidang_studi", with: "Botani; Zoologi; Mikrobiologi; Ekologi"
-      fill_in "kompetensi", with: "Bisa copas code"
-      fill_in "seleksi_masuk", with: "sogok"
-      fill_in "total_dosen_prof", with: "80"
-      fill_in "total_dosen_master", with: "800"
-      fill_in "total_dosen_sarjana", with: "8000"
+      fill_in "prodi_nama_prodi", with: "Sistem Informasi"
+      find(:xpath, "//input[@id='univ_id']").set univ.id #select(univ.nama_pt, :from => "prodi_univ")      
+      fill_in "prodi_fakultas", with: "Teknologi Informasi"
+      select(jenjang_prodi.jenjang, :from => "prodi_jenjang_prodi_id")
+      fill_in "prodi_tahun_berdiri", with: "1980"
+      fill_in "prodi_email", with: "si@its.ac.id"
+      fill_in "prodi_website", with: "http://si.its.ac.id"
+      fill_in "prodi_alamat", with: "Sukolilo Indah Kampus ITS"
+      find(:xpath, "//input[@id='kota_id']").set kota.id #select(kota.kota, :from => "prodi_kota")
+      find(:xpath, "//input[@id='prodi_bidang_id']").set prodi_bidang.id #select(prodi_bidang.nama_bidang, :from => "prodi_prodi_bidang")
+      fill_in "prodi_telepon", with: "089977876"
+      fill_in "prodi_fax", with: "089977876"
+      fill_in "prodi_profile", with: "Jurusan terbaik"
+      fill_in "prodi_jumlah_mahasiswa", with: "5000"
+      fill_in "prodi_bidang_studi", with: "Botani; Zoologi; Mikrobiologi; Ekologi"
+      fill_in "prodi_kompetensi", with: "Bisa copas code"
+      fill_in "prodi_seleksi_masuk", with: "sogok"
+      fill_in "prodi_total_dosen_prof", with: "80"
+      fill_in "prodi_total_dosen_master", with: "800"
+      fill_in "prodi_total_dosen_sarjana", with: "8000"
     end
 
     it "should create a prodi" do
@@ -65,27 +65,27 @@ describe "Prodi Page" do
     describe "edit record" do
 
       before do
-        fill_in "nama_prodi", with: "Sistem Informasi"
-        #select(univ.nama_pt, :from => "univ")
+        fill_in "prodi_nama_prodi", with: "Sistem Informasi"
+        #select(univ.nama_pt, :from => "prodi_univ")
         find(:xpath, "//input[@id='univ_id']").set univ.id
-        fill_in "fakultas", with: "Teknologi Informasi"
-        select(jenjang_prodi.jenjang, :from => "jenjang_prodi")
-        fill_in "tahun_berdiri", with: "1980"
-        fill_in "email", with: "si@its.ac.id"
-        fill_in "website", with: "http://si.its.ac.id"
-        fill_in "alamat", with: "Sukolilo Indah Kampus ITS"
-        find(:xpath, "//input[@id='kota_id']").set kota.id #select(kota.kota, :from => "kota")
-        find(:xpath, "//input[@id='prodi_bidang_id']").set prodi_bidang.id #select(prodi_bidang.nama_bidang, :from => "prodi_bidang")
-        fill_in "telepon", with: "089977876"
-        fill_in "fax", with: "089977876"
-        fill_in "profil", with: "Jurusan terbaik"
-        fill_in "jumlah_mahasiswa", with: "5000"
-        fill_in "bidang_studi", with: "Botani; Zoologi; Mikrobiologi; Ekologi"
-        fill_in "kompetensi", with: "Bisa copas code"
-        fill_in "seleksi_masuk", with: "sogok"
-        fill_in "total_dosen_prof", with: "80"
-        fill_in "total_dosen_master", with: "800"
-        fill_in "total_dosen_sarjana", with: "8000"
+        fill_in "prodi_fakultas", with: "Teknologi Informasi"
+        select(jenjang_prodi.jenjang, :from => "prodi_jenjang_prodi_id")
+        fill_in "prodi_tahun_berdiri", with: "1980"
+        fill_in "prodi_email", with: "si@its.ac.id"
+        fill_in "prodi_website", with: "http://si.its.ac.id"
+        fill_in "prodi_alamat", with: "Sukolilo Indah Kampus ITS"
+        find(:xpath, "//input[@id='kota_id']").set kota.id #select(kota.kota, :from => "prodi_kota")
+        find(:xpath, "//input[@id='prodi_bidang_id']").set prodi_bidang.id #select(prodi_bidang.nama_bidang, :from => "prodi_prodi_bidang")
+        fill_in "prodi_telepon", with: "089977876"
+        fill_in "prodi_fax", with: "089977876"
+        fill_in "prodi_profile", with: "Jurusan terbaik"
+        fill_in "prodi_jumlah_mahasiswa", with: "5000"
+        fill_in "prodi_bidang_studi", with: "Botani; Zoologi; Mikrobiologi; Ekologi"
+        fill_in "prodi_kompetensi", with: "Bisa copas code"
+        fill_in "prodi_seleksi_masuk", with: "sogok"
+        fill_in "prodi_total_dosen_prof", with: "80"
+        fill_in "prodi_total_dosen_master", with: "800"
+        fill_in "prodi_total_dosen_sarjana", with: "8000"
     end
 
     it "should create a prodi" do

@@ -1,52 +1,32 @@
 - provide(:title, "Ranking Perguruan Tinggi")
 .row-fluid
-  .span12
-    = form_tag(ranking_list_path, :method => "get", :class => 'form-inline') do
-      = text_field_tag(:keyword, "", :class => 'input-xlarge', :placeholder => 'Pencarian..')
-.row-fluid
-  .span12
-    .box.corner-all
-      .box-header.grd-white.corner-top
-        .header-control
-          %a{"data-box" => "collapse"}
-            %i.icofont-caret-up
-          %a{"data-box" => "close", "data-hide" => "bounceOutRight"} &times;
-        %span Data Ranking Perguruan Tinggi
-      .box-body
-        %table.table.table-hover.responsive
-          %thead
+  = form_tag(ranking_list_path, :method => "get") do
+    = text_field_tag(:keyword, "", :class => "span3", :placeholder => 'Pencarian..')
+%div{:style => "clear:both"}
+.relativeWrap
+  .widget.widget-gray.widget-gray-white
+    .widget-head
+      %h4.heading Data Ranking Perguruan Tinggi
+    .widget-body.center
+      %table.table.table-striped.table-bordered.table-primary.table-condensed{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %thead
+          %tr
+            %th.center{:width => "30"} Ranking
+            %th{:width => "100"} Kode PT
+            %th{:width => "150"} Nama Perguruan Tinggi
+            %th{:width => "100"} Government
+            %th{:width => "100"} College
+            %th{:width => "100"} Society
+            %th{:width => "90"} Total
+        %tbody
+          - no = @univrankings.offset
+          - @univrankings.each do |ranking|
             %tr
-              %th Ranking
-              %th Kode PT
-              %th Nama Perguruan Tinggi
-              %th Government
-              %th College
-              %th Society
-              %th Total
-          %tbody
-            - no = @univrankings.offset
-            - @univrankings.each do |ranking|
-              %tr
-                %td
-                  \##{no += 1}
-                %td= ranking.univ_id
-                %td= ranking.univ.nama_pt
-                %td= ranking.government
-                %td= ranking.college
-                %td= ranking.society
-                %td= ranking.score
-        = will_paginate @univrankings, :renderer => BootstrapPagination::Rails
-      / /box-body
-    / /box
-  / /span
-:javascript
-  $(document).ready(function() {
-      // try your js
-      
-      // peity chart
-      $("span[data-chart=peity-bar]").peity("bar");
-
-      $('.delete').on('click', function () {
-          return confirm('Anda yakin akan menghapus data ini?');
-      });
-  });
+              %td.center #{no += 1}
+              %td= ranking.univ_id
+              %td= ranking.univ.nama_pt
+              %td= ranking.government
+              %td= ranking.college
+              %td= ranking.society
+              %td= ranking.score
+      = will_paginate @univrankings, :renderer => BootstrapPagination::Rails

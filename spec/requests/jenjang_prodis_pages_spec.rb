@@ -18,8 +18,8 @@ describe "Jenjang Prodi Page" do
   	describe "add new one" do
   		let(:save) { "Save" }
   		before do
-  			fill_in "jenjang", with: "S1"
-        fill_in "keterangan", with: "Sarjana"
+  			fill_in "jenjang_prodi_jenjang", with: "S1"
+        fill_in "jenjang_prodi_keterangan", with: "Sarjana"
   		end
 
   		it "should create a jenjang prodi" do
@@ -37,8 +37,8 @@ describe "Jenjang Prodi Page" do
 
   	describe "update record" do
   		before do
-	  		fill_in "jenjang", with: "S2"
-        fill_in "keterangan", with: "Master"
+	  		fill_in "jenjang_prodi_jenjang", with: "S2"
+        fill_in "jenjang_prodi_keterangan", with: "Master"
 	  	end
 
 	  	it "should create a jenjang prodi" do
