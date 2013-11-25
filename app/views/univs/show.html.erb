@@ -214,26 +214,6 @@
             <div class="content" data-section-content>
               <div class="row university-other">
                 <div class="large-12 columns">
-                  <h5 class="description-title">Biaya</h5>
-                  <table>
-                    <thead>
-                      <tr class="center-text">
-                        <th width="30">No</th>
-                        <th width="420">Nama Biaya</th>
-                        <th width="250">Nilai</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% i = 0 %>
-                      <% @univ.univbiayas.each do |biaya| %>
-                      <tr>
-                        <td class="center-text"><%= i += 1 %></td>
-                        <td><%= biaya.biaya %></td>
-                        <td><%= biaya.nilai %></td>
-                      </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
                   <h5 class="description-title">Prestasi</h5>
                   <table>
                     <thead>
