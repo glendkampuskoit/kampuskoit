@@ -214,20 +214,44 @@
             <div class="content" data-section-content>
               <div class="row university-other">
                 <div class="large-12 columns">
+                  <h5 class="description-title">Biaya</h5>
+                  <table>
+                    <thead>
+                      <tr class="center-text">
+                        <th width="30">No</th>
+                        <th>Pendaftaran</th>
+                        <th>SPP</th>
+                        <th>SPPP</th>
+                        <th>Biaya per SKS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% i = 0 %>
+                      <% @univ.univbiayas.each do |biaya| %>
+                      <tr>
+                        <td class="center-text"><%= i += 1 %>.</td>
+                        <td><%= biaya.pendaftaran %></td>
+                        <td><%= biaya.spp %></td>
+                        <td><%= biaya.sppp %></td>
+                        <td><%= biaya.sks %></td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
                   <h5 class="description-title">Prestasi</h5>
                   <table>
                     <thead>
                       <tr class="center-text">
                         <th width="30">No</th>
-                        <th width="420">Tahun</th>
-                        <th width="250">Prestasi</th>
+                        <th width="150">Tahun</th>
+                        <th width="400">Prestasi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <% i = 0 %>
                       <% @univ.univprestasis.each do |prestasi| %>
                       <tr>
-                        <td class="center-text"><%= i += 1 %></td>
+                        <td class="center-text"><%= i += 1 %>.</td>
                         <td><%= biaya.tahun %></td>
                         <td><%= biaya.prestasi %></td>
                       </tr>
@@ -247,7 +271,7 @@
                       <% j = 0 %>
                       <% @univ.univfasilitases.each do |fasilitas| %>
                       <tr>
-                        <td class="center-text"><%= j += 1 %></td>
+                        <td class="center-text"><%= j += 1 %>.</td>
                         <td><%= fasilitas.fasilitas %></td>
                         <td>
                           <div class="popup-gallery-container">

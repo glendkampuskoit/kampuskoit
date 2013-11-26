@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111045957) do
+ActiveRecord::Schema.define(:version => 20131126032538) do
 
   create_table "admins", :force => true do |t|
     t.string   "nama"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20131111045957) do
   end
 
   add_index "kotas", ["provinsi_id"], :name => "index_kotas_on_provinsi_id"
+
+  create_table "penggunas", :force => true do |t|
+    t.string   "nama"
+    t.string   "alamat"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "prodi_akreditasis", :force => true do |t|
     t.string   "no_sk"
@@ -330,6 +337,7 @@ ActiveRecord::Schema.define(:version => 20131111045957) do
     t.integer  "kota_id"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "image"
   end
 
   add_index "subscribers", ["email"], :name => "index_users_on_email", :unique => true
@@ -366,6 +374,7 @@ ActiveRecord::Schema.define(:version => 20131111045957) do
     t.integer  "jenis_kelamin"
     t.string   "alamat"
     t.integer  "sertifikasi_professional"
+    t.string   "nama_sertifikat"
     t.string   "range_tempat_tinggal_id"
     t.string   "range_tempat_kerja_id"
   end
@@ -384,6 +393,17 @@ ActiveRecord::Schema.define(:version => 20131111045957) do
 
   add_index "univ_fasilitas_galleries", ["univfasilitas_id"], :name => "index_univ_fasilitas_galleries_on_univfasilitas_id"
 
+  create_table "univ_reviews", :force => true do |t|
+    t.text     "review"
+    t.integer  "univ_id"
+    t.integer  "subsciber_id"
+    t.float    "fasilitas_point"
+    t.float    "beasiswa_point"
+    t.float    "relevansi_point"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "univbeasiswas", :force => true do |t|
     t.string   "nama_beasiswa"
     t.string   "instansi"
@@ -399,16 +419,13 @@ ActiveRecord::Schema.define(:version => 20131111045957) do
   add_index "univbeasiswas", ["univ_id"], :name => "index_univbeasiswas_on_univ_id"
 
   create_table "univbiayas", :force => true do |t|
-    t.string   "nilai"
+    t.integer  "univ_id"
+    t.string   "pendaftaran"
+    t.string   "sks"
+    t.string   "spp"
+    t.string   "sppp"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "univ_id"
-    t.string   "created_by"
-    t.string   "updated_by"
-    t.text     "pendaftaran"
-    t.text     "sks"
-    t.text     "spp"
-    t.text     "sppp"
   end
 
   create_table "univfasilitases", :force => true do |t|
